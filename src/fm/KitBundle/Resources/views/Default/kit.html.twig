@@ -1,0 +1,96 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}Concesionarios{% endblock %}
+{% block description %}{% endblock %}
+{% block article %}
+
+
+	    <header class="page-header">
+	      <h1>{{entity.marca}} {{entity.modelo}}</h1>
+	    </header>
+<section>
+
+        <div class="row">
+
+           <div class="span12">
+		          <div class="camera_wrap">
+
+		          {% for foto in entity.galeria %}
+		            <div data-thumb="{{ foto.th }}" data-src="{{ foto.img }}" >
+		            {% if foto.iframe is defined %}
+		            	<iframe src="{{ foto.iframe }}" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		            {% endif %}
+		            </div>
+		          {% endfor %}  
+		          </div>
+		          <div class="flexiShadow"><img src="{{ asset('bundles/main/images/ui/flexi-shadow.png') }}" alt="slider shadow"/></div>
+		    </div>  
+		</div>    
+  		<div class="row">
+		  	<div class="span8">  
+		          <h2>{{ entity.nombre}} <span>{{ entity.marca}} {{entity.modelo }} </span></h2>
+		          <blockquote>{{ entity.descripcion | trans }}</blockquote>
+				<div style="border:1px dashed #EEE; padding:5px;">
+						<h3>{{"Carácteristicas" | trans }}:</h3>
+						<ul class="iconsList iconsList-large">
+						{% for component in entity.features %}
+							<li><i class="icon-star">{{component | trans }}</i></li>
+						{% endfor %}
+						</ul>
+				</div>
+        	</div>
+          	<div class="span4">
+				<div class="pricingBloc focusPlan">
+					<h2>{{entity.nombre | trans }}</h2>
+					<h3>{{entity.precio}} €
+							<span>
+							{{ entity.estado | trans }}
+							 <!--{ { kit.available ? '<i class="icon-thumbs-up" title="disponible próximamente">Disponible</i>' : kit.soon ? '<i class="icon-clock" title="disponible próximamente">Próximamente</i>' : '<i class="icon-cancel" title="disponible próximamente">No Disponible</i>' }} 
+							-->
+							</span>
+					</h3>
+					<ul>
+						{% for feature in entity.contenido %}
+							<li>{{feature | trans }}</li>
+						{% endfor %}
+						<li> {{"impuestos y portes no incluidos" | trans }}</li>
+					</ul>
+		    		<p class="sign"> <a class="btn btn-large" href="{{ path('fm_main_default_contacto') }}" style=" ">{{"LO QUIERO" | trans }}</a> </p>
+				</div>
+			</div>   
+		</div>
+		
+		{# if entity.opciones != '' %}
+
+
+
+		<div class="row">
+        <div class="span12">
+          <h2><span>Opciones</span></h2>
+        </div>
+        {% for option in entity.opciones %}
+
+
+        <div class="span4">
+          <div class="pricingBloc">
+            <h2>{{option.nombre}}</h2>
+            <h3>{{option.precio}} €</h3>
+            <ul>
+						{% for component in option.contenido %}
+							<li>{{component}}</li>
+						{% endfor %}
+            </ul>
+            
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+
+
+
+		{% endif #}
+
+
+      </section>
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+fm\erpBundle\Entity\referencias:
+    type: entity
+    table: null
+    repositoryClass: fm\erpBundle\Entity\referenciasRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        descripcion:
+            type: string
+            length: 255
+        codfurgo:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

@@ -1,0 +1,17 @@
+{% extends "erpBundle::layout.modal.html.twig" %}
+
+{% block title -%} Editor Proforma {{ entity.codproforma }}{% endblock %}
+
+{% block body -%}
+    <form action="{{ path('proformas_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        <input type="hidden" name="_method" value="PUT" />
+        {{ form_widget(edit_form) }}
+        <p>
+            <button type="submit" class="btn blue">GUARDAR CAMBIOS</button>
+        </p>
+    </form>
+
+
+
+
+{% endblock %}

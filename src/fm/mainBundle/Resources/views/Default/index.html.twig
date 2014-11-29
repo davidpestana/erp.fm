@@ -1,0 +1,74 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}CONTACTO{% endblock %}
+{% block description %}{% endblock %}
+{% block article %}
+
+  {# include 'mainBundle:Parts:ecwid.html.twig' #}
+
+
+  {% include 'mainBundle:Parts:slider.html.twig' %}
+
+
+  <!-- Slogan -->
+
+
+<div class="row"><div class="span12"><h2>Tu furgoneta equipada para camping <span>Hazlo tu mismo en cinco minutos sin herramientas</span></h2></div><div class="span12"><blockquote> Con los Kits Camper AutoInstalables de Furgomania puedes convertir tu mismo tu furgoneta de serie en una Furgoneta Camper totalmente preparada para el camping con cama, nevera y otras prestaciones en pocos minutos, no necesitas herramientas, no requiere ITV, y te lo enviamos a casa en cualquier punto de Europa.
+. </blockquote>
+        </div>
+      </div>
+
+
+
+  <!-- Slogan / -->
+
+
+
+
+  <!-- Buttons -->
+    <div class="row" >
+      <div class="span12 innerNavWrapper">
+        <nav  id="innerNav" class="clearfix innerNavWrapperIcons"> <a href="#diseno1" id="one"><i class="icon-heart"></i><span>{{ "DISEÑO ELEGANTE" | trans }}</span></a> <a href="#diseno2" id="two"><i class="icon-thumbs-up"></i><span>{{ "CALIDAD" | trans }}</span></a> <a href="#diseno3" id="three"><i class="icon-cog"></i><span>{{ "FACIL INSTALACIÓN" | trans }}</span></a> </nav>
+      </div>
+    </div>
+  <!-- Buttons / -->
+
+
+  <!-- D1 -->
+	<div id="diseno1" class="homeContent">
+	      <div class="row mb15">
+
+             <div class="span12">
+            <h2> <span>{% trans %}la precisión de las piezas hacen que se adapte como un guante al vehículo{% endtrans %}</span></h2>
+          </div>
+			<div class="span6"> <img src="{{ asset('/img/furgoneta-camper/kit-estantes-laterales-trafic-primastar-vivaro/T_IGNASIOLIVERAS-7354.png') }}" alt="superweb bootstrap web template"> </div>
+			<div class="span6">
+		  		<blockquote>{% trans %}Cuidadas y elegantes curvas definen la nueva colección de kits, acabados armoniosos que se integran con el interior de tu vehículo.{% endtrans %}</blockquote>
+		  		<p> {% trans %}del mismo modo que la anterior coleccion de KITS autoinstalables para furgoneta, los nuevos kits no precisan homologación en la I.T.V.{% endtrans %}</p>
+			</div>
+      		</div>
+
+
+                  <div class="row mb15">
+
+
+      <div class="span12">
+          <blockquote>{% trans %}Ponemos a tu disposición una completa gama de kits autoinstalables, soluciones y accesorios para las furgonetas mas utilizadas en camping del mercado:{% endtrans %}</blockquote>
+          <ul class="iconsList"> 
+          <li><i class="icon-right-open"></i><a href ="{{path('fm_kit_default_vehiculo',{'marca':'volkswagen','modelo':'transporter-t5-corta'})}}">VolksWagen Transporter T5</a></li>
+          <li><i class="icon-right-open"></i><a href ="{{path('fm_kit_default_vehiculo',{'marca':'volkswagen','modelo':'shuttle-t5-corta'})}}">VolksWagen Shuttle/Caravelle T5</a></li>
+          <li><i class="icon-right-open"></i><a href ="{{path('fm_kit_default_vehiculo',{'marca':'renault','modelo':'trafic'})}}">Renault Trafic</a></li>
+          <li><i class="icon-right-open"></i><a href ="{{path('fm_kit_default_vehiculo',{'marca':'nissan','modelo':'primastar'})}}">Nissan PrimaStar</a></li>
+          <li><i class="icon-right-open"></i><a href ="{{path('fm_kit_default_vehiculo',{'marca':'opel','modelo':'vivaro'})}}">Opel Vivaro</a></li>
+          </ul>
+      </div>
+          </div>
+	</div>
+
+
+      {% include 'mainBundle:Parts:fabricacion.html.twig' %}
+
+
+      {% include 'mainBundle:Parts:clientes.html.twig' %}
+
+      {% include 'mainBundle:Parts:instalacion.html.twig' %}
+{% endblock %}

@@ -1,0 +1,20 @@
+fm\erpBundle\Entity\cajones:
+    type: entity
+    table: null
+    repositoryClass: fm\erpBundle\Entity\cajonesRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        nombre:
+            type: string
+            length: 255
+        alto:
+            type: integer
+        ancho:
+            type: integer
+        largo:
+            type: integer
+    lifecycleCallbacks: {  }

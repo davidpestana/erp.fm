@@ -1,0 +1,88 @@
+/* ===============================================*/
+/* ================ DARK STYLES ==================*/
+/* ===============================================*/
+
+body {
+    background: none repeat scroll 0 0 #222;
+    color: #B9B9B9;
+}
+#globalWrapper {
+    background: none repeat scroll 0 0 #181818;
+    border-color: #333;
+}
+a {color:#fff}
+#mainMenu ul li a {
+    color: #777;
+}
+
+#mainMenu ul ul li{background:#333; border-bottom:1px solid #111;}
+
+
+
+header#mainHeader {
+    border-bottom: 1px solid #323232;
+}
+
+h1, h2, h3, h4, h5, h6 {
+color: #eee;
+}
+h2 {
+    background-color: #212121;
+	color:#333;
+}
+
+blockquote{border-left-color:#333;}
+
+/*** team ***/
+.team { background-color: #111;}
+.upArrow {border-bottom-color: #111;}
+
+/*** btn **/
+.btn-inverse {
+    background: #555;
+	-webkit-box-shadow: 0px 2px 0px #333;
+	-moz-box-shadow:    0px 2px 0px #333;
+	box-shadow:         0px 2px 0px #333;
+	color:#ccc;
+}
+
+.socialTeam li a {
+color: #ccc;
+}
+
+/*** footer **/
+footer#mainFooter {
+background-color: #222;
+}
+/********** form ***********/
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{
+	  border: 1px solid #333;
+	box-shadow:none;
+	background-color:#222;
+}
+
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+  border: 1px solid #222;
+    box-shadow: none;
+	}
+/* miscellanious */
+.hero-unit, .quoteRow, .widget h3, ul.entry-meta, .blogTags li a, .carouselRow .presCell div{border-color:#333;}
+.pricingBloc h3, .pricingBloc p{
+background-color: #333; color:#555;}
+
+.pricingBloc ul li, .pricingBloc {border-color:#555;}
+a.accordion-toggle:link{background-color: #333; color:#999;border-color:#555;}
+.videoCredit, #testimonialCarousel blockquote, .carousel-inner article {background-color: #333;}
+.pagination ul > li > a, .pagination ul > li > span {border-color:#555;}
+.arrowTestimonial::after{border-top-color:#333;}
+.twitterSticker{background-color: #333;border-color:#333}
+ .twitterSticker::after{border-right-color:#333}
+ .stuck {background-color:#181818;}
+
+.flexslider {
+border-color: #111;
+}
+.innerTweet .tweet_text a {color:#fff;}
+
+

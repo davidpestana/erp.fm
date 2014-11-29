@@ -1,0 +1,55 @@
+erp_homepage:
+    pattern:  /
+    defaults: { _controller: erpBundle:Default:index }
+
+erp_iframe:
+    pattern:  /iframe/{url}
+    defaults: { _controller: erpBundle:Default:iframe }
+
+_clientes:
+    resource: "@erpBundle/Controller/clientesController.php"
+    type:     annotation
+
+_proformas:
+    resource: "@erpBundle/Controller/proformasController.php"
+    type:     annotation
+
+_productos:
+    resource: "@erpBundle/Controller/productosController.php"
+    type:     annotation
+
+_envios:
+    resource: "@erpBundle/Controller/enviosController.php"
+    type:     annotation
+
+_referencias:
+    resource: "@erpBundle/Controller/referenciasController.php"
+    type:     annotation
+
+_ordenesfabricacion:
+    resource: "@erpBundle/Controller/ordenesfabricacionController.php"
+    type:     annotation
+
+_facturas:
+    resource: "@erpBundle/Controller/facturaController.php"
+    type:     annotation
+
+_proveedores:
+    resource: "@erpBundle/Controller/proveedoresController.php"
+    type:     annotation
+
+_proveedoresfacturas:
+    resource: "@erpBundle/Controller/proveedoresfacturasController.php"
+    type:     annotation
+
+_cajones:
+    resource: "@erpBundle/Controller/cajonesController.php"
+    type:     annotation
+
+_series:
+    resource: "@erpBundle/Controller/seriesController.php"
+    type:     annotation
+
+_graficas:
+    resource: "@erpBundle/Controller/graficasController.php"
+    type:     annotation

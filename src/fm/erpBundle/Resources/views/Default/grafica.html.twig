@@ -1,0 +1,18 @@
+<!-- BEGIN PORTLET-->
+<div class="portlet solid bordered light-grey">
+	<div class="portlet-title">
+		<div class="caption"><i class="icon-bar-chart"></i>Facturación por meses</div>
+		<div class="tools">
+			<div class="btn-group pull-right" data-toggle="buttons-radio"></div>
+		</div>
+	</div>
+	<div class="portlet-body graph" data-url="{{ path('grafica') }}">
+		<div class="loading">
+			<img src="/assets/img/loading.gif" alt="loading" />
+		</div>
+		<div class="content" class="hide">
+			<div class="chart"></div>
+		</div>
+	</div>
+</div>
+<!-- END PORTLET-->

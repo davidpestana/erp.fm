@@ -1,0 +1,67 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}{{ entity.titulo }}{% endblock %}
+{% block description %}{{ entity.descripcion }}{% endblock %}
+{% block article %}
+	
+  <section id="content" class="portfolio">
+    <header class="page-header">
+      <h1>{{ entity.titulo }}</h1>
+    </header>
+
+          <div class="alert alert-info">
+        
+        <h4>IMPORTANTE!</h4>
+        Furgomania ya no realiza trabajos a medida o personalizados, 
+        los KITS AUTOINSTALABLES de Furgomania son la solucion de mejor calidad y de mejor precio para camperizar tu furgoneta.
+      </div>
+      
+    <div class="row">
+      <aside class="span3">
+        <nav id="filter" class="filterVertical colssidebar">
+          <ul>
+            <li><a href="" class="current btn btn-inverse btn-mini" data-filter="*">All</a></li>
+            <li><a href="" class="btn  btn-inverse btn-mini"  data-filter=".photo">Photography</a></li>
+            <li><a href="" class="btn btn-inverse btn-mini"  data-filter=".web">Web design</a></li>
+            <li ><a href="" class="btn btn-inverse btn-mini" data-filter=".cats">Cats</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <div class="span9">
+     
+      {% for i in 0..(((entity.fotos|length)/3)|round(0,'ceil')) %}
+			<div class="portfolio-items isotopeWrapper clearfix row" id="3">
+			{% for foto in entity.fotos|slice(i*3 , 3) %}
+			          <article class="span3 isotopeItem photo presBloc">
+			            <section class="imgWrapper"> <img src="http://www.furgomania.com/files/{{ foto.miniatura }}" alt=""/>
+			              <div class="media-hover">
+			                <div class="mask">
+			                  <div class="insideLinkHolder"> <a href="portfolio-project.html" data-placement="top" class="hover-link tips" title="link" target="_blank"> <span class="iconWrapper iconLink"><i class="icon-link"></i></span> </a> <a href="http://www.furgomania.com/files/{{ foto.foto }}" data-placement="top" class="prettyPhoto hover-zoom tips" title="Zoom"> <span class="iconWrapper iconLink"> <i class="icon-search"></i> </span> </a>  </div>
+			                </div>
+			              </div>
+			            </section>
+			            <section class="blocBody">
+			              <h3>{{ foto.titulo}}</h3>
+			              <p  class="boxTextWrapper"> {{ foto.descripcion}} <a href="{{ path('fm_main_inherited_fotos',{'slug':foto.slug})}}" class="moreLink">&rarr; leer mas</a> </p>
+			            </section>
+			          </article>
+			{% endfor %}
+			</div>
+  		{% endfor %}
+
+      </div>
+    </div>
+                        <div class="alert alert-info">
+        
+        <h4>IMPORTANTE!</h4>
+               Furgomania ya no realiza trabajos a medida o personalizados, 
+        los KITS AUTOINSTALABLES de Furgomania son la solucion de mejor calidad y de mejor precio para camperizar tu furgoneta.
+      </div>
+  </section>
+
+
+
+
+
+
+
+{% endblock %}

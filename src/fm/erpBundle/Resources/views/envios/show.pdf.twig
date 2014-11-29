@@ -1,0 +1,137 @@
+<pdf>
+
+     <dynamic-page encoding="UTF-8" font-type="DejaVuSans" page-size="a4">
+        <table>
+           <tr>
+               <td border-color="white"><img width="100%" src="{{ pdf_image('erpBundle:logo_reduced.png') }}" />
+
+                       <div background-color="#EEEEEE" margin="10px 0px" padding="15px 50px">
+            <h1> FECHA DE RECOGIDA </h1>
+            
+                {{ entity.fecha | localizeddate('full', 'none', 'es') }}
+        </div>
+               </td>
+               <td border-color="white" padding="20px">
+                    <h1 text-align="center">ORDEN RECOGIDA</h1>
+                    <div background-color="#EEEEEE" padding="20px 70px" text-align="center">
+                       <img src="{{ pdf_image('erpBundle:logo-txt.png') }}" /> 
+                    </div>
+               </td>
+           </tr>
+        </table>
+
+        <div background-color="#EEEEEE" margin="10px 0px" padding="20px 50px">
+            <h1> DATOS RECOGIDA </h1>
+            <div>
+                FUSTERIA MASFERRER, S.L.<br />
+                Pol. Ind. Torres-Pujals, 36<br />
+                Telf. 972 86 04 98<br />
+                Fax  972 16 23 70<br />
+                Móvil 699 957 547<br />
+                17401 – ARBUCIES   <br />
+                www.fusteriamasferrer.com<br />
+                fusteria@fusteriamasferrer.com<br />
+                Persona de contacto: Xaxi Masferrer
+            </div>
+
+        </div>
+
+        <div background-color="#EEEEEE" margin="10px 0px" padding="20px 50px">
+            <h1> DATOS ENTREGA </h1>
+            <div>
+
+                {{ entity.cliente }}<br />
+                {{ entity.cliente.dniCif }}<br />
+                {{ entity.cliente.direccion }}<br />
+                {{ entity.cliente.cp }} ( {{ entity.cliente.localidad }} )<br />
+                {{ entity.cliente.provincia }}<br />
+                {{ entity.cliente.telefono }}<br />
+                {{ entity.cliente.email }}
+
+            </div>
+
+        </div>
+
+        <div background-color="#EEEEEE" margin="10px 0px" padding="20px 50px">
+            <h1> OBSERVACIONES DE RECOGIDA</h1>
+            <div>
+                {{ entity.observaciones }}
+            </div>
+        </div>
+
+        <div background-color="#EEEEEE" margin="10px 0px" padding="20px 50px">
+            <h1> PARTES DEL ENVIO </h1>
+            <div>
+
+            {% for orden in entity.misordenes  %}
+               
+                <b font-size="20px">{{ orden.numeroserie }}</b> 
+                {{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}mm   
+                {{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}m3     
+               
+            {% endfor %}           
+             </div>
+
+        </div>
+
+    </dynamic-page>
+
+
+     <dynamic-page encoding="UTF-8" font-type="DejaVuSans" page-size="a4">
+        <table>
+           <tr>
+               <td border-color="white"><img width="100%" src="{{ pdf_image('erpBundle:logo_reduced.png') }}" />
+               </td>
+               <td border-color="white" padding="20px">
+                    <h1 text-align="center">ORDEN DE ENTREGA</h1>
+                    <div background-color="#EEEEEE" padding="20px 70px" text-align="center">
+                       EQUIPAMIENTOS AUTOINSTALABLES PARA FURGONETAS CAMPER
+                    </div>
+               </td>
+           </tr>
+
+        </table>
+
+        <div background-color="#EEEEEE" margin="10px 0px" padding="20px 50px">
+            <h1> DESTINATARIO </h1>
+            <div font-size="20px">
+
+                {{ entity.cliente }}<br />
+                {{ entity.cliente.dniCif }}<br />
+                {{ entity.cliente.direccion }}<br />
+                {{ entity.cliente.cp }} ( {{ entity.cliente.localidad }} )<br />
+                {{ entity.cliente.provincia }}<br />
+                {{ entity.cliente.telefono }}<br />
+                {{ entity.cliente.email }}
+
+            </div>
+
+        </div>
+
+        <div background-color="#EEEEEE" margin="10px 0px" padding="20px 50px">
+            <h1> OBSERVACIONES DE ENTREGA</h1>
+            <div>
+                {{ entity.observacionesentrega |nl2br }}
+            </div>
+        </div>
+
+        <div background-color="#EEEEEE" margin="10px 0px" padding="20px 50px">
+            <h1> PARTES DEL ENVIO </h1>
+            <div>
+
+            {% for orden in entity.misordenes  %}
+                <b font-size="20px">{{ orden.numeroserie }}</b> 
+                {{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}mm   
+                {{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}m3  
+
+            {% endfor %}
+  
+            </div>
+        </div>
+
+
+
+
+    </dynamic-page>
+
+</pdf>

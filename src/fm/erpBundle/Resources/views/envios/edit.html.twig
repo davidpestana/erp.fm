@@ -1,0 +1,9 @@
+{% extends "erpBundle::layout.modal.html.twig" %}
+
+{% block title -%} Editor de orden de envio {{ entity.id }}{% endblock %}
+
+{% block body -%}
+
+    {{ form(edit_form) }}
+
+{% endblock %}

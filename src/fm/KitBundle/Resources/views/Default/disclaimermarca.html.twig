@@ -1,0 +1,67 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}Concesionarios{% endblock %}
+{% block description %}{% endblock %}
+{% block article %}
+
+
+	    <header class="page-header">
+	      <h1>{{marca}}</h1>
+	    </header>
+
+<section class="mb40">
+
+        <div class="row ">
+
+
+
+          <div class="span4">
+                        <p> 
+                        {% trans %}Modelos %marca% que pronto contarán con kits autoinstalables patentados Furgomania{% endtrans %} 
+                        </p>
+                  <div class="row">
+
+
+                  {% for entity in entities %}
+                    <div class="span4">
+                      <article> <a href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}">
+                        <section> <img alt="" src="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}.jpg"> </section>
+ 
+                        </a>
+                        <section class="projectInfo">
+                          <h3><a href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}"><i class="icon-ok"></i> {{entity.marca}} {{entity.modelo}}</a></h3>
+
+                        </section>
+                      </article>
+                    </div>
+                    {% endfor %}
+                  </div>
+          </div>
+
+
+
+
+
+
+          <div class="span8 presCell">
+
+                      <div>
+                       <h2>ponte en contacto con nosotros</h2>
+                      <!-- contact form -->
+                      <form action="{{ path('fm_main_default_contacto') }}" method="post" {{ form_enctype(form) }}>
+                            {{ form_widget(form) }}
+                            <p>
+                            <button type="submit" class="btn blue">Enviar Mensaje</button>
+                           </p>
+                        </form>
+                        <div class="result"></div>
+                      <!-- contact form -->
+                      </div>
+
+          </div>
+
+        </div>
+ </section>
+
+					
+
+{% endblock %}

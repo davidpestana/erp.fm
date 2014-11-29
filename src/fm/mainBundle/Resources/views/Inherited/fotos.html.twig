@@ -1,0 +1,95 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}{{ entity.titulo }}{% endblock %}
+{% block description %}{{ entity.descripcion }}{% endblock %}
+{% block article %}
+
+
+      <section class="content blog">
+        <div class="page-header">
+          <h1>{{ entity.titulo }}</h1>
+        </div>
+        <div class="slice clearfix">
+          <!-- blog content -->
+          <div class="container">
+            <div class="row">
+              <!-- post  -->
+              <div class="span8">
+                <article>
+                  <div class="clearfix">
+                    <header>
+                      <div class="imgWrapper"> <img src="http://www.furgomania.com/files/{{ entity.foto }}" alt="" /> </div>
+                    </header>
+                    <section class="blogPost">
+                      {#<ul class="entry-meta">
+                        <li class="entry-category"><i class="icon-tag"></i>category</li>
+                        <li class="entry-date"><i class="icon-clock"></i>October 8th, 2012</li>
+                        <li class="entry-author"><i class="icon-user"></i>Admin</li>
+                        <li class="entry-comments"><i class="icon-comment"></i>12 comments</li>
+                      </ul>#}
+                      <p> {{entity.descripcionCorta}} </p>
+                      <h3>{{entity.keywords}} </h3>
+                      <p> {{entity.descripcionLarga}} </p>
+    <div id="content2">
+      <!--portfolio-->
+      <div class="row">
+        <div class="span9">
+          <h2>{{entity.album.titulo}} <span>mas fotos</span></h2>
+        </div>
+     
+      </div>
+      
+        
+      <div class="row">
+          <div class="portfolio-items isotopeWrapper clearfix" id="3">
+          {% for foto in entity.album.fotos|slice(0 , 8) %}  
+            <article class="span2 isotopeItem photo presBloc all">
+              <section class="imgWrapper"> <img src="http://www.furgomania.com/files/{{ foto.icono }}" alt=""/>
+                <div class="media-hover">
+                  <div class="mask"></div>
+                  <h5 class="title">{{ foto.titulo }}</h5>
+
+                  <div class="hover-action"> <a href="{{ path('fm_main_inherited_fotos',{'slug':foto.slug})}}" data-placement="bottom" class="hover-link tips" title="{{ foto.keywords }}" ><span class="iconWrapper iconLink"><i class="icon-link"></i></span></a> <a href="http://www.furgomania.com/files/{{ foto.foto }}" data-placement="bottom" class="prettyPhoto hover-zoom tips" title="Zoom"><span class="iconWrapper iconLink"><i class="icon-search"></i></span></a>  </div>
+                </div>
+              </section>
+            </article>
+          {% endfor %}  
+          </div>
+      </div>
+     
+      
+      <!--portfolio-->
+      <div class="row mb40">
+        <div class="span8">
+          <blockquote>{{entity.album.descripcion}}</blockquote>
+        </div>
+  
+      </div>
+
+
+    </div>
+                    </section>
+                  </div>
+                  <hr>
+
+                </article>
+              </div>
+              <!-- post  -->
+              <!-- Sidebar -->
+              <aside class="span4">
+              {{render(controller('mainBundle:Default:rightside'))}}
+               
+              </aside>
+              <!-- Sidebar -->
+            </div>
+          </div>
+          <!-- blog content -->
+        </div>
+                    <div class="alert alert-info">
+        
+        <h4>IMPORTANTE!</h4>
+               Furgomania ya no realiza trabajos a medida o personalizados, 
+        los KITS AUTOINSTALABLES de Furgomania son la solucion de mejor calidad y de mejor precio para camperizar tu furgoneta.
+      </div>
+      </section> 
+
+{% endblock %}

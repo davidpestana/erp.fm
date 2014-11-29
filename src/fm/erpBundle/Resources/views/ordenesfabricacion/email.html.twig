@@ -1,0 +1,38 @@
+{% extends "erpBundle::layout.email.html.twig" %}
+
+{% block title -%} ORDEN DE FABRICACION {{ entity.numeroserie }}{% endblock %}
+
+{% block body -%}
+
+		<h3>{{ entity.producto }}</h3>
+        <table margin="25px">
+           <tr>
+               <td border-color="white"></td>
+               <td border-color="white">
+                        Fecha de emisión: {{entity.fecha | date('d/m/Y')}} <br />
+                        Fecha de control: {{entity.fecha | date('d/m/Y')}} (prevista)
+               </td>
+           </tr>
+
+        </table>
+
+        <table>
+            <tr font-size="18px"><td padding="20px" width="120px">REFERENCIA</td><td padding="20px" width="120px">CODFURGO</td><td padding="20px">DESCRIPCION</td><td padding="20px">OBSERVACIONES</td></tr>
+
+
+
+                                        {% for referencia in entity.contenido  %}
+                                            <tr>
+                                            <td padding="30px 20px">{{ referencia.id + 10000 }}</td>
+                                            <td padding="30px 20px">{{ referencia.codfurgo }}</td>
+                                            <td padding="30px 20px">{{ referencia.descripcion }}</td>
+                                            <td padding="30px 20px"></td>
+                                            </tr>
+                                        {% endfor %}
+
+        </table>
+
+
+
+
+{% endblock %}

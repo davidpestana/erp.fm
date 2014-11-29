@@ -1,0 +1,15 @@
+<div class="portlet">
+    <div class="portlet-body">
+        <table class="table table-hover table-striped table-condensed flip-content table-full-width" id="sample_modal">
+                    <thead>
+                        <tr>
+                            <th>Seleccion</th>
+                            <th>Referencia</th>
+                        </tr>
+                    </thead>
+            {% for referencia in select  %}
+                 <tr><td>{{ form_widget(referencia) }}</td><td>{{ form_label(referencia) }}</td></tr>
+            {% endfor %}
+        </table>                      
+    </div>
+</div>

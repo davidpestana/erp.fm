@@ -1,0 +1,87 @@
+<!-- BLOQUE INSTALACION -->
+
+
+	      <div class="row" id="diseno3">
+		<div class="span12">
+		  <h2>{{"Instalación"|trans}} <span>{% trans %}Instala cama, muebles, deposito, etc. a tu furgo sin pasar por el taller{% endtrans %}</span></h2>
+		</div>
+		<section class="bigIcon">
+		  <article>
+		    <div class="span3"> <i class="icon-jabber"></i>
+		      <h3>{% trans %}Sistema Patentado{% endtrans %}</h3>
+		      <p>{% trans %}un sistema que permite ajustar los muebles a tu furgoneta sin necesidad de modificar el vehiculo{% endtrans %}</p>
+		    </div>
+		  </article>
+		  <article>
+		    <div class="span3"> <i class="icon-star-empty"></i>
+		      <h3>{% trans %}Modular{% endtrans %}</h3>
+		      <p>{% trans %}Quitar y poner tán sólo los modulos que necesites.{% endtrans %}</p>
+		    </div>
+		  </article>
+		  <article>
+		    <div class="span3"> <i class="icon-cog"></i>
+		      <h3>{% trans %}sin herramientas{% endtrans %}</h3>
+		      <p>{% trans %}instala cama y otros accesorios a tu furgoneta solo con tus manos, gracias a nuestro sistema patentado{% endtrans %}</p>
+		    </div>
+		  </article>
+		  <article>
+		    <div class="span3"> <i class="icon-clock-1"></i>
+		      <h3>{% trans %}rápido{% endtrans %}</h3>
+		      <p>{% trans %}en tan solo cinco minutos, mónta y desmónta tu kit{% endtrans %}</p>
+		    </div>
+		  </article>
+		</section>
+	      </div>
+	      <hr>
+
+
+
+	  <div class="row noSlider">
+	    <div class="span6"> 
+
+<img src="{{ asset('img/FURGOMANIA-25.jpg') }}" />
+
+
+	    </div>
+	    <div class="span6"> <img src="http://www.furgomania.com/slider-title.png" alt="superweb, premium website template" />
+	      <h3>{{"Instalación"|trans}}</h3>
+	      <ul class="iconsList iconsList-large">
+		<li><i class="icon-right-circle"></i>&nbsp;{{"Te lo enviamos a casa"|trans}}</li>
+		<li><i class="icon-right-circle"></i>&nbsp;{{"El cajón de madera protegerá tu kit"|trans}}</li>
+		<li><i class="icon-right-circle"></i>&nbsp;{{"Sin herramientas"|trans}}</li>
+		<li><i class="icon-right-circle"></i>&nbsp;{{"Fácil de montar y de desmontar"|trans}}</li>
+		<li><i class="icon-right-circle"></i>&nbsp;{{"No requiere modificar el vehículo"|trans}}</li>
+	      </ul>
+	    </div>
+	  </div>
+<br />
+	<section id="content" class="portfolio clients">
+		<div class="slice clearfix">
+		  	<div class="container" id="fourColumns">
+		    		<div class="row">
+		      			<div class="portfolio-items isotopeWrapper clearfix da-thumbs" id="4">
+		      			{% set t = ['','','te enviamos a casa'|trans,'muy fácil'|trans,'Sistema de anclaje'|trans,'embalaje de madera'|trans,''] %}
+		      			{% set st = ['','','a donde sea'|trans,'sin herramientas'|trans,'PATENTADO'|trans,'GARANTIZADO'|trans,''] %}
+
+						{% for i in 2..5 %}
+							<article class="span3 isotopeItem photo presBloc">
+							  <section class="imgWrapper"> <img src="{{ asset('img/instalacion/th' ~ i ~ '.jpg') }}" alt=""/>
+							    <div class="media-hover">
+							      <div class="mask"></div>
+							      <h3 class="title">{{t[i]}}</h3>
+							      <h4 class="second-title">{{st[i]}}</h4>
+							      <div class="hover-action"> 
+							      		<a href="{{ asset('img/instalacion/' ~ i ~ '.jpg') }}" data-placement="bottom" class="prettyPhoto hover-zoom tips" title="Zoom"> <span class="iconWrapper iconLink"><i class="icon-search"></i></span> </a> 
+							      </div>
+							    </div>
+							  </section>
+							</article>
+						{% endfor %}
+					</div>
+		      		</div>
+		   	</div>
+		 </div>
+	</section>
+
+<!-- FIN BLOQUE INSTALACION -->
+

@@ -1,0 +1,30 @@
+fm\erpBundle\Entity\envios:
+    type: entity
+    oneToMany:
+        misordenes:
+            targetEntity: ordenesfabricacion
+            mappedBy: mienvio
+    manyToOne:
+        cliente:
+            targetEntity: clientes
+            inversedBy: misenvios
+            joinColumn:
+                name: cliente_id
+                referencedColumnName: id 
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        observaciones:
+            type: text
+        observaciones_entrega:
+            type: text
+        estado:
+            type: string
+            length: 255
+        fecha:
+            type: date
+    lifecycleCallbacks: {  }

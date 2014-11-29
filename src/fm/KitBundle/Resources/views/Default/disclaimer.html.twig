@@ -1,0 +1,56 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}Concesionarios{% endblock %}
+{% block description %}{% endblock %}
+{% block article %}
+
+
+	    <header class="page-header">
+	      <h1>{{marca}} {{modelo}}</h1>
+	    </header>
+
+
+						<div class="row">
+                                <div class="span12">
+                                    
+                                    <blockquote>
+                                    {% trans %}
+                                    pronto dispondremos de una nueva colección de kits autoinstalables patentados para %marca% %modelo%... estamos desarrollando una linea de productos similares a los que ofrecemos para otros modelos de furgoneta.
+                                    {% endtrans %}
+                                    </blockquote>
+                                     <div class="row">
+      <div class="span12 quoteRow mb40">
+        <div class="row">
+          <div class="span6">
+            <blockquote> {% trans %} Pronto disponibles<span class="highlights"> kits para tu furgo</span><br>
+              <small><strong>kit autoinstalable!</strong> la mejor solucion para camperizar tu furgo.</small>
+              {% endtrans %}
+              </blockquote>
+          </div>
+          <div class="span6"> <a href="{{ path('fm_main_paginas_kitautoinstalable') }}" title="" class="btn btn-large"><i class="icon-download"></i>  {% trans %}Obtener más información!{% endtrans %}</a> </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+                                                                      
+
+                                    <h2>{% trans %}ponte en contacto con nosotros y te informaremos de todo{% endtrans %}</h2>
+								      <!-- contact form -->
+								      <div class="span10">
+								 			<form action="{{ path('fm_main_default_contacto') }}" method="post" {{ form_enctype(form) }}>
+									        	{{ form_widget(form) }}
+									        	<p>
+									        	<button type="submit" class="btn blue">{% trans %}Enviar Mensaje{% endtrans %}</button>
+									     	   </p>
+									    	</form>
+								        <div class="result"></div>
+								      </div>
+								      <!-- contact form -->
+                                </div>
+                                
+                            </div>
+
+
+{% endblock %}

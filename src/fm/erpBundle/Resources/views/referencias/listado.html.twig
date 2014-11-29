@@ -1,0 +1,42 @@
+						<div class="portlet">
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-shopping-cart"></i>Listado de Referencias Disponibles</div>
+
+							</div>
+							<div class="portlet-body">
+
+
+									<table class="table table-hover table-full-width" id="sample_modal">
+									        <thead>
+									            <tr>
+									                <th>Ref</th>
+									                <th>Descripcion</th>
+									                <th>Actions</th>
+									            </tr>
+									        </thead>
+									        <tbody>
+									        {% for entity in entities %}
+									            <tr>
+									                <td>{{ entity.id }}</td>
+									                <td>{{ entity.descripcion }}</td>
+									                <td>
+									                        <a href="javascript:;" class="btn mini blue" >agregar</a>
+									                </td>
+									            </tr>
+									        {% endfor %}
+									        </tbody>
+									</table>
+							</div>
+						</div>
+
+
+
+
+
+
+
+
+
+
+
+

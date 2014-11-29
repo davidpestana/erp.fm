@@ -1,0 +1,31 @@
+<table class="table-striped table-bordered table-advance table-hover">
+									<thead>
+										<tr>
+											<th><i class="icon-briefcase"></i> Proforma</th>
+											<th class="hidden-phone"><i class="icon-calendar"></i> Fecha</th>
+											<th><i class="icon-bookmark"></i> Total</th>
+											<th><a href="{{ path('proformas_new', { 'cliente': entity.id }) }}" class="modal_ajax_btn btn blue mini" data-toggle="modal"><i class="icon-plus-sign"></i>  Nueva Proforma</a></th>
+										</tr>
+									</thead>
+									<tbody>
+           {% for proforma in entity.proformas  %}
+
+
+		    							<tr>
+											<td>{{proforma.codproforma}}</td>
+											<td class="hidden-phone">{{ proforma.fecha|date('d-m-Y') }}</td>
+											<td>- € </td>
+											<td><a href="{{ path('proformas_show', { 'id': proforma.id, '_format':'pdf' }) }}" class="btn mini red-stripe">PDF</a>
+											<a href="{{ path('proformas_edit', { 'id': proforma.id }) }}" class="btn modal_ajax_btn mini green-stripe" data-toggle="modal">EDITAR</a>
+											</td>
+										</tr>
+
+
+
+            {% endfor %}
+									</tbody>
+								</table>
+
+
+
+ 

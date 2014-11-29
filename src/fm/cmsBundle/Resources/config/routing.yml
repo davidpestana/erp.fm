@@ -1,0 +1,8 @@
+cms_homepage:
+    pattern:  /
+    defaults: { _controller: cmsBundle:Default:index }
+
+
+cms_metas:
+    resource: "@cmsBundle/Controller/metasController.php"
+    type:     annotation

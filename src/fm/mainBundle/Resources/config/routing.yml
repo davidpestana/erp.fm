@@ -1,0 +1,15 @@
+_main_route:
+    resource: "@mainBundle/Controller/DefaultController.php"
+    type:     annotation
+    prefix:   /{_locale}
+    requirements:
+        _locale: en|es|fr|it|de
+_paginas_route:
+    resource: "@mainBundle/Controller/PaginasController.php"
+    type:     annotation
+    prefix:   /{_locale}
+    requirements:
+        _locale: en|es|fr|it|de
+_inherited_route:
+    resource: "@mainBundle/Controller/InheritedController.php"
+    type:     annotation

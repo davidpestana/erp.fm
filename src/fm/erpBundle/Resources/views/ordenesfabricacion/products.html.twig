@@ -1,0 +1,3 @@
+{% for entity in entities %} 
+	<a href="{{ path('productos_show', { 'id': entity.id }) }}">{{ entity.id }}</a>
+{% endfor %}

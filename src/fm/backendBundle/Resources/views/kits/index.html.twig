@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>kits list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+              
+                <th>Precio</th>
+                <th>Descuento</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('kits_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nombre }}</td>
+                <td>{{ entity.descripcion }}</td>
+                
+                <td>{{ entity.precio }}</td>
+                <td>{{ entity.descuento }}</td>
+                <td>{{ entity.marca }}</td>
+                <td>{{ entity.modelo }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('kits_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('kits_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('kits_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

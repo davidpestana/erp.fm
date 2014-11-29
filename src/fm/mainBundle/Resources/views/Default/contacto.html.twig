@@ -1,0 +1,68 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}CONTACTO{% endblock %}
+{% block description %}{% endblock %}
+{% block article %}
+
+
+  <section class="content">
+    <header class="page-header">
+      <h1>{{"CONTACTA CON NOSOTROS" | trans }}</h1>
+    </header>
+    <div class="row mb15">
+      <div class="span4"> 
+
+
+        <h4><i class="icon-mail"></i> {{"Direccion" | trans }}:</h4>
+        <address>
+        {% trans %}Realizamos envios a toda Europa desde nuestra fábrica, también puedes acudir a los concesionarios colaboradores o buscar tu distribuidor mas cercano, Consúltanos cualquier duda.{% endtrans %}
+        </address>
+        <h4><i class="icon-mobile-1"></i> {{"Teléfono y WhatsApp" | trans }}</h4>
+        <address>
+        +34 628 137 304 | {{"8:00 a 20:00 de lunes a viernes" | trans }}
+        </address>
+        <h4><i class="icon-mail"></i> email</h4>
+        <address>
+        <a href="mailto:contacto@furgomania.com">contacto@furgomania.com</a>
+        </address>
+        <h4><i class="icon-facebook"> facebook</i></h4>
+        <address>
+        <a href="https://www.facebook.com/furgomania">
+        https://www.facebook.com/furgomania
+        </a>
+        </address>
+
+               <div class="alert alert-info">
+        
+        <h4>{{"IMPORTANTE" | trans}}!</h4>
+        {% trans %}Furgomania ya no realiza trabajos a medida o personalizados, 
+        los KITS AUTOINSTALABLES de Furgomania son la solucion de mejor calidad y de mejor precio para camperizar tu furgoneta.{% endtrans %}
+      </div>
+
+      </div>
+
+
+
+      <!-- contact form -->
+      <div class="span8">
+ 			<form action="{{ path('fm_main_default_contacto') }}" method="post" {{ form_enctype(form) }}>
+	        	{{ form_widget(form) }}
+	        	<p>
+	        	<button type="submit" class="btn blue">{{"Enviar Mensaje" | trans }}</button>
+	     	   </p>
+	    	</form>
+        <div class="result"></div>
+      </div>
+      <!-- contact form -->
+    </div>
+
+  </section>
+
+
+     {% include 'mainBundle:Parts:distribuidores.html.twig' %}
+
+
+
+
+
+
+{% endblock %}

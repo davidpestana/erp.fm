@@ -1,0 +1,91 @@
+		<!-- BEGIN SIDEBAR -->
+		<div class="page-sidebar nav-collapse collapse">
+			<!-- BEGIN SIDEBAR MENU -->        
+			<ul class="page-sidebar-menu">
+				<li>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler hidden-phone"></div>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+				</li>
+				<li>
+					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<form class="sidebar-search">
+						<div class="input-box">
+							<a href="javascript:;" class="remove"></a>
+							<input type="text" placeholder="Search..." />
+							<input type="button" class="submit" value=" " />
+						</div>
+					</form>
+					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+				</li>
+				<li class="start active ">
+					<a href="{{ path('erp_homepage') }}">
+					<i class="icon-home"></i> 
+					<span class="title">Resumen</span>
+					<span class="selected"></span>
+					</a>
+				</li>
+                <li class="start">
+					<a href="{{ path('clientes') }}">
+					<i class="icon-user"></i> 
+					<span class="title">Clientes</span>
+					<span class="selected"></span>
+					</a>
+				</li>
+				<li class="start">
+					<a href="#">
+					<i class="icon-home"></i> 
+					<span class="title">Proveedores</span>
+					<span class="selected"></span>
+					</a>
+				</li>
+				<li class="start">
+					<a href="{{ path('factura') }}">
+					<i class="icon-book"></i> 
+					<span class="title">Facturas</span>
+					<span class="selected"></span>
+					</a>
+				</li>
+				<li class="start">
+					<a href="{{ path('ordenesfabricacion') }}">
+					<i class="icon-home"></i> 
+					<span class="title">Fabricación</span>
+					<span class="selected"></span>
+					</a>
+				</li>
+				<li class="start">
+					<a href="{{ path('envios') }}">
+					<i class="icon-home"></i> 
+					<span class="title">Logística</span>
+					<span class="selected"></span>
+					</a>
+				</li>
+				<li class="start">
+					<a href="javascript:;">
+					<i class="icon-home"></i> 
+					<span class="title">Gestion</span>
+					<span class="selected"></span>
+					</a>
+
+						<ul class="sub-menu">  
+							<li>
+									<a href="{{ path('productos') }}">Productos</a>
+							</li>
+							<li>
+									<a href="{{ path('referencias') }}">Referencias</a>
+							</li>
+							<li>
+									<a href="{{ path('cajones') }}">Cajones</a>
+							</li>	
+							<li>
+									<a href="{{ path('proveedores') }}">Proveedores</a>
+							</li>	
+
+						</ul> 
+				</li>
+
+
+			</ul>
+			<!-- END SIDEBAR MENU -->
+		</div>
+		<!-- END SIDEBAR -->

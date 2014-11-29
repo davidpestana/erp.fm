@@ -1,0 +1,66 @@
+<pdf>
+   <dynamic-page encoding="UTF-8" font-type="DejaVuSans" page-size="a4" margin="0mm 0mm">
+        <table>
+            {% for filas in range(0, 1) %}
+                <tr>
+                    {% for columnas in range(0,1) %}
+
+                  
+                        <td border-color="#FFFFFF">
+                            <div width="105mm" height="148.5mm">
+                                <div margin="0mm 8mm">
+                                    <img width="100%" src="{{ pdf_image('erpBundle:logo_reduced.png') }}" />
+                                    <div font-size="12px">DESTINATARIO</div>
+                                    <div background-color="#EEEEEE" margin="10px 0px" padding="10px 10px">
+                                        <div font-size="12px">
+                                            {{ entity.cliente }}<br />
+                                            {{ entity.cliente.dniCif }}<br />
+                                            {{ entity.cliente.direccion }}<br />
+                                            {{ entity.cliente.cp }} ( {{ entity.cliente.localidad }} )<br />
+                                            {{ entity.cliente.provincia }}<hr />
+                                            {{ entity.cliente.telefono }}  |
+                                            {{ entity.cliente.email }}
+                                        </div>
+                                    </div>
+                                    <div font-size="12px">OBSERVACIONES PARA LA ENTREGA</div>
+                                    <div background-color="#EEEEEE" font-size="8px" margin="10px 0px" padding="10px 10px">
+                                            {{ entity.observacionesentrega | nl2br }}
+                                    </div>
+                                    <div font-size="12px">PARTES DEL ENVÍO</div>
+                                    <div background-color="#EEEEEE" margin="10px 0px" padding="10px 10px">
+           {% for orden in entity.misordenes  %}
+                <b>{{ orden.numeroserie }}</b> 
+                {{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}mm   
+                {{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}m3 
+
+
+
+
+
+
+
+            {% endfor %}                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </td>
+                    {%endfor%}
+                </tr>
+            {% endfor %}
+        </table>
+
+
+
+
+
+    </dynamic-page>
+
+
+
+
+
+
+
+</pdf>

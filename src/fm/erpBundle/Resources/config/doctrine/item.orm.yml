@@ -1,0 +1,29 @@
+fm\erpBundle\Entity\item:
+    type: entity
+    manyToOne:
+        factura:
+            targetEntity: factura
+            inversedBy: misitems
+            cascade: [persist]
+            joinColumn:
+                name: factura_id
+                referencedColumnName: id 
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        descripcion:
+            type: string
+            length: 255
+        cantidad:
+            type: integer
+        importe:
+            type: integer
+        descuento:
+            type: integer
+        producto_id:
+            type: integer
+    lifecycleCallbacks: {  }

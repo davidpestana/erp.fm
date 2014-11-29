@@ -1,0 +1,51 @@
+fm\erpBundle\Entity\clientes:
+    type: entity
+    oneToMany:
+        misenvios:
+            targetEntity: envios
+            mappedBy: cliente
+        proformas:
+            targetEntity: proformas
+            mappedBy: cliente
+        facturas:
+            targetEntity: factura
+            mappedBy: cliente
+    table: null
+    repositoryClass: fm\erpBundle\Entity\clientesRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        direccion:
+            type: string
+            length: 255
+        telefono:
+            type: string
+            length: 255
+        localidad:
+            type: string
+            length: 255
+        provincia:
+            type: string
+            length: 255
+        cp:
+            type: string
+            length: '10'
+        dniCif:
+            type: string
+            length: 255
+            column: dni_cif
+        observaciones:
+            type: text
+        furgo:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

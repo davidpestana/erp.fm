@@ -1,0 +1,11 @@
+{% extends "erpBundle::layout.email.html.twig" %}
+
+{% block title -%} {{entity.tipo | upper }} {{ entity.codfactura }}{% endblock %}
+
+{% block body -%}
+    <p> Estimado {{ entity.cliente.name }}, le adjuntamos la {{ entity.tipo }} a su nombre emitida el {{entity.fecha | date('d/m/Y')}} por un importe de {{ entity.base }} € + IVA.</p>
+
+    <p>Reciba un cordial saludo</p>
+    <p>El equipo de Furgomania</p>
+ 
+{% endblock %}

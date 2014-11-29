@@ -1,0 +1,26 @@
+{% extends "erpBundle::layout.modal.html.twig" %}
+
+{% block title -%} Nueva orden de fabricación {% endblock %}
+
+{% block body -%}
+
+
+<div class="row-fluid">
+    <form action="{{ path('ordenesfabricacion_create', { 'id': entity.id }) }}" method="POST" {{ form_enctype(form) }}>
+					<div class="span6">
+						<h4>Selecciona contenido del Cajón</h4>
+                                    
+                        {{ render(controller('erpBundle:Default:selectwidget',{'select' : form.contenido})) }}
+		
+					</div>
+
+                     
+					<div class="span6">
+						<h4>Información del cajón</h4>
+						{{ form(form) }}
+					</div>
+    </form>
+							
+</div>
+
+{% endblock %}

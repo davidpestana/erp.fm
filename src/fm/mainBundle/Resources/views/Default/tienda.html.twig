@@ -1,0 +1,16 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}Tienda de Accesorios para furgoneta camper{% endblock %}
+{% block description %}{% endblock %}
+{% block article %}
+
+<section id="content" class="portfolio">
+    <header class="page-header">
+      <h1> Furgomania Store </h1>
+      <h2> <span>{% trans %} Ponemos a disposición de nuestros clientes la mejor selección de accesorios para furgoneta camper equipada con kits furgomania {% endtrans %} </span></h2> 
+    </header>
+
+    {% include 'mainBundle:Parts:ecwid.html.twig' %}
+
+</section>
+ 
+{% endblock %}

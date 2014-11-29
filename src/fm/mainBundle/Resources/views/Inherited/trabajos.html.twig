@@ -1,0 +1,49 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}{{ entity.titulo }}{% endblock %}
+{% block description %}{{ entity.descripcion }}{% endblock %}
+{% block article %}
+
+<section class="content project">
+    <header class="page-header">
+      <h1>{{entity.titulo}}</h1>
+    </header>
+    <section class="mb40 clearfix">
+      <div class="row">
+        <div class="span8">
+          <div class="camera_wrap_nothumb">
+          {% for foto in entity.album.fotos %}
+            <div data-thumb="http://www.furgomania.com/files/{{ foto.icono }}" data-src="http://www.furgomania.com/files/{{ foto.foto }}" ></div>
+          {% endfor %}  
+          </div>
+        </div>
+        <div class="span4">
+
+          <h2 class="standardTitle"><span>pricipales carácteristicas de este trabajo</span></h2>
+          <h3>Nombre del Trabajo</h3>
+          <p>{{entity.titulo}}</p>
+          <h3>Familia</h3>
+          <p>{{entity.familia}}</p>
+          
+                   <a href="{{path('fm_main_inherited_trabajosmenu')}}" class="btn btn-large btn-primary"><i class="icon-th"> VER OTROS TRABAJOS</i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <h2>{{ entity.titulo}} <span>{{ entity.keywords}} </span></h2>
+          <blockquote>{{entity.descripcionCorta}}</blockquote>
+        </div>
+      </div>
+
+      <div class="alert alert-info">
+        
+        <h4>IMPORTANTE!</h4>
+        Furgomania ya no realiza trabajos a medida o personalizados, 
+        los KITS AUTOINSTALABLES de Furgomania son la solucion de mejor calidad y de mejor precio para camperizar tu furgoneta.
+      </div>
+    </section>
+  
+  </section>
+
+ 
+  
+{% endblock %}

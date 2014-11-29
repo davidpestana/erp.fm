@@ -1,0 +1,33 @@
+						<div class="portlet">
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-shopping-cart"></i>Listado de Referencias Disponibles</div>
+
+							</div>
+							<div class="portlet-body">
+
+									<table class="table table-hover table-full-width" id="sample_modal">
+									        <thead>
+									            <tr>
+									                <th>Concepto</th>
+									                <th>Precio</th>
+									                <th>Descuento</th>
+									                <th>Actions</th>
+									            </tr>
+									        </thead>
+									        <tbody class="productos_listado">
+									        {% for entity in entities %}
+									            <tr class="producto" id="{{ entity.id }}">
+									                <td class="concepto">{{ entity.concepto }}</td>
+                									<td class="precio">{{ entity.precio }}</td>
+                									<td class="descuento">{{ entity.descuento }}</td>
+			
+									                <td>
+									                        <a class="agregar btn mini blue" >agregar</a>
+									                </td>
+									            </tr>
+									        {% endfor %}
+									        </tbody>
+									</table>
+									
+							</div>
+						</div>

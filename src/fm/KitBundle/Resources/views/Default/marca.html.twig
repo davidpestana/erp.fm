@@ -1,0 +1,89 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}Concesionarios{% endblock %}
+{% block description %}{% endblock %}
+{% block article %}
+
+  
+
+ <section id="content" class="portfolio">
+    <header class="page-header">
+      <h1>FURGONETA CAMPER {{ marca}}</h1>
+    </header>
+
+
+                <div class="row">
+
+
+                  {% for entity in modelos %}
+                    <div class="span3">
+                      <article> <a href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}">
+                        <section> <img alt="" src="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}.jpg"> </section>
+ 
+                        </a>
+                        <section class="projectInfo">
+                          <h3><a href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}"><i class="icon-ok"></i> {{entity.modelo}}</a></h3>
+
+                        </section>
+                      </article>
+                    </div>
+                    {% endfor %}
+                  </div>
+
+
+
+
+
+{#
+
+
+    <div class="row">
+      <aside class="span3">
+        <nav id="filter" class="filterVertical">
+          <ul>
+            {% for entity in modelos %}
+              <li>
+              <a href="" class=""  data-filter=".{{entity.modeloslug}}">
+                   <img alt="" src="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}.jpg"> 
+                   <i class="icon-ok btn"> {{entity.marca}} {{entity.modelo}}</i>
+              </a>
+              </li>
+            {% endfor %}
+
+          </ul>
+        </nav>
+      </aside>
+      <section class="span9">
+        <div class="portfolio-items isotopeWrapper clearfix da-thumbs" id="1" >
+	{% for entity in entities %}
+
+          <div class=" isotopeItem {{entity.modeloslug}} row mb40">
+            <article class=" photo presBloc">
+              <section class="span5"> <a href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}"><img src="{{ entity.galeria.0.img }}" alt=""/></a>
+              </section>
+              <section class="blocBody span4">
+                <h3><a href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}">{{entity.nombre}}</a></h3>
+                <p  class="boxTextWrapper">
+
+{{ entity.descripcion|length > 200 ? entity.descripcion|slice(0, 200) ~ '...' : entity.descripcion  }}
+</p>
+
+{% if entity.galeria.0.iframe is defined %}
+
+		<a href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}"><i class="icon-video"> Video disponible</i></a>
+
+{% endif %}    
+<i class="icon-ok">{{entity.modelo}}</i>
+										              
+                
+              </section>
+            </article>
+          </div>
+    {% endfor %}      
+        </div>
+      </section>
+    </div>
+  </section>
+
+
+#}
+{% endblock %}

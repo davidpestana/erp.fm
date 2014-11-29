@@ -1,0 +1,52 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}CONTACTO{% endblock %}
+{% block description %}{% endblock %}
+{% block article %}
+
+
+	<section>
+      <div class="row">
+        <div class="span12">
+          <div class="hero-unit hero-color">
+            <h1 class="headerQuote alignCenter">Muchas gracias por tu interes.<br>
+              <small>Hemos recibido correctamente tu mensaje, te contestaremos en breve</small></h1>
+          </div>
+        </div>
+      </div>
+
+{#
+      <div class="row">
+        <div class="span12">
+          <h2><span>¿ quieres recibir un presupuesto personalizado ?</span></h2>
+        </div>
+        <div class="span12">
+          <blockquote> Si deseas un presupuesto personalizado, complementa los siguientes datos para obtener una ficha de cliente,
+          tus datos personales o de empresa serán tratados conforme a la Ley Orgánica de Proteción de Datos </blockquote>
+        </div>
+      </div>
+      <div class="row clearfix">
+          <div class="span6">
+            <p>Te recordamos que furgomania no realiza trabajos a medida, nuestros KITS AUTOINSTALABLES cubren todas las necesidades y su calidad es muy superior a la que pueda ofrecer cualquier trabajo a medida, y por su puesto son la solucion mas economica del mercado.</p>
+
+                        <p>Los Datos que te solicitamos son tan solo para poder realizar los presupuestos que nos pidas, por supuesto sin ningun tipo de compromiso.</p>
+          </div>
+          <!-- contact form -->
+          <div class="span6">
+
+          		<form action="{{ path('fm_main_default_postcontacto',{'token':token}) }}" method="post" {{ form_enctype(form) }}>
+	        	{{ form_widget(form) }}
+	        	<p>
+	        	<button type="submit" class="btn blue">Los datos son correctos</button>
+	     	    </p>
+	    		</form>
+
+          </div>
+          <!-- contact form -->
+      </div>  
+      #}  
+    </section>
+
+
+
+
+{% endblock %}

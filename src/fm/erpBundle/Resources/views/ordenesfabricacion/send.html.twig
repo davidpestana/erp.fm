@@ -1,0 +1,46 @@
+{% extends "erpBundle::layout.modal.html.twig" %}
+
+{% block title -%} La orden de fabricación se ha emitido correctamente {% endblock %}
+{% block body -%}
+
+   <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Numeroserie</th>
+                <td>{{ entity.numeroserie }}</td>
+            </tr>
+            <tr>
+                <th>Alto</th>
+                <td>{{ entity.alto }}</td>
+            </tr>
+            <tr>
+                <th>Ancho</th>
+                <td>{{ entity.ancho }}</td>
+            </tr>
+            <tr>
+                <th>Largo</th>
+                <td>{{ entity.largo }}</td>
+            </tr>
+            <tr>
+                <th>Peso</th>
+                <td>{{ entity.peso }}</td>
+            </tr>
+            <tr>
+                <th>Origen</th>
+                <td>{{ entity.origen }}</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>{{ entity.estado }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{{ entity.fecha|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

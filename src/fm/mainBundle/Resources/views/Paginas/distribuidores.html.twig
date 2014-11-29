@@ -1,0 +1,133 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}Distribuidores{% endblock %}
+{% block description %}{% endblock %}
+{% block article %}
+
+
+
+{#
+
+
+
+
+
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['geomap']}]}"></script>
+
+        <div class="row">
+        <div class="span12">
+                <div id="regions_div" style="height: 500px;"></div>
+<script type="text/javascript">
+  
+       google.setOnLoadCallback(drawMap);
+
+      function drawMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Distribución'],
+          ['Germany', 'verfügbar'],
+            ['Spain', 1],
+          ['Spain', 'Península y Canarias'],
+          ['Italy', 'nel processo'],
+          ['France', 'disponible']
+        ]);
+
+        var options = {colorAxis: {colors: ['green', 'blue']}};
+        options['region'] = '150';
+        options['dataMode'] = 'regions';
+                  
+
+
+        var container = document.getElementById('regions_div');
+        var geomap = new google.visualization.GeoMap(container);
+
+        geomap.draw(data, options);
+      };
+</script>
+        </div>
+      </div>
+#}
+
+
+     {% include 'mainBundle:Parts:distribuidores.html.twig' %}
+
+      {#<div class="row">
+        <div class="span12">
+          <div class="hero-unit hero-color">
+            <h1>nuestros productos llegaran a ti, estes donde estes</h1>
+          </div>
+        </div>
+      </div>#}
+
+
+
+      <div class="row">
+        <div class="span12">
+          <div class="hero-unit hero-color">
+            <h1 class="headerQuote alignCenter">{% trans %}Ampliamos nuestra red de distribución{% endtrans %}<br />
+              <small>{% trans %}interesados en adquirir la distribución en otros paises o zonas comerciales{% endtrans %}</small> <a href="{{ path('fm_main_default_contacto') }}" class="btn btn-info"> {{"contáctanos" | trans }}</a> 
+            </h1>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+    <section class="mb40">
+      <div class="row-fluid">
+        <div class="span4">
+          <article>
+            <h3><i class="icon-resize-full-alt"></i> {{ "Envíos" | trans }}</h3>
+            <p>{% trans %}Nuestra fábrica se encuentra en Gerona, España. Realizamos envios a cualquier parte del mundo, además contamos con distribuidores que qute podrán ofrecerte nuestros kits con total garantía y darte un servicio mas cercano{% endtrans %}</p>
+            <a class="btn btnSmall" href="{{ path('fm_main_default_contacto')}}">{{ "contáctanos" | trans }}</a> </article>
+        </div>
+        <div class="span4">
+          <article>
+            <h3><i class="icon-twitter"></i> {{"Buscamos nuevos distribuidores" | trans }}</h3>
+            <p>{% trans %}Ofrecemos la oportunidad única de trabajar con nuestra patente, la oferta se extiende a distribucion por paises o grandes regiones comerciales. Ofrecemos excelentes condiciones y márgenes{% endtrans %}</p>
+            <a class="btn btnSmall" href="{{ path('fm_main_default_contacto')}}">{{"contáctanos" | trans }}</a> </article>
+        </div>
+        <div class="span4">
+          <article>
+            <h3><i class="icon-star"></i> {{"Preparados para el viaje" | trans }}</h3>
+            <p>{% trans %}No importa si tu kit va a recorrer diez o un millon de kilometros para llegar a ti, te aseguramos que llegara en condiciones optimas, protegemos cada uno de nuestros equipamientos en un cajon de madera reforzado hecho a medida. {% endtrans %}</p>
+            <a class="btn btnSmall" href="#">{{"ver más" | trans }}</a> </article>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <!--2 blocs-->
+    <section class="clearfix mb40">
+      <div class="row">
+        <div class="span4">
+          <section>
+            <h3>{% trans %}Por que trabajar con nosotros? Nuestro producto..{% endtrans %}</h3>
+            <ul class="iconsList iconsList-large">
+              <li><i class="icon-star"></i> {{"es único y patentado" | trans }}</li>
+              <li><i class="icon-star"></i> {{"continua evolucion" | trans }}</li>
+              <li><i class="icon-star"></i> {{"precios bajos" | trans }}</li>
+              <li><i class="icon-star"></i> {{"calidad excelente" | trans }}</li>
+            </ul>
+          </section>
+        </div>
+        <div class="span8">
+          <section class="testimonial">
+            <h3>{{"Testimonios y Opiniones" | trans }}</h3>
+            <div class="carousel slide" id="testimonialCarousel">
+              <div class="carousel-inner">
+                <div class="item active">
+                  <blockquote>" {% trans %}Increible, cuando abrí la caja me sorprendio la calidad de su aspecto, en tan solo cinco minutos instalado en mi furgo, ha superado todas mis espectativas.{% endtrans %}"<span class="arrowTestimonial"></span> </blockquote>
+                  <div class="clientIcon"><i class="icon-user"></i> Efrén Monleon</div>
+                </div>
+                <div class="item">
+                  <blockquote>" {% trans %}Enhorabuena por vuestro trabajo, ha sido ponerselo a mi furgo y parece nueva :),  increible el acabado y todo...muy contenta, gracias por todo.{% endtrans %}"<span class="arrowTestimonial"></span></blockquote>
+                  <div class="clientIcon"><i class="icon-user"></i> Maria J.Suarez</div>
+                </div>
+              
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+    <!--2 blocs-->
+  </section>
+{% endblock %}

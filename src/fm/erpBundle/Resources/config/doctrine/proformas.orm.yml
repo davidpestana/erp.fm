@@ -1,0 +1,36 @@
+fm\erpBundle\Entity\proformas:
+    type: entity
+    manyToOne:
+        cliente:
+            targetEntity: clientes
+            inversedBy: proformas
+            joinColumn:
+                name: cliente_id
+                referencedColumnName: id     
+    manyToMany:
+        misproductos:
+            targetEntity: productos
+            joinTable:
+                name: proformasproductos
+                joinColumns:
+                    proforma_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    producto_id:
+                        referencedColumnName: id        
+    table: null
+    repositoryClass: fm\erpBundle\Entity\proformasRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        codproforma:
+            type: string
+            length: 255
+        fecha:
+            type: date
+        observaciones:
+            type: text
+    lifecycleCallbacks: {  }

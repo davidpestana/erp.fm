@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>kits edit</h1>
+
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('kits') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+
+
+<script>
+    function add() {
+        var collectionHolder = $('#fm_kitbundle_kits_galeria');
+
+        var prototype = collectionHolder.attr('data-prototype');
+
+        form = prototype.replace(/\$\$name\$\$/g, collectionHolder.children().length);
+
+        form =  $(form).filter('div').first().html($(form).html() 
+        	+ '<a class="delete_link" href="#">remove</a>');
+
+        collectionHolder.append(form);
+    }
+    
+    /*$('a.jslink').click(function(event){
+        event.preventDefault();
+        add();
+    });
+    
+    $(document).on('click', 'a.delete_link',function(event){
+        $(event.currentTarget).parent().remove();
+    });*/
+</script>
+{% endblock %}

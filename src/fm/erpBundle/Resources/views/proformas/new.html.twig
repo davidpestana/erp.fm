@@ -1,0 +1,12 @@
+{% extends "erpBundle::layout.modal.html.twig" %}
+
+{% block title -%} Nueva Factura Proforma {% endblock %}
+
+{% block body -%}
+    <form action="{{ path('proformas_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+        <button type="submit" class="btn blue">GENERAR FACTURA PROFORMA</button>
+        </p>
+    </form>
+{% endblock %}

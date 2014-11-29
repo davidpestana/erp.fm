@@ -1,0 +1,14 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: fmi
+    database_user: root
+    database_password: Nacho-123
+    mailer_transport: gmail
+  #  mailer_host: 127.0.0.1
+    mailer_user: contacto@furgomania.com
+    mailer_password: <LpGC12>
+    locale: es
+    secret: ThisTokenIsNotSoSecretChangeIt
+    expires: 1000

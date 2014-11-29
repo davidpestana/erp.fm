@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>proveedoresfacturas list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Codfactura</th>
+                <th>Fecha</th>
+                <th>Base</th>
+                <th>Iva</th>
+                <th>Estado</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('proveedoresfacturas_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.codfactura }}</td>
+                <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.base }}</td>
+                <td>{{ entity.iva }}</td>
+                <td>{{ entity.estado }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('proveedoresfacturas_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('proveedoresfacturas_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('proveedoresfacturas_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

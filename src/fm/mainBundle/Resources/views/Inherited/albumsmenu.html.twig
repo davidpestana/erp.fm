@@ -1,0 +1,55 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}Albums{% endblock %}
+{% block description %}Bla Bla{% endblock %}
+{% block article %}
+	
+  <section id="content" class="portfolio">
+    <header class="page-header">
+      <h1>Albums Furgomania</h1>
+    </header>
+    <div class="row">
+      <aside class="span3">
+        {{render(controller('mainBundle:Default:leftside'))}}
+        <nav id="filter" class="filterVertical colssidebar">
+          <ul>
+            <li><a href="" class="current btn btn-inverse btn-mini" data-filter="*">All</a></li>
+            <li><a href="" class="btn  btn-inverse btn-mini"  data-filter=".photo">Photography</a></li>
+            <li><a href="" class="btn btn-inverse btn-mini"  data-filter=".web">Web design</a></li>
+            <li ><a href="" class="btn btn-inverse btn-mini" data-filter=".cats">Cats</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <div class="span9">
+               <div class="alert alert-info">
+        
+        <h4>IMPORTANTE!</h4>
+        Furgomania ya no realiza trabajos a medida o personalizados, 
+        los KITS AUTOINSTALABLES de Furgomania son la solucion de mejor calidad y de mejor precio para camperizar tu furgoneta.
+      </div>
+      {% for i in 0..(((entities|length)/3)|round(0,'ceil')) %}
+      <div class="portfolio-items isotopeWrapper clearfix row" id="3">
+      {% for entity in entities|slice(i*3 , 3) %}  
+                {% if entity.fotos|length > 0 %}
+                <article class="span3 isotopeItem photo presBloc">
+                  <section class="imgWrapper"> <img src="http://www.furgomania.com/files/{{ random(entity.fotos).miniatura }}" alt=""/>
+                    <div class="media-hover">
+                      <div class="mask">
+                        <div class="insideLinkHolder"> <a href="{{ path('fm_main_inherited_albums',{'slug':entity.slug})}}" data-placement="top" class="hover-link tips" title="VER&nbsp;ALBUM" target="_blank"> <span class="iconWrapper iconLink"><i class="icon-link"></i></span> </a> </div>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="blocBody">
+                    <h3>{{ entity.titulo}}</h3>
+                    <p  class="boxTextWrapper"> {{ entity.descripcion}} <a href="{{ path('fm_main_inherited_albums',{'slug':entity.slug})}}" class="moreLink">&rarr; ver album</a> </p>
+                  </section>
+                </article>
+                {% endif %}
+      {% endfor %}
+      </div>
+      {% endfor %}
+
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

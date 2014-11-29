@@ -1,0 +1,32 @@
+fm\erpBundle\Entity\proveedores:
+    type: entity
+    oneToMany:
+        facturas:
+            targetEntity: proveedoresfacturas
+            mappedBy: proveedor
+    table: null
+    repositoryClass: fm\erpBundle\Entity\proveedoresRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        nombre:
+            type: string
+            length: 255
+        cif:
+            type: string
+            length: 255
+        telefono:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        ccc:
+            type: string
+            length: '20'
+        observaciones:
+            type: text
+    lifecycleCallbacks: {  }

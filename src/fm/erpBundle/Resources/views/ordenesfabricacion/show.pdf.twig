@@ -1,0 +1,135 @@
+<pdf>
+
+
+    <dynamic-page encoding="UTF-8" font-type="DejaVuSans" page-size="a4">
+        <table>
+           <tr>
+               <td border-color="white"><img width="100%" src="{{ pdf_image('erpBundle:logo_reduced.png') }}" /></td>
+               <td border-color="white">
+                    <h1 text-align="center">ORDEN DE FABRICACIÓN</h1>
+                    <div font-size="65px" background-color="#EEEEEE" height="100px" text-align="center">{{ entity.numeroserie }}</div>
+               </td>
+           </tr>
+
+        </table>
+
+
+        <table margin="25px">
+           <tr>
+               <td border-color="white"><h1>{{ entity.producto }}</h1></td>
+               <td border-color="white">
+                        Fecha de emisión: {{entity.fecha | date('d/m/Y')}} <br />
+                        Fecha de control: {{entity.fecha | date('d/m/Y')}} (prevista)
+               </td>
+           </tr>
+
+        </table>
+
+        <table>
+            <tr font-size="18px"><td padding="20px" width="60px">REF.</td><td padding="20px" width="100px">FUR.</td><td padding="20px">DESCRIPCION</td><td padding="20px">OBSERVACIONES</td></tr>
+
+
+
+                                        {% for referencia in entity.contenido  %}
+                                            <tr>
+                                            <td padding="20px 20px">{{ referencia.id + 10000 }}</td>
+                                            <td padding="20px 20px">{{ referencia.codfurgo }}</td>
+                                            <td padding="20px 20px">{{ referencia.descripcion }}</td>
+                                            <td padding="20px 20px"></td>
+                                            </tr>
+                                        {% endfor %}
+
+        </table>
+    </dynamic-page>
+
+
+
+
+
+
+
+    <dynamic-page encoding="UTF-8" font-type="DejaVuSans" page-size="a4" margin="0mm 0mm">
+    	<table>
+            {% for filas in range(0, 1) %}
+                <tr>
+                    {% for columnas in range(0,1) %}
+
+                  
+                        <td border-color="#FFFFFF">
+                            <div width="105mm" height="123.5mm">
+                                <div margin="0mm 8mm">
+                                    <img width="100%" src="{{ pdf_image('erpBundle:logo_reduced.png') }}" />
+                                    <div font-size="12px" text-align="center">Equipamientos camper autoinstalables para furgonetas</div>
+
+                                    <div font-size="65px" text-align="center">{{ entity.numeroserie }}</div>
+
+
+                                    <p>
+                                    <h3>{{ entity.producto }}</h3>
+                                    <ul>
+                                        {% for referencia in entity.contenido  %}
+                                            <li>{{ referencia.codfurgo }} {{ referencia.descripcion }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    </p>
+                                </div>
+                            </div>
+                            <div width="105mm" height="25mm"  background-color="#EEEEEE"> 
+                                    <div margin="3mm">
+                                        <div height="15mm" background-color="white" border-color="white">V.B. Control de Calidad:</div>   
+
+                
+                                        <table font-size="10px">
+                                        <tr><td background-color="white" border-color="white">www.furgomania.com</td>
+                                        <td text-align="right" border-color="white" background-color="white">
+                                        {% if entity.micajon %}
+                                        {{ entity.micajon.alto }}x{{ entity.micajon.largo }}x{{ entity.micajon.ancho }}mm   
+                                        {{ ((entity.micajon.alto/1000) * (entity.micajon.ancho/1000) * (entity.micajon.largo/1000)) | number_format(2) }}m3
+                                        {% endif %}
+                                        </td></tr></table>
+                                    </div>
+                            </div>
+                        </td>
+                    {%endfor%}
+                </tr>
+            {% endfor %}
+        </table>
+
+
+
+
+
+    </dynamic-page>
+        <dynamic-page encoding="UTF-8" font-type="DejaVuSans" page-size="a4-landscape" margin="0mm 0mm">
+
+
+
+        <table>
+            {% for filas in range(0, 1) %}
+                <tr>
+                    {% for columnas in range(0,3) %}
+                        <td border-color="#FFFFFF">
+                            <div width="74mm" height="104.68mm" border-color="#FFFFFF">
+                             <div margin="3mm">
+                                    <img width="100%" src="{{ pdf_image('erpBundle:logo_reduced.png') }}"/>
+                                    <p font-size="50px" text-align="center">{{ entity.numeroserie }}</p>
+                                   <div font-size="10px">
+                                    <h2>{{ entity.producto }}</h2>
+
+                                    <ul>
+                                        {% for referencia in entity.contenido  %}
+                                            <li>{{ referencia.codfurgo }} {{ referencia.descripcion }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    {%endfor%}
+                </tr>
+            {% endfor %}
+        </table>
+
+
+    </dynamic-page>
+</pdf>

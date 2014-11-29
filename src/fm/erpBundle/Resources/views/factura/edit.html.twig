@@ -1,0 +1,51 @@
+{% extends "erpBundle::layout.modal.html.twig" %}
+
+{% block title -%} Editor de Factura (Test) {% endblock %}
+
+
+{% form_theme edit_form _self %}
+
+{% block _fm_erpbundle_factura_misitems_entry_row %}
+	{% spaceless %}
+	
+    	<div class="piece alert alert-block alert-info fade in">
+        	   <!-- <button type="button" class="close">&times;</button>-->
+        	    <button type="button" class="close" data-dismiss="alert"></button>
+
+        		{# form_label(form) #}
+        		{{ form_errors(form) }}
+        		{{ form_widget(form) }}
+        		<div class="clear"></div>
+    	</div>
+	{% endspaceless %}
+{% endblock %}
+
+{% block _fm_erpbundle_factura_misitems_entry_label %}
+{% endblock %}
+
+{% block body -%}
+
+<style type="text/css">
+	#fm_erpbundle_factura_misitems .piece {position:relative;}
+	#fm_erpbundle_factura_misitems .piece div div:nth-child(1){ width:100%; float:left; }
+	#fm_erpbundle_factura_misitems .piece div div:nth-child(n + 2){ width:30%; float:left; padding:2px; }
+	#fm_erpbundle_factura_misitems .piece div div input{ width:90%;}
+	/*#fm_erpbundle_factura_misitems .piece .close {position:absolute; top:0px; right: 0px;}*/
+	#fm_erpbundle_factura_misitems .piece .clear {clear:both;}
+</style>
+
+
+        <div class="row-fluid">
+
+	        <div class="span6">
+				{{ form(edit_form) }}
+	        </div>
+
+	        <div class="span6">
+				{{ render(controller('erpBundle:productos:listado')) }}
+	        </div>
+
+        </div>
+
+    
+{% endblock %}

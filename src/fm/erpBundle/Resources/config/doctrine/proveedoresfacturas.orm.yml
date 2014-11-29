@@ -1,0 +1,37 @@
+fm\erpBundle\Entity\proveedoresfacturas:
+    type: entity
+    manyToOne:
+        proveedor:
+            targetEntity: proveedores
+            inversedBy: facturas
+            joinColumn:
+                nullable: false
+                name: proveedor_id
+                referencedColumnName: id 
+    table: null
+    repositoryClass: fm\erpBundle\Entity\proveedoresfacturasRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        codfactura:
+            type: string
+            length: 255
+        fecha:
+            type: date
+        fechapagado:
+            type: date
+            nullable: true
+        base:
+            type: integer
+        iva:
+            type: integer
+        estado:
+            type: string
+            length: 255
+        observaciones:
+            type: text
+            nullable: true
+    lifecycleCallbacks: {  }

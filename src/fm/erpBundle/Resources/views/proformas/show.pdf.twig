@@ -1,0 +1,97 @@
+<pdf>
+    <dynamic-page encoding="UTF-8" font-type="DejaVuSans">
+
+    	<table>
+    		<tr><td border-color="white">
+    		<img width="300px" src="{{ pdf_image('erpBundle:logo_reduced.png') }}" />
+    		<p font-size="14px">
+    		<b>Joaquim Porcel Miralpeix</b><br />
+    		79301276-J<br />
+    		c/ Estenedor 35<br />
+    		17401, ARBÚCIES<br />
+    		GIRONA
+    		</p>
+    		</td>
+    		<td border-color="white">
+    		<p text-align="right">
+			<h1 font-size="25px">FACTURA PROFORMA</h1>
+    		Nº {{ entity.codproforma }}<br />
+    		{{ entity.fecha|date('d/m/Y') }}<br />
+    		Validez 30 Dias</p>
+    		<p text-align="right" font-size="14px">
+    		<b>DATOS CLIENTE:</b><br />
+    		{{ entity.cliente }}<br />
+    		{{ entity.cliente.dniCif }}<br />
+    		{{ entity.cliente.direccion }}<br />
+    		{{ entity.cliente.cp }}
+    		{{ entity.cliente.provincia }}</p>
+    		</td></tr>
+    	</table>
+    	<p>
+    	<table>
+    		<tr background-color="#eb613d" color="white" font-size="16px" text-align="center"> 
+    		<td width="270px" border-color="#eb613d" padding="2px">CONCEPTO</td>
+    		<td border-color="#eb613d" padding="2px" width="80px">UNIDADES</td>
+    		<td border-color="#eb613d" padding="2px" width="80px">IMPORTE</td>
+    		<!--<td border-color="#eb613d" padding="2px" width="80px">DESCUENTO</td>-->
+    		<td border-color="#eb613d" padding="2px" width="80px">TOTAL</td></tr>
+            {% set base = 0 %}
+    		{% for producto in entity.misproductos  %}
+            {% set base = base + producto.precio %}
+        	<tr font-size="15px">
+        	<td border-color="#eb613d" padding="2px">{{ producto.concepto}}</td>
+        	<td border-color="#eb613d" padding="2px" text-align="center"> 1 </td>
+        	<td border-color="#eb613d" padding="2px" text-align="right"> {{ producto.precio|number_format(2, '.', ',') }} € </td>
+        	<!--<td border-color="#eb613d" padding="2px" text-align="right"> {{ '0'|number_format(2, '.', ',') }} € </td>-->
+        	<td border-color="#eb613d" padding="2px" text-align="right"> {{ producto.precio|number_format(2, '.', ',') }} € </td></tr>
+        	{% endfor %}
+    	</table>
+
+    	<!--<table margin="2px">
+    		<tr font-size="15px" text-align="right"> 
+    		<td border-color="white" padding="2px" color="#777777" >TOTAL DESCUENTOS: {{ 100 |number_format(2, '.', ',') }} € </td>
+    		<td border-color="white" width="100px" padding="2px"></td></tr>
+    	</table>-->
+    	</p>
+    	<p>
+    	<table font-size="15px" text-align="right">
+    		<tr>
+	    		<td padding="2px" border-color="white">BASE IMPONIBLE </td>
+	    		<td padding="2px" width="100px" border-color="#eb613d">{{ base |number_format(2, '.', ',') }} €</td>
+    		</tr>
+    		<tr>
+    			<td padding="2px" border-color="white">IVA 21 % </td>
+    			<td padding="2px" border-color="#eb613d">{{ base * 0.21 |number_format(2, '.', ',') }} €</td>
+    		</tr>
+    		<tr>
+    			<td padding="2px" border-color="white">TOTAL </td>
+    			<td padding="2px" border-color="#eb613d">{{ base * 1.21 |number_format(2, '.', ',') }} €</td>
+    		</tr>   		
+    	</table>
+    	</p>
+
+    	<p><h4> OBSERVACIONES: {{ entity.observaciones}} </h4></p>
+
+		<h2 background-color="#eb613d" color="white" font-size="16px" text-align="center"> FACTURA PRO-FORMA SIN VALOR COMERCIAL </h2>
+		<p>Abónese la cantidad mediante transferencia bancaria indicando el numero de esta factura pro-forma dentro del plazo indicado, este documento junto con el comprobante de la transferencia acreditan que el titular de esta factura pro-forma recibira en la dirección indicada los conceptos detallados en la misma en un plazo máximo de 30 dias naturales a partir de la fecha de la trasnferencia.</p>
+
+		<h1 text-align="center">BANCO POPULAR<br />
+0075 0983 83 0703188302</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </dynamic-page>
+</pdf>

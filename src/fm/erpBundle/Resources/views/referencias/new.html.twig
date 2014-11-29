@@ -1,0 +1,16 @@
+{% extends "erpBundle::layout.modal.html.twig" %}
+
+{% block title -%} Nueva Referencia{% endblock %}
+
+{% block body -%}
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('referencias') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

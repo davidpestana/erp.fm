@@ -1,0 +1,25 @@
+cms:
+    resource: "@cmsBundle/Resources/config/routing.yml"
+    prefix:   /cms
+
+root:
+    pattern: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /%locale%/
+        permanent: true
+
+backend:
+    resource: "@backendBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+kit:
+    resource: "@KitBundle/Resources/config/routing.yml"
+    prefix:   /
+
+main:
+    resource: "@mainBundle/Resources/config/routing.yml"
+    prefix:   /
+erp:
+    resource: "@erpBundle/Resources/config/routing.yml"
+    prefix:   /erp

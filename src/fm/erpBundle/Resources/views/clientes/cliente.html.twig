@@ -1,0 +1,22 @@
+
+<div class="tile double bg-purple">
+						<div class="tile-body">
+					
+                    
+							
+							<h4>{{entity.name}}</h4>
+							<p>
+								<div>{{entity.direccion}}, {{entity.localidad}} ({{entity.cp}}) {{entity.provincia}}</div>
+								<div>{{entity.telefono}} ({{entity.email}})</div>
+
+							</p>
+						</div>
+						<div class="tile-object">
+							<div>
+									<a href="{{ path('clientes_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn purple" data-toggle="modal"><i class="icon-edit"></i> Editar</a>
+							</div>
+							<div class="number">
+								{{entity.dniCif}}
+							</div>
+						</div>
+					</div>

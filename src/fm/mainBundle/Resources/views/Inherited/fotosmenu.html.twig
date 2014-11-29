@@ -1,0 +1,34 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}Albums{% endblock %}
+{% block description %}Bla Bla{% endblock %}
+{% block article %}
+<section class="content">
+    <header class="page-header">
+      <h1>Sitemap de Fotos</h1>
+    </header>
+          <div class="alert alert-info">
+        
+        <h4>IMPORTANTE!</h4>
+        Furgomania ya no realiza trabajos a medida o personalizados, 
+        los KITS AUTOINSTALABLES de Furgomania son la solucion de mejor calidad y de mejor precio para camperizar tu furgoneta.
+      </div>
+
+     {% for i in 0..(((entities|length)/3)|round(0,'ceil')) %}
+      <div class="row">
+      {% for entity in entities|slice(i*3 , 3) %}  
+   	      <div class="span4">
+	        <h2><span>album #{{ entity.slug}}</span></h2>
+	        <ul class="iconsList">
+	        	{% for foto in entity.fotos| slice(0,10) %}
+	        		{% if foto.keywords != "" %}
+	          		<li><i class="icon-right-open"></i><a href="{{ path('fm_main_inherited_fotos',{'slug':foto.slug})}}">{{foto.keywords}}</a></li>
+	          		{% endif %}
+	          	{% endfor %}
+	        </ul>
+	      </div>            
+      {% endfor %}
+      </div>
+      {% endfor %}
+
+
+{% endblock %}

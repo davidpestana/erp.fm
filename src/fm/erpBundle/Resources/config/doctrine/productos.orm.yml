@@ -1,0 +1,31 @@
+fm\erpBundle\Entity\productos:
+    type: entity
+    manyToMany:
+        contenido:
+            targetEntity: referencias
+            joinTable:
+                name: pr
+                joinColumns:
+                    producto_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    referencia_id:
+                        referencedColumnName: id  
+    table: null
+    repositoryClass: fm\erpBundle\Entity\productosRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        concepto:
+            type: string
+            length: 255
+        precio:
+            type: integer
+        descuento:
+            type: integer
+        tipo:
+            type: string
+    lifecycleCallbacks: {  }

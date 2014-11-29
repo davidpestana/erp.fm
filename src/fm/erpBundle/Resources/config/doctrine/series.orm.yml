@@ -1,0 +1,18 @@
+fm\erpBundle\Entity\series:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        serie:
+            type: string
+            length: '2'
+        descripcion:
+            type: string
+            length: 255
+        operador:
+            type: integer
+    lifecycleCallbacks: {  }

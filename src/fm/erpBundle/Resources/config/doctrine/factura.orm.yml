@@ -1,0 +1,50 @@
+fm\erpBundle\Entity\factura:
+    type: entity
+    manyToOne:
+        cliente:
+            targetEntity: clientes
+            inversedBy: facturas
+            joinColumn:
+                nullable: false
+                name: cliente_id
+                referencedColumnName: id 
+        serie:
+            targetEntity: series
+            joinColumn:
+                nullable: false
+                name: serie_id
+                referencedColumnName: id 
+    oneToMany:
+        misitems:
+            targetEntity: item
+            mappedBy: factura
+            cascade: [persist]
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        codfactura:
+            type: string
+            length: 255
+            nullable: true
+        fechapagado:
+            type: date
+            nullable: true    
+        fecha:
+            type: date
+        base:
+            type: integer
+            nullable: true
+        iva:
+            type: integer
+            options:
+                default: 21
+        observaciones:
+            type: text
+            nullable: true
+        estado:
+            type: integer
+    lifecycleCallbacks: {  }

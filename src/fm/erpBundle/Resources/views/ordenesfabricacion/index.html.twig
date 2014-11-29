@@ -1,0 +1,82 @@
+{% extends "erpBundle::layout.html.twig" %}
+
+{% block title -%} ORDENES DE FABRICACIÓN {% endblock %}
+
+{% block body -%}
+
+
+            <div class="portlet box blue">
+
+                        <div class="portlet-title">
+                                <div class="caption"><i class="icon-globe"></i>listado general de cajones</div>
+                                <div class="actions">
+                                    <div class="btn-group">
+                                        <a class="btn" href="#" data-toggle="dropdown">
+                                        Mostrar/Ocultar Columnas
+                                        <i class="icon-angle-down"></i>
+                                        </a>
+                                        <div id="sample_2_column_toggler" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                                            <label><input type="checkbox" checked data-column="0">Id</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+
+
+
+    <table class="table table-striped table-bordered table-hover table-full-width" id="sample_2">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numeroserie</th>
+                <th>Producto</th>
+                <th>Estado</th>
+                <th>Envio</th>
+                <th>Fecha</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('ordenesfabricacion_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.numeroserie }}</td>
+                <td>{{ entity.producto }}</td>
+                <td>{{ entity.estado }}</td>
+                <td>{% if entity.mienvio %}
+                    <i class="icon-tag"> {{ entity.mienvio.id}}</i>  <i class="icon-calendar"> {{ entity.mienvio.fecha | date('Y-m-d')}}</i>
+                    {% if entity.mienvio.cliente %}
+                    <i class="icon-user"> {{ entity.mienvio.cliente.name }}</i>
+                    {% endif %}
+                    {% endif %}
+                </td>
+                <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d') }}{% endif %}</td>
+                <td>
+
+                        <a href="{{ path('ordenesfabricacion_show', { 'id': entity.id }) }}" class="modal_ajax_btn btn green mini" data-toggle="modal">ver detalles</a>
+   <a href="{{ path('ordenesfabricacion_show', { 'id': entity.id,'_format':'pdf'}) }}" class="btn mini red">ETIQUETAS PDF</a>
+
+
+                        <a href="{{ path('ordenesfabricacion_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn blue mini" data-toggle="modal">editar</a>
+                        <a href="{{ path('ordenesfabricacion_send', { 'id': entity.id }) }}" class="modal_ajax_btn btn blue mini" data-toggle="modal">emitir email</a>
+                       <a href="{{ path('ordenesfabricacion_clone', { 'id': entity.id }) }}" class="modal_ajax_btn btn blue mini" data-toggle="modal">clonar</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+            <a href="{{ path('ordenesfabricacion_new') }}" class="btn red modal_ajax_btn" data-toggle="modal">
+                CREAR NUEVA ORDEN DE FABRICACION
+            </a>
+
+
+
+        {% for producto in productos %} 
+            <a  class="btn red modal_ajax_btn" href="{{ path('ordenesfabricacion_new', { 'product': producto.id }) }}">{{ producto.concepto }}</a>
+        {% endfor %}
+
+
+    {% endblock %}
