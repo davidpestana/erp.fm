@@ -434,4 +434,32 @@ class factura
     {
         return $this->iva;
     }
+    /**
+     * @var \fm\erpBundle\Entity\Sociedades
+     */
+    private $sociedad;
+
+
+    /**
+     * Set sociedad
+     *
+     * @param \fm\erpBundle\Entity\Sociedades $sociedad
+     * @return factura
+     */
+    public function setSociedad(\fm\erpBundle\Entity\Sociedades $sociedad)
+    {
+        $this->sociedad = $sociedad;
+    
+        return $this;
+    }
+
+    /**
+     * Get sociedad
+     *
+     * @return \fm\erpBundle\Entity\Sociedades 
+     */
+    public function getSociedad()
+    {
+        return $this->sociedad;
+    }
 }

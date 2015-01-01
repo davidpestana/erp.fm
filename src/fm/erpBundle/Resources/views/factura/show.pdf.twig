@@ -5,12 +5,12 @@
     		<tr><td border-color="white">
     		<img width="300px" src="{{ pdf_image('erpBundle:logo_reduced.png') }}" />
     		<p font-size="14px">
-    		<b>Joaquim Porcel Miralpeix</b><br />
-    		79301276-J<br />
-    		c/ Estenedor 35<br />
-    		17401, ARBÚCIES<br />
-    		GIRONA
-    		</p>
+            <b>{{ entity.sociedad.RazonSocial }}</b><br />
+            {{ entity.sociedad.nif }}<br />
+            {{ entity.sociedad.direccion }}<br />
+            {{ entity.sociedad.cp }}, {{ entity.sociedad.localidad }}<br />
+            {{ entity.sociedad.provincia }}
+            </p>
     		</td>
     		<td border-color="white">
     		<p text-align="right">

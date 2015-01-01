@@ -1,6 +1,13 @@
 fm\erpBundle\Entity\factura:
     type: entity
     manyToOne:
+        sociedad:
+            targetEntity: Sociedades
+            inversedBy: facturas
+            joinColumn:
+                nullable: false
+                name: sociedad_id
+                referencedColumnName: id 
         cliente:
             targetEntity: clientes
             inversedBy: facturas

@@ -339,13 +339,15 @@ class facturaController extends Controller
   
 
 
-    private function getSerie($serie,$year,$grabar = false){
+    private function getSerie($serie,$year,$sociedadId,$grabar = false){
         if(file_exists('series.json'))
-            $data = (array) json_decode(file_get_contents('series.json'));
+            $data = (array) json_decode(file_get_contents('series.json'),true);
         else $data = array();
-        $data[$serie.$year] = isset($data[$serie.$year]) ? $data[$serie.$year] +1 : 1;
+
+        $data[$sociedadId][$serie.$year] = isset($data[$sociedadId][$serie.$year]) ? $data[$sociedadId][$serie.$year] +1 : 1;
+        
         if($grabar) file_put_contents('series.json', json_encode($data));
-        return $serie.str_pad($data[$serie.$year],4,"0",STR_PAD_LEFT)."-".$year;
+        return $serie.str_pad($data[$sociedadId][$serie.$year],4,"0",STR_PAD_LEFT)."-".$year;
     }
 
 
@@ -375,7 +377,7 @@ class facturaController extends Controller
             $form->add('submit', 'submit', array('label' => 'Grabar Factura','attr' => array('class' => 'btn green')) );
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $entity->setCodfactura($this->getSerie($entity->getSerie()->getSerie(),$entity->getFecha()->format('Y'),true));
+                $entity->setCodfactura($this->getSerie($entity->getSerie()->getSerie(),$entity->getFecha()->format('Y'),$entity->getSociedad()->getId(),true));
                 $entity->setBase();
                 $em->persist($entity);
                 $em->flush();
@@ -385,7 +387,7 @@ class facturaController extends Controller
             
 
             return array(
-                'numerofactura' => $this->getSerie($entity->getSerie()->getSerie(),$entity->getFecha()->format('Y')),
+                'numerofactura' => $this->getSerie($entity->getSerie()->getSerie(),$entity->getFecha()->format('Y'),$entity->getSociedad()->getId()),
                 'entity' => $entity,
                 'edit_form'   => $form->createView(),
             );

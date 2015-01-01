@@ -1,0 +1,33 @@
+fm\erpBundle\Entity\Sociedades:
+    type: entity
+    oneToMany:
+        facturas:
+            targetEntity: factura
+            mappedBy: sociedad
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        razonSocial:
+            type: string
+            length: 255
+            column: razon_social
+        nif:
+            type: string
+            length: 255
+        direccion:
+            type: string
+            length: 255
+        cp:
+            type: string
+            length: '10'
+        localidad:
+            type: string
+            length: 255
+        provincia:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

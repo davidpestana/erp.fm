@@ -20,7 +20,7 @@ class facturaType extends AbstractType
 /*->add('serie','choice', array(
     'choices'   => array('FV' => 'Factura de Venta (FV)', 'FM' => 'Factura Proforma (FM)' , 'FR' => 'Factura Rectificativa (FR)', 'AB' => 'Factura de Abono (AB)'),
     'required'  => true,
-))*/
+))*/        ->add('sociedad')
             ->add('serie')
             ->add('fecha')
             //->add('total')
