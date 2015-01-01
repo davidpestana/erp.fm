@@ -89,8 +89,8 @@
             <h2 background-color="#eb613d" color="white" font-size="16px" text-align="center"> FACTURA PRO-FORMA SIN VALOR COMERCIAL </h2>
             <p>Abónese la cantidad mediante transferencia bancaria indicando el numero de esta factura pro-forma dentro del plazo indicado, este documento junto con el comprobante de la transferencia acreditan que el titular de esta factura pro-forma recibira en la dirección indicada los conceptos detallados en la misma en un plazo máximo de 15 días hábiles a partir de la fecha de la trasnferencia.</p>
 
-            <h1 text-align="center">BANCO POPULAR</h1>
-            <h2 text-align="center">CUENTA: 0075 0983 83 0703188302<br /> IBAN: ES20 0075 0983 8307 0318 8302</h2>
+            <h1 text-align="center">{{ entity.sociedad.entidad }}</h1>
+            <h2 text-align="center">CUENTA: {{ entity.sociedad.codigoCuenta }}<br /> IBAN: {{ entity.sociedad.iban }}</h2>
 
 
         {% else %}

@@ -247,4 +247,116 @@ class Sociedades
     {
         return $this->facturas;
     }
+    /**
+     * @var string
+     */
+    private $entidad;
+
+    /**
+     * @var string
+     */
+    private $iban;
+
+    /**
+     * @var string
+     */
+    private $codigoCuenta;
+
+    /**
+     * @var string
+     */
+    private $observaciones;
+
+
+    /**
+     * Set entidad
+     *
+     * @param string $entidad
+     * @return Sociedades
+     */
+    public function setEntidad($entidad)
+    {
+        $this->entidad = $entidad;
+    
+        return $this;
+    }
+
+    /**
+     * Get entidad
+     *
+     * @return string 
+     */
+    public function getEntidad()
+    {
+        return $this->entidad;
+    }
+
+    /**
+     * Set iban
+     *
+     * @param string $iban
+     * @return Sociedades
+     */
+    public function setIban($iban)
+    {
+        $this->iban = $iban;
+    
+        return $this;
+    }
+
+    /**
+     * Get iban
+     *
+     * @return string 
+     */
+    public function getIban()
+    {
+        return $this->iban;
+    }
+
+    /**
+     * Set codigoCuenta
+     *
+     * @param string $codigoCuenta
+     * @return Sociedades
+     */
+    public function setCodigoCuenta($codigoCuenta)
+    {
+        $this->codigoCuenta = $codigoCuenta;
+    
+        return $this;
+    }
+
+    /**
+     * Get codigoCuenta
+     *
+     * @return string 
+     */
+    public function getCodigoCuenta()
+    {
+        return $this->codigoCuenta;
+    }
+
+    /**
+     * Set observaciones
+     *
+     * @param string $observaciones
+     * @return Sociedades
+     */
+    public function setObservaciones($observaciones)
+    {
+        $this->observaciones = $observaciones;
+    
+        return $this;
+    }
+
+    /**
+     * Get observaciones
+     *
+     * @return string 
+     */
+    public function getObservaciones()
+    {
+        return $this->observaciones;
+    }
 }
