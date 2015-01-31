@@ -1,0 +1,1 @@
+callback([{"validated":"1","facebook":"0","not_validated":"0","blocked":"0","special":"0","investigated":"0","totals":"1","day":"2014-10-29"}],'54');
