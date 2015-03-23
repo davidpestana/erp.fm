@@ -538,6 +538,8 @@ nav.filterVertical li {
 	margin-bottom:1.5em;
 }
 /************* FOOTER ************/
+footer a{color:#ddd;}
+
 #mainFooter .container {
 	padding:3em 2.5em;
 }
@@ -547,7 +549,12 @@ nav.filterVertical li {
 #footerRights {
 	margin-bottom:1.5em;
 }
-footer a{color:#ddd;}
+#footerRights a:hover {
+	color: #fff;
+}
+
+
+
 /* =============== TWEETS =================*/
 /*** twitter box ***/
 #twitterFrame iframe{width:100%; border:1px solid rgba(55,55,55,0.5)}
