@@ -874,7 +874,8 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 	width:55%;
 }
 .flexslider .caption.right {
-	right:0;
+	right:45px;
+	text-align: right;
 }
 .caption, .caption div {
 	display:none;
