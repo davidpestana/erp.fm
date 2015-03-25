@@ -15,9 +15,13 @@
         <nav id="mainMenu" class="clearfix pull-right">
           <ul class="clearfix">
 
-                <li><a href="{{path('homepage')}}" class="firstLevel {% if app.request.get('_route') == 'homepage' %}active{% endif %}">{% trans %}Inicio{% endtrans %}</a></li>
+                <li>
+				<a href="{{path('homepage')}}" class="firstLevel {% if app.request.get('_route') == 'homepage' %}active{% endif %}">{% trans %}Inicio{% endtrans %}</a>
+				</li>
                 
-                <li><a href="{{path('fm_main_paginas_kitautoinstalable')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_paginas_kitautoinstalable' %}active{% endif %}">{% trans %}Tu furgoneta camper en 5 min{% endtrans %}</a></li>
+                <li>
+				<a href="{{path('fm_main_paginas_kitautoinstalable')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_paginas_kitautoinstalable' %}active{% endif %}">{% trans %}Tu furgoneta camper en 5 min{% endtrans %}</a>
+				</li>
 
                 <li>
                 <a href="#"{#href="path('fm_main_paginas_furgonetacamper')"#} class="hasSubMenu {% if app.request.get('_route') == 'fm_kit_default_marca' or app.request.get('_route') == 'fm_kit_default_vehiculo'%}active{% endif %}">{{"Catálogo KITS"|trans}}</a>
@@ -36,15 +40,13 @@
 
             <!--    <li><a href="{{path('tienda')}}" class="firstLevel {% if app.request.get('_route') == 'tienda' %}active{% endif %}">{% trans %}Tienda{% endtrans %}</a></li>  -->
 
-                <li><a href="http://blog.furgomania.com" class="firstLevel">Blog</a></li>
+                <li>
+				<a href="http://blog.furgomania.com" class="firstLevel">Blog</a>
+				</li>
 			
 
                 <li>
 				<a href="{{path('fm_main_default_contacto')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_default_contacto' %}active{% endif %}">{% trans %}Contacto{% endtrans %}</a>
-				<ul>
-					<li><a href="{{path('fm_main_paginas_distribuidores')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_paginas_distribuidores' %}active{% endif %}">{% trans %}Distribuidores{% endtrans %}</a></li>
-					<li><a href="{{path('fm_main_paginas_concesionarios')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_paginas_concesionarios' %}active{% endif %}">{% trans %}Concesionarios{% endtrans %}</a></li>
-				</ul>
                 </li>
 
 

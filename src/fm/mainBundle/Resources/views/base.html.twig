@@ -35,67 +35,56 @@
     <section class="contactInfos">
       <div class="container">
         <div class="row">
-
-         
-
           <div class="span12">
-
-            <p class="pull-right">
-            <div class="addthis_sharing_toolbox" style="width:96px; float:right; padding-top:5px"></div>
+            <p class="pull-right clients">
+            <span class="contactMail" style="text-aling:center; margin-right: 5px;"><i class="icon-flag"></i> <a href="#">{% trans %}Empresa{% endtrans %}</a> | <a href="#">{% trans %}Fabricación{% endtrans %}</a> | <a href="{{path('fm_main_paginas_distribuidores')}}">{% trans %}Distribuidores{% endtrans %}</a> |  <a href="{{path('fm_main_paginas_concesionarios')}}">{% trans %}Concesionarios{% endtrans %}</a> | <span style="white-space: nowrap;">+34 628 137 304</span></span>
             </p>
-                 
-             <p class="pull-right clients">
-<!--             <span class="contactMail" style="text-aling:center"><i class="icon-flag"></i> <a href="#">{% trans %}Kit Auto Instalable, Producto Patentado{% endtrans %} - {% trans %}Fabricado en Gerona, España{% endtrans %} </a> &nbsp;&nbsp; -->
-             <span class="contactMail" style="text-aling:center; margin-right: 5px;"><i class="icon-flag"></i> <a href="#">{% trans %}Empresa{% endtrans %}</a> | <a href="#">{% trans %}Fabricación{% endtrans %}</a> | <a href="{{path('fm_main_paginas_distribuidores')}}">{% trans %}Distribuidores{% endtrans %}</a> |  <a href="{{path('fm_main_paginas_concesionarios')}}">{% trans %}Concesionarios{% endtrans %}</a> | +34 628 137 304
-             </span>
-             </p>
+          </div>
+		  
+          <div class="span12">
+            <p class="pull-left">
+				{% set locale = app.request.locale %}
 
-             <p class="pull-left">
-                    {% set locale = app.request.locale %}
+				{% if locale == 'es' %}
+				<span>español</span>
+				{% else %}
+				<a href="{{ path('homepage', { '_locale': 'es' }) }}">español</a>
+				{% endif %}
 
-                    {% if locale == 'es' %}
-                    <span>español</span>
-                    {% else %}
-                    <a href="{{ path('homepage', { '_locale': 'es' }) }}">español</a>
-                    {% endif %}
+				{% if locale == 'en' %}
+				<span>english</span>
+				{% else %}
+				<a href="{{ path('homepage', { '_locale': 'en' }) }}">english</a>
+				{% endif %}
 
-                    {% if locale == 'en' %}
-                    <span>english</span>
-                    {% else %}
-                    <a href="{{ path('homepage', { '_locale': 'en' }) }}">english</a>
-                    {% endif %}
+				{# if locale == 'it' %}
+				<span>italiano</span>
+				{% else %}
+				<a href="{{ path('homepage', { '_locale': 'it' }) }}">italiano</a>
+				{% endif #}
 
-                    {# if locale == 'it' %}
-                    <span>italiano</span>
-                    {% else %}
-                    <a href="{{ path('homepage', { '_locale': 'it' }) }}">italiano</a>
-                    {% endif #}
+				{# if locale == 'de' %}
+				<span>deutsche</span>
+				{% else %}
+				<a href="{{ path('homepage', { '_locale': 'de' }) }}">deutsche</a>
+				{% endif %}
+				
+				{% if locale == 'fr' %}
+				<span>français</span>
+				{% else %}
+				<a href="{{ path('homepage', { '_locale': 'fr' }) }}">français</a>
+				{% endif #}
+            </p>
 
-                    {# if locale == 'de' %}
-                    <span>deutsche</span>
-                    {% else %}
-                    <a href="{{ path('homepage', { '_locale': 'de' }) }}">deutsche</a>
-                    {% endif %}
-                    
-                    {% if locale == 'fr' %}
-                    <span>français</span>
-                    {% else %}
-                    <a href="{{ path('homepage', { '_locale': 'fr' }) }}">français</a>
-                    {% endif #}
-                    
-                </p>
-
-
+			<p class="pull-right">
+			<div class="addthis_sharing_toolbox" style="width:96px; float:right; padding-top:5px"></div>
+			</p>
 
             {#<span class="contactMail"><i class="icon-mail"></i> <a href="#"> contacto@furgomania.com </a></span>
             
             {#<span class="contactPhone"> <i class="icon-phone"></i> 902.120.205{# <img src="/whatsapp.png" /> 628.137.304</span>}#}
 
-            
-        
-
           </div>
-
 
         </div>
       </div>
