@@ -13,23 +13,21 @@
 
       <section class="span12">
         <div class="portfolio-items isotopeWrapper clearfix da-thumbs" id="1" >
-	{% for entity in entities %}
+		
+		{% for entity in entities %}
 
           <div class=" isotopeItem {{entity.modeloslug}} row mb40">
             <article class=" photo presBloc">
               <section class="span5"> 
 
-
-              <a href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}"><img src="{{ entity.galeria.0.img }}" alt=""/></a>
+				<a href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}">
+					<img src="{{ entity.galeria.0.img }}" alt=""/>
+				</a>
               
                 <div class="media-hover">
                   <div class="mask">
                     <div class="insideLinkHolder">
-
-                    <a href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}" data-placement="top" class="hover-link tips" title="ver&nbsp;mas&nbsp;de&nbsp;este&nbsp;kit"> <span class="iconWrapper iconLink"><i class="icon-link"></i></span> </a>
-
-
-
+						<a href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}" data-placement="top" class="hover-link tips" title="ver&nbsp;mas&nbsp;de&nbsp;este&nbsp;kit"> <span class="iconWrapper iconLink"><i class="icon-link"></i></span> </a>
                     </div>
                   </div>
                 </div>
@@ -37,21 +35,22 @@
               <section class="blocBody span7">
                 <h3>{{entity.nombre | trans }}</h3>
                 <p  class="boxTextWrapper">
+					{{ entity.descripcion | trans | length > 500 ? entity.descripcion | trans | slice(0, 500) ~ '...' : entity.descripcion | trans }}
+				</p>
 
-{{ entity.descripcion | trans | length > 500 ? entity.descripcion | trans | slice(0, 500) ~ '...' : entity.descripcion | trans }}
-</p>
+				<p>
+					<a class="btn" href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}"><i class="icon-ok"></i> {{ entity.precio }} €</a>
+				</p>
+				
+				{#<i class="icon-video"> Video disponible</i>#}
 
-<p>
-<a class="btn" href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}"><i class="icon-ok"></i> {{ entity.precio }} €</a>
-</p>
-		{#<i class="icon-video"> Video disponible</i>#}
-
-                
               </section>
             </article>
           </div>
-    {% endfor %}      
-        </div>
+		
+		{% endfor %}      
+        
+		</div>
       </section>
     </div>
   </section>

@@ -27,16 +27,20 @@
 		</div>    
   		<div class="row">
 		  	<div class="span8">  
-		          <h2>{{ entity.nombre}} <span>{{ entity.marca}} {{entity.modelo }} </span></h2>
-		          <blockquote>{{ entity.descripcion | trans }}</blockquote>
-				<div style="border:1px dashed #EEE; padding:5px;">
+				<h2>{{ entity.nombre}} <span>{{ entity.marca}} {{entity.modelo }} </span></h2>
+				<blockquote>{{ entity.descripcion | trans }}</blockquote>
+				
+				{% if entity.features %}
+					<div style="border:1px dashed #EEE; padding:5px;">
 						<h3>{{"Carácteristicas" | trans }}:</h3>
 						<ul class="iconsList iconsList-large">
 						{% for component in entity.features %}
 							<li><i class="icon-star">{{component | trans }}</i></li>
 						{% endfor %}
 						</ul>
-				</div>
+					</div>
+				{% endif %}
+				
         	</div>
           	<div class="span4">
 				<div class="pricingBloc focusPlan">
