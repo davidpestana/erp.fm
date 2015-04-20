@@ -970,6 +970,19 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 /********* Configuration fourth slide *******/
 
 
+.th-top.animated.fadeInLeftBig,
+.th-top.animated.fadeInRightBig {
+  width: 50%;
+}
+
+.th-bottom.animated.fadeInLeftBig,
+.th-bottom.animated.fadeInRightBig {
+  width: 50%;
+  position: relative;
+  bottom: 30px;
+}
+
+
 
 /* #Carousel
 ================================================== */
