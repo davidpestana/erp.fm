@@ -975,11 +975,32 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   width: 50%;
 }
 
-.th-bottom.animated.fadeInLeftBig,
+.th-bottom.animated.fadeInLeftBig {
+  width: 50%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px
+}
+
 .th-bottom.animated.fadeInRightBig {
   width: 50%;
-  position: relative;
-  bottom: 30px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px; 
+}
+
+.flexslider .caption.left {
+  left: 30px;
+  text-align: left;
+  height: 100%;
+  width: 50%;
+}
+
+.flexslider .caption.right {
+  right: 30px;
+  text-align: right;
+  height: 100%;
+  width: 50%;
 }
 
 
