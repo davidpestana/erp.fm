@@ -972,25 +972,21 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
 .th-top.animated.fadeInLeftBig,
 .th-top.animated.fadeInRightBig {
-  margin-top: 30px;
   width: 50%;
-  border: 5px solid white;
 }
 
 .th-bottom.animated.fadeInLeftBig {
   width: 50%;
   position: absolute;
-  bottom: 30px;
-  left: 0px;
-  border: 5px solid white;
+  bottom: 0px;
+  left: 0px
 }
 
 .th-bottom.animated.fadeInRightBig {
   width: 50%;
   position: absolute;
-  bottom: 30px;
+  bottom: 0px;
   right: 0px; 
-  border: 5px solid white;
 }
 
 .flexslider .caption.left {
