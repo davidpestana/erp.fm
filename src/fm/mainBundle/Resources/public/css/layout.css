@@ -990,17 +990,21 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 }
 
 .flexslider .caption.left {
+  display: block;
   left: 30px;
   text-align: left;
   height: 100%;
   width: 50%;
+  max-height: 524px;
 }
 
 .flexslider .caption.right {
+  display: block;
   right: 30px;
   text-align: right;
   height: 100%;
   width: 50%;
+  max-height: 524px;
 }
 
 
