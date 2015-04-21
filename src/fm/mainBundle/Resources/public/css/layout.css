@@ -975,6 +975,8 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 .th-top.animated.fadeInRightBig {
   display: block;
   width: 50%;
+  margin-top: 30px;
+  border: 5px solid #F76B17;
 }
 
 .th-bottom.animated.fadeInLeftBig {
