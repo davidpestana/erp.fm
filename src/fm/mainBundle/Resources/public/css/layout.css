@@ -931,7 +931,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 .caption .element2-1, .caption .element2-2, .caption .element2-3, .caption .element2-4 {
 }
 .caption .element2-1 {
-	margin-top:40px;
+	margin-top:3%;
 }
 .caption .element2-3 p {
 	width:320px;
@@ -944,7 +944,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 	margin-left:53px;
 }
 .caption .element3-1 {
-	margin-top:40px;
+	margin-top:3%;
 }
 .caption .element3-2 {
 	margin-top:20px;
@@ -959,7 +959,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 	/*margin-left:30px;*/
 }
 .caption .element4-1 {
-	margin-top:40px;
+	margin-top:3%;
 }
 .caption .element4-2 {
 	margin-top:20px;
@@ -971,47 +971,66 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
 
 /****** Configuracion Slider compuesto ******/
-.th-top.animated.fadeInLeftBig,
+.th-top.animated.fadeInLeftBig {
+  display: block;
+  width: 25%;
+  margin-top: 3%;
+  margin-left: 3%;
+  border: 5px solid #F76B17;
+}
+
 .th-top.animated.fadeInRightBig {
   display: block;
-  width: 50%;
-  margin-top: 30px;
+  width: 25%;
+  margin-top: 3%;
+  margin-right: 3%;
   border: 5px solid #F76B17;
 }
 
 .th-bottom.animated.fadeInLeftBig {
   display: block;
-  width: 50%;
+  width: 25%;
   position: absolute;
-  bottom: 30px;
-  left: 0px;
+  bottom: 3%;
+  left: 3%;
   border: 5px solid #F76B17;
 }
 
 .th-bottom.animated.fadeInRightBig {
   display: block;
-  width: 50%;
+  width: 25%;
   position: absolute;
-  bottom: 30px;
-  right: 0px;
+  bottom: 3%;
+  right: 3%;
+  border: 5px solid #F76B17;
+}
+
+.th-bottom-center.animated {
+  width: 25%;
+  position: absolute;
+  bottom: 3%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
   border: 5px solid #F76B17;
 }
 
 .flexslider .caption.left {
   display: block;
-  left: 30px;
+  left: 0px;
   text-align: left;
   height: 100%;
-  width: 50%;
+  width: 100%;
   max-height: 524px;
 }
 
 .flexslider .caption.right {
   display: block;
-  right: 30px;
+  right: 0px;
   text-align: right;
   height: 100%;
-  width: 50%;
+  width: 100%;
   max-height: 524px;
 }
 /************ FIN Slider compuesto ***********/
