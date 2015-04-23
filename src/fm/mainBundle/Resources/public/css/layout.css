@@ -1006,14 +1006,14 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 }
 
 .th-bottom-center.animated {
-  width: 25%;
+  width: 15%;
   position: absolute;
   bottom: 3%;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
-  border: 5px solid #F76B17;
+/*  border: 5px solid #F76B17;*/
 }
 
 .flexslider .caption.left {
