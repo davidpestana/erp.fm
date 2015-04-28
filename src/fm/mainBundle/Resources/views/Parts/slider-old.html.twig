@@ -14,9 +14,51 @@
         <ul class="slides sliderWrapper">
 
 
-         <li class="slideN0" style="width: 930px; float: left; display: block;"> <img src="/img/slider/viano-larga/fondo.jpg" alt="pic 2"/>
-            <a href="/furgoneta-camper/mercedes/">
-			<div class="caption left">
+          {#<li class="slideN0"> <img src="{{ asset('img/fondo.jpg') }}" alt="pic 1"/>
+
+
+            <div class="caption left" style="width:100%; left:0px;">
+              <div data-animation="fadeInLeftBig">
+                <img src="{{ asset('img/izq.png') }}" />
+              </div>
+            </div>
+            <div class="caption right" style="width:100%">
+              <div data-animation="fadeInRightBig">
+                <img src="{{ asset('img/derecha.png') }}" />
+              </div>
+            </div>
+
+
+          </li>#}
+
+{#
+          <li class="slideN0"> <img src="{{ asset('img/1-IMG_6604.jpg') }}" alt="pic 2"/>
+            <div class="caption right">
+              <div class="element3-1" data-animation="fadeInLeftBig">
+                <h1 class="logoSlider"><img src="http://www.furgomania.com/slider-title.png" alt="KITS FURGOMANIA" /></h1>
+              </div>
+
+              <div class="element2-1" data-animation="fadeInLeftBig">
+                <h2><i class="icon-star"></i> {% trans %}Camperiza tu Mercedes Benz Viano{% endtrans %} </h2>
+              </div>
+              <div class="element2-2" data-animation="bounceInDown">
+                <h2><i class="icon-star"></i> {% trans %}Sin moverte de casa{% endtrans %}</h2>
+              </div>
+              <div class="element2-3" data-animation="bounceInDown">
+                <h2><i class="icon-star"></i> {% trans %}Sin I.T.V. Sin herramientas{% endtrans %}</h2>
+              </div>
+              <div class="element2-4" data-animation="bounceInDown">
+                <h2><i class="icon-star"></i> {% trans %}Sin modificar nada en tu furgo{% endtrans %} </h2>
+              </div>
+              <div class="element2-5" data-animation="bounceInDown">
+                <h2><i class="icon-star"></i> {% trans %}Tal cual viene de fábrica monta tu KIT{% endtrans %} </h2>
+              </div>
+            </div>
+          </li>
+#}
+
+          <li class="slideN0" style="width: 930px; float: left; display: block;"> <img src="/img/slider/viano-larga/fondo.jpg" alt="pic 2"/>
+            <div class="caption left">
 			
               <div class="th-top" data-animation="fadeInLeftBig">
                 <img src="/img/slider/viano-larga/th1.jpg" alt="KITS FURGOMANIA" />
@@ -27,7 +69,7 @@
               </div>
 			  
               <div class="th-bottom-center" data-animation="bounceInUp">
-                <img src="/img/slider/th-mercedes-viano-larga.jpg" alt="KITS FURGOMANIA" />
+                <img src="/img/furgos/th-mercedes-viano-larga.jpg" alt="KITS FURGOMANIA" />
               </div>
 			  
 			</div>
@@ -55,53 +97,22 @@
               </div>
 			  
             </div>
-			</a>
-          </li>
-
-         <li class="slideN1" style="width: 930px; float: left; display: block;"> <img src="/img/slider/volkswagen-transporter/fondo.jpg" alt="pic 2"/>
-            <a href="/furgoneta-camper/volkswagen/">
-			<div class="caption left">
-			
-              <div class="th-top" data-animation="fadeInLeftBig">
-                <img src="/img/slider/volkswagen-transporter/th2.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInLeftBig">
-                <img src="/img/slider/volkswagen-transporter/th3.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom-center" data-animation="bounceInUp">
-                <img src="/img/slider/th-volkswagen-transporter.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-			</div>
-			
-            <div class="caption right">
-			
-              <div class="element2-1" data-animation="fadeInRightBig">
-                <h2><i class="icon-star"></i> {% trans %}Camperiza tu Volkswagen Transporter{% endtrans %} </h2>
-              </div>
-              <div class="element2-2" data-animation="fadeInRightBig">
-                <h2><i class="icon-star"></i> {% trans %}Sin herramientas{% endtrans %} </h2>
-              </div>
-              <div class="element2-3" data-animation="fadeInRightBig">
-                <h2><i class="icon-star"></i> {% trans %}Sin moverte de casa{% endtrans %} </h2>
-              </div>
-              <div class="element2-4" data-animation="fadeInRightBig">
-                <h2><i class="icon-star"></i> {% trans %}En pocos minutos{% endtrans %} </h2>
-              </div>
-              <div class="element2-5" data-animation="fadeInRightBig">
-                <h2><i class="icon-star"></i> {% trans %}Sin I.T.V. y sin taller{% endtrans %} </h2>
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInRightBig">
-                <img src="/img/slider/volkswagen-transporter/th1.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-            </div>
-			</a>
           </li>
 		  
+
+          <li class="slideN1"> <img src="{{ asset('img/2-IMG_5990.jpg') }}" alt="pic 1"/>
+            <div class="caption right">
+              <div class="element2-1" data-animation="fadeInRightBig">
+                <h1>{% trans %}CAMPERIZA TU FURGO SIN MOVERTE DE CASA{% endtrans %}</h1>
+              </div>
+              <div class="element2-2" data-animation="fadeInRightBig">
+                <h2><i class="icon-star"></i> {% trans %}Sin taller, Sin herramientas, Sin I.T.V.{% endtrans %}</h2>
+              </div>
+
+              <div class="element2-2" data-animation="fadeInRightBig"><a href="{{ path('fm_main_paginas_kitautoinstalable') }}" class="btn hidden-phone">{% trans %}¡HAZLO TU MISMO EN POCOS MINUTOS!{% endtrans %}</a></div>
+            </div>
+          </li>
+
 		  
           <li class="slideN2"> <img src="{{ asset('img/T_FURGOMANIA-20.jpg') }}" alt="pic 2"/>
             <div class="caption left">
@@ -149,6 +160,7 @@
 		  
 		  
           <li class="slideN4"> 
+            {#<iframe id="player_1" src="http://player.vimeo.com/video/78682434?api=1&amp;player_id=player_1" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>#}
 			<img src="{{ asset('img/primastar-trafic-vivaro-camper/T_2.JPG') }}" alt="pic 2"/>
             <div class="caption right">
               <div class="element4-1" data-animation="fadeInRightBig">
