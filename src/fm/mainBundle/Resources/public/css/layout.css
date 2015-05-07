@@ -1015,18 +1015,16 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   margin-right: auto;
   left: 0;
   right: 0;
-/*  border: 5px solid #F76B17;*/
 }
 
 .th-large-bottom-center.animated {
-  width: 80%;
+  width: 60%;
   position: absolute;
   bottom: 3%;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
-/*  border: 5px solid #F76B17;*/
 }
 
 
