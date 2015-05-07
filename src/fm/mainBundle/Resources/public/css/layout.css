@@ -973,6 +973,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 /****** Configuracion Slider compuesto ******/
 .th-top.animated.fadeInLeftBig {
   display: block;
+  float: left;  
   width: 25%;
   margin-top: 3%;
   margin-left: 3%;
@@ -981,6 +982,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
 .th-top.animated.fadeInRightBig {
   display: block;
+  float: right;
   width: 25%;
   margin-top: 3%;
   margin-right: 3%;
