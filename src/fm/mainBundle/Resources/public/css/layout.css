@@ -1007,6 +1007,24 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   border: 5px solid #F76B17;
 }
 
+
+.th-bottom-no-border.animated.fadeInLeftBig {
+  display: block;
+  width: 25%;
+  position: absolute;
+  bottom: 3%;
+  left: 3%;
+}
+
+.th-bottom-no-border.animated.fadeInRightBig {
+  display: block;
+  width: 25%;
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+}
+
+
 .th-bottom-center.animated {
   width: 15%;
   position: absolute;
