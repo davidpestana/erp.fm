@@ -41,8 +41,8 @@
             </p>
           </div>
 		  
-          <div id="flags" class="span12">
-            <p class="pull-left">
+          <div class="span12">
+            <p id="flags" class="pull-left">
 				{% set locale = app.request.locale %}
 
 				{% if locale == 'es' %}
@@ -58,15 +58,15 @@
 				{% endif %}
 
 				{% if locale == 'fr' %}
-				<img src="/img/banderas/france.png" alt="France">
+				<img src="/img/banderas/france.png" alt="Français">
 				{% else %}
-				<a href="{{ path('homepage', { '_locale': 'en' }) }}"><img src="/img/banderas/france.png" alt="France"></a>
+				<a href="{{ path('homepage', { '_locale': 'en' }) }}"><img src="/img/banderas/france.png" alt="Français"></a>
 				{% endif %}
 
 				{% if locale == 'pt' %}
-				<img src="/img/banderas/portugal.png" alt="Portugal">
+				<img src="/img/banderas/portugal.png" alt="Português">
 				{% else %}
-				<a href="{{ path('homepage', { '_locale': 'en' }) }}"><img src="/img/banderas/portugal.png" alt="Portugal"></a>
+				<a href="{{ path('homepage', { '_locale': 'en' }) }}"><img src="/img/banderas/portugal.png" alt="Português"></a>
 				{% endif %}
             </p>
 
