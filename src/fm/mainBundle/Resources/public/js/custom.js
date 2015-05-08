@@ -303,7 +303,9 @@ $(document).ready(function() {
             animation: "slide",
             controlNav: false,
             directionNav: true,
-            slideshow: false,
+            slideshow: true,
+			slideshowSpeed: 10000,
+			pauseOnHover: true,
             start: function(slider){
                 setTimeout("animateTxt("+slider.currentSlide+", 'in')", 100);  
             },
