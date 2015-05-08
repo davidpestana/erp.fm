@@ -1067,7 +1067,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 .element4-center {
   width: 60%;
   position: absolute;
-  bottom: 35%;
+  bottom: 15%;
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -1075,6 +1075,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 }
 .element4-center h2 {
   text-align: center;
+  background-color: rgba(247, 107, 23, 0.80);
 }
 
 /************ FIN Slider compuesto ***********/
