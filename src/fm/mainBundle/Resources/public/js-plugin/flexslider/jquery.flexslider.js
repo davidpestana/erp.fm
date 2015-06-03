@@ -24,10 +24,6 @@
         fade = vars.animation === "fade",
         asNav = vars.asNavFor !== "",
         methods = {};
-    
-	// Slider options
-//	vars.slideshow = true; 
-//	vars.pauseOnHover = true;
 	
     // Store a reference to the slider object
     $.data(el, "flexslider", slider);
