@@ -138,7 +138,7 @@ a.moreLink {
 	display:block
 }
 blockquote {
-	font-size: 1.83em;
+	font-size: 1.5em; /*1.83em;*/
 	line-height: 1.5em;
 	margin-bottom:2em;
 	font-family: 'Open Sans', sans-serif;
@@ -162,6 +162,16 @@ hr {
 header#mainHeader {
 	padding:0.5em 0 2.5em 0;
 }
+
+#diseno1 p,
+#diseno2 p,
+#diseno3 p {
+	font-weight:300;
+	font-size: 1.3em;
+	font-family: 'Open Sans', sans-serif;	
+}
+
+
 /* #Boostrap customization
 ================================================== */
 
