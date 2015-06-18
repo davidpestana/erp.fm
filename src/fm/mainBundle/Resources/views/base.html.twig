@@ -68,6 +68,12 @@
 				{% else %}
 				<a href="{{ path('homepage', { '_locale': 'en' }) }}"><img src="/img/banderas/portugal.png" alt="Português"></a>
 				{% endif %}
+
+				{% if locale == 'de' %}
+				<img src="/img/banderas/germany.png" alt="Deutsch">
+				{% else %}
+				<a href="{{ path('homepage', { '_locale': 'en' }) }}"><img src="/img/banderas/germany.png" alt="Deutsch"></a>
+				{% endif %}
             </p>
 
 			<p class="pull-right">
