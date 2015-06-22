@@ -24,7 +24,7 @@
 				</li>
 
                 <li>
-                <a href="#"{#href="path('fm_main_paginas_furgonetacamper')"#} class="hasSubMenu {% if app.request.get('_route') == 'fm_kit_default_marca' or app.request.get('_route') == 'fm_kit_default_vehiculo'%}active{% endif %}">{{"Catálogo KITS"|trans}}</a>
+                <a href="#" class="hasSubMenu {% if app.request.get('_route') == 'fm_kit_default_marca' or app.request.get('_route') == 'fm_kit_default_vehiculo'%}active{% endif %}">{{"Catálogo KITS"|trans}}</a>
 				<ul>
 					<li><a href="{{path('fm_kit_default_marca',{'marca':'volkswagen'})}}">VolksWagen</a></li>
 					<li><a href="{{path('fm_kit_default_marca',{'marca':'renault'})}}">Renault</a></li>
@@ -38,12 +38,9 @@
 				</ul>
                 </li>
 
-            <!--    <li><a href="{{path('tienda')}}" class="firstLevel {% if app.request.get('_route') == 'tienda' %}active{% endif %}">{% trans %}Tienda{% endtrans %}</a></li>  -->
-
                 <li>
 				<a href="http://blog.furgomania.com" class="firstLevel">Blog</a>
 				</li>
-			
 
                 <li>
 				<a href="{{path('fm_main_default_contacto')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_default_contacto' %}active{% endif %}">{% trans %}Contacto{% endtrans %}</a>
