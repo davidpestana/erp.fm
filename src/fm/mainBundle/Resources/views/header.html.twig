@@ -20,7 +20,19 @@
 				</li>
                 
                 <li>
-				<a href="{{path('fm_main_paginas_kitautoinstalable')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_paginas_kitautoinstalable' %}active{% endif %}">{% trans %}Así se hace tu Furgoneta Camper{% endtrans %}</a>
+				<a href="{{path('fm_main_paginas_kitautoinstalable')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_paginas_kitautoinstalable' %}active{% endif %}">{% trans %}Videos{% endtrans %}</a>
+				</li>
+
+                <li>
+				<a href="{{path('fm_main_paginas_concesionarios')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_paginas_concesionarios' %}active{% endif %}">{% trans %}Concesionarios{% endtrans %}</a>
+                </li>
+				
+                <li>
+				<a href="{{path('fm_main_default_contacto')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_default_contacto' %}active{% endif %}">{% trans %}Contacto{% endtrans %}</a>
+                </li>
+
+                <li>
+				<a href="http://blog.furgomania.com" class="firstLevel">Blog</a>
 				</li>
 
                 <li>
@@ -37,15 +49,6 @@
 					<li><a href="{{path('fm_kit_default_marca',{'marca':'ford'})}}">Ford</a></li>
 				</ul>
                 </li>
-
-                <li>
-				<a href="http://blog.furgomania.com" class="firstLevel">Blog</a>
-				</li>
-
-                <li>
-				<a href="{{path('fm_main_default_contacto')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_default_contacto' %}active{% endif %}">{% trans %}Contacto{% endtrans %}</a>
-                </li>
-
 
            </ul>
         </nav>    
