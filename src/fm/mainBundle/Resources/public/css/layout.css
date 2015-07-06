@@ -163,6 +163,7 @@ header#mainHeader {
 	padding:0.5em 0 2.5em 0;
 }
 
+#diseno0 p,
 #diseno1 p,
 #diseno2 p,
 #diseno3 p {
@@ -219,9 +220,11 @@ body {
 	.contactPhone {
 		font-weight:800;
 		font-size:1.25em;
+		font-size:1.25em;
 	}
 	.contactInfos .contactMail i {
-		font-size:1em;
+/*		font-size:1em;*/
+		font-size:14px;
 		line-height:1.5em;
 	}
 	.content {
@@ -446,6 +449,14 @@ ul.iconsList.iconsList-large li {
 ul.iconsList.iconsList-large i {
 	line-height: 1.8em;
 }
+
+ul.iconsList.iconsList-medium li {
+	line-height: 1.5em;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.3em;
+	font-weight:300;
+}
+
 /*target chrome only for better vertical align of icon*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 	ul.iconsList i {
