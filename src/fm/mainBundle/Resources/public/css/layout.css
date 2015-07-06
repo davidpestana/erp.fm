@@ -1067,9 +1067,9 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
 
 .th-large-bottomcenter-center.animated {
-  width: 60%;
+  width: 80%;
   position: absolute;
-  bottom: 20%;
+  bottom: 15%;
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -1077,9 +1077,9 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 }
 
 .th-large-topcenter-center.animated {
-  width: 60%;
+  width: 80%;
   position: absolute;
-  top: 20%;
+  top: 15%;
   margin-left: auto;
   margin-right: auto;
   left: 0;
