@@ -261,7 +261,7 @@ small {
 	color:inherit!important;
 }
 p {
-	color:inherit!important;
+	color:inherit/*!important*/;
 }
 .pagination ul > li > a, .pagination ul > .active > a, .pagination ul > li > a:hover, .pagination ul > li > span {
 	background:transparent;

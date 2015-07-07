@@ -456,6 +456,7 @@ ul.iconsList.iconsList-medium li {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1.3em;
 	font-weight:300;
+	color: #555;
 }
 
 /*target chrome only for better vertical align of icon*/
