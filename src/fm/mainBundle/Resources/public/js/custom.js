@@ -304,7 +304,7 @@ $(document).ready(function() {
             controlNav: false,
             directionNav: true,
             slideshow: true,
-			slideshowSpeed: 10000,
+			slideshowSpeed: 5000,
 			pauseOnHover: true,
             start: function(slider){
                 setTimeout("animateTxt("+slider.currentSlide+", 'in')", 100);  
