@@ -752,6 +752,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 	color:#666;
 	border-bottom:2px solid #eee;
 }
+/*
 .sliderWrapper h2 {
 	color: #fff;
 	background: #333333;
@@ -765,6 +766,22 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 	line-height:1.5714em;
 	border:none;
 	border-bottom:2px solid #ccc;
+	display: inline-block;
+}
+*/
+.sliderWrapper h2 {
+	color: #fff;
+	background: #333333;
+	background: rgba(45, 45, 45, 0.8);
+	padding: 0.75vw;
+	text-align:left;
+	font-weight:300;
+	text-transform:none;
+	margin-bottom:0.8vw;
+	font-size:1.2vw;
+	line-height:1.5714em;
+	border:none;
+	border-bottom:0.2vw solid #ccc;
 	display: inline-block;
 }
 .sliderWrapper h2 i[class^="icon-"], [class*=" icon-"] {
