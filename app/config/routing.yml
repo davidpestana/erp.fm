@@ -23,3 +23,6 @@ main:
 erp:
     resource: "@erpBundle/Resources/config/routing.yml"
     prefix:   /erp
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new fm\backendBundle\backendBundle(),
             new Sonata\SeoBundle\SonataSeoBundle(),
             new fm\cmsBundle\cmsBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
