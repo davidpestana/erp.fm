@@ -42,7 +42,7 @@
 		            {% if entity.precio > 0 %}
 					<a class="btn" href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}"><i class="icon-ok"></i> {{ entity.precio }} €</a>
 					{% else %}
-					<a class="btn" href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}"><i class="icon-ok"></i> {{ Próximamente | trans }}</a>
+					<a class="btn" href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}"><i class="icon-ok"></i> {{ "Próximamente" | trans }}</a>
 					{% endif %}
 				</p>
 				
