@@ -45,12 +45,14 @@
           	<div class="span4">
 				<div class="pricingBloc focusPlan">
 					<h2>{{entity.nombre | trans }}</h2>
+		            {% if entity.precio > 0 %}
 					<h3>{{entity.precio}} €
-							<span>
-							{{ entity.estado | trans }}
-							 <!--{ { kit.available ? '<i class="icon-thumbs-up" title="disponible próximamente">Disponible</i>' : kit.soon ? '<i class="icon-clock" title="disponible próximamente">Próximamente</i>' : '<i class="icon-cancel" title="disponible próximamente">No Disponible</i>' }} 
-							-->
-							</span>
+					{% endif %}
+					<span>
+					{{ entity.estado | trans }}
+					 <!--{ { kit.available ? '<i class="icon-thumbs-up" title="disponible próximamente">Disponible</i>' : kit.soon ? '<i class="icon-clock" title="disponible próximamente">Próximamente</i>' : '<i class="icon-cancel" title="disponible próximamente">No Disponible</i>' }} 
+					-->
+					</span>
 					</h3>
 					<ul>
 						{% for feature in entity.contenido %}
