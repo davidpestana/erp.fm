@@ -1029,6 +1029,22 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   border: 5px solid #F76B17;
 }
 
+.th-top-no-border.animated.fadeInLeftBig {
+  display: block;
+  float: left;  
+  width: 25%;
+  margin-top: 3%;
+  margin-left: 3%;
+}
+
+.th-top-no-border.animated.fadeInRightBig {
+  display: block;
+  float: right;
+  width: 25%;
+  margin-top: 3%;
+  margin-right: 3%;
+}
+
 .th-bottom.animated.fadeInLeftBig {
   display: block;
   width: 25%;
@@ -1099,7 +1115,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 .th-large-bottomcenter-center.animated {
   width: 80%;
   position: absolute;
-  bottom: 15%;
+  bottom: 0%; /* 15% */ 
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -1109,7 +1125,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 .th-large-topcenter-center.animated {
   width: 80%;
   position: absolute;
-  top: 15%;
+  top: 0%; /* 15% */ 
   margin-left: auto;
   margin-right: auto;
   left: 0;
