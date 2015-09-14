@@ -28,7 +28,7 @@
   		<div class="row">
 		  	<div class="span8">  
 				<h2>{{ entity.nombre}} <span>{{ entity.marca}} {{entity.modelo }} </span></h2>
-				<blockquote>{{ entity.descripcion | trans }}</blockquote>
+				<blockquote>{{ entity.descripcion | trans | raw }}</blockquote>
 				
 				{% if entity.features %}
 					<div style="border:1px dashed #EEE; padding:5px;">
