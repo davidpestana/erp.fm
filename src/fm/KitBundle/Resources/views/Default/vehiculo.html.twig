@@ -35,8 +35,7 @@
               <section class="blocBody span7">
                 <h3>{{entity.nombre | trans }}</h3>
                 <p  class="boxTextWrapper">
-{#				{{ entity.descripcion | raw | trans | length > 500 ? entity.descripcion | trans | slice(0, 500) ~ '...' : entity.descripcion | trans }}  #}
-				{{ entity.descripcion | raw }}
+				{{ entity.descripcion | trans | length > 500 ? entity.descripcion | trans | slice(0, 500) ~ '...' : entity.descripcion | trans | raw }}
 				</p>
 
 				<p>
