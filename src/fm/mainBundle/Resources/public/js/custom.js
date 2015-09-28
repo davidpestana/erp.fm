@@ -305,7 +305,7 @@ $(document).ready(function() {
             directionNav: true,
             slideshow: true,
 			slideshowSpeed: 5000,
-			pauseOnHover: true,
+			pauseOnHover: false,
             start: function(slider){
                 setTimeout("animateTxt("+slider.currentSlide+", 'in')", 100);  
             },

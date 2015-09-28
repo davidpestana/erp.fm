@@ -471,6 +471,8 @@ ul.iconsList.iconsList-medium li {
 }
 /**** ICON and Icon lists ****/
 
+#flags img { margin-right: 3px; }
+
 /** portfolio */
 .isotope img {
 	width:100%
