@@ -301,7 +301,7 @@ $(document).ready(function() {
     if($('.flexslider').length){
         $('.flexslider').flexslider({
             animation: "slide",
-            controlNav: false,
+            controlNav: true,
             directionNav: true,
             slideshow: true,
 			slideshowSpeed: 5000,
@@ -444,7 +444,7 @@ $(document).ready(function() {
 
         jQuery('.camera_wrap').camera({
             thumbnails: false,
-            pagination: false,
+            pagination: true,
            // height:'50%',
             imagePath: '/bundles/main/js-plugin/camera/images/'
         });
