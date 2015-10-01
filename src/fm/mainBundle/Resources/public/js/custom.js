@@ -445,6 +445,8 @@ $(document).ready(function() {
         jQuery('.camera_wrap').camera({
             thumbnails: false,
             pagination: true,
+			time: 5000,
+			transPeriod: 500,
            // height:'50%',
             imagePath: '/bundles/main/js-plugin/camera/images/'
         });
