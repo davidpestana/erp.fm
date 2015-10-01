@@ -887,6 +887,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 /* =============== CAMERA SLIDER =================*/
 .camera_wrap .camera_pag .camera_pag_ul {
 	text-align:center;
+	padding: 5px;
 }
 .videolayer {
 	display:none;
