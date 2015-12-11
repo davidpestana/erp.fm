@@ -526,7 +526,9 @@ ul.iconsList.iconsList-medium li {
 	text-align: center;
 }
 .projectInfo {
-	padding:20px;
+	padding:10px 0px;
+	height: 4em;
+	text-align: center;
 }
 .infoBlocRow li {
 	margin-bottom:1em;
