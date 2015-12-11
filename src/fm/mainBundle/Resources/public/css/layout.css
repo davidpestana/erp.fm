@@ -1641,10 +1641,6 @@ ul.entry-meta [class^="icon-"], [class*=" icon-"] {
 		margin-top:-30px
 	}
 	
-	.video iframe {
-		height:408px;
-	}
-
 }
 
 @media only screen and (min-width: 940px) and (max-width: 996px){
@@ -1660,6 +1656,11 @@ ul.entry-meta [class^="icon-"], [class*=" icon-"] {
 
 		margin-top:0px
 	}
+	
+	.video iframe {
+		height:408px;
+	}
+	
 }
 
 @media screen and (min-width: 768px) and (max-width: 959px) {
