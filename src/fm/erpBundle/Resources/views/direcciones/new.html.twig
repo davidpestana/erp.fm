@@ -1,0 +1,9 @@
+{% extends "erpBundle::layout.modal.html.twig" %}
+
+{% block title -%} Nueva direccion {% endblock %}
+
+{% block body -%}
+	<form action="{{ path('direcciones_create', { 'id': entity.id }) }}" method="POST" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+    </form>
+{% endblock %}

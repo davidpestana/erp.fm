@@ -4,6 +4,9 @@ fm\erpBundle\Entity\Sociedades:
         facturas:
             targetEntity: factura
             mappedBy: sociedad
+        direcciones:
+            targetEntity: direcciones
+            mappedBy: sociedad
     table: null
     fields:
         id:

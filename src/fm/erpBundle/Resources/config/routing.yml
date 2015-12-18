@@ -38,6 +38,10 @@ _proveedores:
     resource: "@erpBundle/Controller/proveedoresController.php"
     type:     annotation
 
+_direcciones:
+    resource: "@erpBundle/Controller/direccionesController.php"
+    type:     annotation
+
 _proveedoresfacturas:
     resource: "@erpBundle/Controller/proveedoresfacturasController.php"
     type:     annotation

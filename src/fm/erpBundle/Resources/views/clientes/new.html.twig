@@ -2,14 +2,13 @@
 
 {% block title -%} Nuevo Cliente{% endblock %}
 
-
 {% block body -%}
     <form action="{{ path('clientes_create') }}" method="post" {{ form_enctype(form) }}>
         {{ form_widget(form) }}
-
-                                    <div class="modal-footer">
-                                        <button type="button" data-dismiss="modal" class="btn">Cerrar</button>
-                                        <button type="submit" class="btn blue">CREAR</button>
-                                    </div>
+        
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn">Cerrar</button>
+            <button type="submit" class="btn blue">CREAR</button>
+        </div>
     </form>
 {% endblock %}

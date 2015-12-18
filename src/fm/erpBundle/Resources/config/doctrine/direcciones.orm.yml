@@ -1,0 +1,34 @@
+fm\erpBundle\Entity\direcciones:
+    type: entity
+    table: null
+    manyToOne:
+        sociedad:
+            targetEntity: Sociedades
+            inversedBy: direcciones
+            joinColumn:
+                nullable: false
+                name: sociedad_id
+                referencedColumnName: id 
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        direccion:
+            type: string
+            length: 255
+        cp:
+            type: string
+            length: '15'
+        telefono:
+            type: string
+            length: '15'
+        localidad:
+            type: string
+            length: 255
+        provincia:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

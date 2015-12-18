@@ -74,7 +74,7 @@ class facturaController extends Controller
     }
 
 
-        /**
+    /**
      *
      * @Route("/{id}/clone", name="factura_clone")
      * @Method("GET")
@@ -118,10 +118,11 @@ class facturaController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function sendAction($id){
+    public function sendAction($id, Request $request){
          $em = $this->getDoctrine()->getManager();
          $entity = $em->getRepository('erpBundle:factura')->find($id);
 
+         $id_email = $request->get('id_email');
 
          $data = $this->forward('erpBundle:factura:show', 
             array( 'id' => $id, '_format' => 'pdf'));
@@ -146,7 +147,8 @@ class facturaController extends Controller
 
         $this->get('mailer')->send($message);
         return array(
-            'entity'      => $entity
+            'entity'      => $entity,
+            'id_email'  => $id_email,
         );
     }
 
@@ -178,6 +180,7 @@ class facturaController extends Controller
         );
     }
 
+
     /**
     * Creates a form to create a factura entity.
     *
@@ -196,6 +199,7 @@ class facturaController extends Controller
 
         return $form;
     }
+
 
     /**
      * Displays a form to create a new factura entity.
@@ -216,6 +220,7 @@ class facturaController extends Controller
         );
     }
 
+
     /**
      * Finds and displays a factura entity.
      *
@@ -224,9 +229,11 @@ class facturaController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function showAction($id)
+    public function showAction($id, Request $request)
     {
+
         $em = $this->getDoctrine()->getManager();
+        $id_direccion = $request->get('id_direccion');
 
         $entity = $em->getRepository('erpBundle:factura')->find($id);
 
@@ -238,8 +245,26 @@ class facturaController extends Controller
 
         return array(
             'entity'      => $entity,
+            'id_direccion' => $id_direccion,
             'delete_form' => $deleteForm->createView(),
         );
+    }
+    
+    /**
+     * Finds and displays a direcciones entity.
+     *
+     * @Route("/selector/{id}", name="factura_selector_direcciones")
+     * @Method("GET")
+     * @Template()
+     */
+    public function selector_direccionesAction($id) {
+        $em = $this->getDoctrine()->getManager();
+    	$entity = $em->getRepository('erpBundle:factura')->find($id);
+    
+    	if (!$entity) {
+    		throw $this->createNotFoundException('Unable to find direcciones entity.');
+    	}
+    	return array('entity' => $entity);
     }
 
     /**
@@ -333,11 +358,6 @@ class facturaController extends Controller
             'delete_form' => $deleteForm->createView(),
         );
     }
-
-
-
-  
-
 
     private function getSerie($serie,$year,$sociedadId,$grabar = false){
         if(file_exists('series.json'))
@@ -442,9 +462,4 @@ class facturaController extends Controller
             ->getForm()
         ;
     }
-
-
-
-
-
 }

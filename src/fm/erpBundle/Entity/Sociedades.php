@@ -359,4 +359,45 @@ class Sociedades
     {
         return $this->observaciones;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $direcciones;
+
+
+    /**
+     * Add direcciones
+     *
+     * @param \fm\erpBundle\Entity\direcciones $direcciones
+     * @return Sociedades
+     */
+    /*public function addDirecciones(\fm\erpBundle\Entity\direcciones $direcciones)
+    {
+        $this->direcciones[] = $direcciones;
+
+        return $this;
+    }*/
+
+    /**
+     * Set direcciones
+     *
+     * @param \fm\erpBundle\Entity\direcciones $direcciones
+     * @return sociedad
+     */
+    public function setDirecciones(\fm\erpBundle\Entity\direcciones $direcciones)
+    {
+        $this->direcciones = $direcciones;
+
+        return $this;
+    }
+
+    /**
+     * Get direcciones
+     *
+     * @return \fm\erpBundle\Entity\direcciones 
+     */
+    public function getDirecciones()
+    {
+        return $this->direcciones;
+    }
 }

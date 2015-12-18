@@ -2,56 +2,27 @@
 <div class="portlet solid light-grey bordered">
 	<div class="portlet-title">
 		<div class="caption"><i class="icon-bullhorn"></i>{{ pendientes|length }} Facturas Pendientes de atender</div>
-		
 	</div>
+
 	<div class="portlet-body">
+		<table class=" table-bordered table-advance table-hover">
+			<tbody>
+				{% for factura in pendientes  %}
+		    		<tr>
+						<td>{{factura.codfactura}}</td>
+						<td>{{ factura.cliente.name }}</td>
+						<td class="hidden-phone">{{ factura.fecha|date('d-m-Y') }}</td>
+						<td>{{factura.base * 1.21}} € </td>
+						<td><a href="{{ path('factura_show', { 'id': factura.id, '_format':'pdf' }) }}" class="btn mini red-stripe">PDF</a></td>
+						<td>
+							<a href="{{ path('factura_toogle_pagado', {'id':factura.id}) }}" class="btn mini red tooltips"  data-placement="top" data-original-title="Marcar como Atendida "><i class="icon-check-empty"></i>Pendiente</a>
 
-	<table class=" table-bordered table-advance table-hover">
-
-		<tbody>
-
-		            {% for factura in pendientes  %}
-
-
-
-		    <tr>
-				<td>
-
-				{{factura.codfactura}}
-				</td><td>
-
-				{{ factura.cliente.name }}
-					
-				
-
-				</td>
-				<td class="hidden-phone">{{ factura.fecha|date('d-m-Y') }}</td>
-				<td>{{factura.base * 1.21}} € </td>
-				<td><a href="{{ path('factura_show', { 'id': factura.id, '_format':'pdf' }) }}" class="btn mini red-stripe">PDF</a>
-				
-				</td>
-
-				<td>
-						<a href="{{ path('factura_toogle_pagado', {'id':factura.id}) }}" class="btn mini red tooltips"  data-placement="top" data-original-title="Marcar como Atendida ">
-				<i class="icon-check-empty"></i>
-				Pendiente</a>
-
-										<a href="{{ path('factura_clone', {'id':factura.id}) }}" class="btn mini blue tooltips"  data-placement="top" data-original-title="Generar Factura">
-				<i class="icon-check-empty"></i>
-				Generar Factura</a>
-
-				</td>
-			</tr>
-
-		               
-		  
-		            {% endfor %}
-
-
-		</tbody>
-	</table>
-
-
+							<a href="{{ path('factura_clone', {'id':factura.id}) }}" class="btn mini blue tooltips"  data-placement="top" data-original-title="Generar Factura"><i class="icon-check-empty"></i>Generar Factura</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 	</div>
 </div>
 <!-- END PORTLET-->
