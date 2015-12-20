@@ -122,10 +122,10 @@ class facturaController extends Controller
          $em = $this->getDoctrine()->getManager();
          $entity = $em->getRepository('erpBundle:factura')->find($id);
 
-         $id_email = $request->get('id_email');
+         $id_direccion = $request->get('id_direccion');
 
          $data = $this->forward('erpBundle:factura:show', 
-            array( 'id' => $id, '_format' => 'pdf'));
+            array( 'id' => $id, '_format' => 'pdf', 'id_direccion' => $id_direccion));
 
 
         $message = \Swift_Message::newInstance()
@@ -147,8 +147,7 @@ class facturaController extends Controller
 
         $this->get('mailer')->send($message);
         return array(
-            'entity'      => $entity,
-            'id_email'  => $id_email,
+            'entity'      => $entity
         );
     }
 

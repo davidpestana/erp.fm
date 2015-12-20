@@ -1,0 +1,52 @@
+{% extends 'erpBundle::layout.html.twig' %}
+{% block title -%} Sociedades {% endblock %}
+
+{% block body -%}
+    <table class="table table-striped table-bordered table-hover table-full-width" id="sample_2">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Razonsocial</th>
+                <th>Nif</th>
+                <th>Direccion</th>
+                <th>Cp</th>
+                <th>Localidad</th>
+                <th>Provincia</th>
+                <th>Entidad</th>
+                <th>Iban</th>
+                <th>Codigocuenta</th>
+                <th>Observaciones</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('sociedades_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.razonSocial }}</td>
+                <td>{{ entity.nif }}</td>
+                <td>{{ entity.direccion }}</td>
+                <td>{{ entity.cp }}</td>
+                <td>{{ entity.localidad }}</td>
+                <td>{{ entity.provincia }}</td>
+                <td>{{ entity.entidad }}</td>
+                <td>{{ entity.iban }}</td>
+                <td>{{ entity.codigoCuenta }}</td>
+                <td>{{ entity.observaciones }}</td>
+                <td>
+                <ul>
+                    {# <a href="{{ path('sociedades_show', { 'id': entity.id }) }}" class="modal_ajax_btn btn blue mini" data-toggle="modal">show</a> #}
+                    <a href="{{ path('sociedades_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn red mini" data-toggle="modal">Editar</a>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   
+            <a href="{{ path('sociedades_new') }}" class="modal_ajax_btn btn red" data-toggle="modal">
+                Agregar Nueva Sociedad
+            </a>
+       
+    {% endblock %}

@@ -18,7 +18,11 @@ var UIModals = function () {
     var collectionHolder = null;
 
     var initHolders = function(){
+        if($('#fm_erpbundle_factura_misitems').length)
+//        if(typeof $('#fm_erpbundle_factura_misitems') != '') return false;
         collectionHolder = $(fm_erpbundle_factura_misitems);
+        else 
+        collectionHolder = [];
     }   
 
     function addTagForm(collectionHolder,index) {
@@ -60,7 +64,8 @@ var UIModals = function () {
 		    $modal.load(this.href,'',function(){ 
                 $modal.modal();
                 initHolders();
-                initTables('#sample_modal').$('.producto').click(agregar);   
+                var t = initTables('#sample_modal');
+                if(t.length) t.$('.producto').click(agregar);   
 
             });
 			return false;

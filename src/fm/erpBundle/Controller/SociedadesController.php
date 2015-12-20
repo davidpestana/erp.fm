@@ -7,21 +7,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use fm\erpBundle\Entity\direcciones;
-use fm\erpBundle\Form\direccionesType;
+use fm\erpBundle\Entity\Sociedades;
+use fm\erpBundle\Form\SociedadesType;
 
 /**
- * direcciones controller.
+ * Sociedades controller.
  *
- * @Route("/direcciones")
+ * @Route("/sociedades")
  */
-class direccionesController extends Controller
+class SociedadesController extends Controller
 {
 
     /**
-     * Lists all direcciones entities.
+     * Lists all Sociedades entities.
      *
-     * @Route("/", name="direcciones")
+     * @Route("/", name="sociedades")
      * @Method("GET")
      * @Template()
      */
@@ -29,22 +29,22 @@ class direccionesController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('erpBundle:direcciones')->findAll();
+        $entities = $em->getRepository('erpBundle:Sociedades')->findAll();
 
         return array(
             'entities' => $entities,
         );
     }
     /**
-     * Creates a new direcciones entity.
+     * Creates a new Sociedades entity.
      *
-     * @Route("/", name="direcciones_create")
+     * @Route("/", name="sociedades_create")
      * @Method("POST")
-     * @Template("erpBundle:direcciones:new.html.twig")
+     * @Template("erpBundle:Sociedades:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity = new direcciones();
+        $entity = new Sociedades();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -53,7 +53,7 @@ class direccionesController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('direcciones'));
+            return $this->redirect($this->generateUrl('sociedades'));
         }
 
         return array(
@@ -63,16 +63,16 @@ class direccionesController extends Controller
     }
 
     /**
-     * Creates a form to create a direcciones entity.
+     * Creates a form to create a Sociedades entity.
      *
-     * @param direcciones $entity The entity
+     * @param Sociedades $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(direcciones $entity)
+    private function createCreateForm(Sociedades $entity)
     {
-        $form = $this->createForm(new direccionesType(), $entity, array(
-            'action' => $this->generateUrl('direcciones_create'),
+        $form = $this->createForm(new SociedadesType(), $entity, array(
+            'action' => $this->generateUrl('sociedades_create'),
             'method' => 'POST',
         ));
 
@@ -82,15 +82,15 @@ class direccionesController extends Controller
     }
 
     /**
-     * Displays a form to create a new direcciones entity.
+     * Displays a form to create a new Sociedades entity.
      *
-     * @Route("/new", name="direcciones_new")
+     * @Route("/new", name="sociedades_new")
      * @Method("GET")
      * @Template()
      */
     public function newAction()
     {
-        $entity = new direcciones();
+        $entity = new Sociedades();
         $form   = $this->createCreateForm($entity);
 
         return array(
@@ -100,9 +100,9 @@ class direccionesController extends Controller
     }
 
     /**
-     * Finds and displays a direcciones entity.
+     * Finds and displays a Sociedades entity.
      *
-     * @Route("/{id}", name="direcciones_show")
+     * @Route("/{id}", name="sociedades_show")
      * @Method("GET")
      * @Template()
      */
@@ -110,10 +110,10 @@ class direccionesController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('erpBundle:direcciones')->find($id);
+        $entity = $em->getRepository('erpBundle:Sociedades')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find direcciones entity.');
+            throw $this->createNotFoundException('Unable to find Sociedades entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -125,9 +125,9 @@ class direccionesController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing direcciones entity.
+     * Displays a form to edit an existing Sociedades entity.
      *
-     * @Route("/{id}/edit", name="direcciones_edit")
+     * @Route("/{id}/edit", name="sociedades_edit")
      * @Method("GET")
      * @Template()
      */
@@ -135,10 +135,10 @@ class direccionesController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('erpBundle:direcciones')->find($id);
+        $entity = $em->getRepository('erpBundle:Sociedades')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find direcciones entity.');
+            throw $this->createNotFoundException('Unable to find Sociedades entity.');
         }
 
         $editForm = $this->createEditForm($entity);
@@ -152,16 +152,16 @@ class direccionesController extends Controller
     }
 
     /**
-    * Creates a form to edit a direcciones entity.
+    * Creates a form to edit a Sociedades entity.
     *
-    * @param direcciones $entity The entity
+    * @param Sociedades $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(direcciones $entity)
+    private function createEditForm(Sociedades $entity)
     {
-        $form = $this->createForm(new direccionesType(), $entity, array(
-            'action' => $this->generateUrl('direcciones_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new SociedadesType(), $entity, array(
+            'action' => $this->generateUrl('sociedades_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -170,20 +170,20 @@ class direccionesController extends Controller
         return $form;
     }
     /**
-     * Edits an existing direcciones entity.
+     * Edits an existing Sociedades entity.
      *
-     * @Route("/{id}", name="direcciones_update")
+     * @Route("/{id}", name="sociedades_update")
      * @Method("PUT")
-     * @Template("erpBundle:direcciones:edit.html.twig")
+     * @Template("erpBundle:Sociedades:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('erpBundle:direcciones')->find($id);
+        $entity = $em->getRepository('erpBundle:Sociedades')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find direcciones entity.');
+            throw $this->createNotFoundException('Unable to find Sociedades entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -193,7 +193,7 @@ class direccionesController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('direcciones'));
+            return $this->redirect($this->generateUrl('sociedades'));
         }
 
         return array(
@@ -203,9 +203,9 @@ class direccionesController extends Controller
         );
     }
     /**
-     * Deletes a direcciones entity.
+     * Deletes a Sociedades entity.
      *
-     * @Route("/{id}", name="direcciones_delete")
+     * @Route("/{id}", name="sociedades_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -215,21 +215,21 @@ class direccionesController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('erpBundle:direcciones')->find($id);
+            $entity = $em->getRepository('erpBundle:Sociedades')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find direcciones entity.');
+                throw $this->createNotFoundException('Unable to find Sociedades entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('direcciones'));
+        return $this->redirect($this->generateUrl('sociedades'));
     }
 
     /**
-     * Creates a form to delete a direcciones entity by id.
+     * Creates a form to delete a Sociedades entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -238,7 +238,7 @@ class direccionesController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('direcciones_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('sociedades_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
