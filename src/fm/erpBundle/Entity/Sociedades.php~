@@ -371,7 +371,43 @@ class Sociedades
      * @param \fm\erpBundle\Entity\direcciones $direcciones
      * @return Sociedades
      */
-    public function addDirecciones(\fm\erpBundle\Entity\direcciones $direcciones)
+    /*public function addDirecciones(\fm\erpBundle\Entity\direcciones $direcciones)
+    {
+        $this->direcciones[] = $direcciones;
+
+        return $this;
+    }*/
+
+    /**
+     * Set direcciones
+     *
+     * @param \fm\erpBundle\Entity\direcciones $direcciones
+     * @return sociedad
+     */
+    public function setDirecciones(\fm\erpBundle\Entity\direcciones $direcciones)
+    {
+        $this->direcciones = $direcciones;
+
+        return $this;
+    }
+
+    /**
+     * Get direcciones
+     *
+     * @return \fm\erpBundle\Entity\direcciones 
+     */
+    public function getDirecciones()
+    {
+        return $this->direcciones;
+    }
+
+    /**
+     * Add direcciones
+     *
+     * @param \fm\erpBundle\Entity\direcciones $direcciones
+     * @return Sociedades
+     */
+    public function addDireccione(\fm\erpBundle\Entity\direcciones $direcciones)
     {
         $this->direcciones[] = $direcciones;
 
@@ -383,18 +419,8 @@ class Sociedades
      *
      * @param \fm\erpBundle\Entity\direcciones $direcciones
      */
-    public function removeDirecciones(\fm\erpBundle\Entity\direcciones $direcciones)
+    public function removeDireccione(\fm\erpBundle\Entity\direcciones $direcciones)
     {
         $this->direcciones->removeElement($direcciones);
-    }
-
-    /**
-     * Get direcciones
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getDirecciones()
-    {
-        return $this->direcciones;
     }
 }

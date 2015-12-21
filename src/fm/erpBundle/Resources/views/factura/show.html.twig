@@ -6,4 +6,8 @@
     {{ entity.sociedad.direccion }}<br />
     {{ entity.sociedad.cp }}, {{ entity.sociedad.localidad }}<br />
     {{ entity.sociedad.provincia }}
+
+
+    {{ render(controller('erpBundle:factura:conceptounico', {'base':3433, 'id' : conceptounico})) }}
+
 {% endblock %}

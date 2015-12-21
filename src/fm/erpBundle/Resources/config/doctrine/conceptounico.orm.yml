@@ -1,0 +1,14 @@
+fm\erpBundle\Entity\conceptounico:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        concepto:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

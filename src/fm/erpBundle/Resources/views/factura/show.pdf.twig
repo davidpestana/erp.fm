@@ -54,15 +54,28 @@
     {% set base = 0 %} {% set totaldesc = 0 %}
       {% for producto in entity.misitems  %}
         {% set base = base + (producto.importe*producto.cantidad) %}  {% set totaldesc = totaldesc + (producto.descuento*producto.cantidad) %}
-          <tr font-size="13px">
-            <td border-color="#eb613d" padding="5px">{{ producto.descripcion}}</td>
-            <td border-color="#eb613d" padding="5px" text-align="center"> {{ producto.cantidad }} </td>
-            <td border-color="#eb613d" padding="5px" text-align="right"> {{ producto.importe|number_format(2, '.', ',') }} € </td>
-            <td border-color="#eb613d" padding="5px" text-align="right"> {{ (producto.descuento * producto.cantidad) |number_format(2, '.', ',') }} € </td>
-            <td border-color="#eb613d" padding="5px" text-align="right"> {{ ((producto.importe * producto.cantidad) - (producto.descuento*producto.cantidad)) |number_format(2, '.', ',') }} € </td>
-          </tr>
+          {% if conceptounico == false %}
+
+            <tr font-size="13px">
+              <td border-color="#eb613d" padding="5px">{{ producto.descripcion}}</td>
+              <td border-color="#eb613d" padding="5px" text-align="center"> {{ producto.cantidad }} </td>
+              <td border-color="#eb613d" padding="5px" text-align="right"> {{ producto.importe|number_format(2, '.', ',') }} € </td>
+              <td border-color="#eb613d" padding="5px" text-align="right"> {{ (producto.descuento * producto.cantidad) |number_format(2, '.', ',') }} € </td>
+              <td border-color="#eb613d" padding="5px" text-align="right"> {{ ((producto.importe * producto.cantidad) - (producto.descuento*producto.cantidad)) |number_format(2, '.', ',') }} € </td>
+            </tr>
+
+          {% endif %}
         {% endfor %}
+
+          {% if conceptounico != false %}
+
+              {{ render(controller('erpBundle:factura:conceptounico', {'base':3433, 'id' : conceptounico})) }}
+               
+
+          {% endif %}
+
     </table>
+
   </p>
 
            <p>

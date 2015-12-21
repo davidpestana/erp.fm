@@ -30,8 +30,11 @@ class clientesController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('erpBundle:clientes')->findAll();
+        $conceptosunicos = $em->getRepository('erpBundle:conceptounico')->findAll();
+
         return array(
             'entities' => $entities,
+            'conceptosunicos' => $conceptosunicos
         );
     }
 

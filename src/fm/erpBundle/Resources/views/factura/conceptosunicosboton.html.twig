@@ -1,0 +1,21 @@
+<div class="btn-group">
+        <button type="button" class="btn btn-primary">concepto unico</button>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-angle-down"></i>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            {% for entityC in conceptosunicos %}
+                    <li class="dropdown-submenu">
+                        <a href="javascript:;"> {{ entityC.concepto }} </a>
+                        <ul class="dropdown-menu" style="">
+                            <li>
+                                <a href="index.html{{ entityC.id }}"> Enviar al Cliente </a>
+                            </li>
+                            <li>
+                                <a href="index.html{{ entityC.id }}"> Descargar PDF </a>
+                            </li>
+                        </ul>
+                    </li>
+            {% endfor %}
+        </ul>                                                            
+</div>

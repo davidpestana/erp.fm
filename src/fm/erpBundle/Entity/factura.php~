@@ -62,13 +62,16 @@ class factura
 
 
     public function getTipo(){
+    	return $this->getSerie()->getDescripcion();
+    	/*
         switch($this->getSerie()->getSerie()){
             case "FR": $tipo = "factura rectificativa"; break;
             case "FV": $tipo = "factura"; break;
             case "AB": $tipo = "factura de abono"; break;
             case "FM": $tipo = "factura proforma"; break;
+            
         }
-        return $tipo;
+        return $tipo;*/
     }
 
     /**

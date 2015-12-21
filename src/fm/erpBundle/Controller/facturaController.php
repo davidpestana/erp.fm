@@ -37,9 +37,13 @@ class facturaController extends Controller
 
         $grabadas = $em->getRepository('erpBundle:factura')->findby(array("estado" => 2));
 
+        $conceptosunicos = $em->getRepository('erpBundle:conceptounico')->findAll();
+
+
         return array(
             'entities' => $entities,
             'grabadas' => $grabadas,
+            'conceptosunicos' => $conceptosunicos
         );
     }
 
@@ -232,22 +236,43 @@ class facturaController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $id_direccion = $request->get('id_direccion');
-
         $entity = $em->getRepository('erpBundle:factura')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find factura entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
         return array(
             'entity'      => $entity,
-            'id_direccion' => $id_direccion,
-            'delete_form' => $deleteForm->createView(),
+            'id_direccion' => $request->get('id_direccion'),
+            'conceptounico' => $request->get('conceptounico')
         );
     }
+
+
+        /**
+     * Finds and displays a factura entity.
+     *
+     * 
+     * @Method("GET")
+     * @Template()
+     */
+    public function conceptounicoAction($base, $id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('erpBundle:conceptounico')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find concepto unico entity.');
+        }
+
+        return array(
+            'base' => $base, 
+            'entity'      => $entity
+        );
+    }
+
     
     /**
      * Finds and displays a direcciones entity.
@@ -259,11 +284,14 @@ class facturaController extends Controller
     public function selector_direccionesAction($id) {
         $em = $this->getDoctrine()->getManager();
     	$entity = $em->getRepository('erpBundle:factura')->find($id);
+
+        $conceptosunicos = $em->getRepository('erpBundle:conceptounico')->findAll();
+
     
     	if (!$entity) {
     		throw $this->createNotFoundException('Unable to find direcciones entity.');
     	}
-    	return array('entity' => $entity);
+    	return array('entity' => $entity, 'conceptosunicos' => $conceptosunicos);
     }
 
     /**

@@ -400,4 +400,27 @@ class Sociedades
     {
         return $this->direcciones;
     }
+
+    /**
+     * Add direcciones
+     *
+     * @param \fm\erpBundle\Entity\direcciones $direcciones
+     * @return Sociedades
+     */
+    public function addDireccione(\fm\erpBundle\Entity\direcciones $direcciones)
+    {
+        $this->direcciones[] = $direcciones;
+
+        return $this;
+    }
+
+    /**
+     * Remove direcciones
+     *
+     * @param \fm\erpBundle\Entity\direcciones $direcciones
+     */
+    public function removeDireccione(\fm\erpBundle\Entity\direcciones $direcciones)
+    {
+        $this->direcciones->removeElement($direcciones);
+    }
 }
