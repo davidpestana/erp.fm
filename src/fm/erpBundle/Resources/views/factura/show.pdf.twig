@@ -55,7 +55,6 @@
       {% for producto in entity.misitems  %}
         {% set base = base + (producto.importe*producto.cantidad) %}  {% set totaldesc = totaldesc + (producto.descuento*producto.cantidad) %}
           {% if conceptounico == false %}
-
             <tr font-size="13px">
               <td border-color="#eb613d" padding="5px">{{ producto.descripcion}}</td>
               <td border-color="#eb613d" padding="5px" text-align="center"> {{ producto.cantidad }} </td>
@@ -63,20 +62,15 @@
               <td border-color="#eb613d" padding="5px" text-align="right"> {{ (producto.descuento * producto.cantidad) |number_format(2, '.', ',') }} € </td>
               <td border-color="#eb613d" padding="5px" text-align="right"> {{ ((producto.importe * producto.cantidad) - (producto.descuento*producto.cantidad)) |number_format(2, '.', ',') }} € </td>
             </tr>
-
           {% endif %}
-        {% endfor %}
+      {% endfor %}
 
-          {% if conceptounico != false %}
-
-              {{ render(controller('erpBundle:factura:conceptounico', {'base':3433, 'id' : conceptounico})) }}
-               
-
-          {% endif %}
+      {% if conceptounico != false %}
+        {{ render(controller('erpBundle:factura:conceptounico', {'base': base, 'id' : conceptounico})) }}
+      {% endif %}
 
     </table>
-
-  </p>
+</p>
 
            <p>
                <table font-size="15px" text-align="right">

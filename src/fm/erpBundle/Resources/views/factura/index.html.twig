@@ -75,13 +75,13 @@
 
                                     <a href="{{ path('factura_enviar', { 'id': entity.id }) }}" class="modal_ajax_btn btn red mini" data-toggle="modal"><i class="icon-envelope"></i> Enviar al Cliente</a>
 
-
-
                                     <a href="{{ path('factura_clone', {'id':entity.id}) }}" class="btn mini blue tooltips"  data-placement="top" data-original-title=" Generar Factura"><i class="icon-check-empty"></i> Generar Factura</a>
 
                                     <a href="{{ path('factura_selector_direcciones', {'id': entity.id}) }}" class="modal_ajax_btn btn mini green" data-toggle="modal"><i class="icon-file"></i> Dirección alternativa</a>
 
-                                             {% include 'erpBundle:factura:conceptosunicosboton.html.twig' %}
+                                    {% include 'erpBundle:factura:conceptosunicosboton.html.twig' %}
+
+                                    
 
                                 </td>
                             </tr>

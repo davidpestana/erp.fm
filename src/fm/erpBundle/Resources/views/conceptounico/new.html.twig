@@ -1,0 +1,9 @@
+{% extends 'erpBundle::layout.modal.html.twig' %}
+
+{% block title -%} Nuevo Concepto único {% endblock %}
+
+{% block body -%}
+	<form action="{{ path('conceptounico_create', { 'id': entity.id }) }}" method="POST" {{ form_enctype(form) }}>
+		{{ form_widget(form) }}
+	</form>
+{% endblock %}

@@ -61,3 +61,7 @@ _series:
 _graficas:
     resource: "@erpBundle/Controller/graficasController.php"
     type:     annotation
+
+_conceptounico:
+    resource: "@erpBundle/Controller/conceptounicoController.php"
+    type:     annotation

@@ -21,7 +21,7 @@
 
                         <a href="{{ path('factura_enviar', { 'id': entity.id, 'id_direccion': key }) }}" class="modal_ajax_btn btn red mini" data-load="true" data-target="#ajax-modal"><i class="icon-envelope"></i> Enviar al Cliente</a>
 
-
+                        {% set id_direccion = direcciones.id %}
                         {% include 'erpBundle:factura:conceptosunicosboton.html.twig' %}
  
                     </td>

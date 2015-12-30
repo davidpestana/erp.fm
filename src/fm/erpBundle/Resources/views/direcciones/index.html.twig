@@ -28,7 +28,7 @@
                 <td>{{ entity.provincia }}</td>
                 <td>{{ entity.sociedad }}</th>
                 <td>
-                    {# <a href="{{ path('direcciones_show', { 'id': entity.id }) }}" class="modal_ajax_btn btn blue mini" data-toggle="modal">show</a> #}
+                    <a href="{{ path('direcciones_show', { 'id': entity.id }) }}" class="modal_ajax_btn btn blue mini" data-toggle="modal">show</a>
                     <a href="{{ path('direcciones_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn red mini" data-toggle="modal">Editar</a>
                 </td>
             </tr>

@@ -43,6 +43,7 @@ class facturaController extends Controller
         return array(
             'entities' => $entities,
             'grabadas' => $grabadas,
+            'id_direccion' => false,
             'conceptosunicos' => $conceptosunicos
         );
     }
@@ -127,9 +128,12 @@ class facturaController extends Controller
          $entity = $em->getRepository('erpBundle:factura')->find($id);
 
          $id_direccion = $request->get('id_direccion');
+         $conceptounico = $request->get('conceptounico');
 
          $data = $this->forward('erpBundle:factura:show', 
-            array( 'id' => $id, '_format' => 'pdf', 'id_direccion' => $id_direccion));
+            array( 'id' => $id, '_format' => 'pdf', 'id_direccion' => $id_direccion,
+                'conceptounico' => $conceptounico,
+                ));
 
 
         $message = \Swift_Message::newInstance()
@@ -250,14 +254,13 @@ class facturaController extends Controller
     }
 
 
-        /**
-     * Finds and displays a factura entity.
-     *
+    /**
+     * Finds and displays a concepto unico entity.
      * 
      * @Method("GET")
      * @Template()
      */
-    public function conceptounicoAction($base, $id)
+    public function conceptounicoAction($id, $base)
     {
 
         $em = $this->getDoctrine()->getManager();
