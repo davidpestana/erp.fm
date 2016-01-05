@@ -1993,16 +1993,19 @@ ul.entry-meta [class^="icon-"], [class*=" icon-"] {
 		float:none;
 		margin:0 0 0 6px;
 	}
+	
+	#flags {margin-bottom: 5px !important;}
+	
 	.contactInfos .container {
-		background:none!important;
+		background:none !important;
 		border:none !important;
-		border-bottom:1px solid #eee!important;
+		border-bottom:1px solid #eee !important;
 		font-size:0.9em;
 		padding:3px;
 		margin: 0 0 10px 0;
 	}
 	.contactInfos .pull-right {
-		float:none;
+		/*float:none;*/
 	}
 	.hero-unit {
 		padding:0.5em;
@@ -2017,6 +2020,11 @@ ul.entry-meta [class^="icon-"], [class*=" icon-"] {
 	.veryBigText {
 		font-size:1.5em;
 	}
+
+	.contactInfos p	{
+		width: 100%;
+	}
+
 }
 
 
