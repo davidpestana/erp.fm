@@ -36,12 +36,6 @@
       <div class="container">
         <div class="row">
           <div class="span12">
-            <p class="pull-right clients">
-            <span class="contactMail" style="font-size: 14px; text-align:center; margin-right: 5px;">{#<a href="{{path('fm_main_paginas_distribuidores')}}">{% trans %}Distribuidores{% endtrans %}</a> |  <a href="{{path('fm_main_paginas_concesionarios')}}">{% trans %}Concesionarios{% endtrans %}</a> | #}<span style="white-space: nowrap;"><img src="/whatsapp-es.png">628 137 304</span></span>
-            </p>
-          </div>
-		  
-          <div class="span12">
             <p id="flags" class="pull-left">
 				{% set locale = app.request.locale %}
 
@@ -82,10 +76,19 @@
 				{% endif %}
             </p>
 
+            <p class="pull-right clients">
+            <span class="contactMail" style="font-size: 14px; text-align:center; margin-right: 5px;">
+				<span style="white-space: nowrap;"><img src="/whatsapp.png">+34 628 137 304</span>
+				<img src="/img/banderas/uk.png" style="border-radius:50%;">
+				<img src="/img/banderas/france.png" style="border-radius:50%;">
+				<img src="/img/banderas/portugal.png" style="border-radius:50%;">
+			</span>
+            </p>
+{#
 			<p class="pull-right">
 			<div class="addthis_sharing_toolbox" style="width:96px; float:right; padding-top:5px"></div>
 			</p>
-
+#}
           </div>
 
         </div>
