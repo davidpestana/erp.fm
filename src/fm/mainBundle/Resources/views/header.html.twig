@@ -1,65 +1,65 @@
   <!-- header -->
   <header id="mainHeader" class="clearfix">
     <div class="row">
-      <div class="span4 clearfix logotop"> 
-      <div class="img">
-        <a href="{{ path('homepage') }}" class="brand"><img src="{{ asset('bundles/main/images/main-logo.png') }}" alt="Furgomania Kits Autoinstalables"/></a>
-        <div class="pull-left" style="width:100%; text-align:center;">
-            <span class="contactMail" style="font-size:14px; text-align:center; white-space:nowrap;">
-				<span style="white-space: nowrap;"><img src="/whatsapp.png">+34 628 137 304</span>
-				<img src="/img/banderas/uk.png" style="border-radius:50%;">
-				<img src="/img/banderas/france.png" style="border-radius:50%;">
-				<img src="/img/banderas/portugal.png" style="border-radius:50%;">
-			</span>		</div>
-      </div>
-                
+		<div class="span4 clearfix logotop"> 
+			<div class="img">
+				<a href="{{ path('homepage') }}" class="brand"><img src="{{ asset('bundles/main/images/main-logo.png') }}" alt="Furgomania Kits Autoinstalables"/></a>
+				<div class="pull-left" style="width:100%; text-align:center;">
+					<span class="contactMail" style="font-size:14px; text-align:center; white-space:nowrap;">
+						<span style="white-space: nowrap;"><img src="/whatsapp.png">+34 628 137 304</span>
+						<img src="/img/banderas/spain.png" style="border-radius:50%;">
+						<img src="/img/banderas/uk.png" style="border-radius:50%;">
+						<img src="/img/banderas/france.png" style="border-radius:50%;">
+						<img src="/img/banderas/portugal.png" style="border-radius:50%;">
+					</span>		
+				</div>
+			</div>
+		</div>
+		<div class="span8 clearfix">
+			<!-- menu -->
+			<nav id="mainMenu" class="clearfix pull-right">
+			  <ul class="clearfix">
 
-        </div>
-      <div class="span8 clearfix">
-        <!-- menu -->
-        <nav id="mainMenu" class="clearfix pull-right">
-          <ul class="clearfix">
+					<li>
+					<a href="{{path('homepage')}}" class="firstLevel {% if app.request.get('_route') == 'homepage' %}active{% endif %}">{% trans %}Inicio{% endtrans %}</a>
+					</li>
+					
+					<li>
+					<a href="{{path('fm_main_paginas_kitautoinstalable')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_paginas_kitautoinstalable' %}active{% endif %}">{% trans %}Videos KIT{% endtrans %}</a>
+					</li>
 
-                <li>
-				<a href="{{path('homepage')}}" class="firstLevel {% if app.request.get('_route') == 'homepage' %}active{% endif %}">{% trans %}Inicio{% endtrans %}</a>
-				</li>
-                
-                <li>
-				<a href="{{path('fm_main_paginas_kitautoinstalable')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_paginas_kitautoinstalable' %}active{% endif %}">{% trans %}Videos KIT{% endtrans %}</a>
-				</li>
+					<li>
+					<a href="{{path('fm_main_paginas_concesionarios')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_paginas_concesionarios' %}active{% endif %}">{% trans %}Exposiciones{% endtrans %}</a>
+					</li>
+					
+					<li>
+					<a href="{{path('fm_main_default_contacto')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_default_contacto' %}active{% endif %}">{% trans %}Contacto{% endtrans %}</a>
+					</li>
 
-                <li>
-				<a href="{{path('fm_main_paginas_concesionarios')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_paginas_concesionarios' %}active{% endif %}">{% trans %}Exposiciones{% endtrans %}</a>
-                </li>
-				
-                <li>
-				<a href="{{path('fm_main_default_contacto')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_default_contacto' %}active{% endif %}">{% trans %}Contacto{% endtrans %}</a>
-                </li>
+					<li>
+					<a href="http://blog.furgomania.com" class="firstLevel">Blog</a>
+					</li>
 
-                <li>
-				<a href="http://blog.furgomania.com" class="firstLevel">Blog</a>
-				</li>
+					<li>
+					<a href="#" class="hasSubMenu {% if app.request.get('_route') == 'fm_kit_default_marca' or app.request.get('_route') == 'fm_kit_default_vehiculo'%}active{% endif %}">{{"Catálogo KITS"|trans}}</a>
+					<ul>
+						<li><a href="{{path('fm_kit_default_marca',{'marca':'volkswagen'})}}">VolksWagen</a></li>
+						<li><a href="{{path('fm_kit_default_marca',{'marca':'renault'})}}">Renault</a></li>
+						<li><a href="{{path('fm_kit_default_marca',{'marca':'nissan'})}}">Nissan</a></li>  
+						<li><a href="{{path('fm_kit_default_marca',{'marca':'opel'})}}">Opel</a></li>
+						<li><a href="{{path('fm_kit_default_marca',{'marca':'mercedes'})}}">Mercedes</a></li>    
+						<li><a href="{{path('fm_kit_default_marca',{'marca':'citroen'})}}">Citroën</a></li>       
+						<li><a href="{{path('fm_kit_default_marca',{'marca':'fiat'})}}">Fiat</a></li>  
+						<li><a href="{{path('fm_kit_default_marca',{'marca':'peugeot'})}}">Peugeot</a></li>  
+						<li><a href="{{path('fm_kit_default_marca',{'marca':'ford'})}}">Ford</a></li>
+					</ul>
+					</li>
 
-                <li>
-                <a href="#" class="hasSubMenu {% if app.request.get('_route') == 'fm_kit_default_marca' or app.request.get('_route') == 'fm_kit_default_vehiculo'%}active{% endif %}">{{"Catálogo KITS"|trans}}</a>
-				<ul>
-					<li><a href="{{path('fm_kit_default_marca',{'marca':'volkswagen'})}}">VolksWagen</a></li>
-					<li><a href="{{path('fm_kit_default_marca',{'marca':'renault'})}}">Renault</a></li>
-					<li><a href="{{path('fm_kit_default_marca',{'marca':'nissan'})}}">Nissan</a></li>  
-					<li><a href="{{path('fm_kit_default_marca',{'marca':'opel'})}}">Opel</a></li>
-					<li><a href="{{path('fm_kit_default_marca',{'marca':'mercedes'})}}">Mercedes</a></li>    
-					<li><a href="{{path('fm_kit_default_marca',{'marca':'citroen'})}}">Citroën</a></li>       
-					<li><a href="{{path('fm_kit_default_marca',{'marca':'fiat'})}}">Fiat</a></li>  
-					<li><a href="{{path('fm_kit_default_marca',{'marca':'peugeot'})}}">Peugeot</a></li>  
-					<li><a href="{{path('fm_kit_default_marca',{'marca':'ford'})}}">Ford</a></li>
-				</ul>
-                </li>
+			   </ul>
+			</nav>    
 
-           </ul>
-        </nav>    
-
-        <!-- menu -->
-      </div>        
+			<!-- menu -->
+		</div>        
 
     </div>
   </header>
