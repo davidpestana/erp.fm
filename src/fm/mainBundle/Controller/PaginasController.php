@@ -29,7 +29,7 @@ class PaginasController extends Controller
 
 
 
-         /**
+     /**
      * Lists all clientes entities.
      *
      * @Route("/distribuidores/")
@@ -43,7 +43,7 @@ class PaginasController extends Controller
         return array();
     }
 
-       /**
+     /**
      * Lists all clientes entities.
      *
      * @Route("/kit-autoinstalable/")
@@ -60,7 +60,7 @@ class PaginasController extends Controller
     }
 
 
-       /**
+     /**
      * Lists all clientes entities.
      *
      * @Route("/furgoneta-camper/")
@@ -75,7 +75,7 @@ class PaginasController extends Controller
     }
 
 
-           /**
+     /**
      * Lists all clientes entities.
      *
      * @Route("/quienes-somos/")
@@ -89,4 +89,18 @@ class PaginasController extends Controller
         return array();
     }
 
+	
+	 /**
+     * Lists all clientes entities.
+     *
+     * @Route("/volkswagen-transporter-furgomania/")
+     * @Method("GET")
+     * @Template()
+     */
+    public function volkswagentransporterfurgomaniaAction()
+    {
+        $this->get('seoManager')->metas();
+
+        return array();
+    }
 }
