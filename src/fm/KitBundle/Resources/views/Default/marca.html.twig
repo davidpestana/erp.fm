@@ -13,8 +13,12 @@
 
                 <div class="row">
 
-
+					{% set marca = "" %}
+					
 					{% for entity in modelos %}
+					
+						{% set marca = entity.marcaslug %}
+						
 						<div class="span3">
 						  <article> <a href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}">
 							<section> <img alt="" src="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}.jpg"> </section>
@@ -28,7 +32,7 @@
 						</div>
                     {% endfor %}
 					
-					{% if entity.marcaslug == 'volkswagen' %}
+					{% if marca == 'volkswagen' %}
 						<div class="span3">
 						  <article> 
 						    <a href="/interesados-transporter-furgomania/">
