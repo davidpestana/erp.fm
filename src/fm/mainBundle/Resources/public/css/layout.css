@@ -178,6 +178,8 @@ header#mainHeader {
 /* #Boostrap customization
 ================================================== */
 
+.img-responsive { width: 100%; max-width: 100%; height:auto; }
+
 .carousel-control {
 	border:none;
 	background:none;
