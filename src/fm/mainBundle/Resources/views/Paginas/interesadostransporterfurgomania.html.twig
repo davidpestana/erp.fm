@@ -12,20 +12,17 @@
 
 <section>
 	<div class="row">
-        <div class="span12">
-          <img class="img-responsive" alt="Volkswagen Transporter Furgomania" src="/img/furgos/volkswagen-transporter-furgomania.jpg">
+        <div class="span6">
+			<h1>{{"INTERESADOS EN LA VOLKSWAGEN TRANSPORTER FURGOMANIA" | trans }}</h1>
+			<ul>
+				{% for name in names %}
+					<li class="BigText">{% filter upper %} {{name}} {% endfilter %}</li>
+				{% endfor %}
+			</ul>
         </div>
 
-		<div class="span12">
-			<h1>{{"INTERESADOS EN LA VOLKSWAGEN TRANSPORTER FURGOMANIA" | trans }}</h1>
-		</div>
-
-        <div class="span12">
-          <ul class="alignCenter BigText">
-	  		{% for name in names %}
-				<li>{{name}}</li>
-			{% endfor %}
-		  </ul>
+        <div class="span6">
+          <img class="img-responsive" alt="Volkswagen Transporter Furgomania" src="/img/furgos/volkswagen-transporter-furgomania.jpg">
         </div>
 		
 	</div>
