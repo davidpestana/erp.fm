@@ -3,6 +3,11 @@
 {% block description %}{% endblock %}
 {% block article %}
 
+{% set names = [
+'FRANCISCO JAVIER GONZÁLEZ MONTESDEOCA',
+'francisco javier montesdeoca gonzalez'
+]	
+%}
 
 <section>
 	<div class="row">
@@ -17,7 +22,16 @@
         <div class="span12">
           <img class="img-responsive" alt="Volkswagen Transporter Furgomania" src="/img/furgos/volkswagen-transporter-furgomania.jpg">
         </div>
-    </div>
+
+        <div class="span12">
+          <ul class="centered">
+	  		{% for name in names %}
+				<li>{{name}}</li>
+			{% endfor %}
+		  </ul>
+        </div>
+		
+	</div>
 </section>
 
 
