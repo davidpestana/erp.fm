@@ -103,4 +103,20 @@ class PaginasController extends Controller
 
         return array();
     }
+	
+
+	 /**
+     * Lists all clientes entities.
+     *
+     * @Route("/interesados-transporter-furgomania/")
+     * @Method("GET")
+     * @Template()
+     */
+    public function interesadostransporterfurgomaniaAction()
+    {
+        $this->get('seoManager')->metas();
+
+        return array();
+    }	
+	
 }
