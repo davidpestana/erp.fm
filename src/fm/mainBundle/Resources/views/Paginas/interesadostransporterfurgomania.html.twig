@@ -12,13 +12,18 @@
 
 <section>
 	<div class="row">
+        <div class="span12">
+			<h1>LISTADO DE INTERESADOS EN LA COMPRA CONJUNTA DE LA VW T6</h1>
+			<p>(Actualización del listado semanal)</p>
+			<h2>Visita nuestro <a href="https://www.facebook.com/Furgomania/">Facebook</a> y ¡únete!</h2>
+		</div>
+		
         <div class="span6">
-			<h1>{{"INTERESADOS EN LA VOLKSWAGEN TRANSPORTER FURGOMANIA" | trans }}</h1>
-			<ul>
+			<ol>
 				{% for name in names %}
-					<li class="BigText">{% filter upper %} {{name}} {% endfilter %}</li>
+					<li class="BigText">{{name | title}}</li>
 				{% endfor %}
-			</ul>
+			</ol>
         </div>
 
         <div class="span6">

@@ -78,6 +78,7 @@ h2 span {
 	font-size:0.75em;
 	text-transform:none;
 }
+h2 a { text-decoration: underline; }
 h2 span:before {
 	content:"// "
 }
@@ -2209,4 +2210,4 @@ ul.entry-meta [class^="icon-"], [class*=" icon-"] {
 
 iframe { width:100%; height: 524px;}
 
-.embed-container.googleform iframe { width:100%; height:1350px; }
+.embed-container.googleform iframe { width:100%; height:1550px; }
