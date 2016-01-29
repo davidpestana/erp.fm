@@ -141,6 +141,9 @@ a.moreLink {
 h2 a:link,
 h2 a:visited { text-decoration: underline; }
 
+h3 a:link,
+h3 a:visited { text-decoration: underline; }
+
 blockquote {
 	font-size: 1.5em; /*1.83em;*/
 	line-height: 1.5em;
