@@ -14,24 +14,11 @@
                 <div class="row">
 
 					{% set marca = "" %}
-					
-					{% for entity in modelos %}
-					
-						{% set marca = entity.marcaslug %}
-						
-						<div class="span3">
-						  <article> <a href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}">
-							<section> <img alt="" src="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}.jpg"> </section>
-	 
-							</a>
-							<section class="projectInfo">
-							  <h3><a href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}"><i class="icon-ok"></i> {{entity.modelo}}</a></h3>
 
-							</section>
-						  </article>
-						</div>
+					{% for entity in modelos %}
+						{% set marca = entity.marcaslug %}
                     {% endfor %}
-					
+
 					{% if marca == 'volkswagen' %}
 						<div class="span3">
 						  <article> 
@@ -44,6 +31,20 @@
 						  </article>
 						</div>
 					{% endif %}
+					
+					{% for entity in modelos %}
+						<div class="span3">
+						  <article> <a href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}">
+							<section> <img alt="" src="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}.jpg"> </section>
+	 
+							</a>
+							<section class="projectInfo">
+							  <h3><a href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}"><i class="icon-ok"></i> {{entity.modelo}}</a></h3>
+
+							</section>
+						  </article>
+						</div>
+                    {% endfor %}
 					
                 </div>
 
