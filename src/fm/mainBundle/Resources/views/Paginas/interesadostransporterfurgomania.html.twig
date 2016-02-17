@@ -132,20 +132,23 @@
 	<div class="row">
         <div class="span12">
 			<h1>LISTADO DE INTERESADOS EN LA COMPRA CONJUNTA DE LA VW T6</h1>
-			<p>(Actualización del listado semanal)</p>
-			<h3>Si estás interesado en la compra conjunta de la Volkswagen Transporter Furgomania, VISITA NUESTRO <a href="https://www.facebook.com/Furgomania/">FACEBOOK</a> Y ¡ÚNETE!. Pon un comentario en la publicación que verás en primera posición de nuestro muro y nosotros nos pondremos en contacto contigo.</h3>
 		</div>
-		
-        <div class="span6">
-			<ol>
-				{% for name in names %}
-					<li class="BigText">{{name | title}}</li>
-				{% endfor %}
-			</ol>
-        </div>
 
         <div class="span6">
+			<p>(Actualización del listado semanal)</p>
+			<h3>Si estás interesado en la compra conjunta de la Volkswagen Transporter Furgomania, VISITA NUESTRO <a href="https://www.facebook.com/Furgomania/">FACEBOOK</a> Y ¡ÚNETE!. Pon un comentario en la publicación que verás en primera posición de nuestro muro y nosotros nos pondremos en contacto contigo.</h3>
+        </div>
+		
+        <div class="span6">
           <img class="img-responsive" alt="Volkswagen Transporter Furgomania" src="/img/volkswagen-transporter-furgomania.jpg">
+        </div>
+
+        <div class="span12">
+			<ol>
+				{% for name in names %}
+					<li class="BigText span6">{{name | title}}</li>
+				{% endfor %}
+			</ol>
         </div>
 		
 	</div>
