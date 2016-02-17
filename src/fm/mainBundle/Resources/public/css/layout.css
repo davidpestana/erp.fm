@@ -1395,6 +1395,17 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 ul.alignCenter  { text-align:center; margin-left: 0px; }
 ul.alignCenter > li { list-style-type: none; }
 
+.alignCenter { text-align: center; margin-left: auto; margin-right: auto; }
+
+ol > li.span6 {
+    width: 450px;
+    margin-left: 0px;
+    margin-bottom: 0px !important;
+    padding-left: 0px;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
 /* =============== SOCIAL BAR =================*/
 .socialList {
 	margin:1.5em 0;
