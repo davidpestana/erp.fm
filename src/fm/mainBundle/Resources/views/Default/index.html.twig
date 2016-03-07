@@ -9,18 +9,36 @@
   {% include 'mainBundle:Parts:slider.html.twig' %}
 
 
-  {% include 'mainBundle:Parts:instalacion.html.twig' %}
-  
-  <!-- Slogan -->
 
-
-<div id="diseno0" class="row">
-	<div class="span12"><h3>{% trans %}CAMPERIZA TU FURGONETA SIN MOVERTE DE CASA{% endtrans %}</h3></div>
+<div id="diseno3" class="row noSlider">
 	<div class="span12">
+		<h1>{{"Furgomania, líderes en furgonetas camper"| trans | raw }}</h1>
+		<h2>{{"¿Por qué deberías elegir los kits autoinstalables de Furgomania?"| trans | raw }}</h2>
+	</div>
+	<br/>
+	<div class="span6">
+		<h3>{{"CAMPERIZA TU FURGONETA SIN COMPLICACIONES" | trans}}</h3>
+		<ul class="iconsList iconsList-medium">
+			<li><i class="icon-right-circle"></i>&nbsp;{{"Selecciona el modelo de tu furgoneta"| trans | raw }}</li>
+			<li><i class="icon-right-circle"></i>&nbsp;{{"Elige el kit que te guste"| trans | raw }}</li>
+			<li><i class="icon-right-circle"></i>&nbsp;{{"Te lo enviamos a casa en 10 días"| trans | raw }}</li>
+			<li><i class="icon-right-circle"></i>&nbsp;{{"Lo instalas tu mismo en 5 min"| trans | raw }}</li>
+			<li><i class="icon-right-circle"></i>&nbsp;{{"Sistema patentado de anclaje"| trans | raw }}</li>
+			<li><i class="icon-right-circle"></i>&nbsp;{{"Sin ningún tipo de herramientas"| trans | raw }}</li>
+			<li><i class="icon-right-circle"></i>&nbsp;{{"No necesitas pasar ITV"| trans | raw }}</li>
+			<li><i class="icon-right-circle"></i>&nbsp;{{"Tu <strong>furgoneta</strong> tal cual viene de fábrica" | trans | raw }}</li>
+		</ul>
+	</div>
+	<div class="span6"> 
+		<h3>{% trans %}CAMPERIZA TU FURGONETA SIN MOVERTE DE CASA{% endtrans %}</h3>
 		<p>{% trans %}Con los{% endtrans %} <a href="http://www.furgomania.com/es/kit-autoinstalable" title="Videos kits autoinstalables">{% trans %}kits autoinstalables{% endtrans %}</a> {% trans %}de Furgomania, no necesitas moverte de casa para <strong>camperizar tu furgoneta</strong>. Tampoco necesitas herramientas especiales ni un lugar específico para montar los muebles.{% endtrans %}</p>
         
         <blockquote style="font-size:18px;">“{% trans %}Los kits para camperizar furgonetas están pensados para que no tengas que ir a un taller ni tener uno en casa...{% endtrans %}”</blockquote>
-        
+	</div>
+</div>
+
+<div id="diseno0" class="row">
+	<div class="span12">
         <p>{% trans %}Sólo necesitarás unos minutos para su instalación.{% endtrans %}</p>
         
         <p>{% trans %}Recibirás tu kits de muebles completamente terminado y adaptado a tu modelo de <strong>furgoneta camper</strong>. Podrás montarlo fácilmente sin necesidad de instrucciones ni modificaciones de tu furgoneta habitual.{% endtrans %}</p>
@@ -31,44 +49,26 @@
 	</div>
 </div>
 
-
-
-  <!-- Slogan / -->
-
-
-
-{#
-  <!-- Buttons -->
-    <div class="row" >
-      <div class="span12 innerNavWrapper">
-        <nav  id="innerNav" class="clearfix innerNavWrapperIcons"> <a href="#diseno1" id="one"><i class="icon-heart"></i><span>{{ "DISEÑO ELEGANTE" | trans }}</span></a> <a href="#diseno2" id="two"><i class="icon-thumbs-up"></i><span>{{ "CALIDAD" | trans }}</span></a> <a href="#diseno3" id="three"><i class="icon-cog"></i><span>{{ "FACIL INSTALACIÓN" | trans }}</span></a> </nav>
-      </div>
-    </div>
-  <!-- Buttons / -->
-#}
-
-
   <!-- D1 -->
-	<div id="diseno1" class="homeContent">
-	    <div class="row mb15">
+<div id="diseno1" class="homeContent">
+	<div class="row mb15">
 
-			<hr>
+		<hr>
+		
+		<div class="span12"><h3>{{ "GARANTÍA 100%" | trans }}</h3></div>
+		<div class="span12">
+			<p>{% trans %}Todos nuestros productos tienen dos años de garantía sin "letra pequeña".{% endtrans %}</p>
 			
-			<div class="span12"><h3>{{ "GARANTÍA 100%" | trans }}</h3></div>
-			<div class="span8">
-				<p>{% trans %}Todos nuestros productos tienen dos años de garantía sin "letra pequeña".{% endtrans %}</p>
-                
-                <p>{% trans %}En todo momento, los clientes tienen contacto directo con Furgomania, lo que les aporta la tranquilidad de solucionar cualquier incidencia de forma personal y directa.{% endtrans %}</p>
-                
-                <p>{% trans %}A los 10 días de la compra, recibirás tu <strong>kit camper</strong> con los muebles solicitados para tu <strong>furgoneta</strong>. Durante 15 días podrás probarlo sin compromiso. Si no te gusta, te devolvemos el 100% de la compra. Para ello, deberás ponerte en contacto con nuestro departamento comercial y retiraremos el bulto lo antes posible. Una vez recibido en nuestras instalaciones, automáticamente se procederá a la devolución del dinero.{% endtrans %}</p>
-                
-                <p>{% trans %}Muchos de nuestros <strong>muebles para furgonetas</strong> se exponen directamente en concesionarios de vehículos de prestigiosas marcas.{% endtrans %}</p>
-                
-                <p>{% trans %}En Furgomania te aseguramos que recibirás un kit camper de excelentes acabados. Muebles para <strong>camperizar furgonetas</strong> de máxima calidad y que harán que el aspecto interior de tu furgoneta mejore notablemente.{% endtrans %}</p>
-			</div>
-			<div class="span4"> <img src="{{ asset('/img/Garantia.jpg') }}" alt="En Furgomania conseguirás hasta dos años de garantia en tus muebles para equipar furgonetas camper"> </div>
-      	</div>
+			<p>{% trans %}En todo momento, los clientes tienen contacto directo con Furgomania, lo que les aporta la tranquilidad de solucionar cualquier incidencia de forma personal y directa.{% endtrans %}</p>
+			
+			<p>{% trans %}A los 10 días de la compra, recibirás tu <strong>kit camper</strong> con los muebles solicitados para tu <strong>furgoneta</strong>. Durante 15 días podrás probarlo sin compromiso. Si no te gusta, te devolvemos el 100% de la compra. Para ello, deberás ponerte en contacto con nuestro departamento comercial y retiraremos el bulto lo antes posible. Una vez recibido en nuestras instalaciones, automáticamente se procederá a la devolución del dinero.{% endtrans %}</p>
+			
+			<p>{% trans %}Muchos de nuestros <strong>muebles para furgonetas</strong> se exponen directamente en concesionarios de vehículos de prestigiosas marcas.{% endtrans %}</p>
+			
+			<p>{% trans %}En Furgomania te aseguramos que recibirás un kit camper de excelentes acabados. Muebles para <strong>camperizar furgonetas</strong> de máxima calidad y que harán que el aspecto interior de tu furgoneta mejore notablemente.{% endtrans %}</p>
+		</div>
 	</div>
+</div>
 
 
       {% include 'mainBundle:Parts:fabricacion.html.twig' %}
