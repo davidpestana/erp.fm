@@ -7,6 +7,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use fm\erpBundle\Entity\item;
 use fm\erpBundle\Form\itemType;
+use Doctrine\ORM\EntityRepository;
+
 
 class facturaType extends AbstractType
 {
@@ -21,7 +23,12 @@ class facturaType extends AbstractType
     'choices'   => array('FV' => 'Factura de Venta (FV)', 'FM' => 'Factura Proforma (FM)' , 'FR' => 'Factura Rectificativa (FR)', 'AB' => 'Factura de Abono (AB)'),
     'required'  => true,
 ))*/        ->add('sociedad')
-            ->add('serie')
+            ->add('serie', 'entity', array(
+                'class' => 'erpBundle:series',
+                    'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')->orderBy('u.bydefault', 'DESC');
+                },
+            ))
             ->add('fecha')
             //->add('total')
             ->add('iva',null,array('label' => 'IVA %'))

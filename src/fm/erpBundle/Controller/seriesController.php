@@ -49,11 +49,14 @@ class seriesController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
+            $em->getRepository('erpBundle:series')->preset();
+
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('series_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('series'));
         }
 
         return array(
@@ -191,9 +194,9 @@ class seriesController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $em->getRepository('erpBundle:series')->preset();
             $em->flush();
-
-            return $this->redirect($this->generateUrl('series_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('series'));
         }
 
         return array(

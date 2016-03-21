@@ -1,6 +1,7 @@
 fm\erpBundle\Entity\series:
     type: entity
     table: null
+    repositoryClass: fm\erpBundle\Entity\seriesRepository
     fields:
         id:
             type: integer
@@ -15,4 +16,6 @@ fm\erpBundle\Entity\series:
             length: 255
         operador:
             type: integer
+        bydefault:
+            type: boolean
     lifecycleCallbacks: {  }

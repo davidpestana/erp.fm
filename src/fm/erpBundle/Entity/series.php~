@@ -29,6 +29,11 @@ class series
      */
     private $operador;
 
+    /**
+     * @var boolean
+     */
+    private $bydefault;
+
 
     public function __toString(){
         return "{$this->descripcion} ({$this->serie})";
@@ -112,5 +117,29 @@ class series
     public function getOperador()
     {
         return $this->operador;
+    }
+
+    /**
+     * Set default
+     *
+     * @param \boolean $bydefault
+     * @return series
+     */
+    public function setBydefault($bydefault)
+    {
+
+        $this->bydefault = $bydefault;
+
+        return $this;
+    }
+
+    /**
+     * Get default
+     *
+     * @return \boolean 
+     */
+    public function getBydefault()
+    {
+        return $this->bydefault;
     }
 }

@@ -18,6 +18,10 @@ class seriesType extends AbstractType
             ->add('serie')
             ->add('descripcion')
             ->add('operador')
+            ->add('bydefault', "checkbox", array(
+    'label'    => 'Serie por defecto',
+    'required' => false,
+))
         ;
     }
     
