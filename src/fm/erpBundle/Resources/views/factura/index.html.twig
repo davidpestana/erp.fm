@@ -71,17 +71,20 @@
                                 <td>{{ entity.base * 1.21 |number_format(2, '.', ',')}} €</td>
 
                                 <td>
+                                    {% include 'erpBundle:factura:conceptosunicosboton.html.twig' %} 
+
                                     <a href="{{ path('factura_show', { 'id': entity.id,'_format':'pdf'}) }}" class="btn red mini"><i class="icon-file"></i> Descargar PDF</a>
 
-                                    <a href="{{ path('factura_enviar', { 'id': entity.id }) }}" class="modal_ajax_btn btn red mini" data-toggle="modal"><i class="icon-envelope"></i> Enviar al Cliente</a>
+                                    <a href="{{ path('factura_enviar', { 'id': entity.id }) }}" class="modal_ajax_btn btn green mini" data-toggle="modal"><i class="icon-envelope"></i> Enviar al Cliente</a>
 
-                                    <a href="{{ path('factura_clone', {'id':entity.id}) }}" class="btn mini blue tooltips"  data-placement="top" data-original-title=" Generar Factura"><i class="icon-check-empty"></i> Generar Factura</a>
+                                    <a href="{{ path('factura_clone', {'id':entity.id}) }}" class="btn mini blue tooltips"  data-placement="top" data-original-title="Genera una nueva Factura"><i class="icon-check-empty"></i> Generar Factura</a>
 
-                                    <a href="{{ path('factura_selector_direcciones', {'id': entity.id}) }}" class="modal_ajax_btn btn mini green" data-toggle="modal"><i class="icon-file"></i> Dirección alternativa</a>
+                                    <a href="{{ path('factura_selector_direcciones', {'id': entity.id}) }}" class="modal_ajax_btn btn mini green" data-toggle="modal"><i class="icon-file"></i> Dirección alternativa</a>                             
 
-                                    {% include 'erpBundle:factura:conceptosunicosboton.html.twig' %}
-
-                                    
+                                    <button data-href="{{ path('factura_edit', { 'id': entity.id }) }}" class="modal_ajax_btn_confirmation btn red mini"
+                                     data-toggle="modal" data-original-title="¿ seguro que quieres editar una factura grabada ?">
+                                    <i class="icon-edit"></i> Editar</button>
+                                   
 
                                 </td>
                             </tr>

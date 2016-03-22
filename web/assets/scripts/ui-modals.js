@@ -59,17 +59,30 @@ var UIModals = function () {
 		$.fn.modalmanager.defaults.spinner = '<div class="loading-spinner fade" style="width: 200px; margin-left: -100px;"><img src="/assets/img/ajax-modal-loading.gif" align="middle">&nbsp;<span style="font-weight:300; color: #eee; font-size: 18px; font-family:Open Sans;">&nbsp;Loading...</div>';
        	var $modal = $('#ajax-modal');
  
-		$('.modal_ajax_btn').on('click', function(){
-		    $('body').modalmanager('loading');
-		    $modal.load(this.href,'',function(){ 
+        var operation = function(){
+            console.log(this)
+            $('body').modalmanager('loading');
+            $modal.load(this.href,'',function(){ 
                 $modal.modal();
                 initHolders();
                 var t = initTables('#sample_modal');
                 if(t.length) t.$('.producto').click(agregar);   
 
             });
-			return false;
-		});
+            return false;
+        }
+
+		$('.modal_ajax_btn').on('click', operation );
+
+        $('.modal_ajax_btn_confirmation').confirmation({
+            onConfirm:operation,
+            popout:true,
+            btnOkLabel:'<i class="icon-ok-sign icon-white"></i> Si',
+            btnOkClass: 'btn green',
+            btnCancelClass: 'btn red'
+
+        });
+
 		return false;    
     }
 
