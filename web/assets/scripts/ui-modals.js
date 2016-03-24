@@ -60,13 +60,35 @@ var UIModals = function () {
        	var $modal = $('#ajax-modal');
  
         var operation = function(){
-            console.log(this)
             $('body').modalmanager('loading');
             $modal.load(this.href,'',function(){ 
                 $modal.modal();
                 initHolders();
                 var t = initTables('#sample_modal');
                 if(t.length) t.$('.producto').click(agregar);   
+
+                // select2 & multiSelect
+               $("select").each(function() {
+
+                    if(this.multiple){
+                            $(this).multiSelect();
+
+                    }else{
+                          var select2_options = {
+                            //theme: 'bootstrap',
+                            minimumResultsForSearch: 5
+                          };
+                          var parent = $(this).closest('.modal');
+                          console.log('a',this.multiple);
+                          if (parent.length) {
+                            select2_options.dropdownParent = parent;
+                          }
+
+                          $(this).select2(select2_options);
+                    }
+                });
+
+
 
             });
             return false;

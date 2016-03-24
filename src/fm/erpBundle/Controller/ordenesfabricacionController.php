@@ -36,13 +36,37 @@ class ordenesfabricacionController extends Controller
         $entities  = $em->getRepository('erpBundle:ordenesfabricacion')->findAll();
         $productos = $em->getRepository('erpBundle:productos')->findBy(array('tipo' => 'kit'));
 
-
-
         return array(
             'entities' => $entities,
             'productos'=> $productos
         );
     }
+
+
+
+
+
+
+
+/**
+     * Lists all ordenesfabricacion entities.
+     *
+     * @Method("GET")
+     * @Template()
+     *
+ */
+    public function estocajeAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities  = $em->getRepository('erpBundle:ordenesfabricacion')->findBy(['mienvio' => null]);
+
+
+
+        return array(
+            'entities' => $entities
+        );
+    }  
     /**
      * Creates a new ordenesfabricacion entity.
      *

@@ -5,6 +5,8 @@ namespace fm\erpBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
+
 
 class enviosType extends AbstractType
 {
@@ -14,6 +16,8 @@ class enviosType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+        $id = $builder->getData()->getId();
         $builder
             ->add('observaciones')
             ->add('observaciones_entrega')
@@ -21,7 +25,14 @@ class enviosType extends AbstractType
             ->add('fecha')
             ->add('estado')
             ->add('cliente')
-            ->add('misordenes',null,array('expanded' => true,'label' => 'selecciona bultos disponibles'))
+            ->add('misordenes',null,array(
+                'expanded' => false,
+                'label' => 'selecciona bultos a incluir en el envio',
+                'class' => 'erpBundle:ordenesfabricacion',
+                'query_builder' => function (EntityRepository $er) use( $id ){
+                        return $er->createQueryBuilder('u')->where('u.mienvio is NULL')->orwhere('u.mienvio =?1')->setParameter(1,$id);
+                                    }
+                ))
         ;
     }
     

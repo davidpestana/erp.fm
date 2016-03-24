@@ -65,9 +65,9 @@
 
             {% for orden in entity.misordenes  %}
                
-                <b font-size="20px">{{ orden.numeroserie }}</b> 
-                {{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}mm   
-                {{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}m3     
+                <b font-size="12px">{{ orden.numeroserie }}</b> - {{orden.producto}} <br />
+                {#{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}mm   
+                {{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}m3     #}
                
             {% endfor %}           
              </div>
@@ -94,7 +94,7 @@
 
         <div background-color="#EEEEEE" margin="10px 0px" padding="20px 50px">
             <h1> DESTINATARIO </h1>
-            <div font-size="20px">
+            <div font-size="18px">
 
                 {{ entity.cliente }}<br />
                 {{ entity.cliente.dniCif }}<br />
@@ -120,9 +120,9 @@
             <div>
 
             {% for orden in entity.misordenes  %}
-                <b font-size="20px">{{ orden.numeroserie }}</b> 
-                {{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}mm   
-                {{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}m3  
+                <b font-size="12px">{{ orden.numeroserie }}</b> - {{orden.producto}} <br />
+                {#{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}mm   
+                {{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}m3  #}
 
             {% endfor %}
   

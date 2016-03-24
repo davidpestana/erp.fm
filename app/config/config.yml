@@ -110,3 +110,8 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class:  fm\erpBundle\Entity\User
+
+raul_fraile_ladybug:
+    theme: modern # select the theme base, modern or custom themes
+    expanded: false # true to expand all the variables tree by default
+    silenced: false # true to ignore all ladybug calls

@@ -29,19 +29,24 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	<!-- BEGIN PAGE LEVEL STYLES -->
 	<link rel="stylesheet" type="text/css" href="/assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.css"/>
 	<link href="/assets/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
-	<link rel="stylesheet" type="text/css" href="/assets/plugins/select2/select2_metro.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/plugins/select2/css/select2.min.css" />
+
+	<link rel="stylesheet" type="text/css" href="/assets/plugins/select2/css/select2-bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/plugins/jquery-multi-select/css/multi-select-metro.css" />
+
+
 	<link rel="stylesheet" href="/assets/plugins/data-tables/DT_bootstrap.css" />
 
 	<!-- END PAGE LEVEL STYLES -->
 
-	<link rel="shortcut icon" href="http://www.texyon.com/favicon.ico" />
+	<link rel="shortcut icon" href="http://www.furgomania.com/favicon.ico" />
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class="page-header-fixed">
 
 
-	<div id="ajax-modal" class="modal container hide fade" tabindex="-1"></div>
+	<div id="ajax-modal" class="modal container hide fade" ></div>
 
 	<!-- BEGIN HEADER -->
 	<div class="header navbar navbar-inverse navbar-fixed-top">
@@ -135,7 +140,9 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
 	<script src="/assets/scripts/app.js"></script>
 	<script src="/assets/scripts/ui-modals.js"></script>     
-	<script type="text/javascript" src="/assets/plugins/select2/select2.min.js"></script>
+	<script type="text/javascript" src="/assets/plugins/select2/js/select2.min.js"></script>
+	<script type="text/javascript" src="/assets/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
 	<script type="text/javascript" src="/assets/plugins/data-tables/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="/assets/plugins/data-tables/DT_bootstrap.js"></script>
     <script type="text/javascript" src="/assets/plugins/bootstrap-confirmation/bootstrap-confirmation.js"></script>
@@ -209,6 +216,10 @@ var chartconf = {
 		});
 	</script>
 	<!-- END JAVASCRIPTS -->   
+
+	{% block jsextra%}
+
+	{% endblock %}
 
 </body>
 <!-- END BODY -->

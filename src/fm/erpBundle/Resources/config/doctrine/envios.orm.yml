@@ -4,6 +4,7 @@ fm\erpBundle\Entity\envios:
         misordenes:
             targetEntity: ordenesfabricacion
             mappedBy: mienvio
+            cascade: [all]
     manyToOne:
         cliente:
             targetEntity: clientes
@@ -12,6 +13,7 @@ fm\erpBundle\Entity\envios:
                 name: cliente_id
                 referencedColumnName: id 
     table: null
+    repositoryClass: fm\erpBundle\Entity\enviosRepository
     fields:
         id:
             type: integer

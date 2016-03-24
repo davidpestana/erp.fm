@@ -49,12 +49,23 @@ class enviosController extends Controller
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
+
         if ($form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
+
+            foreach($entity->getMisordenes()->toArray() as $orden) 
+            {                
+                $orden->setMienvio($entity);
+                $em->persist($orden);
+                
+            }  
+
+
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('envios_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('envios'));
         }
 
         return array(
@@ -150,11 +161,9 @@ class enviosController extends Controller
             throw $this->createNotFoundException('Unable to find envios entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+            'entity'      => $entity
         );
     }
     
@@ -206,7 +215,7 @@ class enviosController extends Controller
      *
      * @Route("/{id}", name="envios_update")
      * @Method("PUT")
-     * @Template("erpBundle:envios:edit.html.twig")
+     * @Template("erpBundle::layout.redirect.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
@@ -214,42 +223,47 @@ class enviosController extends Controller
 
         $entity = $em->getRepository('erpBundle:envios')->find($id);
 
+
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find envios entity.');
         }
 
         $editForm = $this->createEditForm($entity);
 
+         // Create an array of the current Tag objects in the database
+
+        $originalMisordenes = $entity->getMisordenes()->toArray();
+
+        // atach requested form to entity
+
         $editForm->handleRequest($request);
+
+         // Create an array of the future Tag objects in the database
+
+        $finalMisordenes = $entity->getMisordenes()->toArray();
 
         if ($editForm->isValid()) {
 
 
-
- /*           foreach($editForm->get('misordenes') as $index => $orden){ 
-
-       
-
-                $ordenfabricacionEntity = $em->getRepository('erpBundle:ordenesfabricacion')->find($index);
-                if($orden->getData()){
-                                $ordenfabricacionEntity->setEnvio($entity);
-
-                                $em->persist($ordenfabricacionEntity);
+            foreach ($originalMisordenes as $orden) {
+                if(!in_array($orden,$finalMisordenes)){
+                    $orden->setMienvio(NULL);
+                    $em->persist($orden);
                 }
-            }*/
+            }   
 
-            //$em->persist($entity);
+            foreach($finalMisordenes  as $orden) 
+            {                
+                if(!in_array($orden, $originalMisordenes)){       
+                        $orden->setMienvio($entity);
+                        $em->persist($orden);
+                }
+            }      
+
+            
 
             $em->flush();
-
-            /*foreach($entity->getMisordenes() as $orden) 
-                {
-                        $orden->setEnvio($entity);
-                        $em->persist($orden);
-                        $em->flush();
-                }      */
-
-           // return $this->redirect($this->generateUrl('envios'));
+            return $this->redirect($this->generateUrl('envios'));
         }
 
 

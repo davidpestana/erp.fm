@@ -133,8 +133,10 @@ class envios
      * @param \fm\erpBundle\Entity\ordenesfabricacion $misordenes
      * @return envios
      */
-    public function addMisordene(\fm\erpBundle\Entity\ordenesfabricacion $misordenes)
+    public function addMisordenes(\fm\erpBundle\Entity\ordenesfabricacion $misordenes)
     {
+        echo('pasa');
+
         $this->misordenes[] = $misordenes;
     
         return $this;
@@ -145,7 +147,7 @@ class envios
      *
      * @param \fm\erpBundle\Entity\ordenesfabricacion $misordenes
      */
-    public function removeMisordene(\fm\erpBundle\Entity\ordenesfabricacion $misordenes)
+    public function removeMisordenes(\fm\erpBundle\Entity\ordenesfabricacion $misordenes)
     {
         $this->misordenes->removeElement($misordenes);
     }
@@ -214,5 +216,28 @@ class envios
     public function getObservacionesEntrega()
     {
         return $this->observaciones_entrega;
+    }
+
+    /**
+     * Add misordenes
+     *
+     * @param \fm\erpBundle\Entity\ordenesfabricacion $misordenes
+     * @return envios
+     */
+    public function addMisordene(\fm\erpBundle\Entity\ordenesfabricacion $misordenes)
+    {
+        $this->misordenes[] = $misordenes;
+
+        return $this;
+    }
+
+    /**
+     * Remove misordenes
+     *
+     * @param \fm\erpBundle\Entity\ordenesfabricacion $misordenes
+     */
+    public function removeMisordene(\fm\erpBundle\Entity\ordenesfabricacion $misordenes)
+    {
+        $this->misordenes->removeElement($misordenes);
     }
 }

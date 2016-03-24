@@ -29,12 +29,14 @@
                                     <div font-size="12px">PARTES DEL ENVÍO</div>
                                     <div background-color="#EEEEEE" margin="10px 0px" padding="10px 10px">
            {% for orden in entity.misordenes  %}
-                <b>{{ orden.numeroserie }}</b> 
+                <b>{{ orden.numeroserie }}</b> {{ orden.producto }}<br />
+               
+{#
                 {{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}mm   
                 {{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}m3 
 
 
-
+#}
 
 
 
