@@ -16,15 +16,10 @@
 <!-- Mobile Specific Metas
   ================================================== -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{% block stylesheets %}{% endblock %}
+{% block early-stylesheets %}{% endblock %}
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <meta name="google-site-verification" content="CNornoFXlwiR_MMOy_8EIO-5mp2RqBis0jmrZRuWkz8" />
 
-<!--Start Cookie Script-->
-
-<script type="text/javascript" charset="UTF-8" src="http://chs02.cookie-script.com/s/66afb5a543884f4cca173c2e30d578f7.js"></script>
-
-<!--End Cookie Script-->
 {% block head %}{% endblock %}
 
 <script>
@@ -108,10 +103,14 @@ Date,e)}})(window,document,"_googWcmImpl","_googWcmAk","script");
 
         {% block body %}{% endblock %}
 
-        
+		{% block stylesheets %}{% endblock %}        
     </div>
     {% include 'mainBundle::footer.html.twig' only %}
     {% block javascripts %}{% endblock %}
 
+	<!--Start Cookie Script-->
+	<script type="text/javascript" charset="UTF-8" src="http://chs02.cookie-script.com/s/66afb5a543884f4cca173c2e30d578f7.js"></script>
+	<!--End Cookie Script-->
+	
 </body>
 </html>
