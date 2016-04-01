@@ -31,7 +31,7 @@
 .camera_nextThumbs div{background:url('../images/camera_skins.png') no-repeat -190px 0;display:block;height:40px;margin-top:-20px;position:absolute;top:50%;width:30px;}
 .camera_command_wrap .hideNav{display:none;}
 .camera_command_wrap{left:0;position:relative;right:0;z-index:4;}
-.camera_wrap .camera_pag .camera_pag_ul{list-style:none;margin:0;padding:0;text-align:right;}
+.camera_wrap .camera_pag .camera_pag_ul{list-style:none;margin:0;padding:0;text-align:center;}
 .camera_wrap .camera_pag .camera_pag_ul li{-webkit-border-radius:8px;-moz-border-radius:8px;border-radius:8px;cursor:pointer;display:inline-block;height:16px;margin:1px 1px;position:relative;text-align:left;text-indent:-9999px;width:16px;}
 .camera_commands_emboss .camera_pag .camera_pag_ul li{-moz-box-shadow:0px 1px 0px rgba(255,255,255,1),
 inset 0px 1px 1px rgba(0,0,0,0.2);-webkit-box-shadow:0px 1px 0px rgba(255,255,255,1),
