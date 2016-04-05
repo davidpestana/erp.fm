@@ -34,4 +34,40 @@
     </li>
     <li>{{ form(delete_form) }}</li>
 </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+            <table>
+                  <tr>
+                    <td border-color="white" padding="2">Número de Serie</td>
+                    <td border-color="white" padding="2">Contenido</td>
+                    <td border-color="white" padding="2">Dimensiones (mm)</td>
+                    <td border-color="white" padding="2">Volumen (m3)</td>
+                </tr> 
+            {% for orden in entity.misordenes  %}
+
+                    <tr>
+                        <td padding="2"><b font-size="12px">{{ orden.numeroserie }}</b></td>
+                        <td padding="2">{{orden.producto}}</td>
+                {% if orden.micajon is null %}
+                    <td> Paquete de pequeñas dimensiones</td><td> 0 </td>
+                {% else %}
+                   
+
+                        <td padding="2">{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}</td>  
+                        <td padding="2">{{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}</td>
+                {% endif %}    
+   
+             </tr>
+            {% endfor %}        
+            </table>   
 {% endblock %}

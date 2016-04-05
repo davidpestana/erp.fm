@@ -79,7 +79,7 @@ var UIModals = function () {
                             minimumResultsForSearch: 5
                           };
                           var parent = $(this).closest('.modal');
-                          console.log('a',this.multiple);
+                          //console.log('a',this.multiple);
                           if (parent.length) {
                             select2_options.dropdownParent = parent;
                           }
