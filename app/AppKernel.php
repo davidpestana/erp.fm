@@ -26,6 +26,8 @@ class AppKernel extends Kernel
             new fm\cmsBundle\cmsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
+            new Cocur\Slugify\Bridge\Symfony\CocurSlugifyBundle(),
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

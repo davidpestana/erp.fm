@@ -13,3 +13,9 @@ _paginas_route:
 _inherited_route:
     resource: "@mainBundle/Controller/InheritedController.php"
     type:     annotation
+_concesionarios_route:
+    resource: "@mainBundle/Controller/ConcesionariosController.php"
+    type:     annotation
+    prefix:   /{_locale}
+    requirements:
+        _locale: en|es|fr|it|de|pt

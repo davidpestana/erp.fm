@@ -1,0 +1,112 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block title %}CONTACTO{% endblock %}
+{% block description %}{% endblock %}
+{% block article %}
+
+
+<section id="content" class="portfolio">
+    <header class="page-header">
+      <h1>Exposiciones en concesionarios VolksWagen</h1>
+    </header>
+    <div class="row">
+      <aside class="span2">
+                  <h2><span>{% trans %}Región{% endtrans %}</span></h2>
+
+        <nav id="filter" class="filterVertical">
+          <ul>
+            <li><a href="" class="current btn btn-inverse btn-mini" data-filter="*">Ver Todas</a></li>
+            {% set newArray = [] %}
+            {% for concesionario in concesionarios %}
+                {% if concesionario.localidad not in newArray %}
+                 <li><a href="" class="btn  btn-inverse btn-mini" data-filter=".{{ concesionario.localidad | slugify }}">{{ concesionario.localidad }}</a></li>
+                 {% set newArray = newArray|merge([concesionario.localidad]) %}
+                {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
+      </aside>
+      <section class="span10">
+        <div class="portfolio-items isotopeWrapper clearfix da-thumbs isotope" id="1" style="position: relative; overflow: hidden; height: 1854px;">
+
+
+          {% for concesionario in concesionarios %}
+          <div class="isotopeItem {{ concesionario.localidad | slugify }} row isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
+            <article class="presBloc">
+              <section class="imgWrapper span4"> <img src="/img/concesionarios/{{concesionario.concesionario |slugify }}.jpg" alt="">
+                <div class="media-hover" style="height: 291px; display: none; opacity: 1;">
+                  <div class="mask" style="height: 291px;">
+                    <div class="insideLinkHolder" style="top: 128.5px; left: 204px;"> <a href="{{concesionario.website}}" data-placement="bottom" class="hover-link tips" target="_blank" data-original-title="Visitar {{concesionario.website}}"><span class="iconWrapper iconLink"><i class="icon-link"></i></span></a> </div>
+                  </div>
+                </div>
+              </section>
+              <section class="blocBody span6">
+                        <div class="span6">
+                            <h3>{{concesionario.concesionario }}</h3>
+                            <p class="boxTextWrapper">{{ concesionario.descripcion }}</p>
+                        </div>
+                        <div class="span3">
+                            <h4><i class="icon-mail"></i> {{"Dirección" | trans }}:</h4>
+                            <address>{{concesionario.direccion}}</address>
+                        </div>
+                        <div class="span2">
+                              <h4><i class="icon-globe"></i> {{"Contacto" | trans }}</h4>
+                              <a href="{{concesionario.website}}">{{concesionario.website}}</a>
+                        </div>
+              </section>
+            </article>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+
+    {#<div id="mapdiv" style="width: 100%; height: 500px;"></div>#}
+
+  </section>
+
+{% endblock %}
+
+{# block custom %}
+
+<script language="javascript">
+  
+AmCharts.makeChart( "mapdiv", {
+  /**
+   * this tells amCharts it's a map
+   */
+  "type": "map",
+  "responsive": {
+      "enabled": true
+   },
+  /**
+   * create data provider object
+   * map property is usually the same as the name of the map file.
+   * getAreasFromMap indicates that amMap should read all the areas available
+   * in the map data and treat them as they are included in your data provider.
+   * in case you don't set it to true, all the areas except listed in data
+   * provider will be treated as unlisted.
+   */
+  "dataProvider": {
+    "map": "spainProvincesLow",
+    "getAreasFromMap": true
+  },
+
+  /** 
+   * create areas settings
+   * autoZoom set to true means that the map will zoom-in when clicked on the area
+   * selectedColor indicates color of the clicked area.
+   */
+  "areasSettings": {
+    "autoZoom": true,
+    "selectedColor": "#CC0000"
+  },
+
+  /**
+   * let's say we want a small map to be displayed, so let's create it
+   */
+  "smallMap": {}
+} );
+  
+</script>
+
+{% endblock #}  

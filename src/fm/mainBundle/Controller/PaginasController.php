@@ -20,12 +20,12 @@ class PaginasController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function concesionariosAction()
+    /*public function concesionariosAction()
     {
         $this->get('seoManager')->metas();
 
         return array();
-    }
+    }*/
 
 
 
