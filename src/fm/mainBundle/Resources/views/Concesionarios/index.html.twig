@@ -32,7 +32,7 @@
           {% for concesionario in concesionarios %}
           <div class="isotopeItem {{ concesionario.localidad | slugify }} row isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
             <article class="presBloc">
-              <section class="imgWrapper span4"> <img src="/img/concesionarios/{{concesionario.concesionario |slugify }}.jpg" alt="">
+              <section class="imgWrapper span4"> <img src="http://www.furgomaniavw.com/img/concesionarios/{{concesionario.concesionario |slugify }}.jpg" alt="">
                 <div class="media-hover" style="height: 291px; display: none; opacity: 1;">
                   <div class="mask" style="height: 291px;">
                     <div class="insideLinkHolder" style="top: 128.5px; left: 204px;"> <a href="{{concesionario.website}}" data-placement="bottom" class="hover-link tips" target="_blank" data-original-title="Visitar {{concesionario.website}}"><span class="iconWrapper iconLink"><i class="icon-link"></i></span></a> </div>
