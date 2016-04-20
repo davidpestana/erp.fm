@@ -29,7 +29,7 @@
 					</li>
 
 					<li>
-					<a href="{{path('fm_main_concesionarios_index')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_concesionarios_index' %}active{% endif %}">{% trans %}Exposiciones{% endtrans %}</a>
+					<a href="{{path('fm_main_paginas_concesionarios')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_paginas_concesionarios' %}active{% endif %}">{% trans %}Exposiciones{% endtrans %}</a>
 					</li>
 					
 					<li>
@@ -43,7 +43,8 @@
 					<li>
 					<a href="#" class="hasSubMenu {% if app.request.get('_route') == 'fm_kit_default_marca' or app.request.get('_route') == 'fm_kit_default_vehiculo'%}active{% endif %}">{{"Catálogo KITS"|trans}}</a>
 					<ul>
-						<li><a href="{{path('fm_kit_default_marca',{'marca':'volkswagen'})}}">VolksWagen</a></li>
+					{#	<li><a href="{{path('fm_kit_default_marca',{'marca':'volkswagen'})}}">VolksWagen</a></li>  #}
+						<li><a href="http://www.furgomaniavw.com/volkswagen">VolksWagen</a></li>
 						<li><a href="{{path('fm_kit_default_marca',{'marca':'renault'})}}">Renault</a></li>
 						<li><a href="{{path('fm_kit_default_marca',{'marca':'nissan'})}}">Nissan</a></li>  
 						<li><a href="{{path('fm_kit_default_marca',{'marca':'opel'})}}">Opel</a></li>
