@@ -48,11 +48,15 @@
                             <h4><i class="icon-mail"></i> {{"Dirección" | trans }}:</h4>
                             <address>{{concesionario.direccion}}</address>
                         </div>
+
                         <div class="span2">
                               <h4><i class="icon-globe"></i> {{"Contacto" | trans }}</h4>
+                              <p class="boxTextWrapper">{{"Teléfono:" | trans }} <a href="tel:{{ concesionario.telefono }}" itemprop="telephone">{{ concesionario.telefono }}</a></p>
                               <a href="{{concesionario.website}}">{{concesionario.website}}</a>
-							  <p>Tlf: {{concesionario.telefono}}</p>
                         </div>
+
+
+
               </section>
             </article>
           </div>
