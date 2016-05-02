@@ -140,7 +140,8 @@ class facturaController extends Controller
             ->setSubject(strtoupper($entity->getTipo()).' FURGOMANIA '.$entity->getCodfactura())
             ->setFrom('contacto@furgomania.com')
             ->setTo($entity->getCliente()->getEmail())
-            ->setCc(array('info@furgomania.com', 'ventas@furgomania.com','tecnicom@quimp.es'))
+            ->setCc(array('contacto@furgomania.com'))
+           // ->setCc(array('info@furgomania.com', 'ventas@furgomania.com','tecnicom@quimp.es'))
             ->setBody(
                 $this->renderView(
                     'erpBundle:factura:email.html.twig',
