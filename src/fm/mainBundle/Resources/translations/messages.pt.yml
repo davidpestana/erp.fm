@@ -106,3 +106,8 @@
 
 'URL_VIDEO_EXPLICATIVO': 'http://www.youtube.com/embed/kH075bdHVsU'
 'URL_VIDEO_CAMA_BASIC': 'http://www.youtube.com/embed/C2tzA4izbfU'
+
+'URL_SOCIALMEDIA_FACEBOOK': 'https://www.facebook.com/FurgomaniaPortuguese/'
+'URL_SOCIALMEDIA_YOUTUBE': 'https://www.youtube.com/user/furgomania'
+'URL_SOCIALMEDIA_GOOGLE': 'https://plus.google.com/+furgomania'
+'URL_SOCIALMEDIA_TWITTER': 'https://twitter.com/furgomania'
