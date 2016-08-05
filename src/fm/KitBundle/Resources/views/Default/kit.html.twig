@@ -30,7 +30,7 @@
 				<blockquote>{{ entity.descripcion | trans | raw }}</blockquote>
 				
 				{% if entity.features %}
-					<div style="border:1px dashed #EEE; padding:5px; margin-bottom: 20px;">
+					<div style="border:1px dashed #EEE; padding:5px; margin-bottom:20px;">
 						<h3>{{"Carácteristicas" | trans }}:</h3>
 						<ul class="iconsList iconsList-large">
 						{% for component in entity.features %}
