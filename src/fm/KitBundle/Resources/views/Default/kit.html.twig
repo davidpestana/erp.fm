@@ -30,7 +30,7 @@
 				<blockquote>{{ entity.descripcion | trans | raw }}</blockquote>
 				
 				{% if entity.features %}
-					<div style="border:1px dashed #EEE; padding:5px;">
+					<div style="border:1px dashed #EEE; padding:5px; margin-bottom: 20px;">
 						<h3>{{"Carácteristicas" | trans }}:</h3>
 						<ul class="iconsList iconsList-large">
 						{% for component in entity.features %}
@@ -40,6 +40,9 @@
 					</div>
 				{% endif %}
 				
+				<p class="highlight">
+				IMPORTANTE: Furgomania está en constante investigación y desarrollo de todos sus productos y por ello cabe la posibilidad de que el producto que reciba en su pedido no sea exactamente igual al reflejado en nuestra web. No obstante, Furgomania garantiza que el que reciba será de mejores cualidades en cuanto a su funcionalidad, seguridad o apariencia. Todos nuestros productos tienen un periodo de devolución de 15 días si no está satisfecho con el mismo y una garantía total de 2 años.
+				</p>
         	</div>
           	<div class="span4">
 				<div class="pricingBloc focusPlan">
@@ -49,8 +52,6 @@
 					
 					<span>
 					{{ entity.estado | trans }}
-					 <!--{ { kit.available ? '<i class="icon-thumbs-up" title="disponible próximamente">Disponible</i>' : kit.soon ? '<i class="icon-clock" title="disponible próximamente">Próximamente</i>' : '<i class="icon-cancel" title="disponible próximamente">No Disponible</i>' }} 
-					-->
 					</span>
 					</h3>
 					<ul>
@@ -65,35 +66,26 @@
 		</div>
 		
 		{# if entity.opciones != '' %}
-
-
-
 		<div class="row">
-        <div class="span12">
-          <h2><span>Opciones</span></h2>
+			<div class="span12">
+			  <h2><span>Opciones</span></h2>
+			</div>
+			{% for option in entity.opciones %}
+			<div class="span4">
+			  <div class="pricingBloc">
+				<h2>{{option.nombre}}</h2>
+				<h3>{{option.precio}} €</h3>
+				<ul>
+					{% for component in option.contenido %}
+					<li>{{component}}</li>
+					{% endfor %}
+				</ul>
+				
+			  </div>
+			</div>
+			{% endfor %}
         </div>
-        {% for option in entity.opciones %}
-
-
-        <div class="span4">
-          <div class="pricingBloc">
-            <h2>{{option.nombre}}</h2>
-            <h3>{{option.precio}} €</h3>
-            <ul>
-						{% for component in option.contenido %}
-							<li>{{component}}</li>
-						{% endfor %}
-            </ul>
-            
-          </div>
-        </div>
-        {% endfor %}
-        </div>
-
-
-
 		{% endif #}
-
 
       </section>
 
