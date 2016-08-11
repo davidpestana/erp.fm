@@ -7,9 +7,40 @@
 	    <header class="page-header">
 	      <h1>{{entity.marca}} {{entity.modelo}}</h1>
 	    </header>
+    <div class="row">
+     {# <nav id="filter" class="span6">
+        <ul>
+          <li><a href="" class="current btn btn-inverse btn-mini" data-filter="*">{{"Ver Todas" | trans }}</a></li>
+          <li><a href="" class="btn  btn-inverse btn-mini" data-filter=".inner">{{"Interior" | trans }}</a></li>
+          <li><a href="" class="btn btn-inverse btn-mini" data-filter=".outer">{{"Exterior" | trans }}</a></li>
+          <li><a href="" class="btn btn-inverse btn-mini" data-filter=".extra">{{"Accesorios" | trans }}</a></li>
+        </ul>
+      </nav>#}
+    </div>
+    <div class="slice clearfix">
+      <div class="container">
+        <div class="row">
+          <div class="portfolio-items isotopeWrapper clearfix  isotope" id="3" style="position: relative; overflow: hidden; height: 705px;">
+            {% for foto in entity.galeria %}
+
+            <article class="span4 isotopeItem inner presBloc masoneryBloc isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
+              <section class="imgWrapper"> <img src="http://www.furgomania.com/{{ foto.img }}" alt="">
+                <div class="media-hover" style="height: 187px; display: none; opacity: 1;">
+                  <div class="mask resizer" style="height: 187px;"> <i class="icon-plus" style="position: absolute; font-size: 3.5em; top: 72.5px; left: 116px;"></i> </div>
+                </div>
+              </section>
+            </article>
+
+           {% endfor %} 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+		
 <section>
 
-        <div class="row">
+        {#<div class="row">
 
            <div class="span12">
 		          <div class="camera_wrap">
@@ -23,7 +54,7 @@
 		          {% endfor %}  
 		          </div>
 		    </div>  
-		</div>    
+		</div>    #}
   		<div class="row">
 		  	<div class="span8">  
 				<h2>{{ entity.nombre}} <span>{{ entity.marca}} {{entity.modelo }} </span></h2>
