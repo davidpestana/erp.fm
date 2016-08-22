@@ -264,7 +264,7 @@ q::before, q::after, blockquote::before, blockquote::after{content:none;}
 .pricingBloc ul li{padding:1.5em 0}
 .pricingBloc h2{font-size:1.25em;text-transform:none;margin-bottom:0;padding:1.5em}
 .pricingBloc h3{font-size:3em;font-weight:800;display:block;padding:1em;margin-bottom:0;}
-.pricingBloc h3 span{font-size:0.5em;font-weight:300;margin-bottom:0;display:block;}
+.pricingBloc h3 span{font-size:0.5em;line-height:1.4em;font-weight:300;margin-bottom:0;display:block;text-transform:none;}
 .pricingBloc p{margin-bottom:0;padding:1.5em}
 .pricingBloc.focusPlan{margin-top:0;}
 .pricingBloc.focusPlan h3{padding:1.25em;}
