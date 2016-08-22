@@ -79,18 +79,22 @@
 				<div class="pricingBloc focusPlan">
 					<h2>{{entity.nombre | trans }}</h2>
 		            
-					<h3>{% if entity.precio > 0 %} {{entity.precio}} € {% endif %}
-					
-					<span>
-					{{ entity.estado | trans }}
-					</span>
+					<h3>
+						{% if entity.precio > 0 %} 
+							{{entity.precio}} € 
+						{% else %}
+							{{"PRÓXIMAMENTE" | trans }}
+						{% endif %}
+						<span>
+						{{"impuestos y portes no incluidos" | trans }}
+						</span>
 					</h3>
-					<ul>
+					{#<ul>
 						{% for feature in entity.contenido %}
 							<li>{{feature | trans }}</li>
 						{% endfor %}
 						<li> {{"impuestos y portes no incluidos" | trans }}</li>
-					</ul>
+					</ul>#}
 		    		<p class="sign"> <a class="btn btn-large" href="{{ path('fm_main_default_contacto') }}" style=" ">{{"LO QUIERO" | trans }}</a> </p>
 				</div>
 			</div>   
