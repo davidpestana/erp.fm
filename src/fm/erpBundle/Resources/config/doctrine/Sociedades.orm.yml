@@ -32,8 +32,11 @@ fm\erpBundle\Entity\Sociedades:
             length: 255
         provincia:
             type: string
-            length: 255    
+            length: 255
         entidad:
+            type: string
+            length: 255
+        bic:
             type: string
             length: 255
         iban:
@@ -41,8 +44,8 @@ fm\erpBundle\Entity\Sociedades:
             length: 255
         codigoCuenta:
             type: string
-            length: 255  
+            length: 255
         observaciones:
             type: string
-            length: 255 
+            length: 255
     lifecycleCallbacks: {  }

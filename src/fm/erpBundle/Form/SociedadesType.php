@@ -23,11 +23,12 @@ class SociedadesType extends AbstractType
             ->add('provincia')
             ->add('entidad')
             ->add('iban')
+            ->add('bic')
             ->add('codigoCuenta')
             ->add('observaciones')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

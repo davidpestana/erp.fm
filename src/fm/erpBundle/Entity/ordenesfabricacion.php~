@@ -37,7 +37,7 @@ class ordenesfabricacion
 
     public function __toString(){
 
-        return $this->getNumeroserie();
+        return "<b>".$this->getNumeroserie()."</b> - ".$this->getProducto();
     }
 
     /**

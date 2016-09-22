@@ -54,7 +54,7 @@ class Sociedades
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -70,14 +70,14 @@ class Sociedades
     public function setRazonSocial($razonSocial)
     {
         $this->razonSocial = $razonSocial;
-    
+
         return $this;
     }
 
     /**
      * Get razonSocial
      *
-     * @return string 
+     * @return string
      */
     public function getRazonSocial()
     {
@@ -93,14 +93,14 @@ class Sociedades
     public function setNif($nif)
     {
         $this->nif = $nif;
-    
+
         return $this;
     }
 
     /**
      * Get nif
      *
-     * @return string 
+     * @return string
      */
     public function getNif()
     {
@@ -116,14 +116,14 @@ class Sociedades
     public function setDireccion($direccion)
     {
         $this->direccion = $direccion;
-    
+
         return $this;
     }
 
     /**
      * Get direccion
      *
-     * @return string 
+     * @return string
      */
     public function getDireccion()
     {
@@ -139,14 +139,14 @@ class Sociedades
     public function setCp($cp)
     {
         $this->cp = $cp;
-    
+
         return $this;
     }
 
     /**
      * Get cp
      *
-     * @return string 
+     * @return string
      */
     public function getCp()
     {
@@ -162,14 +162,14 @@ class Sociedades
     public function setLocalidad($localidad)
     {
         $this->localidad = $localidad;
-    
+
         return $this;
     }
 
     /**
      * Get localidad
      *
-     * @return string 
+     * @return string
      */
     public function getLocalidad()
     {
@@ -185,14 +185,14 @@ class Sociedades
     public function setProvincia($provincia)
     {
         $this->provincia = $provincia;
-    
+
         return $this;
     }
 
     /**
      * Get provincia
      *
-     * @return string 
+     * @return string
      */
     public function getProvincia()
     {
@@ -214,7 +214,7 @@ class Sociedades
     {
         $this->facturas = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add facturas
      *
@@ -224,7 +224,7 @@ class Sociedades
     public function addFactura(\fm\erpBundle\Entity\factura $facturas)
     {
         $this->facturas[] = $facturas;
-    
+
         return $this;
     }
 
@@ -241,7 +241,7 @@ class Sociedades
     /**
      * Get facturas
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getFacturas()
     {
@@ -251,6 +251,11 @@ class Sociedades
      * @var string
      */
     private $entidad;
+
+    /**
+     * @var string
+     */
+    private $bic;
 
     /**
      * @var string
@@ -277,14 +282,14 @@ class Sociedades
     public function setEntidad($entidad)
     {
         $this->entidad = $entidad;
-    
+
         return $this;
     }
 
     /**
      * Get entidad
      *
-     * @return string 
+     * @return string
      */
     public function getEntidad()
     {
@@ -300,14 +305,14 @@ class Sociedades
     public function setIban($iban)
     {
         $this->iban = $iban;
-    
+
         return $this;
     }
 
     /**
      * Get iban
      *
-     * @return string 
+     * @return string
      */
     public function getIban()
     {
@@ -323,14 +328,14 @@ class Sociedades
     public function setCodigoCuenta($codigoCuenta)
     {
         $this->codigoCuenta = $codigoCuenta;
-    
+
         return $this;
     }
 
     /**
      * Get codigoCuenta
      *
-     * @return string 
+     * @return string
      */
     public function getCodigoCuenta()
     {
@@ -346,14 +351,14 @@ class Sociedades
     public function setObservaciones($observaciones)
     {
         $this->observaciones = $observaciones;
-    
+
         return $this;
     }
 
     /**
      * Get observaciones
      *
-     * @return string 
+     * @return string
      */
     public function getObservaciones()
     {
@@ -394,7 +399,7 @@ class Sociedades
     /**
      * Get direcciones
      *
-     * @return \fm\erpBundle\Entity\direcciones 
+     * @return \fm\erpBundle\Entity\direcciones
      */
     public function getDirecciones()
     {
