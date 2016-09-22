@@ -78,10 +78,10 @@
                     <td padding="5px" border-color="white">IMPORTE NETO</td>
                     <td padding="5px" width="100px" border-color="#eb613d">{{ base |number_format(2, '.', ',') }} €</td>
                 </tr>
-                {#}<tr>
+                <tr>
                     <td padding="5px" border-color="white">TOTAL DESCUENTOS</td>
                     <td padding="5px" width="100px" border-color="#eb613d">{{ totaldesc |number_format(2, '.', ',') }} €</td>
-                </tr>#}
+                </tr>
             </table>
         </p>#}
         <p>
@@ -93,11 +93,11 @@
              </tr>
              <tr>
                  <td padding="5px" border-color="white">IVA {{entity.iva }} % </td>
-                 <td padding="5px" border-color="#eb613d">{{ (base - totaldesc) * (entity.iva/100) |number_format(2, '.', ',') }} €</td>
+                 <td padding="5px" border-color="#eb613d">{{ ((base - totaldesc) * (entity.iva/100)) |number_format(2, '.', ',') }} €</td>
              </tr>
              <tr>
                  <td padding="5px" border-color="white">TOTAL </td>
-                 <td padding="5px" border-color="#eb613d">{{ (base - totaldesc) * (1+ (entity.iva/100)) |number_format(2, '.', ',') }} €</td>
+                 <td padding="5px" border-color="#eb613d">{{ ((base - totaldesc) * (1+ (entity.iva/100))) |number_format(2, '.', ',') }} €</td>
              </tr>
          </table>
      </p>
