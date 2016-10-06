@@ -1,247 +1,51 @@
+  {% set counter = 0 %}
+  
   <!-- slider -->
   <div class="row ">
     <div class="span12">
-	{#
-	  <div class="videolayer">
-
-          <div class="span12">
-            <h2> <span>kit autoinstalable, video de instalacion</span></h2>
-          </div>
-        <iframe src="http://player.vimeo.com/video/78682434" width="100%" height="397" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-      </div>
-	#}
 
       <div class="flexslider">
         <ul class="slides sliderWrapper">
 
-		<li class="slideN0" style="width: 930px; float: left; display: block;">
-			<video style="width:100%" src="/videos/kits-autoinstalables-furgomania-HD.mov" controls poster="/videos/kits-autoinstalables-furgomania-HD-fondo.jpg"></video>
-		</li>
+			<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
+				<a href="http://www.furgomania.com/es/contacto"><img src="/img/slider/slideinternacional.jpg" alt="Furgomania Internacional"/></a>
+			</li>{% set counter = counter + 1 %}
 
-         <li class="slideN1" style="width: 930px; float: left; display: block;">
-			<img src="/img/slider/facebook/fondo.jpg" alt="KITS FURGOMANIA"/>
-		 </li>
+			<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
+				<div class="video-container">
+					<iframe src="{% trans %}URL_VIDEO_EXPLICATIVO{% endtrans %}" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</li>{% set counter = counter + 1 %}
 
-         <li class="slideN2" style="width: 930px; float: left; display: block;">
-			<a href="http://www.furgomania.com/es/interesados-transporter-furgomania/"><img src="/img/slider/compra-conjunta/compra-conjunta-volswagen-furgomania.jpg" alt="KITS FURGOMANIA"/></a>
-		 </li>
-		 
-         <li class="slideN3" style="width: 930px; float: left; display: block;">
-			<a href="#"><img src="/img/slider/oferta-vwt6/fondo.jpg" alt="KITS FURGOMANIA"/></a>
-			<div class="caption left">
-			
-              <div class="th-top" data-animation="fadeInLeftBig">
-                <img src="/img/slider/oferta-vwt6/th1.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInLeftBig">
-                <img src="/img/slider/oferta-vwt6/th3.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom-center" data-animation="bounceInUp">
-                <img src="/img/slider/oferta-vwt6/mini.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-			</div>
-			
-            <div class="caption right">
-			
-              <div class="th-top" data-animation="fadeInRightBig">
-                <img src="/img/slider/oferta-vwt6/th4.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInRightBig">
-                <img src="/img/slider/oferta-vwt6/th2.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-            </div>
-          </li>
+			<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
+				<a href="http://www.furgomania.com/es/concesionarios/"><img src="/img/slider/mapa1.jpg" alt="Concesionarios Furgomania"/></a>
+			</li>{% set counter = counter + 1 %}
 
-         <li class="slideN4" style="width: 930px; float: left; display: block;">
-			<a href="#"><img src="/img/slider/viano-larga/fondo.jpg" alt=""/></a>
-			<div class="caption left">
-			
-              <div class="th-top" data-animation="fadeInLeftBig">
-                <img src="/img/slider/viano-larga/th1.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInLeftBig">
-                <img src="/img/slider/viano-larga/th3.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom-center" data-animation="bounceInUp">
-                <img src="/img/slider/viano-larga/th-mercedes-viano-larga.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-			</div>
-			
-            <div class="caption right">
-			
-              <div class="th-top-no-border" data-animation="fadeInRightBig">
-                <img src="/img/slider/splashes/sin-herramientas.png" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInRightBig">
-                <img src="/img/slider/viano-larga/th2.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-            </div>
-          </li>
+			<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
+				<a href="http://www.furgomaniavw.com/volkswagen"><img src="/img/slider/caravelle-shuttle.jpg" alt="Kit para la VW T5 T6"/></a>
+			</li>{% set counter = counter + 1 %}
 
-         <li class="slideN5" style="width: 930px; float: left; display: block;">
-			<a href="#"><img src="/img/slider/citroen-jumpy/fondo.jpg" alt=""/></a>
-			<div class="caption left">
-			
-              <div class="th-top" data-animation="fadeInLeftBig">
-                <img src="/img/slider/citroen-jumpy/th1.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInLeftBig">
-                <img src="/img/slider/citroen-jumpy/th2.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom-center" data-animation="bounceInUp">
-                <img src="/img/slider/citroen-jumpy/th-citroen-jumpy.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-			</div>
-			
-            <div class="caption right">
-			
-              <div class="th-top-no-border" data-animation="fadeInRightBig">
-                <img src="/img/slider/splashes/sin-itv.png" alt="KITS FURGOMANIA" />
-              </div>
+			<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
+				<a href="http://www.furgomania.com/es/furgoneta-camper/mercedes/viano-larga/kit-alto/"><img src="/img/slider/mercedes_1.jpg" alt="KITS FURGOMANIA"/></a>
+			</li>{% set counter = counter + 1 %}
 
-              <div class="th-bottom" data-animation="fadeInRightBig">
-                <img src="/img/slider/vito-larga/th3.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-            </div>
-          </li>
-		  
-	  
-         <li class="slideN6" style="width: 930px; float: left; display: block;">
-			<a href="#"><img src="/img/slider/oferta-camper/fondo.jpg" alt=""/></a>
-			<div class="caption left">
-			
-              <div class="th-top" data-animation="fadeInLeftBig">
-                <img src="/img/slider/oferta-camper/th1.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInLeftBig">
-                <img src="/img/slider/oferta-camper/th3.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-			</div>
-			
-            <div class="caption right">
-			
-              <div class="th-top-no-border" data-animation="fadeInRightBig">
-                <img src="/img/slider/splashes/sin-moverte-de-casa.png" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInRightBig">
-                <img src="/img/slider/oferta-camper/th2.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-            </div>
-          </li>		  
-		  
-         <li class="slideN7" style="width: 930px; float: left; display: block;">
-			<a href="#"><img src="/img/slider/trafic/fondo.jpg" alt=""/></a>
-			<div class="caption left">
-			
-              <div class="th-top" data-animation="fadeInLeftBig">
-                <img src="/img/slider/trafic/th1.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInLeftBig">
-                <img src="/img/slider/trafic/th2.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom-center" data-animation="bounceInUp">
-                <img src="/img/slider/trafic/th-renault-trafic.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-			</div>
-			
-            <div class="caption right">
-			
-              <div class="th-top-no-border" data-animation="fadeInRightBig">
-                <img src="/img/slider/splashes/sin-taller.png" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInRightBig">
-                <img src="/img/slider/trafic/th3.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-            </div>
-          </li>
+			<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
+				<a href="http://www.furgomania.com/es/furgoneta-camper/renault/trafic/"><img src="/img/slider/renopelnis.jpg" alt="KITS FURGOMANIA"/></a>
+			</li>{% set counter = counter + 1 %}
 
+			<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
+				<a href="http://www.furgomania.com/es/furgoneta-camper/peugeot/partner/kit-universal-furgonetas-pequeñas/"><img src="/img/slider/multimarca.jpg" alt="KITS FURGOMANIA"/></a>
+			</li>{% set counter = counter + 1 %}
 
-         <li class="slideN8" style="width: 930px; float: left; display: block;">
-			<a href="#"><img src="/img/slider/vito-larga/fondo.jpg" alt=""/></a>
-			<div class="caption left">
-			
-              <div class="th-top" data-animation="fadeInLeftBig">
-                <img src="/img/slider/vito-larga/th1.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInLeftBig">
-                <img src="/img/slider/vito-larga/th2.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom-center" data-animation="bounceInUp">
-                <img src="/img/slider/vito-larga/th-vito-larga.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-			</div>
-			
-            <div class="caption right">
-			
-              <div class="th-top-no-border" data-animation="fadeInRightBig">
-                <img src="/img/slider/splashes/en-pocos-minutos.png" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInRightBig">
-                <img src="/img/slider/vito-larga/th3.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-            </div>
-          </li>
+			<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
+				<a href="http://www.furgomania.com/es/furgoneta-camper/nissan/nv200/kit-nissan-nv200/"><img src="/img/slider/nissan.jpg" alt="KITS FURGOMANIA"/></a>
+			</li>{% set counter = counter + 1 %}
 
-         <li class="slideN9" style="width: 930px; float: left; display: block;">
-			<a href="#"><img src="/img/slider/oferta-evalia-nv200/fondo.jpg" alt=""/></a>
-			<div class="caption left">
+			<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
+				<a href="http://www.furgomania.com/es/furgoneta-camper/peugeot/expert-corta/kit-muebles-tapiceria/"><img src="/img/slider/fiatcitrpeu.jpg" alt="KITS FURGOMANIA"/></a>
+			</li>{% set counter = counter + 1 %}
 			
-              <div class="th-top" data-animation="fadeInLeftBig">
-                <img src="/img/slider/oferta-evalia-nv200/th1.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInLeftBig">
-                <img src="/img/slider/oferta-evalia-nv200/th3.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom-center" data-animation="bounceInUp">
-                <img src="/img/slider/oferta-evalia-nv200/mini.jpg" alt="KITS FURGOMANIA" />
-              </div>
 
-			  </div>
-			
-            <div class="caption right">
-			
-              <div class="th-top-no-border" data-animation="fadeInRightBig">
-                <img src="/img/slider/oferta-evalia-nv200/th4.png" alt="KITS FURGOMANIA" />
-              </div>
-			  
-              <div class="th-bottom" data-animation="fadeInRightBig">
-                <img src="/img/slider/oferta-evalia-nv200/th2.jpg" alt="KITS FURGOMANIA" />
-              </div>
-			  
-            </div>
-          </li>
-
-		  
         </ul>
       </div>
 	  <div class="flexiShadow"><img src="{{ asset('bundles/main/images/ui/flexi-shadow.png') }}" alt="slider shadow"/></div>
