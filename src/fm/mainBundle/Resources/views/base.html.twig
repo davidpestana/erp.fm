@@ -52,6 +52,8 @@ fbq('track', "PageView");
 </noscript>
 <!-- End Facebook Pixel Code -->
 
+{% set URI = app.request.uri %}
+<link rel="canonical" href="{{ URI }}"/>
 
 </head>
 <body>
