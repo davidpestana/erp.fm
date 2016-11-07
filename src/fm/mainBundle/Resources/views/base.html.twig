@@ -21,7 +21,7 @@
 <meta name="google-site-verification" content="CNornoFXlwiR_MMOy_8EIO-5mp2RqBis0jmrZRuWkz8" />
 
 {% set URI = app.request.uri %}
-{% set canonical = URI | replace({('/' ~ {{app.request.locale}} ~ '/'): "/es/"}) %}
+{% set canonical = URI | replace({"/{{app.request.locale}}/": "/es/"}) %}
 <link rel="canonical" href="{{ URI }}"/>
 <!-- {{canonical}} -->
 
