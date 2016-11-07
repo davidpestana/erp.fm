@@ -20,6 +20,12 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <meta name="google-site-verification" content="CNornoFXlwiR_MMOy_8EIO-5mp2RqBis0jmrZRuWkz8" />
 
+{% set URI = app.request.uri %}
+{% set canonical = URI | replace({"/{{app.request.locale}}/": "/es/"}) %}
+<link rel="canonical" href="{{ URI }}"/>
+<!-- {{canonical}} -->
+
+
 {% block head %}{% endblock %}
 
 <script>
@@ -51,9 +57,6 @@ fbq('track', "PageView");
 <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=427601100773090&ev=PageView&noscript=1"/>
 </noscript>
 <!-- End Facebook Pixel Code -->
-
-{% set URI = app.request.uri %}
-<link rel="canonical" href="{{ URI }}"/>
 
 </head>
 <body>
