@@ -113,8 +113,10 @@
         <h2 text-align="center">CUENTA: {{ entity.sociedad.codigoCuenta }}<br /> IBAN: {{ entity.sociedad.iban }}<br /> BIC: {{ entity.sociedad.bic }}</h2>
 
 
-        {% else %}
+    {% else %}
         <div background-color="#eb613d" height="20px"></div>
+        <h1 text-align="center">{{ entity.sociedad.entidad }}</h1>
+        <h2 text-align="center">CUENTA: {{ entity.sociedad.codigoCuenta }}<br /> IBAN: {{ entity.sociedad.iban }}<br /> BIC: {{ entity.sociedad.bic }}</h2>
 
     {% endif %}
 
