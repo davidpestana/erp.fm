@@ -10,17 +10,11 @@ fbq('track', 'ViewContent');
 
  <section id="content" class="portfolio">
     <header class="page-header">
-      <h1>FURGONETA CAMPER {{ marca}}</h1>
+      <h1>FURGONETA CAMPER {{ marca }}</h1>
     </header>
 
 
                 <div class="row">
-
-					{% set marca = "" %}
-
-					{% for entity in modelos %}
-						{% set marca = entity.marcaslug %}
-                    {% endfor %}
 
 					{% if marca == 'volkswagen' %}
 						<div class="span3">
