@@ -44,8 +44,10 @@ fbq('track', 'ViewContent');
 					
                 </div>
 				
-				{% include marca ignore missing %}
-
+				{% set path_marca = 'KitBundle:Marcas:' ~ marca|lower ~ '.html.twig' %}
+				{% include path_marca ignore missing %}
+				
+				<p>{{ path_marca }}</p>
 
 
 {#
