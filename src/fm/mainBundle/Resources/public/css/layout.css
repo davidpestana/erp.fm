@@ -36,7 +36,7 @@ header#mainHeader{padding:0.5em 0 2.5em 0;}
 #diseno1 p,
 #diseno2 p,
 #diseno3 p,
-article p{font-weight:300;font-size:1.3em;font-family:'Open Sans', sans-serif;color:#555;text-align:justify;}
+article.content p{font-weight:300;font-size:1.3em;font-family:'Open Sans', sans-serif;color:#555;text-align:justify;}
 
 p.highlight{color:#EE6F2A;}
 .img-responsive{width:100%;max-width:100%;height:auto;}
