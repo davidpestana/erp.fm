@@ -31,7 +31,7 @@
       {% for entity in entities|slice(i*3 , 3) %}  
                 {% if entity.fotos|length > 0 %}
                 <article class="span3 isotopeItem photo presBloc">
-                  <section class="imgWrapper"> <img src="http://www.furgomania.com/files/{{ random(entity.fotos).miniatura }}" alt=""/>
+                  <section class="imgWrapper"> <img src="/files/{{ random(entity.fotos).miniatura }}" alt=""/>
                     <div class="media-hover">
                       <div class="mask">
                         <div class="insideLinkHolder"> <a href="{{ path('fm_main_inherited_albums',{'slug':entity.slug})}}" data-placement="top" class="hover-link tips" title="VER&nbsp;ALBUM" target="_blank"> <span class="iconWrapper iconLink"><i class="icon-link"></i></span> </a> </div>

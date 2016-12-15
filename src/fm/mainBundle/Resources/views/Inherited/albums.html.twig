@@ -32,10 +32,10 @@
 			<div class="portfolio-items isotopeWrapper clearfix row" id="3">
 			{% for foto in entity.fotos|slice(i*3 , 3) %}
 			          <article class="span3 isotopeItem photo presBloc">
-			            <section class="imgWrapper"> <img src="http://www.furgomania.com/files/{{ foto.miniatura }}" alt=""/>
+			            <section class="imgWrapper"> <img src="/files/{{ foto.miniatura }}" alt=""/>
 			              <div class="media-hover">
 			                <div class="mask">
-			                  <div class="insideLinkHolder"> <a href="portfolio-project.html" data-placement="top" class="hover-link tips" title="link" target="_blank"> <span class="iconWrapper iconLink"><i class="icon-link"></i></span> </a> <a href="http://www.furgomania.com/files/{{ foto.foto }}" data-placement="top" class="prettyPhoto hover-zoom tips" title="Zoom"> <span class="iconWrapper iconLink"> <i class="icon-search"></i> </span> </a>  </div>
+			                  <div class="insideLinkHolder"> <a href="portfolio-project.html" data-placement="top" class="hover-link tips" title="link" target="_blank"> <span class="iconWrapper iconLink"><i class="icon-link"></i></span> </a> <a href="/files/{{ foto.foto }}" data-placement="top" class="prettyPhoto hover-zoom tips" title="Zoom"> <span class="iconWrapper iconLink"> <i class="icon-search"></i> </span> </a>  </div>
 			                </div>
 			              </div>
 			            </section>

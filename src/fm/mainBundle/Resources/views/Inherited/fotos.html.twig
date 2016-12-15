@@ -17,7 +17,7 @@
                 <article>
                   <div class="clearfix">
                     <header>
-                      <div class="imgWrapper"> <img src="http://www.furgomania.com/files/{{ entity.foto }}" alt="" /> </div>
+                      <div class="imgWrapper"> <img src="/files/{{ entity.foto }}" alt="" /> </div>
                     </header>
                     <section class="blogPost">
                       {#<ul class="entry-meta">
@@ -43,12 +43,12 @@
           <div class="portfolio-items isotopeWrapper clearfix" id="3">
           {% for foto in entity.album.fotos|slice(0 , 8) %}  
             <article class="span2 isotopeItem photo presBloc all">
-              <section class="imgWrapper"> <img src="http://www.furgomania.com/files/{{ foto.icono }}" alt=""/>
+              <section class="imgWrapper"> <img src="/files/{{ foto.icono }}" alt=""/>
                 <div class="media-hover">
                   <div class="mask"></div>
                   <h5 class="title">{{ foto.titulo }}</h5>
 
-                  <div class="hover-action"> <a href="{{ path('fm_main_inherited_fotos',{'slug':foto.slug})}}" data-placement="bottom" class="hover-link tips" title="{{ foto.keywords }}" ><span class="iconWrapper iconLink"><i class="icon-link"></i></span></a> <a href="http://www.furgomania.com/files/{{ foto.foto }}" data-placement="bottom" class="prettyPhoto hover-zoom tips" title="Zoom"><span class="iconWrapper iconLink"><i class="icon-search"></i></span></a>  </div>
+                  <div class="hover-action"> <a href="{{ path('fm_main_inherited_fotos',{'slug':foto.slug})}}" data-placement="bottom" class="hover-link tips" title="{{ foto.keywords }}" ><span class="iconWrapper iconLink"><i class="icon-link"></i></span></a> <a href="/files/{{ foto.foto }}" data-placement="bottom" class="prettyPhoto hover-zoom tips" title="Zoom"><span class="iconWrapper iconLink"><i class="icon-search"></i></span></a>  </div>
                 </div>
               </section>
             </article>
