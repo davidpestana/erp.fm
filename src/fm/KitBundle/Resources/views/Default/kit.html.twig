@@ -56,16 +56,18 @@ fbq('track', 'ViewContent');
 			<div class="pricingBloc focusPlan">
 				<h2>{{entity.nombre | trans }}</h2>
 							
-				<h3>
-					{% if entity.precio > 0 %} 
+				{% if entity.precio > 0 %} 
+					<h3>
 						{{entity.precio}} € 
-					{% else %}
+						<span>
+						{{"impuestos y portes no incluidos" | trans }}
+						</span>
+					</h3>
+				{% else %}
+					<h3 style="font-size: 1.4em">
 						{{"PRÓXIMAMENTE" | trans }}
-					{% endif %}
-					<span>
-					{{"impuestos y portes no incluidos" | trans }}
-					</span>
-				</h3>
+					</h3>
+				{% endif %}
 
 				<p>
 				IMPUESTOS<br>
