@@ -32,6 +32,7 @@ blockquote p{font-size:inherit;}
 blockquote small{font-size:50%;}
 hr{display:block;height:1px;padding:0;margin:2.5em 0;width:100%;border-bottom:none;}
 header#mainHeader{padding:0.5em 0 2.5em 0;}
+.centered{text-align:center;margin-left:auto;margin-right:auto}
 #diseno0 p,
 #diseno1 p,
 #diseno2 p,
