@@ -38,7 +38,7 @@ header#mainHeader{padding:0.5em 0 2.5em 0;}
 #diseno2 p,
 #diseno3 p,
 article.content p{font-weight:300;font-size:1.3em;font-family:'Open Sans', sans-serif;color:#555;text-align:justify;}
-
+article.content p a{font-weight:500;color:#f06927}
 p.highlight{color:#EE6F2A;}
 .img-responsive{width:100%;max-width:100%;height:auto;}
 .carousel-control{border:none;background:none;font-size:2em;left:auto;right:18px;position:absolute;top:-35px;width:34px;height:24px;}
