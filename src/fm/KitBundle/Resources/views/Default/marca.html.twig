@@ -8,95 +8,35 @@ fbq('track', 'ViewContent');
 </script>
   
 
- <section id="content" class="portfolio">
-    <header class="page-header">
-      <h1>FURGONETAS {{ marca }} CAMPER</h1>
+<section id="content" class="portfolio">
+    <header>
+      <h1>FURGONETAS {{ marca | upper }} CAMPER</h1>
+      <h2>Elige tu modelo</h2>
     </header>
 
 
-                <div class="row mb40">
+	<div class="row mb40">
 
-{#					
-					{% if marca == 'volkswagen' %}
-						<div class="span3">
-						  <article class="furgo"> 
-						    <a href="/es/interesados-transporter-furgomania/">
-								<section> <img alt="" src="/img/furgos/volkswagen-transporter-furgomania.jpg"> </section>
-							</a>
-							<section class="projectInfo">
-							  <h3><a href="/es/interesados-transporter-furgomania/">Volkswagen Furgomania</a></h3>
-							</section>
-						  </article>
-						</div>
-					{% endif %}
-#}					
-					{% for entity in modelos %}
-						<div class="span3">
-						  <article class="furgo"> 
-						    <a href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}">
-								<section> <img alt="" src="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}.jpg"> </section>
-							</a>
-							<section class="projectInfo">
-							  <h3><a href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}">{{entity.modelo}}</a></h3>
-							</section>
-						  </article>
-						</div>
-                    {% endfor %}
-					
-                </div>
-				
-				{% set path_marca = 'KitBundle:Marcas:' ~ marca|lower ~ '.html.twig' %}
-				{% include path_marca ignore missing %}
+		{% for entity in modelos %}
+			<div class="span3">
+			  <article class="furgo"> 
+				<a href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}">
+					<section> <img alt="Furgonetas camper {{marca | capitalize}}" src="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}.jpg"> </section>
+				</a>
+				<section class="projectInfo">
+				  <h3><a href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}">{{entity.modelo}}</a></h3>
+				</section>
+			  </article>
+			</div>
+		{% endfor %}
+		
+	</div>
+	
+	{% set path_marca = 'KitBundle:Marcas:' ~ marca|lower ~ '.html.twig' %}
+	{% include path_marca ignore missing %}
 
-{#
-    <div class="row">
-      <aside class="span3">
-        <nav id="filter" class="filterVertical">
-          <ul>
-            {% for entity in modelos %}
-              <li>
-              <a href="" class=""  data-filter=".{{entity.modeloslug}}">
-                   <img alt="" src="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}.jpg"> 
-                   <i class="icon-ok btn"> {{entity.marca}} {{entity.modelo}}</i>
-              </a>
-              </li>
-            {% endfor %}
+</section>
 
-          </ul>
-        </nav>
-      </aside>
-      <section class="span9">
-        <div class="portfolio-items isotopeWrapper clearfix da-thumbs" id="1" >
-	{% for entity in entities %}
-
-          <div class=" isotopeItem {{entity.modeloslug}} row mb40">
-            <article class=" photo presBloc">
-              <section class="span5"> <a href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}"><img src="{{ entity.galeria.0.img }}" alt=""/></a>
-              </section>
-              <section class="blocBody span4">
-                <h3><a href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}">{{entity.nombre}}</a></h3>
-                <p  class="boxTextWrapper">
-
-{{ entity.descripcion|length > 200 ? entity.descripcion|slice(0, 200) ~ '...' : entity.descripcion  }}
-</p>
-
-{% if entity.galeria.0.iframe is defined %}
-
-		<a href="{{path('fm_kit_default_kit',{'marca':entity.marcaslug,'modelo':entity.modeloslug,'kit':entity.slug})}}"><i class="icon-video"> Video disponible</i></a>
-
-{% endif %}    
-<i class="icon-ok">{{entity.modelo}}</i>
-										              
-                
-              </section>
-            </article>
-          </div>
-    {% endfor %}      
-        </div>
-      </section>
-    </div>
-  </section>
-#}
 
 
 {% endblock %}
