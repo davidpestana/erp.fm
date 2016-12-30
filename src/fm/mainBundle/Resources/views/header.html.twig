@@ -48,7 +48,7 @@
 					</li>
 
 					<li>
-					<a href="{{path('fm_main_paginas_furgonetacamper')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_paginas_furgonetacamper'%}active{% endif %}">{{"Catálogo KITS"|trans}}</a>
+					<a href="{{path('fm_main_paginas_furgonetacamper')}}" class="firstLevel {% if 'furgoneta-camper' in app.request.uri %}active{% endif %}">{{"Catálogo KITS"|trans}}</a>
 					</li>
 
 			   </ul>
