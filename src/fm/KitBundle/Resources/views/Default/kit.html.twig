@@ -30,7 +30,7 @@ fbq('track', 'ViewContent');
 	</div>
 </section>
 		
-<section>
+<section class="mb30">
 	<div class="row">
 	  	<div class="span8">  
 			<h2>{{ entity.nombre}} <span>{{ entity.marca}} {{entity.modelo }} </span></h2>
@@ -90,5 +90,8 @@ fbq('track', 'ViewContent');
 	</div>
 </section>
 
+<section class="centered">
+	<a class="btn btn-inverse btn-small" href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}">Volver a {{ entity.marca}} {{entity.modelo }}</a>
+</section>
 
 {% endblock %}
