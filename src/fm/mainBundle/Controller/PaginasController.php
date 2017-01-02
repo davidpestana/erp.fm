@@ -93,7 +93,7 @@ class PaginasController extends Controller
 	 /**
      * Lists all clientes entities.
      *
-     * @Route("/volkswagen-transporter-furgomania/")
+     * @Route("/volkswagen-transporter-furgomania/", schemes = "https")
      * @Method("GET")
      * @Template()
      */
