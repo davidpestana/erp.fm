@@ -3,19 +3,24 @@ _main_route:
     type:     annotation
     prefix:   /{_locale}
     requirements:
+		_scheme: https
         _locale: en|es|fr|it|de|pt
 _paginas_route:
     resource: "@mainBundle/Controller/PaginasController.php"
     type:     annotation
     prefix:   /{_locale}
     requirements:
+		_scheme: https
         _locale: en|es|fr|it|de|pt
 _inherited_route:
     resource: "@mainBundle/Controller/InheritedController.php"
     type:     annotation
+    requirements:
+		_scheme: https
 _concesionarios_route:
     resource: "@mainBundle/Controller/ConcesionariosController.php"
     type:     annotation
     prefix:   /{_locale}
     requirements:
+		_scheme: https
         _locale: en|es|fr|it|de|pt

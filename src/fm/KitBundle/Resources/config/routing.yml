@@ -3,4 +3,5 @@ _kit_route:
     type:     annotation
     prefix:   /{_locale}
     requirements:
+		_scheme: https
         _locale: en|es|fr|it|de|pt
