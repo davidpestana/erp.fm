@@ -2,24 +2,20 @@ _main_route:
     resource: "@mainBundle/Controller/DefaultController.php"
     type:     annotation
     prefix:   /{_locale}
-    schemes:  [%httpProtocol%]
     requirements:
         _locale: en|es|fr|it|de|pt
 _paginas_route:
     resource: "@mainBundle/Controller/PaginasController.php"
     type:     annotation
     prefix:   /{_locale}
-    schemes:  [%httpProtocol%]
     requirements:
         _locale: en|es|fr|it|de|pt
 _inherited_route:
     resource: "@mainBundle/Controller/InheritedController.php"
     type:     annotation
-    schemes:  [%httpProtocol%]
 _concesionarios_route:
     resource: "@mainBundle/Controller/ConcesionariosController.php"
     type:     annotation
     prefix:   /{_locale}
-    schemes:  [%httpProtocol%]
     requirements:
         _locale: en|es|fr|it|de|pt
