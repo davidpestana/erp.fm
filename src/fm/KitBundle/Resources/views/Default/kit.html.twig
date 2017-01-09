@@ -79,7 +79,7 @@ fbq('track', 'ViewContent');
 				PORTES (distribución desde Girona)<br>
 				Península: de 50 a 90 € (*)<br>
 				Baleares: 120 € (*)<br>
-				Canarias: 150 € (*)<br>
+				Canarias: 170 € (*)<br>
 				Internacional: Consultar<br>
 				(*) ejemplo kit principal (1,4 m. cúbicos)
 				</p>
@@ -91,7 +91,7 @@ fbq('track', 'ViewContent');
 </section>
 
 <section class="centered">
-	<a class="btn btn-inverse btn-small" href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}">Volver a {{ entity.marca}} {{entity.modelo }}</a>
+	<a class="btn btn-inverse btn-mini" href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}">Volver a kits {{ entity.marca}} {{entity.modelo }}</a>
 </section>
 
 {% endblock %}
