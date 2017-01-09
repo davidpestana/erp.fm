@@ -32,6 +32,10 @@
 					</li>
 					
 					<li>
+					<a href="{{path('fm_main_paginas_furgonetacamper')}}" class="firstLevel {% if 'furgoneta-camper' in app.request.uri %}active{% endif %}">{{"Catálogo KITS"|trans}}</a>
+					</li>
+
+					<li>
 					<a href="{{path('fm_main_paginas_kitautoinstalable')}}" class="firstLevel {% if app.request.get('_route') == 'fm_main_paginas_kitautoinstalable' %}active{% endif %}">{% trans %}Videos Kit{% endtrans %}</a>
 					</li>
 
@@ -47,9 +51,6 @@
 					<a href="http://blog.furgomania.com" class="firstLevel">Blog</a>
 					</li>
 
-					<li>
-					<a href="{{path('fm_main_paginas_furgonetacamper')}}" class="firstLevel {% if 'furgoneta-camper' in app.request.uri %}active{% endif %}">{{"Catálogo KITS"|trans}}</a>
-					</li>
 
 			   </ul>
 			</nav>    
