@@ -17,7 +17,7 @@
 	</div>
 	<br/>
 	<div class="span6">
-		<a href="http://www.furgomaniavw.com/volkswagen"><img src="/img/slider/caravelle-shuttle.jpg" alt="Kit para la VW T5 T6"/></a>
+		<a href="{{path('fm_kit_default_marca',{'marca':'volkswagen'})}}"><img src="/img/slider/caravelle-shuttle.jpg" alt="Kit para la VW T5 T6"/></a>
 		<h3>{{"CAMPERIZA TU FURGONETA SIN COMPLICACIONES" | trans}}</h3>
 		<ul class="iconsList iconsList-medium">
 			<li><i class="icon-right-circle"></i>&nbsp;{{"Selecciona el modelo de tu furgoneta"| trans | raw }}</li>
@@ -30,8 +30,8 @@
 			<li><i class="icon-right-circle"></i>&nbsp;{{"Tu <strong>furgoneta</strong> tal cual viene de fábrica" | trans | raw }}</li>
 		</ul>
 	</div>
-	<div class="span6"> 
-		<a href="/es/furgoneta-camper/mercedes/viano-larga/kit-alto/"><img src="/img/slider/mercedes_1.jpg" alt="KITS FURGOMANIA"/></a>
+	<div class="span6">
+		<a href="{{path('fm_kit_default_vehiculo',{'marca':'mercedes','modelo':'viano-larga','kit':'kit-alto'})}}"><img src="/img/slider/mercedes_1.jpg" alt="KITS FURGOMANIA"/></a>
 		<h3>{% trans %}CAMPERIZA TU FURGONETA SIN MOVERTE DE CASA{% endtrans %}</h3>
 		<p>{% trans %}Con los{% endtrans %} <a href="/es/kit-autoinstalable" title="Videos kits autoinstalables">{% trans %}kits autoinstalables{% endtrans %}</a> {% trans %}de Furgomania, no necesitas moverte de casa para <strong>camperizar tu furgoneta</strong>. Tampoco necesitas herramientas especiales ni un lugar específico para montar los muebles.{% endtrans %}</p>
         
@@ -55,10 +55,10 @@
 <div id="diseno1" class="homeContent noSlider">
 	<div class="row mb15">
 		<div class="span6">
-			<a href="/es/furgoneta-camper/renault/trafic/"><img src="/img/slider/renopelnis.jpg" alt="KITS FURGOMANIA"/></a>
+			<a href="{{path('fm_kit_default_vehiculo',{'marca':'renault','modelo':'trafic'})}}"><img src="/img/slider/renopelnis.jpg" alt="KITS FURGOMANIA"/></a>
 		</div>
 		<div class="span6">
-			<a href="/es/furgoneta-camper/ford/transit-custom/"><img src="/img/slider/ford-transit.jpg" alt="KITS FURGOMANIA"/></a>
+			<a href="{{path('fm_kit_default_vehiculo',{'marca':'ford','modelo':'transit-custom'})}}"><img src="/img/slider/ford-transit.jpg" alt="KITS FURGOMANIA"/></a>
 		</div>
 		<div class="span12">
 			<h3>{{ "GARANTÍA 100%" | trans }}</h3>
@@ -79,7 +79,5 @@
 
       {% include 'mainBundle:Parts:fabricacion.html.twig' %}
 
-
-      {% include 'mainBundle:Parts:clientes.html.twig' %}
 
 {% endblock %}
