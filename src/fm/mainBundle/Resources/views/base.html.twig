@@ -69,24 +69,69 @@ fbq('track', "PageView");
       <div class="container">
         <div class="row">
           <div class="span12">
-            <p id="telefono" class="centered">
-				<span class="no-wrap">
+            <p id="telefono" class="pull-left">
+				<div class="no-wrap">
 					<img src="/operador-icon.jpg">
 					<a href="tel:628137304">628 137 304</a>
 					<img src="/img/banderas/spain.png" style="border-radius:50%; border: 1px solid #aaa;">
-				</span>
-				<span class="no-wrap">
+				</div>
+				<div class="no-wrap">
+					<img src="/operador-icon.jpg">
 					<a href="tel:0034696510043">+34 696 51 00 43</a>
 					<img src="/img/banderas/uk.png" style="border-radius:50%; border: 1px solid #aaa;">
 					<img src="/img/banderas/portugal.png" style="border-radius:50%; border: 1px solid #aaa;">
 					<img src="/img/banderas/france.png" style="border-radius:50%; border: 1px solid #aaa;">
-				</span>
+				</div>
 			</p>
+            <p id="flags" class="pull-right">
+				<div class="no-wrap">
+					{% set locale = app.request.locale %}
+
+					{% if locale == 'es' %}
+					<img src="/img/banderas/spain.png" alt="Español">
+					{% else %}
+					<a href="{{ path('homepage', { '_locale': 'es' }) }}"><img src="/img/banderas/spain.png" alt="Español"></a>
+					{% endif %}
+
+					{% if locale == 'en' %}
+					<img src="/img/banderas/uk.png" alt="English">
+					{% else %}
+					<a href="{{ path('homepage', { '_locale': 'en' }) }}"><img src="/img/banderas/uk.png" alt="English"></a>
+					{% endif %}
+
+					{% if locale == 'fr' %}
+					<img src="/img/banderas/france.png" alt="Français">
+					{% else %}
+					<a href="{{ path('homepage', { '_locale': 'fr' }) }}"><img src="/img/banderas/france.png" alt="Français"></a>
+					{% endif %}
+
+					{% if locale == 'pt' %}
+					<img src="/img/banderas/portugal.png" alt="Português">
+					{% else %}
+					<a href="{{ path('homepage', { '_locale': 'pt' }) }}"><img src="/img/banderas/portugal.png" alt="Português"></a>
+					{% endif %}
+
+					{% if locale == 'de' %}
+					<img src="/img/banderas/germany.png" alt="Deutsch">
+					{% else %}
+					<a href="{{ path('homepage', { '_locale': 'de' }) }}"><img src="/img/banderas/germany.png" alt="Deutsch"></a>
+					{% endif %}
+				</div>
+				<div class="no-wrap">
+					<a href="{% trans %}URL_SOCIALMEDIA_FACEBOOK{% endtrans %}" target="_blank"><img src="/img/social/facebook.png" alt="Facebook"></a>
+					<a href="{% trans %}URL_SOCIALMEDIA_YOUTUBE{% endtrans %}" target="_blank"><img src="/img/social/youtube.png" alt="Youtube"></a>
+					<a href="{% trans %}URL_SOCIALMEDIA_GOOGLE{% endtrans %}" target="_blank"><img src="/img/social/google.png" alt="Google+"></a>
+					<a href="{% trans %}URL_SOCIALMEDIA_TWITTER{% endtrans %}" target="_blank"><img src="/img/social/twitter.png" alt="Twitter"></a>
+				</div>
+            </p>
+			
 		  </div>
 		</div>
-        <div class="row">
+{*        
+		<div class="row">
           <div class="span12">
-            <p id="flags" class="pull-left">
+            <p id="flags" class="pull-right">
+				<div class="no-wrap">
 				{% set locale = app.request.locale %}
 
 				{% if locale == 'es' %}
@@ -118,6 +163,7 @@ fbq('track', "PageView");
 				{% else %}
 				<a href="{{ path('homepage', { '_locale': 'de' }) }}"><img src="/img/banderas/germany.png" alt="Deutsch"></a>
 				{% endif %}
+				</div>
             </p>
 
 			<p class="pull-right">
@@ -130,6 +176,7 @@ fbq('track', "PageView");
           </div>
 
         </div>
+*}
       </div>
     </section>
     <div id="globalWrapper" class="home container">
