@@ -47,6 +47,9 @@ body{}
 #globalWrapper{padding:2.5em;}
 .contactInfos .container{padding:0.5em 2.5em;border-top:none;margin-top:1em;}
 .contactInfos p{font-family:'Open Sans', sans-serif;font-weight:500;margin-bottom:0;background:none;line-height:1.4em;font-size:18px;}
+@media (max-width:360px) {
+	.contactInfos p{font-family:'Open Sans', sans-serif;font-weight:500;margin-bottom:0;background:none;line-height:1.4em;font-size:14px;}
+}
 .contactInfos p i{font-size:1.25em;line-height:1.25em;}
 .contactPhone i:before{margin-right:0}
 .contactPhone{font-weight:800;font-size:1.25em;font-size:1.25em;}
