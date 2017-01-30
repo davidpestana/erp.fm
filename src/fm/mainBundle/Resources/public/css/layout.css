@@ -43,12 +43,13 @@ p.highlight{color:#EE6F2A;}
 .img-responsive{width:100%;max-width:100%;height:auto;}
 .carousel-control{border:none;background:none;font-size:2em;left:auto;right:18px;position:absolute;top:-35px;width:34px;height:24px;}
 .carousel-control.right{right:-10px;}
+.no-wrap { white-space: nowrap; }
 body{}
 #globalWrapper{padding:2.5em;}
 .contactInfos .container{padding:0.5em 2.5em;border-top:none;margin-top:1em;}
 .contactInfos p{font-family:'Open Sans', sans-serif;font-weight:500;margin-bottom:0;background:none;line-height:1.4em;font-size:18px;}
 @media (max-width:480px) {
-	.contactInfos p{font-family:'Open Sans', sans-serif;font-weight:500;margin-bottom:0;background:none;line-height:1.4em;font-size:14px;}
+	.contactInfos p{font-family:'Open Sans', sans-serif;font-weight:500;margin-bottom:0;background:none;line-height:1.4em;font-size:18px;}
 }
 .contactInfos p i{font-size:1.25em;line-height:1.25em;}
 .contactPhone i:before{margin-right:0}
