@@ -84,7 +84,7 @@ fbq('track', "PageView");
 						</span>
 					</p>
 					<p id="flags" class="pull-right">
-						<span class="no-wrap">
+						<span class="no-wrap pull-right">
 							{% set locale = app.request.locale %}
 
 							{% if locale == 'es' %}
@@ -117,7 +117,7 @@ fbq('track', "PageView");
 							<a href="{{ path('homepage', { '_locale': 'de' }) }}"><img src="/img/banderas/germany.png" alt="Deutsch"></a>
 							{% endif %}
 						</span><br>
-						<span class="no-wrap">
+						<span class="no-wrap pull-right">
 							<a href="{% trans %}URL_SOCIALMEDIA_FACEBOOK{% endtrans %}" target="_blank"><img src="/img/social/facebook.png" alt="Facebook"></a>
 							<a href="{% trans %}URL_SOCIALMEDIA_YOUTUBE{% endtrans %}" target="_blank"><img src="/img/social/youtube.png" alt="Youtube"></a>
 							<a href="{% trans %}URL_SOCIALMEDIA_GOOGLE{% endtrans %}" target="_blank"><img src="/img/social/google.png" alt="Google+"></a>
