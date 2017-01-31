@@ -50,6 +50,7 @@ body{}
 .contactInfos p{font-family:'Open Sans', sans-serif;font-weight:500;margin-bottom:0;background:none;line-height:1.4em;font-size:18px;}
 
 @media (max-width:480px) {
+	.contactInfos p{font-family:'Open Sans', sans-serif;font-weight:500;margin-bottom:0;background:none;line-height:1.4em;font-size:11px;}
 }
 
 .contactInfos p i{font-size:1.25em;line-height:1.25em;}
