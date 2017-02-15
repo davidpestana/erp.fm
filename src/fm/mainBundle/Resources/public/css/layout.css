@@ -33,6 +33,19 @@ blockquote small{font-size:50%;}
 hr{display:block;height:1px;padding:0;margin:2.5em 0;width:100%;border-bottom:none;}
 header#mainHeader{padding:0.5em 0 2.5em 0;}
 .centered{text-align:center !important;margin-left:auto !important;margin-right:auto !important}
+section header div.h2{
+	color: #555;border-bottom: 1px dashed #DEDEDE;
+	font-size: 1.666em;
+    line-height: 2.2em;
+    margin-bottom: 1.1em;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+	text-rendering: optimizelegibility;
+	display: block;
+}
 #diseno0 p,
 #diseno1 p,
 #diseno2 p,
