@@ -16,9 +16,16 @@ fbq('track', 'ViewContent');
 
 
 	<div class="row mb40">
-
+		
+		{% set remainder3 = modelos|length % 3 %}
+		{% set remainder4 = modelos|length % 4 %}
+		{% set class_span = "span3" %}
+		{% if remainder3 < remainder4 %}
+			{% set class_span = "span4" %}
+		{% endif %}
+		
 		{% for entity in modelos %}
-			<div class="span3">
+			<div class="{{class_span}}">
 			  <article class="furgo"> 
 				<a href="{{path('fm_kit_default_vehiculo',{'marca':entity.marcaslug,'modelo':entity.modeloslug})}}">
 					<section> <img alt="Furgonetas camper {{marca | capitalize}}" src="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}.jpg"> </section>
