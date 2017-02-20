@@ -92,7 +92,7 @@
                  <td padding="5px" width="100px" border-color="#eb613d">{{ (base - totaldesc) |number_format(2, '.', ',') }} €</td>
              </tr>
              <tr>
-                 <td padding="5px" border-color="white">IVA {{entity.iva }} % </td>
+                 <td padding="5px" border-color="white">IVA/IGIC {{entity.iva }} % </td>
                  <td padding="5px" border-color="#eb613d">{{ ((base - totaldesc) * (entity.iva/100)) |number_format(2, '.', ',') }} €</td>
              </tr>
              <tr>
