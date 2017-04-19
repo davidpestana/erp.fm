@@ -53,6 +53,7 @@ DirectoryIndex app.php
 	RedirectMatch 301 (.*)/mercedes/vito-larga/kit-bajo/ $1/mercedes/vito-larga/
 	RedirectMatch 301 (.*)/furgoneta$ $1/
 	RedirectMatch 301 (.*)www.furgomania.com/es/interesados-transporter-furgomania/ http://www.furgomania.com/es/interesados-transporter-furgomania/
+	RedirectMatch 301 (.*)/volkswagen/multivan-t5/kit-cama-basic/ $1//volkswagen/multivan-t5/4-plazas-kit-ancho/
 
 	RedirectMatch 301 ^/index.html$ https://www.furgomania.com/es/
 	RedirectMatch 301 ^/trabajos/menu_todos.html$ https://www.furgomania.com/es/furgoneta-camper/
