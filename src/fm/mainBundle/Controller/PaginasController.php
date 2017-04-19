@@ -117,6 +117,21 @@ class PaginasController extends Controller
         $this->get('seoManager')->metas();
 
         return array();
+    }
+	
+	
+	 /**
+     * Lists all clientes entities.
+     *
+     * @Route("/empresa-furgonetas-camperizadas/")
+     * @Method("GET")
+     * @Template()
+     */
+    public function empresafurgonetascamperizadasAction()
+    {
+        $this->get('seoManager')->metas();
+
+        return array();
     }	
 	
 }
