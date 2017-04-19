@@ -36,6 +36,122 @@ DirectoryIndex app.php
     RewriteCond %{HTTP_HOST} ^furgomania\.com$ [NC]
     RewriteRule ^(.*)$ http://www.furgomania.com/$1 [R=301,L]
 
+	RedirectMatch 301 (.*)/volkswagen/shuttle-t5-corta(.*) $1/volkswagen/shuttle-caravelle-t5-t6-corta$2
+	RedirectMatch 301 (.*)/volkswagen/shuttle-caravelle-t5-corta(.*) $1/volkswagen/shuttle-caravelle-t5-t6-corta$2
+	RedirectMatch 301 (.*)/volkswagen/shuttle-t6-corta(.*) $1/volkswagen/shuttle-caravelle-t5-t6-corta$2
+	RedirectMatch 301 (.*)/volkswagen/transporter-t5-corta(.*) $1/volkswagen/transporter-t5-t6$2
+	RedirectMatch 301 (.*)/volkswagen/transporter-t6-corta(.*) $1/volkswagen/transporter-t5-t6$2
+	RedirectMatch 301 (.*)/volkswagen/transporter-t5-t6/kit-modulo-alto-basic(.*) $1/volkswagen/transporter-t5-t6/
+	RedirectMatch 301 (.*)/volkswagen/transporter-t5-t6/kit-modulo-alto-h20-nevera-waeco/ $1/volkswagen/transporter-t5-t6/
+	RedirectMatch 301 (.*)/nissan/nv200/kit-universal-furgonetas-pequeñas(.*) $1/nissan/nv200/kit-nissan-nv200/
+	RedirectMatch 301 (.*)/nissan/evalia/kit-universal-furgonetas-pequeñas(.*) $1/nissan/evalia/kit-nissan-evalia/
+	RedirectMatch 301 (.*)/renault/trafic/kit-modulo-alto-basic(.*) $1/renault/trafic/
+	RedirectMatch 301 (.*)/renault/trafic/kit-cama-basic-h2o(.*) $1/renault/trafic/
+	RedirectMatch 301 (.*)/opel/vivaro/kit-modulo-alto-basic(.*) $1/opel/vivaro/
+	RedirectMatch 301 (.*)/volkswagen/shuttle-caravelle-t5-t6-corta/kit-mesa-trasera(.*) $1/volkswagen/shuttle-caravelle-t5-t6-corta/
+	RedirectMatch 301 (.*)/nissan/primastar/kit-modulo-alto-basic(.*) $1/nissan/primastar/
+	RedirectMatch 301 (.*)/mercedes/vito-larga/kit-bajo/ $1/mercedes/vito-larga/
+	RedirectMatch 301 (.*)/furgoneta$ $1/
+	RedirectMatch 301 (.*)www.furgomania.com/es/interesados-transporter-furgomania/ http://www.furgomania.com/es/interesados-transporter-furgomania/
+
+	RedirectMatch 301 ^/index.html$ https://www.furgomania.com/es/
+	RedirectMatch 301 ^/trabajos/menu_todos.html$ https://www.furgomania.com/es/furgoneta-camper/
+	RedirectMatch 301 ^/kit-autoinstalable.html$ https://www.furgomania.com/es/kit-autoinstalable/
+	RedirectMatch 301 ^/sevende.html$ https://www.furgomania.com/es/concesionarios/
+	RedirectMatch 301 ^/es/furgoneta-camper/nissan/primastar/kit-cama-basic-h2o/$ https://www.furgomania.com/es/furgoneta-camper/nissan/primastar/
+	RedirectMatch 301 ^/es/furgoneta-camper/opel/vivaro/kit-cama-basic-h2o/$ https://www.furgomania.com/es/furgoneta-camper/opel/
+	RedirectMatch 301 ^/usados.html$ https://www.furgomania.com/es/
+	RedirectMatch 301 ^/trabajos/menu_furgomania.html$ https://www.furgomania.com/es/furgoneta-camper/
+	RedirectMatch 301 ^/es/concesionarios/www.grupocabrero.com$ https://www.furgomania.com/es/concesionarios/
+	RedirectMatch 301 ^/es/furgoneta-camper/renault/trafic/kit-mesa-delantera/$ https://www.furgomania.com/es/furgoneta-camper/renault/
+	RedirectMatch 301 ^/es/furgoneta-camper/opel/vivaro/kit-mesa-delantera/$ https://www.furgomania.com/es/furgoneta-camper/opel/
+	RedirectMatch 301 ^/es/furgoneta-camper/nissan/primastar/kit-mesa-delantera/$ https://www.furgomania.com/es/furgoneta-camper/nissan/primastar/
+	RedirectMatch 301 ^/pt/concesionarios/www.grupocabrero.com$ https://www.furgomania.com/es/concesionarios/
+	RedirectMatch 301 ^/es/furgoneta-camper/opel/vivaro/kit-modulo-alto-h2o-nevera/$ https://www.furgomania.com/es/furgoneta-camper/opel/
+	RedirectMatch 301 ^/es/furgoneta-camper/nissan/primastar/kit-modulo-alto-nevera/$ https://www.furgomania.com/es/furgoneta-camper/nissan/primastar/
+	RedirectMatch 301 ^/es/furgoneta-camper/nissan/primastar/kit-modulo-alto-h2o-nevera/$ https://www.furgomania.com/es/furgoneta-camper/nissan/primastar/
+	RedirectMatch 301 ^/it/concesionarios/www.grupocabrero.com$ https://www.furgomania.com/es/concesionarios/
+	RedirectMatch 301 ^/fr/concesionarios/www.grupocabrero.com$ https://www.furgomania.com/es/concesionarios/
+	 
+	RedirectMatch 301 ^/fotos/cama.traffic.primastar.vivaro.html$ https://www.furgomania.com/es/furgoneta-camper/nissan/primastar/
+	 
+	RedirectMatch 301 ^/es/furgoneta-camper/fiat/scudo/kit-muebles-tapiceria/$ https://www.furgomania.com/es/furgoneta-camper/fiat/
+	RedirectMatch 301 ^/fr/furgoneta-camper/todas-las-marcas/kit-universal-furgonetas-pequenas/kit-universal-furgonetas-peque%C3%B1as/$ https://www.furgomania.com/es/furgoneta-camper/todas-las-marcas/kit-universal-furgonetas-pequenas/
+	RedirectMatch 301 ^/es/concesionarios/www.mintegui.com$ https://www.furgomania.com/es/concesionarios/
+	RedirectMatch 301 ^/fr/furgoneta-camper/opel/vivaro/kit-cama-basic-h2o/$ https://www.furgomania.com/es/furgoneta-camper/opel/
+	 
+	RedirectMatch 301 ^/es/concesionarios/%20$ https://www.furgomania.com/es/concesionarios/
+	RedirectMatch 301 ^/de/concesionarios/www.grupocabrero.com$ https://www.furgomania.com/es/concesionarios/
+	 
+	RedirectMatch 301 ^/albums/menu.html%20$ https://www.furgomania.com/es/
+	RedirectMatch 301 ^/trabajos/mapa.html$ https://www.furgomania.com/es/contacto
+	RedirectMatch 301 ^/enlaces.html$ https://www.furgomania.com/es/
+	 
+	RedirectMatch 301 ^/es/furgoneta-camper/volkswagen/transporter-t5-t6/kit-cama-basic-h2o/$ https://www.furgomania.com/es/furgoneta-camper/volkswagen/
+	RedirectMatch 301 ^/es/kit-autoinstalable/%20$ https://www.furgomania.com/es/kit-autoinstalable/
+	 
+	RedirectMatch 301 ^/es/furgoneta-$ https://www.furgomania.com/es/
+	RedirectMatch 301 ^/noticias/upa/sandia/panama/not302408.html$ http://blog.furgomania.com/
+	RedirectMatch 301 ^/noticias//not302420.html$ http://blog.furgomania.com/
+	RedirectMatch 301 ^/es/furgoneta-camper/volkswagen/transporter-t5-t6/kit-modulo-alto-nevera-waeco/$ https://www.furgomania.com/es/furgoneta-camper/volkswagen/
+	 
+	RedirectMatch 301 ^/de/furgoneta-camper/nissan/evalia/Kit/$ https://www.furgomania.com/es/furgoneta-camper/nissan/evalia/
+	RedirectMatch 301 ^/$1$ https://www.furgomania.com/es/
+	RedirectMatch 301 ^/en/furgoneta-camper/todas-las-marcas/kit-universal-furgonetas-pequenas/kit-universal-furgonetas-peque%C3%B1as/$ https://www.furgomania.com/es/furgoneta-camper/todas-las-marcas/kit-universal-furgonetas-pequenas/
+	 
+	RedirectMatch 301 ^/noticias/alumno/upv/robot/nasa/not302714.html$ http://blog.furgomania.com/
+	 
+	RedirectMatch 301 ^/en/furgoneta-camper/nissan/evalia/kit-nissan-evalia/Kit$ https://www.furgomania.com/es/furgoneta-camper/nissan/evalia/
+	RedirectMatch 301 ^/Mercedes/$ https://www.furgomania.com/es/furgoneta-camper/mercedes/
+	RedirectMatch 301 ^/albums/portfolio-project.html$ https://www.furgomania.com/es/kit-autoinstalable/
+	RedirectMatch 301 ^/albums/mapa.html$ https://www.furgomania.com/es/contacto
+	RedirectMatch 301 ^/fotos/mapa.html$ https://www.furgomania.com/es/contacto
+	RedirectMatch 301 ^/albums/camper_vw_t5_Furgomania%C2%A9.html$ https://www.furgomania.com/es/furgoneta-camper/
+
+	
+	RedirectMatch 301 ^/cargapics.swf https://www.furgomania.com/
+	RedirectMatch 301 ^/buscador.php https://www.furgomania.com/
+	RedirectMatch 301 ^/m/documentos/aviso-legal.pdf$ https://www.furgomania.com/documentos/aviso-legal.pdf
+	RedirectMatch 301 ^/(.*)/furgoneta-camper/fiat/scudo$ https://www.furgomania.com/$1/furgoneta-camper/fiat/scudo-corta/
+	RedirectMatch 301 ^/(.*)/furgoneta-camper/fiat/scudo/(.*) https://www.furgomania.com/$1/furgoneta-camper/fiat/scudo-corta/$2
+	RedirectMatch 301 ^/m/fotos/deposito_nissan_nv200.html$ https://www.furgomania.com/es/furgoneta-camper/nissan/nv200/
+	RedirectMatch 301 ^/m/fotos/Equipamientos_camper_tv.html$ https://www.furgomania.com/es/kit-autoinstalable/
+	RedirectMatch 301 ^/mobile/fotos/Equipamientos_camper_tv.html$ https://www.furgomania.com/es/kit-autoinstalable/
+	RedirectMatch 301 ^/m/fotos/camperizar%20furgoneta.html$ https://www.furgomania.com/es/kit-autoinstalable/
+	RedirectMatch 301 ^/mobile/es/furgoneta-camper/fiat/doblo/$ https://www.furgomania.com/es/furgoneta-camper/fiat/doblo/
+	RedirectMatch 301 ^/m/pt/$ https://www.furgomania.com/pt/
+	RedirectMatch 301 ^/mobile/albums/equipamientos_camper_wv.html$ https://www.furgomania.com/es/kit-autoinstalable/
+	RedirectMatch 301 ^/m/es/furgoneta-camper/fiat/doblo/$ https://www.furgomania.com/es/furgoneta-camper/fiat/doblo/
+	RedirectMatch 301 ^/mobile/es/furgoneta-camper/peugeot/$ https://www.furgomania.com/es/furgoneta-camper/peugeot/
+	RedirectMatch 301 ^/m/es/furgoneta-camper/peugeot/$ https://www.furgomania.com/es/furgoneta-camper/peugeot/
+	RedirectMatch 301 ^/mobile/fotos/camperizar%20furgoneta.html$ https://www.furgomania.com/es/kit-autoinstalable/
+	RedirectMatch 301 ^/es/furgoneta-camper/volkswagen/transporter-t5-t6/kit-cama-basic-ducha/$ https://www.furgomania.com/pt/furgoneta-camper/volkswagen/transporter-t5-t6-combi-corta/
+	
+	RedirectMatch 301 ^/mobile/pt/$ https://www.furgomania.com
+	RedirectMatch 301 ^/m/$ https://www.furgomania.com
+	RedirectMatch 301 ^/mobile/$ https://www.furgomania.com
+	
+	RedirectMatch 301 ^/es/furgoneta-camper/volkswagen/caravelle-t5-larga/kit-cama-basic/$ https://www.furgomania.com/es/furgoneta-camper/volkswagen/caravelle-t5-t6-larga/kit-cama-basic/
+	RedirectMatch 301 ^/es/furgoneta-camper/volkswagen/transporter-t5-t6/kit-cuatro-en-uno-arcon/$ https://www.furgomania.com/es/furgoneta-camper/volkswagen/transporter-t5-t6-combi-corta/kit-cuatro-en-uno-arcon/
+	RedirectMatch 301 ^/es/furgoneta-camper/volkswagen/transporter-t5-t6/kit-mesa-trasera/$ https://www.furgomania.com/es/furgoneta-camper/volkswagen/transporter-t5-t6-combi-corta/kit-mesa-delantera/
+	RedirectMatch 301 ^/es/furgoneta-camper/volkswagen/transporter-t5-t6/kit-mesa-delantera/$ https://www.furgomania.com/es/furgoneta-camper/volkswagen/transporter-t5-t6-combi-corta/kit-mesa-delantera/
+	RedirectMatch 301 ^/es/furgoneta-camper/volkswagen/transporter-t5-t6/kit-cama-modulo-ancho/$ https://www.furgomania.com/es/furgoneta-camper/volkswagen/transporter-t5-t6-combi-corta/kit-cama-modulo-ancho/
+	RedirectMatch 301 ^/es/furgoneta-camper/volkswagen/transporter-t5-t6/kit-cuatro-en-uno/$ https://www.furgomania.com/es/furgoneta-camper/volkswagen/transporter-t5-t6-combi-corta/kit-cuatro-en-uno/
+	RedirectMatch 301 ^/es/furgoneta-camper/renault/trafic/kit-mesa-delantera/$ https://www.furgomania.com/es/furgoneta-camper/renault/trafic/
+	RedirectMatch 301 ^/trabajos/menu_personalizado.html$ https://www.furgomania.com/
+	RedirectMatch 301 ^/es/furgoneta-camper/volkswagen/transporter-t5-t6/kit-cama-basic-h2o/$ https://www.furgomania.com/es/furgoneta-camper/volkswagen/transporter-t5-t6-combi-corta/
+	RedirectMatch 301 ^/es/furgoneta-camper/renault/trafic/kit-modulo-alto-h2o-nevera/$ https://www.furgomania.com/es/furgoneta-camper/renault/trafic/
+	RedirectMatch 301 ^/trabajos/menu_camper.html$ https://www.furgomania.com/
+	RedirectMatch 301 ^/es/furgoneta-camper/renault/trafic/kit-modulo-alto-h2o-nevera/$ https://www.furgomania.com/es/furgoneta-camper/renault/trafic/
+	RedirectMatch 301 ^/trabajos/index.html$ https://www.furgomania.com
+	RedirectMatch 301 ^/trabajos/menu_empresa.html$ https://www.furgomania.com/
+	RedirectMatch 301 ^/albums/camper_vw_t5_Furgomania%C2%A9.html$ https://www.furgomania.com/
+	RedirectMatch 301 ^/fotos/comprar_furgoneta_girona.html$ https://www.furgomania.com/
+	RedirectMatch 301 ^/fotos/index.html$ https://www.furgomania.com/
+	RedirectMatch 301 ^/fotos/mercedes_vito_solar.html$ https://www.furgomania.com/es/furgoneta-camper/mercedes/
+
+
+	
     # Determine the RewriteBase automatically and set it as environment variable.
     # If you are using Apache aliases to do mass virtual hosting or installed the
     # project in a subdirectory, the base path will be prepended to allow proper
