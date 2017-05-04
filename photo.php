@@ -12,16 +12,14 @@ $relative = str_replace("web/","/",$relative);
 
 mkdir($destiny,0755,true);
 
-$d = dir($dir);
+$d = scandir($dir);
 
 $json = array();
 
-while (false !== ($entry = $d->read())) {
+foreach ($d as $entry) {
 
 
-
-
-	if ( (eregi("jpg",$entry)) or (eregi("JPG",$entry)) or (eregi("png",$entry)) ){
+	if ( (preg_match("/jpg/",$entry)) or (preg_match("/JPG/",$entry)) or (preg_match("/png/",$entry)) or (preg_match("/PNG/",$entry))){
 
 		
 		$s1 = "convert {$dir}/{$entry} -resize \"786x524^\" -gravity center -crop 786x524+0+0 {$destiny}/{$entry}";
