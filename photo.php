@@ -45,6 +45,5 @@ foreach ($d as $entry) {
 
 
 }
-$d->close();
 
 file_put_contents($destiny."/images.json",json_encode($json));
