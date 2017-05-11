@@ -53,11 +53,11 @@ class DefaultController extends Controller
 
         $vehiculos = $em->getRepository('KitBundle:vehiculos')
             ->findBy(array('marcaslug' => $marca ));
-        if (!count($entities)) {
+/*        if (!count($entities)) {
             $form = $this->createForm(new contactoType(), new contacto());
             return $this->render('KitBundle:Default:disclaimermarca.html.twig',array("marca" => $marca,"entities" =>$vehiculos,"form" => $form->createView()));
         }
-
+*/
         $modelo = $vehiculos[0]->getModeloslug();
         $seo->addMeta("property","og:image","/img/furgos/{$marca}-{$modelo}.jpg");
 
