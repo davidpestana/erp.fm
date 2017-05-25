@@ -48,7 +48,6 @@ DirectoryIndex app.php
 	RedirectMatch 301 (.*)/renault/trafic/kit-modulo-alto-basic(.*) $1/renault/trafic/
 	RedirectMatch 301 (.*)/renault/trafic/kit-cama-basic-h2o(.*) $1/renault/trafic/
 	RedirectMatch 301 (.*)/opel/vivaro/kit-modulo-alto-basic(.*) $1/opel/vivaro/
-	RedirectMatch 301 (.*)/volkswagen/shuttle-caravelle-t5-t6-corta/kit-mesa-trasera(.*) $1/volkswagen/shuttle-caravelle-t5-t6-corta/
 	RedirectMatch 301 (.*)/nissan/primastar/kit-modulo-alto-basic(.*) $1/nissan/primastar/
 	RedirectMatch 301 (.*)/mercedes/vito-larga/kit-bajo/ $1/mercedes/vito-larga/
 	RedirectMatch 301 (.*)/furgoneta$ $1/
