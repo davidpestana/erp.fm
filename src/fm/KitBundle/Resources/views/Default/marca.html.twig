@@ -17,8 +17,8 @@ fbq('track', 'ViewContent');
 
 	<div class="row mb40">
 		
-		{% set remainder3 = modelos|length % 3 %}
-		{% set remainder4 = modelos|length % 4 %}
+		{% set remainder3 = ((3 - (modelos|length % 3)) % 3) / 3 %}
+		{% set remainder4 = ((4 - (modelos|length % 4)) % 4) / 4 %}
 		{% set class_span = "span3" %}
 		{% if remainder3 < remainder4 %}
 			{% set class_span = "span4" %}
