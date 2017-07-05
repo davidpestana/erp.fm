@@ -152,7 +152,9 @@ DirectoryIndex app.php
 	RedirectMatch 301 ^/fotos/index.html$ https://www.furgomania.com/
 	RedirectMatch 301 ^/fotos/mercedes_vito_solar.html$ https://www.furgomania.com/es/furgoneta-camper/mercedes/
 
-
+	RedirectMatch 301 furgoneta-camper/mercedes/viano-compacta/ https://www.furgomania.com/es/furgoneta-camper/mercedes/
+	RedirectMatch 301 furgoneta-camper/ford/tourneo-custom/ https://www.furgomania.com/es/furgoneta-camper/ford/
+	
 	
     # Determine the RewriteBase automatically and set it as environment variable.
     # If you are using Apache aliases to do mass virtual hosting or installed the
