@@ -428,4 +428,27 @@ class Sociedades
     {
         $this->direcciones->removeElement($direcciones);
     }
+
+    /**
+     * Set bic
+     *
+     * @param string $bic
+     * @return Sociedades
+     */
+    public function setBic($bic)
+    {
+        $this->bic = $bic;
+
+        return $this;
+    }
+
+    /**
+     * Get bic
+     *
+     * @return string 
+     */
+    public function getBic()
+    {
+        return $this->bic;
+    }
 }

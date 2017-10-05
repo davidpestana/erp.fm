@@ -218,6 +218,8 @@ class factura
     }
     
     public function __toString(){
+        return  $this->getCodfactura()." - ".$this->getCliente()->getName();
+        return "soyunafactura";
         return $this->getCodfactura();
     }
 
@@ -464,5 +466,44 @@ class factura
     public function getSociedad()
     {
         return $this->sociedad;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * @var \fm\erpBundle\Entity\Pedidos
+     */
+    private $pedido;
+
+
+    /**
+     * Set pedido
+     *
+     * @param \fm\erpBundle\Entity\Pedidos $pedido
+     * @return factura
+     */
+    public function setPedido(\fm\erpBundle\Entity\Pedidos $pedido)
+    {
+        $this->pedido = $pedido;
+    
+        return $this;
+    }
+
+    /**
+     * Get pedido
+     *
+     * @return \fm\erpBundle\Entity\Pedidos 
+     */
+    public function getPedido()
+    {
+        return $this->pedido;
     }
 }
