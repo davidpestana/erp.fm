@@ -1,0 +1,49 @@
+{% extends "erpBundle::layout.html.twig" %}
+
+{% block title -%} Pedidos {% endblock %}
+    {% block body -%}
+
+
+
+
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-edit"></i>Listado de Pedidos</div>
+                <div class="actions">
+                    <div class="btn-group">
+                       <a href="{{ path('pedido_new') }}" class="modal_ajax_btn btn blue" data-toggle="modal">
+                          <i class="icon-plus"></i> CREAR NUEVO PEDIDO
+                      </a>
+                  </div>
+              </div>
+        </div>
+
+        <div class="portlet-body">
+            <table class="table table-striped table-bordered table-hover table-full-width" id="sample_2">
+                <thead>
+                    <tr>
+                        <th>Numero Pedido</th>
+                        <th>Fecha Creacion</th>
+                        <th>Fecha Entrega</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                        <tr>
+                            <td>{{ entity.id }}</td>
+                            <td>{{ entity.fechaCreacion|date('d-m-Y') }}</td>
+                            <td>{{ entity.fechaEntrega|date('d-m-Y') }}</td>
+                            <td>
+                                <a href="{{ path('pedido_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn red mini" data-toggle="modal"><i class="icon-edit"></i>Resumen Pedido</a>
+                                <a href="{{ path('pedido_show', { 'id': entity.id,'_format':'pdf' }) }}" class="btn red mini">Descargar</a>
+
+                           
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+   
+    {% endblock %}
