@@ -1,0 +1,40 @@
+fm\erpBundle\Entity\PedidoItem:
+    type: entity
+    manyToOne:
+        pedido:
+            targetEntity: Pedido
+            inversedBy: items
+            joinColumn:
+                nullable: false
+                name: pedido_id
+                referencedColumnName: id 
+        factura:
+            targetEntity: factura
+            inversedBy: pedidos
+            joinColumn:
+                nullable: true
+                name: factura_id
+                referencedColumnName: id 
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        fechaInclusion:
+            type: datetime
+            options:
+                default: 0
+        cantidad:
+            type: integer
+            default: 1
+        descripcion:
+            type: text
+        observaciones:
+            type: text
+            nullable: true
+        proveedor:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

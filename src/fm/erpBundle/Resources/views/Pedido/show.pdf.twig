@@ -1,20 +1,41 @@
 <pdf>
 
      <dynamic-page encoding="UTF-8" font-type="DejaVuSans" page-size="a4">
-        <table>
-           <tr>
-               <td border-color="white"><img width="100%" src="{{ pdf_image('erpBundle:logo_reduced.png') }}" />
+  <table>
+    <tr>
+      <td border-color="white">
+        <img width="300px" src="{{ pdf_image('erpBundle:logo_reduced.png') }}"/>
+      </td>
 
-                       <div background-color="#EEEEEE" margin="10px 0px" padding="15px 50px">
-            <h1> FECHA DE RECOGIDA </h1>
-            
-        </div>
-               </td>
-           </tr>
-        </table>
+      <td border-color="white">
+        <p text-align="right">
+          <h1 font-size="25px">ALBARAN Nº {{ entity.id }}</h1>
+          <b>FECHA ENTREGA: </b>{{ entity.fechaEntrega|date('d/m/Y') }}<br />
+          <b>PROVEEDOR: </b> {{proveedor | upper}}<br/>
+        </p>
+
+      </td>
+    </tr>
+  </table>
 
 
+   <table>
+    <tr background-color="#eb613d" color="white" font-size="14px" text-align="center">
+      <td border-color="#eb613d" padding="5px" width="30px">UDS</td>
+      <td width="310px" border-color="#eb613d" padding="5px">CONCEPTO</td>
+      <td border-color="#eb613d" padding="5px" width="100px">OBSERVACIONES</td>
+      <td border-color="#eb613d" padding="5px" width="70px">FACTURAS</td>
+    </tr>
+      {% for producto in entity.items  if producto.proveedor == proveedor  %}
+            <tr font-size="13px">
+              <td border-color="#eb613d" padding="5px" text-align="center"> {{ producto.cantidad }} </td>
 
+              <td border-color="#eb613d" padding="5px">{{ producto.descripcion }}</td>
+              <td border-color="#eb613d" padding="5px" text-align="right"> {{ producto.observaciones }} </td>
+              <td border-color="#eb613d" padding="5px" text-align="right"> {{ producto.factura.codfactura }} </td>
+            </tr>
+      {% endfor %}
+    </table>
 
 
     </dynamic-page>

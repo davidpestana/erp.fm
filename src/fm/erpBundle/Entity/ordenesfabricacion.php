@@ -367,4 +367,32 @@ class ordenesfabricacion
     {
         return $this->micajon;
     }
+    /**
+     * @var \fm\erpBundle\Entity\PedidoItem
+     */
+    private $pedidoItem;
+
+
+    /**
+     * Set pedidoItem
+     *
+     * @param \fm\erpBundle\Entity\PedidoItem $pedidoItem
+     * @return ordenesfabricacion
+     */
+    public function setPedidoItem(\fm\erpBundle\Entity\PedidoItem $pedidoItem = null)
+    {
+        $this->pedidoItem = $pedidoItem;
+
+        return $this;
+    }
+
+    /**
+     * Get pedidoItem
+     *
+     * @return \fm\erpBundle\Entity\PedidoItem 
+     */
+    public function getPedidoItem()
+    {
+        return $this->pedidoItem;
+    }
 }

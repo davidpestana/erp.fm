@@ -19,18 +19,21 @@
             </tr>
         </tbody>
     </table>
+   <table>
+    <tr background-color="#eb613d" color="white" font-size="14px" text-align="center">
+      <td width="310px" border-color="#eb613d" padding="5px">CONCEPTO</td>
+      <td border-color="#eb613d" padding="5px" width="70px">UNIDADES</td>
+      <td border-color="#eb613d" padding="5px" width="70px">OBSERVACIONES</td>
+      <td border-color="#eb613d" padding="5px" width="70px">CODFACTURA</td>
+    </tr>
+      {% for producto in entity.items  %}
+            <tr font-size="13px">
+              <td border-color="#eb613d" padding="5px">{{ producto.descripcion }}</td>
+              <td border-color="#eb613d" padding="5px" text-align="center"> {{ producto.cantidad }} </td>
+              <td border-color="#eb613d" padding="5px" text-align="right"> {{ producto.observaciones }} </td>
+              <td border-color="#eb613d" padding="5px" text-align="right"> {{ producto.factura.codfactura }} </td>
+            </tr>
+      {% endfor %}
+    </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('pedido') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('pedido_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
 {% endblock %}

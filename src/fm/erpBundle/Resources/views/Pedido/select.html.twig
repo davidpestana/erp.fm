@@ -1,0 +1,40 @@
+						<div class="portlet">
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-home"></i>Listado de pedidos disponibles, aún no tramitados</div>
+                                <div class="actions">
+                                    <div class="btn-group">
+                                        <a href="{{ path('pedido_create_ajax') }}" data-model="pedidos_listado" class="ajax_btn btn blue">
+                                            <i class="icon-plus"></i> CREAR NUEVO PEDIDO
+                                        </a>
+                                    </div>
+                                </div>
+							</div>
+
+							<div class="portlet-body">
+
+									<table class="table table-hover table-full-width" id="sample_modal">
+									        <thead>
+									            <tr>
+									                <th>Id de pedido</th>
+									                <th>Fecha de Creación</th>
+									                <th>Facturas agregadas</th>
+									                <th>Actions</th>
+									            </tr>
+									        </thead>
+									        <tbody class="pedidos_listado">
+									        {% for entity in entities %}
+									            <tr class="pedido" id="{{ entity.id }}">
+                                                    <td class="id">{{ entity.id }}</td>
+									                <td class="fecha">{{ entity.fechacreacion |date('d-m-Y') }}</td>
+                									<td class="orders">{{ entity.items | length }}</td>
+			
+									                <td>
+									                    <a href="{{ path('pedido_add_items', { 'id': entity.id }) }}" onclick="sendForm(event)" class="agregar btn blue" >agregar a este pedido</a>
+									                </td>
+									            </tr>
+									        {% endfor %}
+									        </tbody>
+									</table>
+									
+							</div>
+						</div>

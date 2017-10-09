@@ -1,9 +1,50 @@
 {% extends "erpBundle::layout.modal.html.twig" %}
 
+{% form_theme edit_form _self %}
+
+{% block _fm_erpbundle_pedido_items_entry_row %}
+	{% spaceless %}
+    	<div class="piece alert alert-block alert-info fade in">
+        	   <!-- <button type="button" class="close">&times;</button>-->
+        	    <button type="button" class="close" data-dismiss="alert"></button>
+
+        		{# form_label(form) #}
+        		{{ form_errors(form) }}
+        		{{ form_widget(form) }}
+        		<div class="clear"></div>
+    	</div>
+	{% endspaceless %}
+{% endblock %}
+
+
 {% block title -%} Resumen del Pedido {{ entity.id }}{% endblock %}
 
 {% block body -%}
+ <style type="text/css">
+	#fm_erpbundle_pedido_items .piece {position:relative;}
+	#fm_erpbundle_pedido_items .piece div div:nth-child(1){  }
+	#fm_erpbundle_pedido_items .piece div div:nth-child(2){  }
+	#fm_erpbundle_pedido_items .piece div div:nth-child(3){  }
+	#fm_erpbundle_pedido_items .piece div div:nth-child(4){  }
+
+	#fm_erpbundle_pedido_items .piece div div textarea{ width:100%;}
+	#fm_erpbundle_pedido_items .piece div div input{ width:100%;}
+	#fm_erpbundle_pedido_items .piece .clear {clear:both;}
+    #fm_erpbundle_pedido_items .ms-container ul.ms-list { height: 100px}
+</style>
+       <a class="btn blue"  onclick="addList('fm_erpbundle_pedido_items')"> 
+                   <i class="icon-plus"></i>
+                   AGREGAR LINEA AL PEDIDO
+        </a>
 
     {{ form(edit_form) }}
+        <script language="javascript">
+            function addList(id){
+                let el = document.getElementById(id);
+                let child = document.createElement('div');
+                child.innerHTML = el.getAttribute('data-prototype').replace(/__name__/g, el.childNodes.length);
+                el.appendChild(child);
+            };
 
+        </script>
 {% endblock %}

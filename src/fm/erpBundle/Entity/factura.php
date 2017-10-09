@@ -467,43 +467,42 @@ class factura
     {
         return $this->sociedad;
     }
-
-
-
-
-
-
-
-
-
-
-
     /**
-     * @var \fm\erpBundle\Entity\Pedidos
+     * @var \Doctrine\Common\Collections\Collection
      */
-    private $pedido;
+    private $pedidos;
 
 
     /**
-     * Set pedido
+     * Add pedidos
      *
-     * @param \fm\erpBundle\Entity\Pedidos $pedido
+     * @param \fm\erpBundle\Entity\PedidoItem $pedidos
      * @return factura
      */
-    public function setPedido(\fm\erpBundle\Entity\Pedidos $pedido)
+    public function addPedido(\fm\erpBundle\Entity\PedidoItem $pedidos)
     {
-        $this->pedido = $pedido;
-    
+        $this->pedidos[] = $pedidos;
+
         return $this;
     }
 
     /**
-     * Get pedido
+     * Remove pedidos
      *
-     * @return \fm\erpBundle\Entity\Pedidos 
+     * @param \fm\erpBundle\Entity\PedidoItem $pedidos
      */
-    public function getPedido()
+    public function removePedido(\fm\erpBundle\Entity\PedidoItem $pedidos)
     {
-        return $this->pedido;
+        $this->pedidos->removeElement($pedidos);
+    }
+
+    /**
+     * Get pedidos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPedidos()
+    {
+        return $this->pedidos;
     }
 }

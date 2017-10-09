@@ -24,7 +24,11 @@
                     <tr>
                         <th>Numero Pedido</th>
                         <th>Fecha Creacion</th>
-                        <th>Fecha Entrega</th>
+                        <th>Fecha Tramitado</th>
+                        <th>Fecha Entrega Prevista</th>
+                        <th>Lineas</th>
+                        <th>Facturas Incluidas</th>
+
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -33,11 +37,25 @@
                         <tr>
                             <td>{{ entity.id }}</td>
                             <td>{{ entity.fechaCreacion|date('d-m-Y') }}</td>
+                            <td>{{ entity.fechaEnvio is empty ? "" : entity.fechaEnvio|date('d-m-Y') }}</td>
                             <td>{{ entity.fechaEntrega|date('d-m-Y') }}</td>
+                            <td>{{ entity.items|length }}</td>
                             <td>
-                                <a href="{{ path('pedido_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn red mini" data-toggle="modal"><i class="icon-edit"></i>Resumen Pedido</a>
-                                <a href="{{ path('pedido_show', { 'id': entity.id,'_format':'pdf' }) }}" class="btn red mini">Descargar</a>
+{% set newArray = [] %}
 
+{% for item in entity.items %}
+   {% if item.factura.codFactura not in newArray %}
+   {% set newArray = newArray|merge([item.factura.codFactura]) %}
+   {% endif %}
+{% endfor %}
+{{ newArray | join(' | ')}}
+                            
+                            </td>
+                            <td>
+                                <a href="{{ path('pedido_send', { 'id': entity.id }) }}" class="modal_ajax_btn btn red" data-toggle="modal"><i class="icon-edit"></i> Tramitara Pedido</a>
+                                <a href="{{ path('pedido_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn red" data-toggle="modal"><i class="icon-edit"></i> Editar Resumen Pedido</a>
+                                <a href="{{ path('pedido_show', { 'id': entity.id,'_format':'pdf','proveedor':'masferrer' }) }}" class="btn blue"><i class="icon-book"></i> Albarán MasFerrer</a>
+                                <a href="{{ path('pedido_show', { 'id': entity.id,'_format':'pdf','proveedor':'tapicero' }) }}" class="btn blue"><i class="icon-book"></i> Albarán Tapicero</a>
                            
                             </td>
                         </tr>

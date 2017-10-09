@@ -1,10 +1,10 @@
 fm\erpBundle\Entity\Pedido:
     type: entity
     oneToMany:
-        misFacturas:
-            targetEntity: factura
+        items:
+            targetEntity: PedidoItem
             mappedBy: pedido
-            cascade: [persist]
+            cascade: [persist]    
     table: null
     fields:
         id:
@@ -13,12 +13,12 @@ fm\erpBundle\Entity\Pedido:
             generator:
                 strategy: AUTO
         fechaEntrega:
-            type: datetime
+            type: date
             nullable: true
         fechaCreacion:
             type: datetime
-            nullable: true
+            nullable: false
         fechaEnvio:
-            type: datetime
+            type: date
             nullable: true
     lifecycleCallbacks: {  }

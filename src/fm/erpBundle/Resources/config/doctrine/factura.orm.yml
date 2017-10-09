@@ -21,13 +21,11 @@ fm\erpBundle\Entity\factura:
                 nullable: false
                 name: serie_id
                 referencedColumnName: id 
-        pedido:
-            targetEntity: Pedido
-            joinColumn:
-                nullable: true
-                name: pedido_id
-                referencedColumnName: id 
+
     oneToMany:
+        pedidos:
+            targetEntity: PedidoItem
+            mappedBy: factura
         misitems:
             targetEntity: item
             mappedBy: factura
