@@ -29,7 +29,7 @@
                     {% for entity in entities %}
                         <tr>
                             <td>{{ entity.serie }}</td>
-                            <td>{{ entity.fecha|date('d-m-Y') }}</td>
+                            <td>{{ entity.fecha|date('Y-m-d') }}</td>
                             <td>{{ entity.cliente.name }} ({{ entity.cliente.dniCif }})</td>
                             <td>{{ entity.cliente.provincia }}, {{ entity.cliente.localidad }} ({{ entity.cliente.cp }})</td>
                             <td>
