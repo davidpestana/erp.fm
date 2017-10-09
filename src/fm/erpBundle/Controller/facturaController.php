@@ -8,6 +8,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use fm\erpBundle\Entity\factura;
+use fm\erpBundle\Entity\Pedido;
+use fm\erpBundle\Entity\PedidoItem;
+use fm\erpBundle\Form\PedidoItemsCollectionType;
+use fm\erpBundle\Form\PedidoType;
+
+
 use fm\erpBundle\Form\facturaType;
 use fm\erpBundle\Form\grabarfacturaType;
 use Ps\PdfBundle\Annotation\Pdf;
@@ -116,6 +122,40 @@ class facturaController extends Controller
             return $this->redirect($this->generateUrl('factura'));
 
     }
+
+
+    /**
+     *
+     * @Route("/{id}/addpedido", name="factura_add_pedido")
+     * @Method("GET")
+     * @Template()
+     */
+     public function facturaAddPedidoAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('erpBundle:factura')->find($id);
+
+
+        $pedidoEntity = new Pedido();
+
+        foreach($entity->getMisItems() as $item){
+            $pedidoItemEntity = new PedidoItem();
+            $pedidoItemEntity->setDescripcion($item->getDescripcion());
+            $pedidoItemEntity->setCantidad($item->getCantidad());
+            $pedidoItemEntity->setFactura($entity);
+            $pedidoEntity->addItem($pedidoItemEntity);
+        }
+
+        $form   = $form = $this->createForm(new PedidoItemsCollectionType(), $pedidoEntity, array(
+                    //'action' => $this->generateUrl('pedido_add_items', array('id' => $pedidoEntity->getId())),
+                    'method' => 'POST',
+                ));
+
+        return array(
+            'entity'=>$entity,
+            'form'=>$form->createView()
+        );
+   }
+
 
     /**
      *

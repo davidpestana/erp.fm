@@ -3,12 +3,16 @@
 namespace fm\erpBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use fm\erpBundle\Entity\Pedido;
+use fm\erpBundle\Entity\PedidoItem;
 use fm\erpBundle\Form\PedidoType;
+use fm\erpBundle\Form\PedidoItemsCollectionType;
 use Ps\PdfBundle\Annotation\Pdf;
 
 /**
@@ -36,6 +40,76 @@ class PedidoController extends Controller
             'entities' => $entities,
         );
     }
+
+
+    /**
+     * Select no enviados Pedido entities.
+     *
+     * @Method("GET")
+     * @Template()
+     */
+     public function selectAction()
+     {
+         $em = $this->getDoctrine()->getManager();
+
+         $filter = ['fechaEnvio' => null];
+         $order  = ['id' => 'DESC'];
+         $entities = $em->getRepository('erpBundle:Pedido')->findBy($filter,$order);
+
+         return array(
+             'entities' => $entities,
+         );
+     }
+
+
+    /**
+     * add items to pedido entity.
+     *
+     * @Route("/{id}/addItems", name="pedido_add_items")
+     * @Method("POST")
+     */
+     
+     public function addItemsAction(Request $request, $id)
+     {
+         $em = $this->getDoctrine()->getManager();
+         $entity = $em->getRepository('erpBundle:Pedido')->find($id);
+
+         if (!$entity) {
+             throw $this->createNotFoundException('Unable to find Pedido entity.');
+         }
+         $newItems = $request->request->get('fm_erpbundle_pedido')['items'];
+
+         foreach($newItems as $item){
+             $itemInstance = new PedidoItem();
+             $itemInstance->setCantidad($item['cantidad']);
+             $itemInstance->setDescripcion($item['descripcion']);
+             $itemInstance->setObservaciones($item['observaciones']);
+             $itemInstance->setProveedor($item['proveedor']);
+             $itemInstance->setFactura($em->getRepository('erpBundle:factura')->find($item['factura']));
+             
+             $entity->addItem($itemInstance);
+            // $em->persist($itemInstance);
+         }
+
+        //  $form = $this->createForm(new PedidoItemsCollectionType(), $entity);
+        //  //$form = $this->createEditForm($entity);
+         
+        //  $form->handleRequest($request);
+        //  /*add previous after new added*/
+        //   $items = $entity->getItems()->toArray();
+        //   foreach($items as $item) {
+        //         $item->flushId();  // for new insert
+        //         ldd($item);
+        //         $em->persist($item);
+        //  }
+         $em->persist($entity);
+         $em->flush();
+         
+         return $this->redirect($this->generateUrl('pedido',[]));
+          
+     }
+
+
     /**
      * Creates a new Pedido entity.
      *
@@ -62,6 +136,23 @@ return $this->redirect($this->generateUrl('pedido',[]));
             'form'   => $form->createView(),
         );
     }
+
+    /**
+     * Creates a new Pedido entity.
+     *
+     * @Route("/create/ajax", name="pedido_create_ajax")
+     * @Method("POST")
+     */
+     public function createAjaxAction()
+     {
+        $entity = new Pedido();
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($entity);
+        $em->flush();
+        return  new JsonResponse(['message'=>'Pedido creado','fechaCreacion'=>$entity->getFechaCreacion(),'id'=>$entity->getId()]);
+     }
+
+
 
     /**
      * Creates a form to create a Pedido entity.
@@ -108,7 +199,7 @@ return $this->redirect($this->generateUrl('pedido',[]));
      * @Method("GET")
      * @Template()
      */
-    public function showAction($id)
+    public function showAction($id,Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -119,9 +210,53 @@ return $this->redirect($this->generateUrl('pedido',[]));
         }
 
         return array(
-            'entity'      => $entity
+            'entity'      => $entity,
+            'proveedor'   => $request->get('proveedor')
         );
     }
+
+
+    /**
+     *
+     * @Route("/{id}/send", name="pedido_send")
+     * @Method("GET")
+     * @Template()
+     */
+     public function sendAction($id, Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('erpBundle:Pedido')->find($id);
+        $entity->tramitar();
+        $em->persist($entity);
+        $em->flush();
+        $data = $this->forward('erpBundle:pedido:show', 
+           array( 'id' => $id, '_format' => 'pdf','proveedor' => 'masferrer'));
+
+
+       $message = \Swift_Message::newInstance()
+           ->setSubject(' FURGOMANIA ALBARAN Nº: '.$entity->getId())
+           ->setFrom('contacto@furgomania.com')
+           ->setTo('solchitos@gmail.com')
+          // ->setCc(array('info@furgomania.com', 'ventas@furgomania.com','tecnicom@quimp.es'))
+           ->setBody(
+               $this->renderView(
+                   'erpBundle:Pedido:email.html.twig',
+                   array( 'entity'=> $entity)
+               ), 'text/html'
+           )
+           ->attach(\Swift_Attachment::newInstance()
+                 ->setFilename('masferrer_'.$entity->getId().'.pdf')
+                 ->setContentType('application/pdf')
+                 ->setBody($data))
+
+    
+       ;
+
+       $this->get('mailer')->send($message);
+       return array(
+           'entity'      => $entity
+       );
+   }
+
 
     /**
      * Displays a form to edit an existing Pedido entity.
