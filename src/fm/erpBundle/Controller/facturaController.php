@@ -39,9 +39,15 @@ class facturaController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('erpBundle:factura')->findby(array("estado" => 1));
+        $entities = $em->getRepository('erpBundle:factura')->findby(
+            array("estado" => 1), 
+            array('id' => 'DESC')
+        );
 
-        $grabadas = $em->getRepository('erpBundle:factura')->findby(array("estado" => 2));
+        $grabadas = $em->getRepository('erpBundle:factura')->findby(
+            array("estado" => 2), 
+            array('id' => 'DESC')
+        );
 
         $conceptosunicos = $em->getRepository('erpBundle:conceptounico')->findAll();
 
