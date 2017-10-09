@@ -24,8 +24,6 @@ fm\erpBundle\Entity\PedidoItem:
                 strategy: AUTO
         fechaInclusion:
             type: datetime
-            options:
-                default: 0
         cantidad:
             type: integer
             default: 1
