@@ -25,7 +25,8 @@
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "sonata-project/seo-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "cocur/slugify": "1.4"
+        "cocur/slugify": "1.4",
+        "ocramius/proxy-manager": "1.*"
 
       
     },
