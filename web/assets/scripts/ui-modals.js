@@ -65,6 +65,7 @@ var UIModals = function () {
                 $modal.modal();
                 initHolders();
                 var t = initTables('#sample_modal');
+                UIAjax.init();
                 if(t.length) t.$('.producto').click(agregar);   
 
                 // select2 & multiSelect
