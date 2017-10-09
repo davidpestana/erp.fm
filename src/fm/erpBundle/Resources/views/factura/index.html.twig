@@ -63,7 +63,7 @@
                         {% for entity in grabadas %}
                             <tr>
                                 <td>{{ entity.codfactura }}</td>
-                                <td>{{ entity.fecha|date('d-m-Y') }}</td>
+                                <td>{{ entity.fecha|date('Y-m-d') }}</td>
                                 <td>{{ entity.cliente.name }} ({{ entity.cliente.dniCif }})<br />
                                 {{ entity.cliente.provincia }}, {{ entity.cliente.localidad }} ({{ entity.cliente.cp }})</td>
                                 <td>{{ entity.base |number_format(2, '.', ',')}} €</td>
