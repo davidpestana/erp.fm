@@ -283,4 +283,60 @@ class PedidoItem
     {
         return $this->descripcion;
     }
+    /**
+     * @var string
+     */
+    private $carpintero;
+
+    /**
+     * @var string
+     */
+    private $tapicero;
+
+
+    /**
+     * Set carpintero
+     *
+     * @param string $carpintero
+     * @return PedidoItem
+     */
+    public function setCarpintero($carpintero)
+    {
+        $this->carpintero = $carpintero;
+
+        return $this;
+    }
+
+    /**
+     * Get carpintero
+     *
+     * @return string 
+     */
+    public function getCarpintero()
+    {
+        return $this->carpintero;
+    }
+
+    /**
+     * Set tapicero
+     *
+     * @param string $tapicero
+     * @return PedidoItem
+     */
+    public function setTapicero($tapicero)
+    {
+        $this->tapicero = $tapicero;
+
+        return $this;
+    }
+
+    /**
+     * Get tapicero
+     *
+     * @return string 
+     */
+    public function getTapicero()
+    {
+        return $this->tapicero;
+    }
 }

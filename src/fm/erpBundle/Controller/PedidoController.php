@@ -61,53 +61,77 @@ class PedidoController extends Controller
          );
      }
 
-
     /**
      * add items to pedido entity.
      *
-     * @Route("/{id}/addItems", name="pedido_add_items")
-     * @Method("POST")
+     * @Route("/{id}/selectFacturas", name="pedido_select_facturas")
+     * @Method("GET")
+     * @Template()
      */
      
-     public function addItemsAction(Request $request, $id)
+     public function selectFacturasAction($id)
      {
          $em = $this->getDoctrine()->getManager();
          $entity = $em->getRepository('erpBundle:Pedido')->find($id);
-
+         $facturas = $em->getRepository('erpBundle:factura')->findby(
+                        array("estado" => 2), 
+                        array('id' => 'DESC')
+                    );
          if (!$entity) {
              throw $this->createNotFoundException('Unable to find Pedido entity.');
          }
-         $newItems = $request->request->get('fm_erpbundle_pedido')['items'];
 
-         foreach($newItems as $item){
-             $itemInstance = new PedidoItem();
-             $itemInstance->setCantidad($item['cantidad']);
-             $itemInstance->setDescripcion($item['descripcion']);
-             $itemInstance->setObservaciones($item['observaciones']);
-             $itemInstance->setProveedor($item['proveedor']);
-             $itemInstance->setFactura($em->getRepository('erpBundle:factura')->find($item['factura']));
-             
-             $entity->addItem($itemInstance);
-            // $em->persist($itemInstance);
-         }
-
-        //  $form = $this->createForm(new PedidoItemsCollectionType(), $entity);
-        //  //$form = $this->createEditForm($entity);
-         
-        //  $form->handleRequest($request);
-        //  /*add previous after new added*/
-        //   $items = $entity->getItems()->toArray();
-        //   foreach($items as $item) {
-        //         $item->flushId();  // for new insert
-        //         ldd($item);
-        //         $em->persist($item);
-        //  }
-         $em->persist($entity);
-         $em->flush();
-         
-         return $this->redirect($this->generateUrl('pedido',[]));
+         return array('entity'=>$entity,'facturas'=>$facturas);
           
      }
+
+
+    // /**
+    //  * add items to pedido entity.
+    //  *
+    //  * @Route("/{id}/addItems", name="pedido_add_items")
+    //  * @Method("PUT")
+    //  */
+     
+    //  public function addItemsAction(Request $request, $id)
+    //  {
+    //      $em = $this->getDoctrine()->getManager();
+    //      $entity = $em->getRepository('erpBundle:Pedido')->find($id);
+
+    //      if (!$entity) {
+    //          throw $this->createNotFoundException('Unable to find Pedido entity.');
+    //      }
+    //      $newItems = $request->request->get('fm_erpbundle_pedido')['items'];
+
+    //      foreach($newItems as $item){
+    //          $itemInstance = new PedidoItem();
+    //          $itemInstance->setCantidad($item['cantidad']);
+    //          $itemInstance->setDescripcion($item['descripcion']);
+    //          $itemInstance->setObservaciones($item['observaciones']);
+    //          $itemInstance->setProveedor($item['proveedor']);
+    //          $itemInstance->setFactura($em->getRepository('erpBundle:factura')->find($item['factura']));
+             
+    //          $entity->addItem($itemInstance);
+    //         // $em->persist($itemInstance);
+    //      }
+
+    //     //  $form = $this->createForm(new PedidoItemsCollectionType(), $entity);
+    //     //  //$form = $this->createEditForm($entity);
+         
+    //     //  $form->handleRequest($request);
+    //     //  /*add previous after new added*/
+    //     //   $items = $entity->getItems()->toArray();
+    //     //   foreach($items as $item) {
+    //     //         $item->flushId();  // for new insert
+    //     //         ldd($item);
+    //     //         $em->persist($item);
+    //     //  }
+    //      $em->persist($entity);
+    //      $em->flush();
+         
+    //      return $this->redirect($this->generateUrl('pedido_select_facturas',['id'=>$entity->getId()]));
+          
+    //  }
 
 
     /**
@@ -137,20 +161,20 @@ return $this->redirect($this->generateUrl('pedido',[]));
         );
     }
 
-    /**
-     * Creates a new Pedido entity.
-     *
-     * @Route("/create/ajax", name="pedido_create_ajax")
-     * @Method("POST")
-     */
-     public function createAjaxAction()
-     {
-        $entity = new Pedido();
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($entity);
-        $em->flush();
-        return  new JsonResponse(['message'=>'Pedido creado','fechaCreacion'=>$entity->getFechaCreacion(),'id'=>$entity->getId()]);
-     }
+    // /**
+    //  * Creates a new Pedido entity.
+    //  *
+    //  * @Route("/create/ajax", name="pedido_create_ajax")
+    //  * @Method("POST")
+    //  */
+    //  public function createAjaxAction()
+    //  {
+    //     $entity = new Pedido();
+    //     $em = $this->getDoctrine()->getManager();
+    //     $em->persist($entity);
+    //     $em->flush();
+    //     return  new JsonResponse(['message'=>'Pedido creado','fechaCreacion'=>$entity->getFechaCreacion(),'id'=>$entity->getId()]);
+    //  }
 
 
 
@@ -168,7 +192,7 @@ return $this->redirect($this->generateUrl('pedido',[]));
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Crear Nuevo Pedido'));
 
         return $form;
     }
@@ -183,6 +207,7 @@ return $this->redirect($this->generateUrl('pedido',[]));
     public function newAction()
     {
         $entity = new Pedido();
+        $entity->setFechaEntrega(new \DateTime());
         $form   = $this->createCreateForm($entity);
 
         return array(
@@ -252,9 +277,8 @@ return $this->redirect($this->generateUrl('pedido',[]));
        ;
 
        $this->get('mailer')->send($message);
-       return array(
-           'entity'      => $entity
-       );
+       return $this->redirect($this->generateUrl('pedido',[]));
+       
    }
 
 
@@ -299,7 +323,7 @@ return $this->redirect($this->generateUrl('pedido',[]));
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Guardar los cambios'));
 
         return $form;
     }
@@ -375,7 +399,7 @@ return $this->redirect($this->generateUrl('pedido',[]));
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('pedido_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Eliminar este pedido'))
             ->getForm()
         ;
     }

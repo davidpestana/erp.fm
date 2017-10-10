@@ -1,0 +1,27 @@
+{% extends "erpBundle::layout.modal.html.twig" %}
+
+{# {% form_theme form _self %}
+
+{% block form %}
+	{% spaceless %}
+    	<div class="piece alert alert-block alert-info fade in">
+        		{{ form_errors(form) }}
+        		{{ form_widget(form) }}
+    	</div>
+	{% endspaceless %}
+{% endblock %} #}
+
+
+
+
+{% block title -%} 
+    Editar 
+{% endblock %}
+
+{% block body -%}
+ <style type="text/css">
+	#fm_erpbundle_pedidoitem textarea{ width:100%; height:100px;}
+</style>
+    {{ form(edit_form) }}
+
+{% endblock %}

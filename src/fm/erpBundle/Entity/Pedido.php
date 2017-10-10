@@ -61,7 +61,7 @@ class Pedido
      */
      public function __toString()
      {
-         return "Pedido ".$this->getId();
+         return "Pedido ".$this->getId()." (".$this->getFechaEntrega()->format('d-m-Y').")";
      }
 
      public function tramitar(){

@@ -4,7 +4,7 @@ fm\erpBundle\Entity\Pedido:
         items:
             targetEntity: PedidoItem
             mappedBy: pedido
-            cascade: [persist]    
+            cascade: [persist,remove]    
     table: null
     fields:
         id:

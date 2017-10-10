@@ -3,65 +3,67 @@
 {% block title -%} Pedidos {% endblock %}
     {% block body -%}
 
+        {% for k,i in ['pendientes de tramitar','tramitados'] %}
 
+              <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-edit"></i>Listado de Pedidos {{i}}</div>
+                        {% if not k %}
+                        <div class="actions">
+                            <div class="btn-group">
+                            <a href="{{ path('pedido_new') }}" class="modal_ajax_btn btn blue" data-toggle="modal">
+                                <i class="icon-plus"></i> CREAR NUEVO PEDIDO
+                            </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                </div>
 
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover table-full-width" id="sample_2">
+                        <thead>
+                            <tr>
+                                <th>Numero Pedido</th>
+                                {% if k %}<th>Fecha Tramitado</th> {% endif %}
+                                <th>Fecha Entrega Prevista</th>
+                                <th>Facturas Incluidas</th>
 
-        <div class="portlet box blue">
-            <div class="portlet-title">
-                <div class="caption"><i class="icon-edit"></i>Listado de Pedidos</div>
-                <div class="actions">
-                    <div class="btn-group">
-                       <a href="{{ path('pedido_new') }}" class="modal_ajax_btn btn blue" data-toggle="modal">
-                          <i class="icon-plus"></i> CREAR NUEVO PEDIDO
-                      </a>
-                  </div>
-              </div>
-        </div>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-        <div class="portlet-body">
-            <table class="table table-striped table-bordered table-hover table-full-width" id="sample_2">
-                <thead>
-                    <tr>
-                        <th>Numero Pedido</th>
-                        <th>Fecha Creacion</th>
-                        <th>Fecha Tramitado</th>
-                        <th>Fecha Entrega Prevista</th>
-                        <th>Lineas</th>
-                        <th>Facturas Incluidas</th>
+                            {% for entity in entities if (entity.fechaEnvio is empty) != k %}
+                                <tr>
+                                    <td>{{ entity.id }}</td>
+                                    {% if k %}<td>{{ entity.fechaEnvio is empty ? "" : entity.fechaEnvio|date('d-m-Y') }}</td> {% endif %}
 
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for entity in entities %}
-                        <tr>
-                            <td>{{ entity.id }}</td>
-                            <td>{{ entity.fechaCreacion|date('d-m-Y') }}</td>
-                            <td>{{ entity.fechaEnvio is empty ? "" : entity.fechaEnvio|date('d-m-Y') }}</td>
-                            <td>{{ entity.fechaEntrega|date('d-m-Y') }}</td>
-                            <td>{{ entity.items|length }}</td>
-                            <td>
-{% set newArray = [] %}
+                                    <td>{{ entity.fechaEntrega|date('d-m-Y') }}</td>
+                                    <td>
+                                        {% set newArray = [] %}
 
-{% for item in entity.items %}
-   {% if item.factura.codFactura not in newArray %}
-   {% set newArray = newArray|merge([item.factura.codFactura]) %}
-   {% endif %}
-{% endfor %}
-{{ newArray | join(' | ')}}
-                            
-                            </td>
-                            <td>
-                                <a href="{{ path('pedido_send', { 'id': entity.id }) }}" class="modal_ajax_btn btn red" data-toggle="modal"><i class="icon-edit"></i> Tramitara Pedido</a>
-                                <a href="{{ path('pedido_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn red" data-toggle="modal"><i class="icon-edit"></i> Editar Resumen Pedido</a>
-                                <a href="{{ path('pedido_show', { 'id': entity.id,'_format':'pdf','proveedor':'masferrer' }) }}" class="btn blue"><i class="icon-book"></i> Albarán MasFerrer</a>
-                                <a href="{{ path('pedido_show', { 'id': entity.id,'_format':'pdf','proveedor':'tapicero' }) }}" class="btn blue"><i class="icon-book"></i> Albarán Tapicero</a>
-                           
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-   
+                                        {% for item in entity.items %}
+                                        {% if item.factura.codFactura not in newArray %}
+                                        {% set newArray = newArray|merge([item.factura.codFactura]) %}
+                                        {% endif %}
+                                        {% endfor %}
+                                        {{ newArray | join(' | ')}}
+                                    </td>
+                                    <td>
+                                        {% if not k %}<a href="{{ path('pedido_send', { 'id': entity.id }) }}" class="modal_ajax_btn btn red" data-toggle="modal"><i class="icon-edit"></i> Tramitar el Pedido</a>
+                                        <a href="{{ path('pedido_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn red" data-toggle="modal"><i class="icon-edit"></i> Editar Pedido</a>
+                                        <a href="{{ path('pedido_select_facturas', { 'id': entity.id}) }}" class="btn blue"><i class="icon-book"></i> Gestionar pedido</a>{% endif %}
+
+                                        
+                                        <a href="{{ path('pedido_show', { 'id': entity.id,'_format':'pdf','proveedor':'masferrer' }) }}" class="btn blue"><i class="icon-book"></i> Descargar PDF</a>
+                                
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {% endfor %}
+
     {% endblock %}

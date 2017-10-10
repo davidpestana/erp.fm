@@ -19,16 +19,16 @@ class PedidoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fechaEntrega')
-            ->add('items', 'collection', array(
-                'type'           => new PedidoItemType(),
-                'label'          => 'Elementos a incluir en el pedido',
-                'by_reference'   => false,
-                'prototype'      => new PedidoItem(),
-                'allow_delete'   => true,
-                'allow_add'      => true,
-                'attr'           => array()
-            ));
+            ->add('fechaEntrega');
+            // ->add('items', 'collection', array(
+            //     'type'           => new PedidoItemType(),
+            //     'label'          => 'Elementos a incluir en el pedido',
+            //     'by_reference'   => false,
+            //     'prototype'      => new PedidoItem(),
+            //     'allow_delete'   => true,
+            //     'allow_add'      => true,
+            //     'attr'           => array()
+            // ));
             // ->add('misFacturas', 'entity', array(
             //     'class' => 'erpBundle:factura',
             //         'query_builder' => function (EntityRepository $er) {

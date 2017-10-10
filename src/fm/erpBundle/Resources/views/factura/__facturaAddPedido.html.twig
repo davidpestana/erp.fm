@@ -20,7 +20,7 @@
 
 {% block title -%} 
 
-Vas a añadir los siguientes conceptos referentes a la factura <b>{{entity.codFactura}}</b> en un pedido a proveedores 
+Vas a añadir los siguientes conceptos referentes a la factura <b>{{entity.codFactura}}</b> en el pedido del día {{entity}} 
 
 {% endblock %}
 
@@ -41,6 +41,7 @@ Vas a añadir los siguientes conceptos referentes a la factura <b>{{entity.codFa
  <style type="text/css">
 	.input-sm {with:50px;}
 </style>
+<div class="row-fluid">
          <span class="alert">
             {% if entity.pedidos|length %}
             precaucion, lineas de esta factura fueron añadidas anteriormente a algún pedido {# entity.pedido.id #}
@@ -48,18 +49,18 @@ Vas a añadir los siguientes conceptos referentes a la factura <b>{{entity.codFa
             esta factura aun no ha sido añadida a ningun pedido 
             {% endif %}
         </span> 
-
+</div>
 <div class="row-fluid">
-    <div class="span6">
+    <div class="span12">
 
-        <a class="btn blue"  onclick="addList('fm_erpbundle_pedido_items')"> 
+        {# <a class="btn blue"  onclick="addList('fm_erpbundle_pedido_items')"> 
                    <i class="icon-plus"></i>
                    AGREGAR LINEA AL PEDIDO
-        </a>
+        </a> #}
 
         {{ form(form) }} 
 
-        <script language="javascript">
+        {# <script language="javascript">
             function addList(id){
                 let el = document.getElementById(id);
                 let child = document.createElement('div');
@@ -73,31 +74,7 @@ Vas a añadir los siguientes conceptos referentes a la factura <b>{{entity.codFa
                 document.getElementById('addItemsForm').action = event.srcElement.href;
                 document.getElementById('addItemsForm').submit();
             };
-
-        </script>
-
-
-        {# <table class="table">
-                <thead>
-                    <tr>
-                        <th>Detalle pedido</th>
-                        <th>unidades</th>
-                        <th>Observaciones</th>
-                        <th>Proveedor</th>
-                    </tr>
-                </thead>
-                {% for producto in entity.misitems  %}
-                      <tr font-size="13px">
-                        <td border-color="#eb613d" padding="5px"><input type="text" value="{{ producto.descripcion}}" /></td>
-                        <td border-color="#eb613d" padding="5px" text-align="center"><input type="number" class="input-sm" value="{{ producto.cantidad }}" /> </td>
-                        <td border-color="#eb613d" padding="5px" text-align="right"> <input type="text" value="" placeholder="observaciones" /> </td>
-                        <td border-color="#eb613d" padding="5px" text-align="right"> <select><option value="">selecciona proveedor para agregar</option><option value="carpintero">Carpintero</option><option value="tapicero">Tapicero</option></select></td>
-                      </tr>
-                {% endfor %}
-      </table> #}
-    </div>
-    <div class="span6">
-        {{ render(controller('erpBundle:Pedido:select')) }}
+        </script> #}
     </div>
 </div>
 {% endblock %}

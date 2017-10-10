@@ -1,0 +1,37 @@
+{% extends "erpBundle::layout.modal.html.twig" %}
+
+{# {% form_theme form _self %}
+
+{% block form %}
+	{% spaceless %}
+    	<div class="piece alert alert-block alert-info fade in">
+        		{{ form_errors(form) }}
+        		{{ form_widget(form) }}
+    	</div>
+	{% endspaceless %}
+{% endblock %} #}
+
+
+
+
+{% block title -%} 
+    Añadir al pedido <b>{{pedido.id}}</b> <i>({{pedido.fechaEntrega | date('d-m-Y')}})</i> los conceptos referentes a la factura <b>{{factura.codFactura}}</b>
+{% endblock %}
+
+{% block body -%}
+ <style type="text/css">
+	#fm_erpbundle_pedidoitem textarea{ width:100%; height:100px;}
+</style>
+<div class="piece">
+         <span class="alert">
+            {% if factura.pedidos |length %}
+            PRECAUCION, esta factura fue añadida anteriormente a algún pedido
+            {% else %} 
+            CORRECTO, esta factura aun no ha sido añadida a ningun pedido 
+            {% endif %}
+        </span> 
+</div>
+<div class="form">
+    {{ form(form) }}
+</div>
+{% endblock %}

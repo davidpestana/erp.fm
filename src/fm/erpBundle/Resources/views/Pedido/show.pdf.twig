@@ -1,17 +1,16 @@
 <pdf>
 
-     <dynamic-page encoding="UTF-8" font-type="DejaVuSans" page-size="a4">
+     <dynamic-page encoding="UTF-8" font-type="DejaVuSans" page-size="letter-landscape">
   <table>
     <tr>
       <td border-color="white">
-        <img width="300px" src="{{ pdf_image('erpBundle:logo_reduced.png') }}"/>
+        <img width="200px" src="{{ pdf_image('erpBundle:logo_reduced.png') }}"/>
       </td>
 
       <td border-color="white">
         <p text-align="right">
-          <h1 font-size="25px">ALBARAN Nº {{ entity.id }}</h1>
+          <h1 font-size="25px">HOJA DE PEDIDO Nº {{ entity.id }}</h1>
           <b>FECHA ENTREGA: </b>{{ entity.fechaEntrega|date('d/m/Y') }}<br />
-          <b>PROVEEDOR: </b> {{proveedor | upper}}<br/>
         </p>
 
       </td>
@@ -21,18 +20,16 @@
 
    <table>
     <tr background-color="#eb613d" color="white" font-size="14px" text-align="center">
-      <td border-color="#eb613d" padding="5px" width="30px">UDS</td>
-      <td width="310px" border-color="#eb613d" padding="5px">CONCEPTO</td>
-      <td border-color="#eb613d" padding="5px" width="100px">OBSERVACIONES</td>
-      <td border-color="#eb613d" padding="5px" width="70px">FACTURAS</td>
+      <td border-color="#eb613d" padding="5px" width="1px">Factura</td>
+      <td border-color="#eb613d" padding="5px" width="280px">Detalle Carpintería</td>
+      <td border-color="#eb613d" padding="5px" width="280px">Detalle Tapicería</td>
     </tr>
-      {% for producto in entity.items  if producto.proveedor == proveedor  %}
-            <tr font-size="13px">
-              <td border-color="#eb613d" padding="5px" text-align="center"> {{ producto.cantidad }} </td>
+      {% for producto in entity.items %}
+            <tr font-size="10px">
 
-              <td border-color="#eb613d" padding="5px">{{ producto.descripcion }}</td>
-              <td border-color="#eb613d" padding="5px" text-align="right"> {{ producto.observaciones }} </td>
-              <td border-color="#eb613d" padding="5px" text-align="right"> {{ producto.factura.codfactura }} </td>
+              <td font-size="14px" border-color="#eb613d" padding="15px" text-align="center">{{ producto.factura.codFactura }}</td>
+              <td border-color="#eb613d" padding="15px" text-align="left"> {{ producto.carpintero }} </td>
+              <td border-color="#eb613d" padding="15px" text-align="left"> {{ producto.tapicero }} </td>
             </tr>
       {% endfor %}
     </table>

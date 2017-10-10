@@ -29,10 +29,18 @@ fm\erpBundle\Entity\PedidoItem:
             default: 1
         descripcion:
             type: text
+            nullable: true 
         observaciones:
+            type: text
+            nullable: true
+        carpintero:
+            type: text
+            nullable: true        
+        tapicero:
             type: text
             nullable: true
         proveedor:
             type: string
             length: 255
+            nullable: true
     lifecycleCallbacks: {  }

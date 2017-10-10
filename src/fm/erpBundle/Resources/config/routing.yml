@@ -39,6 +39,10 @@ _pedidos:
     resource: "@erpBundle/Controller/PedidoController.php"
     type:     annotation
 
+_pedidosItems:
+    resource: "@erpBundle/Controller/PedidoItemController.php"
+    type:     annotation
+
 _proveedores:
     resource: "@erpBundle/Controller/proveedoresController.php"
     type:     annotation

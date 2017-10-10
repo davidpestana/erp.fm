@@ -129,38 +129,51 @@ class facturaController extends Controller
 
     }
 
+// METODO DEPRECADO EN FAVOR DEL METODO NEW DEL CONTROLADOR PEDIDOITEM
+//     /**
+//      *
+//      * @Route("/{idFactura}/addpedido/{idPedido}", name="factura_add_pedido")
+//      * @Method("GET")
+//      * @Template()
+//      */
+//      public function facturaAddPedidoAction($idFactura,$idPedido){
+//         $em = $this->getDoctrine()->getManager();
+//         $entity = $em->getRepository('erpBundle:factura')->find($idFactura);
+//         $pedidoEntity = $em->getRepository('erpBundle:Pedido')->find($idPedido);
+//         if (!$entity) {
+//             throw $this->createNotFoundException('Unable to find factura entity.');
+//         }
+//         if (!$pedidoEntity) {
+//             throw $this->createNotFoundException('Unable to find pedido entity.');
+//         }
 
-    /**
-     *
-     * @Route("/{id}/addpedido", name="factura_add_pedido")
-     * @Method("GET")
-     * @Template()
-     */
-     public function facturaAddPedidoAction($id){
-        $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('erpBundle:factura')->find($id);
+//         $strings = [];       
+//         foreach($entity->getMisItems() as $item){
+//             $strings[] = $item->getDescripcion();
+//         }
 
 
-        $pedidoEntity = new Pedido();
 
-        foreach($entity->getMisItems() as $item){
-            $pedidoItemEntity = new PedidoItem();
-            $pedidoItemEntity->setDescripcion($item->getDescripcion());
-            $pedidoItemEntity->setCantidad($item->getCantidad());
-            $pedidoItemEntity->setFactura($entity);
-            $pedidoEntity->addItem($pedidoItemEntity);
-        }
+//         $pedidoItemEntity = new PedidoItem();
+//         $pedidoItemEntity->setCarpintero(implode(" + ",$strings));
+//         $pedidoItemEntity->setCantidad(1);
+//         $pedidoItemEntity->setFactura($entity);
+//         $pedidoEntity->addItem($pedidoItemEntity);
 
-        $form   = $form = $this->createForm(new PedidoItemsCollectionType(), $pedidoEntity, array(
-                    //'action' => $this->generateUrl('pedido_add_items', array('id' => $pedidoEntity->getId())),
-                    'method' => 'POST',
-                ));
 
-        return array(
-            'entity'=>$entity,
-            'form'=>$form->createView()
-        );
-   }
+
+//         $form   = $form = $this->createForm(new PedidoItemsCollectionType(), $pedidoEntity, array(
+//                     'action' => $this->generateUrl('pedido_add_items', array('id' => $pedidoEntity->getId())),
+//                     'method' => 'PUT',
+//                 ));
+
+//         $form->add('submit', 'submit', array('label' => 'Añadir'));
+
+//         return array(
+//             'entity'=>$entity,
+//             'form'=>$form->createView()
+//         );
+//    }
 
 
     /**

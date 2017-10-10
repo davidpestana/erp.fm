@@ -1,0 +1,56 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>PedidoItem</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Fechainclusion</th>
+                <td>{{ entity.fechaInclusion|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Cantidad</th>
+                <td>{{ entity.cantidad }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ entity.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Observaciones</th>
+                <td>{{ entity.observaciones }}</td>
+            </tr>
+            <tr>
+                <th>Carpintero</th>
+                <td>{{ entity.carpintero }}</td>
+            </tr>
+            <tr>
+                <th>Tapicero</th>
+                <td>{{ entity.tapicero }}</td>
+            </tr>
+            <tr>
+                <th>Proveedor</th>
+                <td>{{ entity.proveedor }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('pedidoitem') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('pedidoitem_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

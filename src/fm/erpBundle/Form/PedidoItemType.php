@@ -18,17 +18,17 @@ class PedidoItemType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('cantidad')
-            ->add('descripcion')
-            ->add('observaciones')
+            ->add('carpintero')
+            ->add('tapicero')
             ->add('factura')
-            ->add('proveedor','choice', array(
-                'choices' => array(
-                    'masferrer'   => 'Mas Ferrer',
-                    'tapicero' => 'Tapicero'
-                ),
-                'multiple' => false,
-            ))
+            ->add('pedido')
+            // ->add('proveedor','choice', array(
+            //     'choices' => array(
+            //         'masferrer'   => 'Mas Ferrer',
+            //         'tapicero' => 'Tapicero'
+            //     ),
+            //     'multiple' => false,
+            // ))
         ;
     }
     
