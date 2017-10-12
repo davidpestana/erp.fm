@@ -110,6 +110,11 @@ var UIModals = function () {
     }
 
     var initTables = function(sample){
+        let orderstring = $(sample).attr('data-order');
+        let order = (orderstring) ? JSON.parse(orderstring) : false;
+        console.log(order);
+        console.log(tableconfig);
+        if(order) tableconfig.aaSorting = order;
         var tables = $(sample).dataTable(tableconfig);
         return tables;
     }

@@ -34,7 +34,7 @@ class PedidoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('erpBundle:Pedido')->findAll();
+        $entities = $em->getRepository('erpBundle:Pedido')->findBy([],['id'=>'DESC']);
 
         return array(
             'entities' => $entities,
@@ -258,9 +258,13 @@ return $this->redirect($this->generateUrl('pedido',[]));
 
 
        $message = \Swift_Message::newInstance()
-           ->setSubject(' FURGOMANIA ALBARAN Nº: '.$entity->getId())
+           ->setSubject(' PEDIDO A FABRICA PARA EL '.$entity->getFechaEntrega()->format('d/m/Y') )
            ->setFrom('contacto@furgomania.com')
-           ->setTo('solchitos@gmail.com')
+           ->setTo('contacto@furgomania.com')
+           ->addCC('tecnico@furgomania.com')
+           ->addCC('tecnicom@quimp.es')
+           ->addBCC('david.pestana.perdomo@gmail.com')
+           
           // ->setCc(array('info@furgomania.com', 'ventas@furgomania.com','tecnicom@quimp.es'))
            ->setBody(
                $this->renderView(
@@ -269,7 +273,7 @@ return $this->redirect($this->generateUrl('pedido',[]));
                ), 'text/html'
            )
            ->attach(\Swift_Attachment::newInstance()
-                 ->setFilename('masferrer_'.$entity->getId().'.pdf')
+                 ->setFilename('pedido_'.$entity->getFechaEntrega()->format('Y-m-d')."_".$entity->getId().'.pdf')
                  ->setContentType('application/pdf')
                  ->setBody($data))
 
@@ -277,7 +281,9 @@ return $this->redirect($this->generateUrl('pedido',[]));
        ;
 
        $this->get('mailer')->send($message);
-       return $this->redirect($this->generateUrl('pedido',[]));
+
+       return ['message'=>'se ha enviado el pedido por correo'];
+      // return $this->redirect($this->generateUrl('pedido',[]));
        
    }
 

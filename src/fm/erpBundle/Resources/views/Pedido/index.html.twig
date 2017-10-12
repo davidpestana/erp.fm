@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="portlet-body">
-                    <table class="table table-striped table-bordered table-hover table-full-width" id="sample_2">
+                    <table class="table table-striped table-hover table-full-width" data-order='[[0,"desc"]]' id="sample_2">
                         <thead>
                             <tr>
                                 <th>Numero Pedido</th>
@@ -50,8 +50,14 @@
                                         {{ newArray | join(' | ')}}
                                     </td>
                                     <td>
-                                        {% if not k %}<a href="{{ path('pedido_send', { 'id': entity.id }) }}" class="modal_ajax_btn btn red" data-toggle="modal"><i class="icon-edit"></i> Tramitar el Pedido</a>
-                                        <a href="{{ path('pedido_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn red" data-toggle="modal"><i class="icon-edit"></i> Editar Pedido</a>{% endif %}
+                                        <a href="{{ path('pedido_send', { 'id': entity.id }) }}" class="modal_ajax_btn btn red" data-toggle="modal"><i class="icon-edit"></i> 
+                              {% if not k %}
+                                Tramitar el Pedido
+                              {% else %}
+                                Reenviar correo
+                              {% endif %}
+                                        </a>
+                                        <a href="{{ path('pedido_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn red" data-toggle="modal"><i class="icon-edit"></i> Editar Pedido</a>
                                         <a href="{{ path('pedido_select_facturas', { 'id': entity.id}) }}" class="btn blue"><i class="icon-book"></i> Gestionar pedido</a>   
                                         <a href="{{ path('pedido_show', { 'id': entity.id,'_format':'pdf','proveedor':'masferrer' }) }}" class="btn blue"><i class="icon-book"></i> Descargar PDF</a>
                                 
