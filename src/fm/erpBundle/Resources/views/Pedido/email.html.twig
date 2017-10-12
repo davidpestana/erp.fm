@@ -1,9 +1,9 @@
 {% extends "erpBundle::layout.email.html.twig" %}
 
-{% block title -%} ALBARÁN Nº {{ entity.id }}{% endblock %}
+{% block title -%} PEDIDO Nº {{ entity.id }} {{entity.fechaEntrega | date("Y-m-d")}} {% endblock %}
 
 {% block body -%}
 
-    Albaranes por proveedor adjuntos
+   Hoja de pedido {{ entity.id }} adjunta en PDF
  
 {% endblock %}
