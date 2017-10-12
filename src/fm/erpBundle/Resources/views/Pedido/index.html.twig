@@ -51,10 +51,8 @@
                                     </td>
                                     <td>
                                         {% if not k %}<a href="{{ path('pedido_send', { 'id': entity.id }) }}" class="modal_ajax_btn btn red" data-toggle="modal"><i class="icon-edit"></i> Tramitar el Pedido</a>
-                                        <a href="{{ path('pedido_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn red" data-toggle="modal"><i class="icon-edit"></i> Editar Pedido</a>
-                                        <a href="{{ path('pedido_select_facturas', { 'id': entity.id}) }}" class="btn blue"><i class="icon-book"></i> Gestionar pedido</a>{% endif %}
-
-                                        
+                                        <a href="{{ path('pedido_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn red" data-toggle="modal"><i class="icon-edit"></i> Editar Pedido</a>{% endif %}
+                                        <a href="{{ path('pedido_select_facturas', { 'id': entity.id}) }}" class="btn blue"><i class="icon-book"></i> Gestionar pedido</a>   
                                         <a href="{{ path('pedido_show', { 'id': entity.id,'_format':'pdf','proveedor':'masferrer' }) }}" class="btn blue"><i class="icon-book"></i> Descargar PDF</a>
                                 
                                     </td>
