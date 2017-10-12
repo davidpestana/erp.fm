@@ -22,16 +22,15 @@
  <style type="text/css">
 	#fm_erpbundle_pedidoitem textarea{ width:100%; height:100px;}
 </style>
-<div class="piece">
-         <span class="alert">
-            {% if factura.pedidos |length %}
-            PRECAUCION, esta factura fue añadida anteriormente a algún pedido
-            {% else %} 
-            CORRECTO, esta factura aun no ha sido añadida a ningun pedido 
-            {% endif %}
-        </span> 
-</div>
-<div class="form">
-    {{ form(form) }}
-</div>
+
+    {% if factura.pedidos |length %}
+            <h1>
+            No puedes añadir al pedido {{pedido.id}} la factura {{factura.codFactura}} porque ya esta añadida en el pedido {{ factura.pedidos.0.id }}
+            </h1> 
+    {% else %} 
+        <div class="form">
+            {{ form(form) }}
+        </div>
+    {% endif %}
+
 {% endblock %}
