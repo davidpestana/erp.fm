@@ -4,6 +4,7 @@ fm\erpBundle\Entity\Pedido:
         items:
             targetEntity: PedidoItem
             mappedBy: pedido
+            orderBy: { 'fechaInclusion': 'ASC' }
             cascade: [persist,remove]    
     table: null
     fields:
