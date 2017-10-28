@@ -18,6 +18,7 @@ class PedidoItemType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('posicion')
             ->add('carpintero')
             ->add('tapicero')
             ->add('factura')

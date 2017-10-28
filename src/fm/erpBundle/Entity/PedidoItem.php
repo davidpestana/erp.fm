@@ -339,4 +339,32 @@ class PedidoItem
     {
         return $this->tapicero;
     }
+    /**
+     * @var integer
+     */
+    private $posicion;
+
+
+    /**
+     * Set posicion
+     *
+     * @param integer $posicion
+     * @return PedidoItem
+     */
+    public function setPosicion($posicion)
+    {
+        $this->posicion = $posicion;
+
+        return $this;
+    }
+
+    /**
+     * Get posicion
+     *
+     * @return integer 
+     */
+    public function getPosicion()
+    {
+        return $this->posicion;
+    }
 }

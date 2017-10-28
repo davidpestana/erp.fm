@@ -3,7 +3,7 @@ var UIModals = function () {
             "aoColumnDefs": [
                 { "aTargets": [ 0 ] }
             ],
-            "aaSorting": [[1, 'asc']],
+            "aaSorting": [[0, 'asc']],
              "aLengthMenu": [
                 [5, 15, 20, -1],
                 [5, 10, 20, "All"] // change per page values here
@@ -111,9 +111,10 @@ var UIModals = function () {
 
     var initTables = function(sample){
         let orderstring = $(sample).attr('data-order');
+        //console.log($(sample));
         let order = (orderstring) ? JSON.parse(orderstring) : false;
-        console.log(order);
-        console.log(tableconfig);
+        //console.log(order);
+        //console.log(tableconfig);
         if(order) tableconfig.aaSorting = order;
         var tables = $(sample).dataTable(tableconfig);
         return tables;

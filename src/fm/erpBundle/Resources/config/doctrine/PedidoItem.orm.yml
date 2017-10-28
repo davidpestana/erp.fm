@@ -22,6 +22,9 @@ fm\erpBundle\Entity\PedidoItem:
             id: true
             generator:
                 strategy: AUTO
+        posicion:
+            type: integer
+            default: :0
         fechaInclusion:
             type: datetime
         cantidad:
