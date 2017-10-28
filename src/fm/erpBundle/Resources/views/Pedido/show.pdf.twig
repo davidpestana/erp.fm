@@ -20,14 +20,15 @@
 
    <table>
     <tr background-color="#eb613d" color="white" font-size="14px" text-align="center">
+      <td border-color="#eb613d" padding="5px" width="1px">Orden</td>
       <td border-color="#eb613d" padding="5px" width="1px">Factura</td>
-      <td border-color="#eb613d" padding="5px" width="280px">Detalle Carpintería</td>
-      <td border-color="#eb613d" padding="5px" width="280px">Detalle Tapicería</td>
+      <td border-color="#eb613d" padding="5px" width="290px">Detalle Carpintería</td>
+      <td border-color="#eb613d" padding="5px" width="290px">Detalle Tapicería</td>
     </tr>
       {% for producto in entity.items %}
             <tr font-size="10px">
-
-              <td font-size="14px" border-color="#eb613d" padding="7px" text-align="center">{{ producto.factura.codFactura }}</td>
+              <td font-size="14px" border-color="#eb613d" padding="7px" text-align="center">{{ producto.posicion }}</td>
+              <td font-size="10px" border-color="#eb613d" padding="7px" text-align="center">{{ producto.factura.codFactura }}</td>
               <td border-color="#eb613d" padding="7px" text-align="left"> {{ producto.carpintero }} </td>
               <td border-color="#eb613d" padding="7px" text-align="left"> {{ producto.tapicero }} </td>
             </tr>
