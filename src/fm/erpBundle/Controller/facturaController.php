@@ -61,6 +61,27 @@ class facturaController extends Controller
     }
 
 
+
+
+    /**
+     * search component all factura entities.
+     *
+     * @Template()
+     */
+    public function buscadorAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('erpBundle:factura')->findby(
+            array("estado" => 2), 
+            array('id' => 'DESC')
+        );
+
+        return array(
+            'entities' => $entities
+        );
+    }
+
     /**
      *
      * @Route("/{id}/tooglepagado", name="factura_toogle_pagado")
@@ -222,17 +243,20 @@ class facturaController extends Controller
     /**
      * Creates a new factura entity.
      *
-     * @Route("/", name="factura_create")
+     * @Route("/{cliente}", name="factura_create")
      * @Method("POST")
      * @Template("erpBundle:factura:new.html.twig")
      */
-    public function createAction(Request $request)
+    public function createAction(Request $request,\fm\erpBundle\Entity\clientes $cliente = null)
     {
         $entity = new factura();
-        $form = $this->createCreateForm($entity);
+        $entity->setCliente($cliente);
+        $form = $this->createCreateForm($entity,$cliente);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+
+        
+    if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity->setEstado(1);
             $em->persist($entity);
@@ -252,13 +276,14 @@ class facturaController extends Controller
     * Creates a form to create a factura entity.
     *
     * @param factura $entity The entity
+    * @param cliente $cliente the entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createCreateForm(factura $entity)
+    private function createCreateForm(factura $entity,\fm\erpBundle\Entity\clientes $cliente)
     {
         $form = $this->createForm(new facturaType(), $entity, array(
-            'action' => $this->generateUrl('factura_create'),
+            'action' => $this->generateUrl('factura_create',['cliente'=>$cliente->getId()]),
             'method' => 'POST',
         ));
 
@@ -280,8 +305,9 @@ class facturaController extends Controller
         $entity = new factura();
         $entity->setCliente($cliente);
         $entity->setFecha( new \DateTime() );
-        $form   = $this->createCreateForm($entity);
+        $form   = $this->createCreateForm($entity,$cliente);
         return array(
+            'cliente' => $cliente,
             'entity' => $entity,
             'form'   => $form->createView(),
         );
@@ -305,8 +331,11 @@ class facturaController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find factura entity.');
         }
+        if($entity->getDireccionEnvio()) $direccion = $entity->getDireccionEnvio();
+        else $direccion = false;
 
         return array(
+            'direccion' => $direccion,
             'entity'      => $entity,
             'id_direccion' => $request->get('id_direccion'),
             'conceptounico' => $request->get('conceptounico')

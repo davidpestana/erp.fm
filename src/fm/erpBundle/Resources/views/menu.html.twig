@@ -32,13 +32,13 @@
 					<span class="selected"></span>
 					</a>
 				</li>
-				<li class="start">
+				{# <li class="start">
 					<a href="#">
 					<i class="icon-home"></i> 
 					<span class="title">Proveedores</span>
 					<span class="selected"></span>
 					</a>
-				</li>
+				</li> #}
 				<li class="start">
 					<a href="{{ path('factura') }}">
 					<i class="icon-book"></i> 
@@ -46,31 +46,33 @@
 					<span class="selected"></span>
 					</a>
 				</li>
+
+
 				<li class="start">
-					<a href="{{ path('ordenesfabricacion') }}">
-					<i class="icon-home"></i> 
-					<span class="title">Fabricación</span>
+					<a href="{{ path('pedido') }}">
+					<i class="icon-file"></i> 
+					<span class="title">Pedidos a fábrica</span>
 					<span class="selected"></span>
 					</a>
 				</li>
 
 				<li class="start">
-					<a href="{{ path('pedido') }}">
-					<i class="icon-home"></i> 
-					<span class="title">Pedidos a fábrica</span>
+					<a href="{{ path('ordenesfabricacion') }}">
+					<i class="icon-dropbox"></i> 
+					<span class="title">Empaquetado</span>
 					<span class="selected"></span>
 					</a>
 				</li>
 				<li class="start">
 					<a href="{{ path('envios') }}">
-					<i class="icon-home"></i> 
+					<i class="icon-truck"></i> 
 					<span class="title">Logística</span>
 					<span class="selected"></span>
 					</a>
 				</li>
 				<li class="start">
 					<a href="javascript:;">
-					<i class="icon-home"></i> 
+					<i class="icon-cog"></i> 
 					<span class="title">Gestion</span>
 					<span class="selected"></span>
 					</a>

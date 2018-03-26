@@ -1,6 +1,6 @@
 {% extends "erpBundle::layout.html.twig" %}
 
-{% block title -%} ORDENES DE FABRICACIÓN {% endblock %}
+{% block title -%} Gestión de bultos y paquetes  {% endblock %}
 
 {% block body -%}
 
@@ -55,7 +55,8 @@
                 <td>
 
                         <a href="{{ path('ordenesfabricacion_show', { 'id': entity.id }) }}" class="modal_ajax_btn btn green mini" data-toggle="modal">ver detalles</a>
-   <a href="{{ path('ordenesfabricacion_show', { 'id': entity.id,'_format':'pdf'}) }}" class="btn mini red">ETIQUETAS PDF</a>
+   
+                <a href="{{ path('ordenesfabricacion_show', { 'id': entity.id,'_format':'pdf'}) }}" class="btn mini red">ETIQUETAS PDF</a>
 
 
                         <a href="{{ path('ordenesfabricacion_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn blue mini" data-toggle="modal">editar</a>
@@ -69,14 +70,14 @@
     </table>
 
             <a href="{{ path('ordenesfabricacion_new') }}" class="btn red modal_ajax_btn" data-toggle="modal">
-                CREAR NUEVA ORDEN DE FABRICACION
+                CREAR NUEVO BULTO
             </a>
 
 
-
+{# 
         {% for producto in productos %} 
             <a  class="btn red modal_ajax_btn" href="{{ path('ordenesfabricacion_new', { 'product': producto.id }) }}">{{ producto.concepto }}</a>
-        {% endfor %}
+        {% endfor %} #}
 
 
     {% endblock %}

@@ -26,6 +26,7 @@
                 <th>Cliente</th>
                 
                 <th>Facturas</th>
+                <th>Direcciones de envío</th>
                 <th>Envíos</th>
             </tr>
         </thead>
@@ -41,6 +42,11 @@
                
                 <td>   
                     {% include 'erpBundle:clientes:facturas.html.twig' %}
+                </td>
+
+
+                <td>   
+                    {% include 'erpBundle:clientes:direcciones.html.twig' %}
                 </td>
 
                 <td>

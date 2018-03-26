@@ -1,0 +1,16 @@
+{% extends "erpBundle::layout.modal.html.twig" %}
+
+
+{% block title -%} Editar dirección de Envío {% endblock %}
+
+{% form_theme edit_form _self %}
+
+
+{% block body -%}
+
+         {{ form(edit_form) }}
+
+        <ul class="record_actions">
+            <li>{{ form(delete_form) }}</li>
+        </ul>
+{% endblock %}

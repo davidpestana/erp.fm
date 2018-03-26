@@ -6,6 +6,12 @@ fm\erpBundle\Entity\envios:
             mappedBy: mienvio
             cascade: [all]
     manyToOne:
+        factura:
+            targetEntity: factura
+            joinColumn:
+                name: factura_id
+                nullable: true
+                referencedColumnName: id 
         cliente:
             targetEntity: clientes
             inversedBy: misenvios

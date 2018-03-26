@@ -10,6 +10,9 @@ fm\erpBundle\Entity\clientes:
         facturas:
             targetEntity: factura
             mappedBy: cliente
+        direcciones:
+            targetEntity: DireccionEnvio
+            mappedBy: cliente
     table: null
     repositoryClass: fm\erpBundle\Entity\clientesRepository
     fields:
@@ -44,8 +47,10 @@ fm\erpBundle\Entity\clientes:
             length: 255
             column: dni_cif
         observaciones:
+            nullable: true
             type: text
         furgo:
+            nullable: true
             type: string
             length: 255
     lifecycleCallbacks: {  }

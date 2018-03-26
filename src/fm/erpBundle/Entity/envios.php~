@@ -240,4 +240,32 @@ class envios
     {
         $this->misordenes->removeElement($misordenes);
     }
+    /**
+     * @var \fm\erpBundle\Entity\factura
+     */
+    private $factura;
+
+
+    /**
+     * Set factura
+     *
+     * @param \fm\erpBundle\Entity\factura $factura
+     * @return envios
+     */
+    public function setFactura(\fm\erpBundle\Entity\factura $factura = null)
+    {
+        $this->factura = $factura;
+
+        return $this;
+    }
+
+    /**
+     * Get factura
+     *
+     * @return \fm\erpBundle\Entity\factura 
+     */
+    public function getFactura()
+    {
+        return $this->factura;
+    }
 }

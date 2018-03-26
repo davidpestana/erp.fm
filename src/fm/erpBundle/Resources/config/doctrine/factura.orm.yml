@@ -21,7 +21,12 @@ fm\erpBundle\Entity\factura:
                 nullable: false
                 name: serie_id
                 referencedColumnName: id 
-
+        direccionEnvio:
+            targetEntity: DireccionEnvio
+            joinColumn:
+                nullable: true
+                name: direccion_id
+                referencedColumnName: id 
     oneToMany:
         pedidos:
             targetEntity: PedidoItem

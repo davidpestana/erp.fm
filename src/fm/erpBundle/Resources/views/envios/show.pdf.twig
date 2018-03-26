@@ -3,7 +3,7 @@
      <dynamic-page encoding="UTF-8" font-type="DejaVuSans" page-size="a4">
         <table>
            <tr>
-               <td border-color="white"><img width="100%" src="{{ pdf_image('erpBundle:logo_reduced.png') }}" />
+               <td border-color="white"><img width="100%" src="{{ pdf_image('erpBundle:furgomania-logo-ok.png') }}" />
 
                        <div background-color="#EEEEEE" margin="10px 0px" padding="15px 50px">
             <h1> FECHA DE RECOGIDA </h1>
@@ -39,14 +39,13 @@
         <div background-color="#EEEEEE" margin="10px 0px" padding="20px 50px">
             <h1> DATOS ENTREGA </h1>
             <div>
-
-                {{ entity.cliente }}<br />
-                {{ entity.cliente.dniCif }}<br />
-                {{ entity.cliente.direccion }}<br />
-                {{ entity.cliente.cp }} ( {{ entity.cliente.localidad }} )<br />
-                {{ entity.cliente.provincia }}<br />
-                {{ entity.cliente.telefono }}<br />
-                {{ entity.cliente.email }}
+                {{ direccion.name }}<br />
+                {# {{ direccion.dniCif }}<br /> #}
+                {{ direccion.direccion }}<br />
+                {{ direccion.cp }} ( {{ direccion.localidad }} )<br />
+                {{ direccion.provincia }}<br />
+                {{ direccion.telefono }}<br />
+                {# {{ direccion.email }}  #}
 
             </div>
 
@@ -94,7 +93,7 @@
      <dynamic-page encoding="UTF-8" font-type="DejaVuSans" page-size="a4">
         <table>
            <tr>
-               <td border-color="white"><img width="100%" src="{{ pdf_image('erpBundle:logo_reduced.png') }}" />
+               <td border-color="white"><img width="100%" src="{{ pdf_image('erpBundle:furgomania-logo-ok.png') }}" />
                </td>
                <td border-color="white" padding="20px">
                     <h1 text-align="center">ORDEN DE ENTREGA</h1>
@@ -109,14 +108,14 @@
         <div background-color="#EEEEEE" margin="10px 0px" padding="20px 50px">
             <h1> DESTINATARIO </h1>
             <div font-size="18px">
-
-                {{ entity.cliente }}<br />
-                {{ entity.cliente.dniCif }}<br />
-                {{ entity.cliente.direccion }}<br />
-                {{ entity.cliente.cp }} ( {{ entity.cliente.localidad }} )<br />
-                {{ entity.cliente.provincia }}<br />
-                {{ entity.cliente.telefono }}<br />
-                {{ entity.cliente.email }}
+       
+                {{ direccion.name }}<br />
+                {# {{ direccion.dniCif }}<br /> #}
+                {{ direccion.direccion }}<br />
+                {{ direccion.cp }} ( {{ direccion.localidad }} )<br />
+                {{ direccion.provincia }}<br />
+                {{ direccion.telefono }}<br />
+                {# {{ direccion.email }}  #}
 
             </div>
 

@@ -33,7 +33,9 @@ _ordenesfabricacion:
 _facturas:
     resource: "@erpBundle/Controller/facturaController.php"
     type:     annotation
-
+_direccionenvio:
+    resource: "@erpBundle/Controller/DireccionEnvioController.php"
+    type:     annotation
 
 _pedidos:
     resource: "@erpBundle/Controller/PedidoController.php"

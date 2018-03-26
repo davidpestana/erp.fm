@@ -468,4 +468,42 @@ class clientes
     {
         return $this->facturas;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $direcciones;
+
+
+    /**
+     * Add direcciones
+     *
+     * @param \fm\erpBundle\Entity\DireccionEnvio $direcciones
+     * @return clientes
+     */
+    public function addDireccione(\fm\erpBundle\Entity\DireccionEnvio $direcciones)
+    {
+        $this->direcciones[] = $direcciones;
+
+        return $this;
+    }
+
+    /**
+     * Remove direcciones
+     *
+     * @param \fm\erpBundle\Entity\DireccionEnvio $direcciones
+     */
+    public function removeDireccione(\fm\erpBundle\Entity\DireccionEnvio $direcciones)
+    {
+        $this->direcciones->removeElement($direcciones);
+    }
+
+    /**
+     * Get direcciones
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDirecciones()
+    {
+        return $this->direcciones;
+    }
 }

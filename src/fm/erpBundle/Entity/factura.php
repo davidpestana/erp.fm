@@ -505,4 +505,32 @@ class factura
     {
         return $this->pedidos;
     }
+    /**
+     * @var \fm\erpBundle\Entity\DireccionEnvio
+     */
+    private $direccionEnvio;
+
+
+    /**
+     * Set direccionEnvio
+     *
+     * @param \fm\erpBundle\Entity\DireccionEnvio $direccionEnvio
+     * @return factura
+     */
+    public function setDireccionEnvio(\fm\erpBundle\Entity\DireccionEnvio $direccionEnvio = null)
+    {
+        $this->direccionEnvio = $direccionEnvio;
+
+        return $this;
+    }
+
+    /**
+     * Get direccionEnvio
+     *
+     * @return \fm\erpBundle\Entity\DireccionEnvio 
+     */
+    public function getDireccionEnvio()
+    {
+        return $this->direccionEnvio;
+    }
 }

@@ -12,12 +12,14 @@ use Doctrine\ORM\EntityRepository;
 
 class facturaType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->cliente = $options['data']->getCliente();
+        // ld($this->cliente);
         $builder
 /*->add('serie','choice', array(
     'choices'   => array('FV' => 'Factura de Venta (FV)', 'FM' => 'Factura Proforma (FM)' , 'FR' => 'Factura Rectificativa (FR)', 'AB' => 'Factura de Abono (AB)'),
@@ -34,7 +36,20 @@ class facturaType extends AbstractType
             ->add('iva',null,array('label' => 'IVA %'))
             ->add('observaciones')
             //->add('estado')
-            ->add('cliente')
+           // ->add('cliente')
+            ->add('direccionEnvio','entity',array(
+                    'class' => 'erpBundle:DireccionEnvio',
+                    //'choices' => $this->cliente->getDirecciones(),
+                    //'required'    => false,
+                    'empty_value' => 'misma dirección de facturación',
+                    'empty_data'  => null,
+                    'query_builder' => function(EntityRepository $er){
+                        return  $er->createQueryBuilder('d')
+                            ->andWhere('d.cliente = :cliente')
+                            ->setParameter('cliente', $this->cliente);  
+                    }
+
+            ))
           //  ->add('misitems')
             ->add('misitems', 'collection', array(
                 'type'           => new itemType(),

@@ -1,0 +1,29 @@
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-book"></i>Busca una factura</div>
+                        </div>
+                        <div class="portlet-body">
+
+                        <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for factura in entities %}
+                                    <tr>
+                                        <td>{{ factura.codFactura }} - {{ factura.cliente.name }} ({{ factura.cliente.dniCif }})</td>
+                                        <td>
+                        <a href="{{ path('envios_new') }}" class="modal_ajax_btn btn red" data-toggle="modal">
+                Nueva orden de envío
+            </a>
+                                            {# <a href="{{ path('pedidoitem_factura_new', { 'idFactura': factura.id,'idPedido': entity.id }) }}" class="modal_ajax_btn btn blue" data-toggle="modal"><i class="icon-home"></i> Añadir a pedido</a> #}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>

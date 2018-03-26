@@ -134,7 +134,14 @@ class enviosController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
+        // retrocompatibilidad
+        if($factura = $entity->getFactura()){
+            if($envio = $factura->getDireccionEnvio()) $direccion = $envio;
+            else $direccion = $factura->getCliente();
+        }else $direccion = $entity->getCliente();
+
         return array(
+            'direccion' => $direccion,
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         );
@@ -161,8 +168,14 @@ class enviosController extends Controller
             throw $this->createNotFoundException('Unable to find envios entity.');
         }
 
+        // retrocompatibilidad
+        if($factura = $entity->getFactura()){
+            if($envio = $factura->getDireccionEnvio()) $direccion = $envio;
+            else $direccion = $factura->getCliente();
+        }else $direccion = $entity->getCliente();
 
         return array(
+            'direccion' => $direccion,
             'entity'      => $entity
         );
     }

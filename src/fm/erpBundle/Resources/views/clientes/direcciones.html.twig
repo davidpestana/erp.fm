@@ -1,0 +1,33 @@
+
+<table class=" table-bordered table-advance table-hover">
+    <thead>
+        <tr>
+            <th colspan="2"><i class="icon-briefcase"></i> Direccion</th>
+            <th class="hidden-phone"><i class="icon-calendar"></i> Provincia</th>
+            <th><i class="icon-bookmark"></i> Cp</th>
+            <th>  
+                <a href="{{ path('direccionenvio_new', { 'cliente': entity.id }) }}" class="modal_ajax_btn btn blue mini" data-toggle="modal"><i class="icon-plus-sign"></i> Nueva Dirección</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+                {% for direccion in entity.direcciones  %}
+        <tr>
+            <td colspan="2"><i class="icon-briefcase"></i> {{direccion.direccion}}</th>
+            <td class="hidden-phone"><i class="icon-calendar"></i> {{direccion.provincia}}</th>
+            <td><i class="icon-bookmark"></i> {{direccion.cp }}</th>
+            <td>  
+                <a href="{{ path('direccionenvio_edit', { 'id': direccion.id }) }}" class="modal_ajax_btn btn blue mini" data-toggle="modal"><i class="icon-plus-sign"></i> editar</a>
+            </td>
+        </tr>
+
+        
+                {% endfor %}
+
+
+    </tbody>
+</table>
+
+
+

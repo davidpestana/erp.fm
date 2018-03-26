@@ -1,8 +1,3 @@
-{% extends "erpBundle::layout.html.twig" %}
-
-{% block title -%} Ordenes de Envio {% endblock %}
-
-{% block body -%}
             <div class="portlet box blue">
 
                         <div class="portlet-title">
@@ -31,7 +26,7 @@
                 <th>Observaciones</th>
                 <th>Estado</th>
                 <th>Cajones Incluidos</th>
-                <th>Factura/Cliente</th>
+                <th>Cliente Asignado</th>
                 <th>Operaciones</th>
             </tr>
         </thead>
@@ -50,10 +45,7 @@
                                     
                      {% endfor %}{% endif %} 
                 </td>
-                <td>
-                  {% if entity.cliente %}{{ entity.cliente.name }}{% endif %}
-                  {% if entity.factura %}{{ entity.factura.codfactura }}, {{ entity.factura.cliente.name }}{% endif %}
-                </td>
+                <td>{% if entity.cliente %}{{ entity.cliente.name }}{% endif %}</td>
                 <td>
 
                         <a href="{{ path('envios_show', { 'id': entity.id,'_format':'pdf' }) }}" class="btn red mini">pdf</a>
@@ -73,10 +65,3 @@
             </a>
         </div>
     </div>
-
-
-
-
-    {{ render(controller('erpBundle:ordenesfabricacion:estocaje')) }}
-
-    {% endblock %}  

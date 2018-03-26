@@ -24,7 +24,8 @@ class enviosType extends AbstractType
 
             ->add('fecha')
             ->add('estado')
-            ->add('cliente')
+            //->add('cliente')
+            ->add('factura')
             ->add('misordenes',null,array(
                 'expanded' => false,
                 'label' => 'selecciona bultos a incluir en el envio',
