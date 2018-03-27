@@ -21,7 +21,8 @@
                         <th>Serie</th>
                         <th>Fecha</th>
                         <th>Cliente</th>
-                        <th>Lugar</th>
+                        <th>Dirección Factura</th>
+                        <th>Dirección Envío</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -32,6 +33,15 @@
                             <td>{{ entity.fecha|date('Y-m-d') }}</td>
                             <td>{{ entity.cliente.name }} ({{ entity.cliente.dniCif }})</td>
                             <td>{{ entity.cliente.provincia }}, {{ entity.cliente.localidad }} ({{ entity.cliente.cp }})</td>
+                            <td>
+                            {% if entity.direccionEnvio %}
+                            {{ entity.direccionEnvio.provincia }}, {{ entity.direccionEnvio.localidad }} ({{ entity.direccionEnvio.cp }})
+                            {% else %}
+                            {{ entity.cliente.provincia }}, {{ entity.cliente.localidad }} ({{ entity.cliente.cp }})
+
+                            {% endif %}
+
+                            </td>
                             <td>
                                 <a href="{{ path('factura_edit', { 'id': entity.id }) }}" class="modal_ajax_btn btn red mini" data-toggle="modal"><i class="icon-edit"></i> Editar</a>
                                 <a href="{{ path('factura_grabar', { 'id': entity.id }) }}" class="modal_ajax_btn btn red mini" data-toggle="modal"><i class="icon-book"></i> Grabar Factura</a>

@@ -40,7 +40,7 @@ class facturaType extends AbstractType
             ->add('direccionEnvio','entity',array(
                     'class' => 'erpBundle:DireccionEnvio',
                     //'choices' => $this->cliente->getDirecciones(),
-                    //'required'    => false,
+                    'required'    => false,
                     'empty_value' => 'misma dirección de facturación',
                     'empty_data'  => null,
                     'query_builder' => function(EntityRepository $er){
