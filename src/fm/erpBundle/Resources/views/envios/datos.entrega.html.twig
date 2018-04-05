@@ -1,0 +1,44 @@
+                            <div width="105mm" height="148.5mm">
+                                <div margin="0mm 8mm">
+                                    <img width="100%" src="{{ pdf_image('erpBundle:furgomania-logo-ok.png') }}" />
+                                    <div font-size="12px">DESTINATARIO</div>
+                                    <div background-color="#EEEEEE" margin="10px 0px" padding="10px 10px">
+                                        <div font-size="12px">
+                                            {{ direccion.name }}<br />
+                                            {# {{ direccion.dniCif }}<br /> #}
+                                            {{ direccion.direccion }}<br />
+                                            {{ direccion.cp }} ( {{ direccion.localidad }} )<br />
+                                            {{ direccion.provincia }}<br />
+                                            {{ direccion.telefono }}<br />
+                                            {# {{ direccion.email }}  #}
+                                        </div>
+                                    </div>
+                                    <div font-size="12px">OBSERVACIONES PARA LA ENTREGA</div>
+                                    <div background-color="#EEEEEE" font-size="8px" margin="10px 0px" padding="10px 10px">
+                                            {{ entity.observacionesentrega | nl2br }}
+                                    </div>
+                                    <div font-size="12px">PARTES DEL ENVÍO</div>
+                                    <div background-color="#EEEEEE" margin="5px 0px" padding="0px 0px">
+                                        <table font-size="8px">
+                                            <tr>
+                                                <td border-color="white" padding="2" font-size="9px">Número de Serie</td>
+                                                <td border-color="white" padding="2" font-size="9px">Contenido</td>
+                                                <td border-color="white" padding="2" font-size="9px">mm - (m3)</td>
+                                            </tr> 
+
+                                        {% for orden in entity.misordenes  %}
+                                            <tr>
+                                                <td padding="2"><b font-size="12px">{{ orden.numeroserie }}</b></td>
+                                                <td padding="2">{{orden.producto}}</td>
+                                            {% if orden.micajon is null %}
+                                                <td padding="2"> Paquete pequeño</td>
+                                            {% else %}
+                                                <td padding="2">{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }} - ({{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }})</td>
+                                            {% endif %} 
+                                            </tr>                  
+                                        {% endfor %} 
+
+                                        </table>             
+                                    </div>
+                                </div>
+                            </div>

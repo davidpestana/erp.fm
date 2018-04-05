@@ -1,0 +1,15 @@
+<div width="74mm" height="104.68mm" border-color="#FFFFFF">
+    <div margin="3mm">
+        <img width="100%" src="{{ pdf_image('erpBundle:furgomania-logo-ok.png') }}"/>
+        <p font-size="50px" text-align="center">{{ orden.numeroserie }}</p>
+        <div font-size="10px">
+        <h2>{{ orden.producto }}</h2>
+
+            <ul>
+                {% for referencia in orden.contenido  %}
+                    <li>{{ referencia.codfurgo }} {{ referencia.descripcion }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
