@@ -23,8 +23,12 @@ class clientesType extends AbstractType
             ->add('provincia')
             ->add('cp')
             ->add('dniCif')
+            ->add('pais')
             ->add('observaciones')
-            ->add('furgo');
+            ->add('idioma', 'choice', array(
+                'choices'  => array('es' => 'Español', 'en' => 'Inglés'),
+                'required' => true,
+            ));
     }
 
     /**

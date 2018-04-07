@@ -39,6 +39,10 @@ fm\erpBundle\Entity\clientes:
         provincia:
             type: string
             length: 255
+        pais:
+            type: string
+            lenght: 255
+            default: 'Es'
         cp:
             type: string
             length: '10'
@@ -46,6 +50,10 @@ fm\erpBundle\Entity\clientes:
             type: string
             length: 255
             column: dni_cif
+        idioma:
+            type: string
+            length: 20
+            default: 'es'
         observaciones:
             nullable: true
             type: text
