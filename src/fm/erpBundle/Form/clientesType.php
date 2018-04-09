@@ -26,7 +26,7 @@ class clientesType extends AbstractType
             ->add('pais')
             ->add('observaciones')
             ->add('idioma', 'choice', array(
-                'choices'  => array('es' => 'Español', 'en' => 'Inglés'),
+                'choices'  => array('es' => 'Español', 'en' => 'Inglés', 'it'=>'Italiano'),
                 'required' => true,
             ));
     }
