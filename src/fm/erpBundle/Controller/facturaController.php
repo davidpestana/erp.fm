@@ -209,15 +209,19 @@ class facturaController extends Controller
 
          $id_direccion = $request->get('id_direccion');
          $conceptounico = $request->get('conceptounico');
+         $locale = $entity->getCliente()->getIdioma();
+         $request->setLocale($locale);
 
          $data = $this->forward('erpBundle:factura:show', 
-            array( 'id' => $id, '_format' => 'pdf', 'id_direccion' => $id_direccion,
+            array( 'id' => $id, '_format' => 'pdf', '_locale' => $locale, 'id_direccion' => $id_direccion,
                 'conceptounico' => $conceptounico,
                 ));
+              
+        
 
 
         $message = \Swift_Message::newInstance()
-            ->setSubject(strtoupper($entity->getTipo()).' FURGOMANIA '.$entity->getCodfactura())
+            ->setSubject($this->get('translator')->trans(strtoupper($entity->getTipo())).' FURGOMANIA '.$entity->getCodfactura())
             ->setFrom('contacto@furgomania.com')
             ->setTo($entity->getCliente()->getEmail())
             ->setCc(array('contacto@furgomania.com'))
@@ -225,7 +229,7 @@ class facturaController extends Controller
             ->setBody(
                 $this->renderView(
                     'erpBundle:factura:email.html.twig',
-                    array( 'entity'=> $entity)
+                    array( 'entity'=> $entity,'_locale'=>$locale)
                 ), 'text/html'
             )
             ->attach(\Swift_Attachment::newInstance()
@@ -318,13 +322,16 @@ class facturaController extends Controller
      * Finds and displays a factura entity.
      *
      * @Pdf()
-     * @Route("/{id}", name="factura_show")
+     * @Route("/{id}", name="factura_show", requirements={"_locale" = "en|de|fr|es"})
      * @Method("GET")
      * @Template()
      */
     public function showAction($id, Request $request)
     {
+        $locale = $request->get('_locale');
+        $request->setLocale($locale);
 
+    
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('erpBundle:factura')->find($id);
 

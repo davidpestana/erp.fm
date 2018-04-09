@@ -190,9 +190,9 @@
 		<table border="0" cellpadding="0" cellspacing="0" width="600px" style="height:100%;">
 		<tbody><tr>
 			<td align="right" valign="middle" class="textwhite" style="font-size:12px;padding:20px;">
-				 Este correo contiene informacion confidencial, si lo has recibido por error rogamos nos avises a  <a href="#" class="fontwhite">mailto:contacto@furgomania.com</a>.  
+				{% trans %} Este correo contiene informacion confidencial, si lo has recibido por error rogamos nos avises a {% endtrans %} <a href="#" class="fontwhite">mailto:contacto@furgomania.com</a>.  
 		<br /><br />
-		&copy; 2013 Furgomania.
+		&copy; {{ "now"|date("Y")}} Furgomania.
 			</td>
 		</tr>
 		</tbody></table>

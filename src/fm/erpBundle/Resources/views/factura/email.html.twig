@@ -1,11 +1,12 @@
 {% extends "erpBundle::layout.email.html.twig" %}
 
-{% block title -%} {{entity.tipo | upper }} {{ entity.codfactura }}{% endblock %}
+{% block title -%} {{entity.tipo | upper | trans }} {{ entity.codfactura }}{% endblock %}
 
 {% block body -%}
-    <p> Estimado {{ entity.cliente.name }}, le adjuntamos la {{ entity.tipo }} a su nombre emitida el {{entity.fecha | date('d/m/Y')}} por un importe de {{ entity.base }} € + Impuestos/Taxes.</p>
 
-    <p>Reciba un cordial saludo</p>
-    <p>El equipo de Furgomania</p>
+    {% trans with { '%name%': entity.cliente.name, '%tipo%': entity.tipo |upper |trans , '%fecha%': entity.fecha | date('d/m/Y'), '%base%': entity.base } %}Estimado %name%, le adjuntamos la %tipo% a su nombre emitida el %fecha% por un importe de %base% € ( Impuestos no incluidos ){% endtrans %}
+
+    <p>{% trans %}Reciba un cordial saludo{% endtrans %}</p>
+    <p>{% trans %}El equipo de Furgomania{% endtrans %}</p>
 
 {% endblock %}

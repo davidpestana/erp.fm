@@ -24,13 +24,13 @@
 
       <td border-color="white">
         <p text-align="right">
-          <h1 font-size="25px">{{ entity.tipo | upper }}</h1>
+          <h1 font-size="25px">{{ entity.tipo | upper |trans}}</h1>
           Nº {{ entity.codfactura }}<br/>
           {{ entity.fecha|date('d/m/Y') }}<br/>
-          {% if entity.serie.serie == 'FM' %} validez 30 dias {% endif %}
+          {% if entity.serie.serie == 'FM' %} {% trans %}validez 30 dias {% endtrans %} {% endif %}
         </p>
         <p text-align="right" font-size="14px">
-          <b>DATOS CLIENTE:</b><br/>
+          <b>{{'DATOS CLIENTE' | trans}}:</b><br/>
           {{ entity.cliente }}<br/>
           {{ entity.cliente.dniCif }}<br/>
           {{ entity.cliente.direccion }}<br/>
@@ -44,20 +44,20 @@
   {% if direccion != false %}
     <p>
 
-      <b>Direccion de envío:</b> {{ direccion.direccion }}, {{ direccion.cp}} {{ direccion.localidad }}, {{ direccion.provincia }} 
+      <b>{{'Dirección de envio' | trans}}:</b> {{ direccion.direccion }}, {{ direccion.cp}} {{ direccion.localidad }}, {{ direccion.provincia }} 
       <br />
-      <b>Destinatario:</b> {{ direccion.name }}
+      <b>{{'Destinatario' | trans}}:</b> {{ direccion.name }}
       <br />
-      <b>Contacto:</b> {{ direccion.telefono }}
+      <b>{{'Teléfono de contacto' | trans}}:</b> {{ direccion.telefono }}
     </p>
   {% endif %}
   <p>
    <table>
     <tr background-color="#eb613d" color="white" font-size="14px" text-align="center">
-      <td width="310px" border-color="#eb613d" padding="5px">CONCEPTO</td>
-      <td border-color="#eb613d" padding="5px" width="70px">UNIDADES</td>
-      <td border-color="#eb613d" padding="5px" width="70px">IMPORTE</td>
-      <td border-color="#eb613d" padding="5px" width="70px">TOTAL</td>
+      <td width="310px" border-color="#eb613d" padding="5px">{{'CONCEPTO' | trans}}</td>
+      <td border-color="#eb613d" padding="5px" width="70px">{{'UNIDADES' | trans}}</td>
+      <td border-color="#eb613d" padding="5px" width="70px">{{'IMPORTE' | trans}}</td>
+      <td border-color="#eb613d" padding="5px" width="70px">{{'TOTAL' | trans}}</td>
 {#      <td border-color="#eb613d" padding="5px" width="70px">DESC</td>#}
     </tr>
     {% set base = 0 %} {% set totaldesc = 0 %}
@@ -97,36 +97,36 @@
             <table font-size="15px" text-align="right">
 
               <tr>
-                 <td padding="5px" border-color="white">BASE IMPONIBLE </td>
+                 <td padding="5px" border-color="white">{{'BASE IMPONIBLE' | trans}} </td>
                  <td padding="5px" width="100px" border-color="#eb613d">{{ (base - totaldesc) |number_format(2, '.', ',') }} €</td>
              </tr>
              <tr>
-                 <td padding="5px" border-color="white">IMPUESTOS (taxes) {{entity.iva }} % </td>
+                 <td padding="5px" border-color="white">{{'IMPUESTOS' | trans}} {{entity.iva }} % </td>
                  <td padding="5px" border-color="#eb613d">{{ ((base - totaldesc) * (entity.iva/100)) |number_format(2, '.', ',') }} €</td>
              </tr>
              <tr>
-                 <td padding="5px" border-color="white">TOTAL </td>
+                 <td padding="5px" border-color="white">{{'TOTAL' | trans}} </td>
                  <td padding="5px" border-color="#eb613d">{{ ((base - totaldesc) * (1+ (entity.iva/100))) |number_format(2, '.', ',') }} €</td>
              </tr>
          </table>
      </p>
-     <p><h4> Contacto:  contacto@furgomania.com  |   628 137 304</h4></p>
+     <p><h4> {{'Contacto:  contacto@furgomania.com  |   628 137 304' | trans}} </h4></p>
 
-     <p><h4> OBSERVACIONES:  {{ entity.observaciones }}</h4></p>
+     <p><h4> {{'OBSERVACIONES' | trans}}:  {{ entity.observaciones }}</h4></p>
 
 {% if entity.serie.serie != 'AB' %}
      {% if entity.serie.serie == 'FM' %}
-        <h2 background-color="#eb613d" color="white" font-size="16px" text-align="center"> FACTURA PRO-FORMA SIN VALOR COMERCIAL </h2>
-        <p>Abónese la cantidad mediante transferencia bancaria indicando el numero de esta factura pro-forma dentro del plazo indicado, este documento junto con el comprobante de la transferencia acreditan que el titular de esta factura pro-forma recibira en la dirección indicada los conceptos detallados en la misma en un plazo máximo de 15 días hábiles a partir de la fecha de la trasnferencia.</p>
+        <h2 background-color="#eb613d" color="white" font-size="16px" text-align="center"> {{'FACTURA PRO-FORMA SIN VALOR COMERCIAL' | trans}} </h2>
+        <p>{% trans %}Abónese la cantidad mediante transferencia bancaria indicando el numero de esta factura pro-forma dentro del plazo indicado, este documento junto con el comprobante de la transferencia acreditan que el titular de esta factura pro-forma recibira en la dirección indicada los conceptos detallados en la misma en un plazo máximo de 15 días hábiles a partir de la fecha de la trasnferencia.{% endtrans %}</p>
 
         <h1 text-align="center">{{ entity.sociedad.entidad }}</h1>
-        <h2 text-align="center">CUENTA: {{ entity.sociedad.codigoCuenta }}<br /> IBAN: {{ entity.sociedad.iban }}<br /> BIC: {{ entity.sociedad.bic }}</h2>
+        <h2 text-align="center">{{'CUENTA' | trans}}: {{ entity.sociedad.codigoCuenta }}<br /> IBAN: {{ entity.sociedad.iban }}<br /> BIC: {{ entity.sociedad.bic }}</h2>
 
 
     {% else %}
         <div background-color="#eb613d" height="20px"></div>
         <h1 text-align="center">{{ entity.sociedad.entidad }}</h1>
-        <h2 text-align="center">CUENTA: {{ entity.sociedad.codigoCuenta }}<br /> IBAN: {{ entity.sociedad.iban }}<br /> BIC: {{ entity.sociedad.bic }}</h2>
+        <h2 text-align="center">{{'CUENTA' | trans}}: {{ entity.sociedad.codigoCuenta }}<br /> IBAN: {{ entity.sociedad.iban }}<br /> BIC: {{ entity.sociedad.bic }}</h2>
 
     {% endif %}
 {% endif %}

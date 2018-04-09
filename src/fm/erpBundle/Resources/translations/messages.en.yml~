@@ -1,0 +1,20 @@
+'validez 30 dias': 'validity for 30 days'
+PRESUPUESTO: BUDGET
+'DATOS CLIENTE': 'CUSTOMER INFO'
+'Dirección de envio': 'Shipping address'
+Destinatario: Recipient
+'Teléfono de contacto': 'Contact phone number'
+CONCEPTO: CONCEPT
+UNIDADES: UNITS
+IMPORTE: 'UNIT AMOUNT'
+TOTAL: TOTAL
+'BASE IMPONIBLE': 'TAX BASE'
+IMPUESTOS: TAXES
+'Contacto:  contacto@furgomania.com  |   628 137 304': 'Contact:  international@furgomania.com  |   628 137 304'
+OBSERVACIONES: OBSERVATIONS
+'FACTURA PRO-FORMA SIN VALOR COMERCIAL': 'BUDGET WITHOUT BOOK VALUE'
+'Abónese la cantidad mediante transferencia bancaria indicando el numero de esta factura pro-forma dentro del plazo indicado, este documento junto con el comprobante de la transferencia acreditan que el titular de esta factura pro-forma recibira en la dirección indicada los conceptos detallados en la misma en un plazo máximo de 15 días hábiles a partir de la fecha de la trasnferencia.': 'If you agree with this budget, pay the amount by bank transfer indicating the reference of this budget within the indicated period.<br /><br />This document together with the proof of the transfer certify that the holder of this budget will receive at the indicated address the concepts detailed in the budget, in a minimum period of 15 working days and a maximum period of 25 working days from the date of the transference.'
+CUENTA: 'ACCOUNT CODE'
+'Estimado %name%, le adjuntamos la %tipo% a su nombre emitida el %fecha% por un importe de %base% € ( Impuestos no incluidos )': '__Estimado %name%, le adjuntamos la %tipo% a su nombre emitida el %fecha% por un importe de %base% € ( Impuestos no incluidos )'
+'Reciba un cordial saludo': '__Reciba un cordial saludo'
+'El equipo de Furgomania': '__El equipo de Furgomania'

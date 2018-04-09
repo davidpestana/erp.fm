@@ -1,6 +1,8 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+
+{{app.request.locale}}
     {{ entity.sociedad.RazonSocial }}</b><br />
     {{ entity.sociedad.nif }}<br />
     {{ entity.sociedad.direccion }}<br />
@@ -8,6 +10,6 @@
     {{ entity.sociedad.provincia }}
 
 
-    {{ render(controller('erpBundle:factura:conceptounico', {'base':3433, 'id' : conceptounico})) }}
+    {# {{ render(controller('erpBundle:factura:conceptounico', {'base':3433, 'id' : conceptounico})) }} #}
 
 {% endblock %}
