@@ -120,7 +120,7 @@
         <p>{% trans %}Abónese la cantidad mediante transferencia bancaria indicando el numero de esta factura pro-forma dentro del plazo indicado, este documento junto con el comprobante de la transferencia acreditan que el titular de esta factura pro-forma recibira en la dirección indicada los conceptos detallados en la misma en un plazo máximo de 15 días hábiles a partir de la fecha de la trasnferencia.{% endtrans %}</p>
 
         <h1 text-align="center">{{ entity.sociedad.entidad }}</h1>
-        <h2 text-align="center">{{'CUENTA' | trans}}: {{ entity.sociedad.codigoCuenta }}<br /> IBAN: {{ entity.sociedad.iban }}<br /> BIC: {{ entity.sociedad.bic }}</h2>
+        <h2 text-align="center">IBAN: {{ entity.sociedad.iban }}<br /> BIC: {{ entity.sociedad.bic }}</h2>
 
 
     {% else %}

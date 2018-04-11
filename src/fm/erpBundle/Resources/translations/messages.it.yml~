@@ -6,7 +6,7 @@
 'DATOS CLIENTE': 'DATI CLIENTE'
 'Dirección de envio': 'Indirizzo di invio'
 Destinatario: Destinatario
-'Teléfono de contacto': Telefono
+'Teléfono de contacto': 'Telefono'
 CONCEPTO: DESCRIZIONE
 UNIDADES: UNITÀ
 IMPORTE: IMPORTO
@@ -16,7 +16,5 @@ IMPUESTOS: IVA
 'Contacto:  contacto@furgomania.com  |   628 137 304': 'Contatto: italia@furgomania.com  |   628 137 304'
 OBSERVACIONES: OSSERVAZIONI
 'FACTURA PRO-FORMA SIN VALOR COMERCIAL': 'FATTURA PRO-FORMA SENZA VALORE COMMERCIALE'
-'Abónese la cantidad mediante transferencia bancaria indicando el numero de esta factura pro-forma dentro del plazo indicado, este documento junto con el comprobante de la transferencia acreditan que el titular de esta factura pro-forma recibira en la dirección indicada los conceptos detallados en la misma en un plazo máximo de 15 días hábiles a partir de la fecha de la trasnferencia.': 'Effettuare il pagamento mediamente bonifico bancario indicando il numero di questa fattura pro-forma, entro 30 giorni dalla presente. La fattura pro-forma insieme con la ricevuta del bonifico accreditano che gli articoli presenti nella descrizione di questa fattura pro-forma saranno consegnati in un tempo minimo di 15 giorni lavorativi e massimo di 25 giorni lavorativi, dalla data di accredito del bonifico.'
+'Abónese la cantidad mediante transferencia bancaria indicando el numero de esta factura pro-forma dentro del plazo indicado, este documento junto con el comprobante de la transferencia acreditan que el titular de esta factura pro-forma recibira en la dirección indicada los conceptos detallados en la misma en un plazo máximo de 15 días hábiles a partir de la fecha de la trasnferencia.': 'Effettuare il pagamento mediamente bonifico bancario indicando il numero di questa fattura pro-forma entro 30 giorni. La fattura pro-forma insieme con la ricevuta del bonifico accreditano che gli articoli presenti nella descrizione di questa fattura pro-forma saranno consegnati in un tempo minimo di 15 giorni lavorativi e massimo di 25 giorni lavorativi, dalla data di accredito del bonifico.'
 CUENTA: CUENTA
-FACTURA: FATTURA
-PRESUPUESTO: PREVENTIVO

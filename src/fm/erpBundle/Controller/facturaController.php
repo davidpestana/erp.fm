@@ -322,7 +322,7 @@ class facturaController extends Controller
      * Finds and displays a factura entity.
      *
      * @Pdf()
-     * @Route("/{id}", name="factura_show", requirements={"_locale" = "en|de|fr|es"})
+     * @Route("/{id}", name="factura_show", requirements={"_locale" = "en|de|fr|es|it"})
      * @Method("GET")
      * @Template()
      */
