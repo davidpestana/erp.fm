@@ -2,9 +2,9 @@ var UIModals = function () {
 
     var tableconfig = {           
             "aoColumnDefs": [
-                { "aTargets": [ 0 ],"aVisible":false }
+                { "aTargets": [ 0 ]}
             ],
-            "aaSorting": [[0, 'desc']],
+            "aaSorting": [[0, 'asc']],
              "aLengthMenu": [
                 [5, 15, 20, -1],
                 [5, 10, 20, "All"] // change per page values here
