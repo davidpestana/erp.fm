@@ -36,7 +36,7 @@ class clientesController extends Controller
 
 
        // $entities = $em->getRepository('erpBundle:clientes')->findAll();
-        $entities = $em->getRepository('erpBundle:clientes')->findBy(array(), array('id' => 'ASC'),$limit);
+        $entities = $em->getRepository('erpBundle:clientes')->findBy(array(), array('id' => 'DESC'),$limit);
         $conceptosunicos = $em->getRepository('erpBundle:conceptounico')->findAll();
 
         return array(

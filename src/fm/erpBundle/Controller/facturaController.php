@@ -47,13 +47,13 @@ class facturaController extends Controller
 
         $entities = $em->getRepository('erpBundle:factura')->findby(
             array("estado" => 1), 
-            array('id' => 'ASC'),
+            array('id' => 'DESC'),
             $limit
         );
 
         $grabadas = $em->getRepository('erpBundle:factura')->findby(
             array("estado" => 2), 
-            array('id' => 'ASC'),
+            array('id' => 'DESC'),
             $limit
         );
 
