@@ -35,18 +35,26 @@ class facturaController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+
+        $limit = $request->get('limit');
+        $offset = $request->get('offset');
+
+        $limit = $limit ? $limit : 100;
+
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('erpBundle:factura')->findby(
             array("estado" => 1), 
-            array('id' => 'DESC')
+            array('id' => 'ASC'),
+            $limit
         );
 
         $grabadas = $em->getRepository('erpBundle:factura')->findby(
             array("estado" => 2), 
-            array('id' => 'DESC')
+            array('id' => 'ASC'),
+            $limit
         );
 
         $conceptosunicos = $em->getRepository('erpBundle:conceptounico')->findAll();

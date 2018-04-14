@@ -25,11 +25,18 @@ class clientesController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('erpBundle:clientes')->findAll();
+        $limit = $request->get('limit');
+        $offset = $request->get('offset');
+
+        $limit = $limit ? $limit : 100;
+
+
+       // $entities = $em->getRepository('erpBundle:clientes')->findAll();
+        $entities = $em->getRepository('erpBundle:clientes')->findBy(array(), array('id' => 'ASC'),$limit);
         $conceptosunicos = $em->getRepository('erpBundle:conceptounico')->findAll();
 
         return array(
