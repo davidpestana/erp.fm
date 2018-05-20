@@ -1,0 +1,61 @@
+  <table>
+    <tr>
+      <td border-color="white">
+        <img width="180px" src="{{ pdf_image('erpBundle:psa-logo-ok.png') }}"/>
+        <p font-size="14px">
+            PSAG AUTOMOVILES COMERCIAL ESPAÑA S.A.<br />
+            A82844473<br />
+            Calle Eduardo Barreiros, nº 110<br />
+            28041, Madrid<br />
+            COFOR: A009X1 01
+        </p>
+      </td>
+
+      <td border-color="white">
+        <p text-align="right">
+          <h1 font-size="25px">ALBARÁN</h1>
+          Nº {{ entity.codfactura }}<br/>
+          {{ entity.fecha|date('d/m/Y') }}<br/>
+        </p>
+        <p text-align="right" font-size="14px">
+          {% if direccion != false %}
+
+          <b>{{'DATOS CLIENTE' | trans}}:</b><br/>
+          {{ direccion.name }}<br/> 
+          {{ direccion.dniCif }}<br/> 
+          {{ direccion.direccion }}<br/>
+          {{ direccion.cp }}, {{ direccion.localidad }}<br/>
+          {{ direccion.provincia }}<br/>
+          
+          {% endif %}
+        </p>
+      </td>
+    </tr>
+  </table>
+  <p>
+    <b>{{'DATOS CONTACTO' | trans}}:</b> {{ direccion.persona }} -{{ direccion.telefono }} - {{ direccion.email }}
+  </p>
+
+  <p>
+   <table>
+    <tr background-color="#eb613d" color="white" font-size="14px" text-align="center">
+      <td width="310px" border-color="#eb613d" padding="5px">{{'CONCEPTO' | trans}}</td>
+      <td border-color="#eb613d" padding="5px" width="70px">{{'UNIDADES' | trans}}</td>
+
+{#      <td border-color="#eb613d" padding="5px" width="70px">DESC</td>#}
+    </tr>
+      {% for producto in entity.misitems  %}
+            <tr font-size="13px">
+              <td border-color="#eb613d" padding="5px">{{ producto.descripcion}}</td>
+              <td border-color="#eb613d" padding="5px" text-align="center"> {{ producto.cantidad }} </td>
+            </tr>
+      {% endfor %}
+
+
+    </table>
+</p>
+      {% if entity.observaciones != '' %}
+
+     <p><h4> {{'OBSERVACIONES' | trans}}:  {{ entity.observaciones }}</h4></p>
+
+     {% endif %}

@@ -19,9 +19,18 @@ fm\erpBundle\Entity\DireccionEnvio:
         name:
             type: string
             length: 255
+        dniCif:
+            type: string
+            length: 255
         direccion:
             type: string
             length: 255
+        email:
+            type: string
+            length: 255
+        persona:
+            type: string
+            length: 255    
         telefono:
             type: string
             length: '15'
@@ -34,4 +43,7 @@ fm\erpBundle\Entity\DireccionEnvio:
         cp:
             type: string
             length: '15'
+        observaciones:
+            type: string
+            length: 255
     lifecycleCallbacks: {  }

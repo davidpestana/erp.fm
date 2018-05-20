@@ -506,4 +506,60 @@ class clientes
     {
         return $this->direcciones;
     }
+    /**
+     * @var string
+     */
+    private $pais;
+
+    /**
+     * @var string
+     */
+    private $idioma;
+
+
+    /**
+     * Set pais
+     *
+     * @param string $pais
+     * @return clientes
+     */
+    public function setPais($pais)
+    {
+        $this->pais = $pais;
+
+        return $this;
+    }
+
+    /**
+     * Get pais
+     *
+     * @return string 
+     */
+    public function getPais()
+    {
+        return $this->pais;
+    }
+
+    /**
+     * Set idioma
+     *
+     * @param string $idioma
+     * @return clientes
+     */
+    public function setIdioma($idioma)
+    {
+        $this->idioma = $idioma;
+
+        return $this;
+    }
+
+    /**
+     * Get idioma
+     *
+     * @return string 
+     */
+    public function getIdioma()
+    {
+        return $this->idioma;
+    }
 }

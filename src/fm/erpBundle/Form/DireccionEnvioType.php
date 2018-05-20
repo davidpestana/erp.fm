@@ -16,8 +16,11 @@ class DireccionEnvioType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('dniCif')
             ->add('direccion')
             ->add('telefono')
+            ->add('email')
+            ->add('persona')
             ->add('localidad')
             ->add('provincia')
             ->add('cp')

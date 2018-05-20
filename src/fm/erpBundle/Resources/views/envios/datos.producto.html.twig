@@ -1,6 +1,14 @@
 <div width="74mm" height="104.68mm" border-color="#FFFFFF">
     <div margin="3mm">
-        <img width="100%" src="{{ pdf_image('erpBundle:furgomania-logo-ok.png') }}"/>
+    
+        {% if logo == '' %}
+        <img width="100%" src="{{ pdf_image('erpBundle:furgomania-logo-ok.png') }}" />
+        {% endif %}
+        {% if logo == 'psa' %}
+        <img src="{{ pdf_image('erpBundle:psa-logo-ok.png') }}" />
+        {% endif %}
+        
+
         <p font-size="50px" text-align="center">{{ orden.numeroserie }}</p>
         <div font-size="10px">
         <h2>{{ orden.producto }}</h2>

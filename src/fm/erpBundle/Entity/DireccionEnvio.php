@@ -67,7 +67,7 @@ class DireccionEnvio
 
     function __toString(){
         
-        return $this->getDireccion().", ".$this->getName();
+        return $this->getName()." - ".$this->getDniCif();
     }
     /**
      * Get id
@@ -243,5 +243,117 @@ class DireccionEnvio
     public function getCliente()
     {
         return $this->cliente;
+    }
+    /**
+     * @var string
+     */
+    private $email;
+
+    /**
+     * @var string
+     */
+    private $observaciones;
+
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return DireccionEnvio
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set observaciones
+     *
+     * @param string $observaciones
+     * @return DireccionEnvio
+     */
+    public function setObservaciones($observaciones)
+    {
+        $this->observaciones = $observaciones;
+
+        return $this;
+    }
+
+    /**
+     * Get observaciones
+     *
+     * @return string 
+     */
+    public function getObservaciones()
+    {
+        return $this->observaciones;
+    }
+    /**
+     * @var string
+     */
+    private $dniCif;
+
+
+    /**
+     * Set dniCif
+     *
+     * @param string $dniCif
+     * @return DireccionEnvio
+     */
+    public function setDniCif($dniCif)
+    {
+        $this->dniCif = $dniCif;
+
+        return $this;
+    }
+
+    /**
+     * Get dniCif
+     *
+     * @return string 
+     */
+    public function getDniCif()
+    {
+        return $this->dniCif;
+    }
+    /**
+     * @var string
+     */
+    private $persona;
+
+
+    /**
+     * Set persona
+     *
+     * @param string $persona
+     * @return DireccionEnvio
+     */
+    public function setPersona($persona)
+    {
+        $this->persona = $persona;
+
+        return $this;
+    }
+
+    /**
+     * Get persona
+     *
+     * @return string 
+     */
+    public function getPersona()
+    {
+        return $this->persona;
     }
 }

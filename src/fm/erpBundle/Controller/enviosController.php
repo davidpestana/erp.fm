@@ -157,7 +157,7 @@ class enviosController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function etiquetasAction($id)
+    public function etiquetasAction($id,Request $request)
     {
 
        $em = $this->getDoctrine()->getManager();
@@ -176,7 +176,9 @@ class enviosController extends Controller
 
         return array(
             'direccion' => $direccion,
-            'entity'      => $entity
+            'entity'      => $entity,
+            'logo' => $request->get('logo')
+
         );
     }
     

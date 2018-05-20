@@ -37,7 +37,7 @@
                             <td>{{ entity.cliente.provincia }}, {{ entity.cliente.localidad }} ({{ entity.cliente.cp }})</td>
                             <td>
                             {% if entity.direccionEnvio %}
-                            {{ entity.direccionEnvio.provincia }}, {{ entity.direccionEnvio.localidad }} ({{ entity.direccionEnvio.cp }})
+                            {{ entity.direccionEnvio.name }}, {{ entity.direccionEnvio.dniCif }} ({{ entity.direccionEnvio.cp }})
                             {% else %}
                             {{ entity.cliente.provincia }}, {{ entity.cliente.localidad }} ({{ entity.cliente.cp }})
 
