@@ -67,7 +67,7 @@ class DireccionEnvio
 
     function __toString(){
         
-        return $this->getDireccion().", ".$this->getName();
+        return $this->getName()." - ".$this->getDniCif();
     }
     /**
      * Get id

@@ -22,12 +22,14 @@ fm\erpBundle\Entity\DireccionEnvio:
         dniCif:
             type: string
             length: 255
+            nullable: true
         direccion:
             type: string
             length: 255
         email:
             type: string
             length: 255
+            nullable: true
         persona:
             type: string
             length: 255    
@@ -46,4 +48,5 @@ fm\erpBundle\Entity\DireccionEnvio:
         observaciones:
             type: string
             length: 255
+            nullable: true
     lifecycleCallbacks: {  }
