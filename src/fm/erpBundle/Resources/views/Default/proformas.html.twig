@@ -12,7 +12,7 @@
 						<td>{{ factura.cliente.name }}</td>
 						<td class="hidden-phone">{{ factura.fecha|date('d-m-Y') }}</td>
 						<td>{{ factura.base * 1.21 }} € </td>
-						<td><a href="{{ path('factura_show', { 'id': factura.id, '_format':'pdf' }) }}" class="btn mini red-stripe">PDF</a></td>
+						<td><a href="{{ path('factura_download', { 'id': factura.id, '_format':'pdf' }) }}" class="btn mini red-stripe">PDF</a></td>
 						<td>
 							<a href="{{ path('factura_clone', {'id':factura.id}) }}" class="btn mini red tooltips"  data-placement="top" data-original-title="Generar Factura"><i class="icon-check-empty"></i> Generar Factura</a>
 						</td>

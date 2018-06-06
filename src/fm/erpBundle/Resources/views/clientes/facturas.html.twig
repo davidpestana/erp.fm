@@ -53,7 +53,7 @@
 											<td>{{factura.base * 1.21}} € </td>
 											<td>
 
-											<a href="{{ path('factura_show', { 'id': factura.id, '_format':'pdf' }) }}" class="btn mini red-stripe">PDF</a>
+											<a href="{{ path('factura_download', { 'id': factura.id, '_format':'pdf' }) }}" class="btn mini red-stripe">PDF</a>
 											
 											<a href="{{ path('factura_enviar', { 'id': factura.id }) }}" class="btn modal_ajax_btn mini blue-stripe" data-toggle="modal">ENVIAR</a>
 

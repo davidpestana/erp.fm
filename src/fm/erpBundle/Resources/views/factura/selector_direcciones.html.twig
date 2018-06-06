@@ -17,7 +17,7 @@
                     <td>{{ direcciones.id }}</td>
                     <td>{{ direcciones.direccion }}</td>
                     <td>
-                        <a href="{{ path('factura_show', {'id': entity.id, 'id_direccion': key, '_format':'pdf'}) }}" class="modal_ajax_btn btn red mini"><i class="icon-file"></i> Descargar PDF</a>
+                        <a href="{{ path('factura_download', {'id': entity.id, 'id_direccion': key, '_format':'pdf'}) }}" class="modal_ajax_btn btn red mini"><i class="icon-file"></i> Descargar PDF</a>
 
                         <a href="{{ path('factura_enviar', { 'id': entity.id, 'id_direccion': key }) }}" class="modal_ajax_btn btn red mini" data-load="true" data-target="#ajax-modal"><i class="icon-envelope"></i> Enviar al Cliente</a>
 

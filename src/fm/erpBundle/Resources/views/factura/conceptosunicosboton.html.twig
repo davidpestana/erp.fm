@@ -11,7 +11,7 @@
                                     <a href="{{ path('factura_enviar', { 'id': entity.id, 'id_direccion': id_direccion,'conceptounico': entityCu.id }) }}"> Enviar al Cliente </a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('factura_show', { 'id': entity.id, 'id_direccion': id_direccion,'conceptounico': entityCu.id, '_format':'pdf' }) }}"> Descargar PDF </a>
+                                    <a href="{{ path('factura_download', { 'id': entity.id, 'id_direccion': id_direccion,'conceptounico': entityCu.id, '_format':'pdf' }) }}"> Descargar PDF </a>
                                 </li>
                             {% else %}
                             
@@ -19,7 +19,7 @@
                                     <a href="{{ path('factura_enviar', { 'id': entity.id, 'conceptounico': entityCu.id }) }}"> Enviar al Cliente </a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('factura_show', { 'id': entity.id, 'conceptounico': entityCu.id, '_format':'pdf' }) }}"> Descargar PDF </a>
+                                    <a href="{{ path('factura_download', { 'id': entity.id, 'conceptounico': entityCu.id, '_format':'pdf' }) }}"> Descargar PDF </a>
                                 </li> 
                             {% endif %}
                         </ul>

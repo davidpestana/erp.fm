@@ -13,6 +13,8 @@ use fm\erpBundle\Entity\PedidoItem;
 use fm\erpBundle\Form\PedidoItemsCollectionType;
 use fm\erpBundle\Form\PedidoType;
 
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 use fm\erpBundle\Form\facturaType;
 use fm\erpBundle\Form\grabarfacturaType;
@@ -203,6 +205,52 @@ class facturaController extends Controller
 //             'form'=>$form->createView()
 //         );
 //    }
+
+
+    /**
+     *
+     * @Route("/{id}/download", name="factura_download")
+     * @Method("GET")
+     */
+    public function downloadAction($id, Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('erpBundle:factura')->find($id);
+
+        $id_direccion = $request->get('id_direccion');
+        $conceptounico = $request->get('conceptounico');
+        $locale = $entity->getCliente()->getIdioma();
+        $request->setLocale($locale);
+
+        $data = $this->forward('erpBundle:factura:show', 
+        array( 'id' => $id, '_format' => 'pdf', '_locale' => $locale, 'id_direccion' => $id_direccion,
+               'conceptounico' => $conceptounico,
+        ));
+
+             
+        // Provide a name for your file with extension
+       $filename = $entity->getCodFactura().'.pdf';
+       
+       // Return a response with a specific content
+       $response = new Response($data);
+
+       // Create the disposition of the file
+       $disposition = $response->headers->makeDisposition(
+           ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+           $filename
+       );
+
+       // Set the content disposition
+       $response->headers->set('Content-Disposition', $disposition);
+
+       // Dispatch request
+       return $response;
+
+   }
+
+
+
+
+
 
 
     /**
