@@ -28,10 +28,16 @@
       {% for producto in entity.items %}
             <tr font-size="10px">
               <td font-size="14px" border-color="#eb613d" padding="7px" text-align="center">{{ producto.posicion }}</td>
-              <td font-size="10px" border-color="#eb613d" padding="7px" text-align="center">{{ producto.factura.codFactura }}</td>
+              <td font-size="10px" border-color="#eb613d" padding="7px" text-align="center">{{ producto.factura.codFactura }}<br />
+              {% if producto.factura.direccionenvio %} 
+                {{producto.factura.direccionenvio.name }} - {{producto.factura.direccionenvio.cp }}
+              {% else %}
+                {{ producto.factura.cliente.name }} - {{producto.factura.cliente.cp }}
+              {% endif %}
+              </td>
               <td border-color="#eb613d" padding="7px" text-align="left"> {{ producto.carpintero }} </td>
               <td border-color="#eb613d" padding="7px" text-align="left"> {{ producto.tapicero }} </td>
-            </tr>
+           </tr>
       {% endfor %}
     </table>
 
