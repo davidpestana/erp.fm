@@ -30,14 +30,17 @@ class clientesController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $limit = $request->get('limit');
+        $filter = $request->get('filter');
         $offset = $request->get('offset');
 
         $limit = $limit ? $limit : 100;
-
-
+        $where = $filter ? ["name"=>$filter] : [];
+ 
        // $entities = $em->getRepository('erpBundle:clientes')->findAll();
-        $entities = $em->getRepository('erpBundle:clientes')->findBy(array(), array('id' => 'DESC'),$limit);
-        $conceptosunicos = $em->getRepository('erpBundle:conceptounico')->findAll();
+      
+       $entities = $em->getRepository('erpBundle:clientes')->findBy($where, array('id' => 'DESC'),$limit);
+      
+       $conceptosunicos = $em->getRepository('erpBundle:conceptounico')->findAll();
 
         return array(
             'entities' => $entities,
