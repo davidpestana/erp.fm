@@ -76,8 +76,9 @@
                     {% if orden.micajon is null %}
                         <td padding="2"> Paquete pequeño</td><td padding="2"> 0.00 </td>
                     {% else %}
-                        <td padding="2">{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}</td>  
-                        <td padding="2">{{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}</td>
+                        <td padding="2">Medir</td>
+                        {# <td padding="2">{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}</td>  
+                        <td padding="2">{{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}</td> #}
                     {% endif %} 
                     </tr>                  
                 {% endfor %} 
@@ -147,8 +148,9 @@
                     {% if orden.micajon is null %}
                         <td padding="2"> Paquete pequeño</td><td padding="2"> 0.00 </td>
                     {% else %}
-                        <td padding="2">{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}</td>  
-                        <td padding="2">{{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}</td>
+                        <td padding="2">Medir</td>
+                        {# <td padding="2">{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}</td>  
+                        <td padding="2">{{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}</td> #}
                     {% endif %} 
                     </tr>                  
                 {% endfor %} 
