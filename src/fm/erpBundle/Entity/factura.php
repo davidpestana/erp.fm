@@ -31,7 +31,7 @@ class factura
     private $total;
 
     /**
-     * @var integer
+     * @var decimal
      */
     private $iva;
 
@@ -420,7 +420,7 @@ class factura
     /**
      * Set iva
      *
-     * @param integer $iva
+     * @param decimal $iva
      * @return factura
      */
     public function setIva($iva)
@@ -433,7 +433,7 @@ class factura
     /**
      * Get iva
      *
-     * @return integer 
+     * @return decimal 
      */
     public function getIva()
     {
