@@ -64,12 +64,12 @@
                     <td>{{ base | number_format(2, '.', ',') }} € </td>
                 </tr>
                 <tr>
-                    <td colspan="4">IVA {{entity.iva}}%</td>
-                    <td>{{ base * (entity.iva/100) | number_format(2, '.', ',') }} € </td>
+                    <td colspan="4">IVA {{entity.iva}}%  </td>
+                    <td>{{ (base * (entity.iva/100)) | number_format(2, '.', ',') }} € </td>
                 </tr>
                 <tr>
                     <td colspan="4">TOTAL FACTURA</td>
-                    <td>{{ base * (1+(entity.iva/100)) | number_format(2, '.', ',') }} € </td>
+                    <td>{{ (base * (1+(entity.iva/100))) | number_format(2, '.', ',') }} € </td>
                 </tr>
             </table>
         </div>

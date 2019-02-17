@@ -5,17 +5,19 @@
            <tr>
                <td border-color="white"><img width="100%" src="{{ pdf_image('erpBundle:furgomania-logo-ok.png') }}" />
 
-                       <div background-color="#EEEEEE" margin="10px 0px" padding="15px 50px">
+<h1 text-align="center">ORDEN RECOGIDA</h1>
+               </td>
+               <td border-color="white" padding="20px">
+                    
+
+                                           <div background-color="#EEEEEE" margin="0px" padding="45px 42px">
             <h1> FECHA DE RECOGIDA </h1>
             
                 {{ entity.fecha | localizeddate('full', 'none', 'es') }}
         </div>
-               </td>
-               <td border-color="white" padding="20px">
-                    <h1 text-align="center">ORDEN RECOGIDA</h1>
-                    <div background-color="#EEEEEE" padding="20px 70px" text-align="center">
+                    {# <div background-color="#EEEEEE" padding="20px 70px" text-align="center">
                        <img src="{{ pdf_image('erpBundle:logo-rhenus.png') }}" /> 
-                    </div>
+                    </div> #}
                </td>
            </tr>
         </table>
@@ -23,7 +25,7 @@
         <div background-color="#EEEEEE" margin="10px 0px" padding="20px 50px">
             <h1> DATOS RECOGIDA </h1>
             <div>
-                FUSTERIA MASFERRER, S.L.<br />
+                {# FUSTERIA MASFERRER, S.L.<br />
                 Pol. Ind. Torres-Pujals, 36<br />
                 Telf. 972 86 04 98<br />
                 Fax  972 16 23 70<br />
@@ -31,7 +33,15 @@
                 17401 – ARBUCIES   <br />
                 www.fusteriamasferrer.com<br />
                 fusteria@fusteriamasferrer.com<br />
-                Persona de contacto: Xavi Masferrer
+                Persona de contacto: Xavi Masferrer #}
+
+                Furgomania Motor España S.L. (Del. Girona)<br />
+                C/. Estenedor, 33 bajos. (Prat de Can Delfí)<br />
+                17401, ARBUCIES (Girona)<br />
+                Contacto: Joaquim Porcel<br />
+                Telf. 680 565332<br />
+                tecnico@furgomania.com<br />
+                www.furgomania.com
             </div>
 
         </div>
