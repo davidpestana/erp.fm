@@ -20,6 +20,9 @@ use fm\erpBundle\Form\facturaType;
 use fm\erpBundle\Form\grabarfacturaType;
 use Ps\PdfBundle\Annotation\Pdf;
 
+use Automattic\WooCommerce\Client;
+
+
 
 
 /**
@@ -43,18 +46,18 @@ class facturaController extends Controller
         $limit = $request->get('limit');
         $offset = $request->get('offset');
 
-        $limit = $limit ? $limit : 100;
+        $limit = $limit ? $limit : 500;
 
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('erpBundle:factura')->findby(
-            array("estado" => 1), 
+            array("estado" => 1),
             array('id' => 'DESC'),
             $limit
         );
 
         $grabadas = $em->getRepository('erpBundle:factura')->findby(
-            array("estado" => 2), 
+            array("estado" => 2),
             array('id' => 'DESC'),
             $limit
         );
@@ -83,9 +86,10 @@ class facturaController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('erpBundle:factura')->findby(
-            array("estado" => 2), 
+            array("estado" => 2),
             array('id' => 'DESC')
         );
+
 
         return array(
             'entities' => $entities
@@ -135,7 +139,7 @@ class facturaController extends Controller
          $new_entity = clone $entity;
 
          $new_entity->setSerie($em->getReference('erpBundle:series',1));
-     
+
 
         $em->persist($new_entity);
         $em->flush();
@@ -178,7 +182,7 @@ class facturaController extends Controller
 //             throw $this->createNotFoundException('Unable to find pedido entity.');
 //         }
 
-//         $strings = [];       
+//         $strings = [];
 //         foreach($entity->getMisItems() as $item){
 //             $strings[] = $item->getDescripcion();
 //         }
@@ -221,15 +225,15 @@ class facturaController extends Controller
         $locale = $entity->getCliente()->getIdioma();
         $request->setLocale($locale);
 
-        $data = $this->forward('erpBundle:factura:show', 
+        $data = $this->forward('erpBundle:factura:show',
         array( 'id' => $id, '_format' => 'pdf', '_locale' => $locale, 'id_direccion' => $id_direccion,
                'conceptounico' => $conceptounico,
         ));
 
-             
+
         // Provide a name for your file with extension
        $filename = $entity->getCodFactura().'.pdf';
-       
+
        // Return a response with a specific content
        $response = new Response($data);
 
@@ -247,9 +251,58 @@ class facturaController extends Controller
 
    }
 
+   function createWooCommerceProduct($entity){
+        $woocommerce = new Client(
+            'https://www.furgomania.com',
+            'ck_9ecb2655fb6c6b5d1a45a69cc8a62dae7f8de444',
+            'cs_d69164602db1df97127b8613fb669a65cf28e647',
+            [
+                'version' => 'wc/v3',
+            ]
+        );
+
+        $result = $woocommerce->post('products',[
+            "name" => "Presupuesto ". $entity->getCodFactura(),
+            "slug" => "presupuesto-personalizado-".md5($entity->getCodFactura()).'-'.$entity->getCodFactura(),
+            "type" => "simple",
+            "status" => "publish",
+            // "description" => "Descripción del producto personalizado para cliente",
+            'short_description' => 'Esta carta de pago se corresponde a la factura proforma '.$entity->getCodFactura().' para '.$entity->getCliente()->getName().'',            
+            "catalog_visibility" => "hidden",
+            "regular_price" => number_format($entity->getTotal(),2),
+            "on_sale" => true,
+            "purchasable" => true,
+            "stock_quantity" => 1,
+            "manage_stock" => true,
+            "sold_individually" => true,
+            'categories' => [
+                [
+                    'id' => 124
+                ]
+            ],
+            'images' => [
+                    [
+                    'src' => 'https://www.furgomania.com/wp-content/uploads/2018/12/webespan%CC%83ol-min.jpg'
+                    ]
+                ]   
+        ]);
+        return $result;
+   }
 
 
-
+    /**
+     *
+     * @Route("/{id}/construct_payment", name="factura_construct_payment")
+     * @Method("GET")
+     */
+    public function constructPaymentAction($id, Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('erpBundle:factura')->find($id);
+        $result = $this->createWooCommerceProduct($entity);
+        return new Response(
+            '<html><body><a href="'.$result->permalink.'" target="_new">ir<a/></body></html>'
+        );
+    }
 
 
 
@@ -268,13 +321,13 @@ class facturaController extends Controller
          $locale = $entity->getCliente()->getIdioma();
          $request->setLocale($locale);
 
-         $data = $this->forward('erpBundle:factura:show', 
+         $data = $this->forward('erpBundle:factura:show',
             array( 'id' => $id, '_format' => 'pdf', '_locale' => $locale, 'id_direccion' => $id_direccion,
                 'conceptounico' => $conceptounico,
                 ));
-              
-        
 
+
+        $woocommerceProduct = $this->createWooCommerceProduct($entity);
 
         $message = \Swift_Message::newInstance()
             ->setSubject($this->get('translator')->trans(strtoupper($entity->getTipo())).' FURGOMANIA '.$entity->getCodfactura())
@@ -285,16 +338,30 @@ class facturaController extends Controller
             ->setBody(
                 $this->renderView(
                     'erpBundle:factura:email.html.twig',
-                    array( 'entity'=> $entity,'_locale'=>$locale)
+                    array( 'entity'=> $entity,'_locale'=>$locale, 'woocomerceProduct' => $woocommerceProduct )
                 ), 'text/html'
             )
             ->attach(\Swift_Attachment::newInstance()
                   ->setFilename($entity->getCodfactura().'.pdf')
                   ->setContentType('application/pdf')
                   ->setBody($data))
+
+
+          
         ;
+        // $attachment  = $message  
+        //     ->attach(\Swift_Attachment::fromPath('https://www.furgomania.com/wp-content/uploads/2019/02/tarjetas-de-pago_negro-1-e1549884285953.png')  
+        //     ->setDisposition('inline')); 
+        $attachment = \Swift_Attachment::fromPath('https://www.furgomania.com/wp-content/uploads/2019/02/tarjetas-de-pago_negro-1-e1549884285953.png')->setDisposition('inline');
+
+        $attachment->getHeaders()->addTextHeader('Content-ID', '<financia>');
+        $attachment->getHeaders()->addTextHeader('X-Attachment-Id', 'financia');
+        $cid = $message->embed($attachment);
 
         $this->get('mailer')->send($message);
+
+        
+
         return array(
             'entity'      => $entity
         );
@@ -315,7 +382,7 @@ class facturaController extends Controller
         $form->handleRequest($request);
 
 
-        
+
     if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity->setEstado(1);
@@ -387,7 +454,7 @@ class facturaController extends Controller
         $locale = $request->get('_locale');
         $request->setLocale($locale);
 
-    
+
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('erpBundle:factura')->find($id);
 
@@ -408,7 +475,7 @@ class facturaController extends Controller
 
     /**
      * Finds and displays a concepto unico entity.
-     * 
+     *
      * @Method("GET")
      * @Template()
      */
@@ -423,12 +490,12 @@ class facturaController extends Controller
         }
 
         return array(
-            'base' => $base, 
+            'base' => $base,
             'entity'      => $entity
         );
     }
 
-    
+
     /**
      * Finds and displays a direcciones entity.
      *
@@ -442,7 +509,7 @@ class facturaController extends Controller
 
         $conceptosunicos = $em->getRepository('erpBundle:conceptounico')->findAll();
 
-    
+
     	if (!$entity) {
     		throw $this->createNotFoundException('Unable to find direcciones entity.');
     	}
@@ -519,7 +586,7 @@ class facturaController extends Controller
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
-    
+
         $finalItems = $entity->getMisitems()->toArray();
 
         if ($editForm->isValid()) {
@@ -547,7 +614,7 @@ class facturaController extends Controller
         else $data = array();
 
         $data[$sociedadId][$serie.$year] = isset($data[$sociedadId][$serie.$year]) ? $data[$sociedadId][$serie.$year] +1 : 1;
-        
+
         if($grabar) file_put_contents('series.json', json_encode($data));
         return $serie.str_pad($data[$sociedadId][$serie.$year],4,"0",STR_PAD_LEFT)."-".$year;
     }
@@ -562,7 +629,7 @@ class facturaController extends Controller
     public function grabarAction(Request $request,$id)
     {
 
-        try{       
+        try{
             $em = $this->getDoctrine()->getManager();
 
             $entity = $em->getRepository('erpBundle:factura')->find($id);
@@ -586,7 +653,7 @@ class facturaController extends Controller
                 return $this->redirect($this->generateUrl('factura', array('id' => $id)));
             }
 
-            
+
 
             return array(
                 'numerofactura' => $this->getSerie($entity->getSerie()->getSerie(),$entity->getFecha()->format('Y'),$entity->getSociedad()->getId()),
@@ -598,7 +665,7 @@ class facturaController extends Controller
                 'numerofactura' => 'Error en la grabacion de la factura',
                 'entity' => $entity,
                 'edit_form'   => $form->createView(),
-            );       
+            );
         }
     }
 

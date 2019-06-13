@@ -8,15 +8,15 @@
 <h1 text-align="center">ORDEN RECOGIDA</h1>
                </td>
                <td border-color="white" padding="20px">
-                    
+
 
                                            <div background-color="#EEEEEE" margin="0px" padding="45px 42px">
             <h1> FECHA DE RECOGIDA </h1>
-            
+
                 {{ entity.fecha | localizeddate('full', 'none', 'es') }}
         </div>
                     {# <div background-color="#EEEEEE" padding="20px 70px" text-align="center">
-                       <img src="{{ pdf_image('erpBundle:logo-rhenus.png') }}" /> 
+                       <img src="{{ pdf_image('erpBundle:logo-rhenus.png') }}" />
                     </div> #}
                </td>
            </tr>
@@ -77,7 +77,7 @@
                         <td border-color="white" padding="2">Contenido</td>
                         <td border-color="white" padding="2">Dimensiones (mm)</td>
                         <td border-color="white" padding="2">Volumen (m3)</td>
-                    </tr> 
+                    </tr>
 
                 {% for orden in entity.misordenes  %}
                     <tr>
@@ -86,14 +86,14 @@
                     {% if orden.micajon is null %}
                         <td padding="2"> Paquete pequeño</td><td padding="2"> 0.00 </td>
                     {% else %}
-                        <td padding="2">Medir</td>
-                        {# <td padding="2">{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}</td>  
-                        <td padding="2">{{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}</td> #}
-                    {% endif %} 
-                    </tr>                  
-                {% endfor %} 
+                        {# <td padding="2">Medir</td> #}
+                        {# <td padding="2">{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}</td> #}
+                        <td padding="2">{{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}</td>
+                    {% endif %}
+                    </tr>
+                {% endfor %}
 
-                </table>   
+                </table>
             </div>
 
         </div>
@@ -119,14 +119,14 @@
         <div background-color="#EEEEEE" margin="10px 0px" padding="20px 50px">
             <h1> DESTINATARIO </h1>
             <div font-size="18px">
-       
+
                 {{ direccion.name }}<br />
                 {# {{ direccion.dniCif }}<br /> #}
                 {{ direccion.direccion }}<br />
                 {{ direccion.cp }} ( {{ direccion.localidad }} )<br />
                 {{ direccion.provincia }}<br />
                 {{ direccion.telefono }}<br />
-                {# {{ direccion.email }}  #}
+                {{ direccion.email }}
 
             </div>
 
@@ -149,7 +149,7 @@
                         <td border-color="white" padding="2">Contenido</td>
                         <td border-color="white" padding="2">Dimensiones (mm)</td>
                         <td border-color="white" padding="2">Volumen (m3)</td>
-                    </tr> 
+                    </tr>
 
                 {% for orden in entity.misordenes  %}
                     <tr>
@@ -158,15 +158,15 @@
                     {% if orden.micajon is null %}
                         <td padding="2"> Paquete pequeño</td><td padding="2"> 0.00 </td>
                     {% else %}
-                        <td padding="2">Medir</td>
-                        {# <td padding="2">{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}</td>  
-                        <td padding="2">{{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}</td> #}
-                    {% endif %} 
-                    </tr>                  
-                {% endfor %} 
+                        {# <td padding="2">Medir</td> #}
+                        {# <td padding="2">{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}</td> #}
+                        <td padding="2">{{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}</td>
+                    {% endif %}
+                    </tr>
+                {% endfor %}
 
-                </table>   
-  
+                </table>
+
             </div>
         </div>
 

@@ -154,6 +154,29 @@ class factura
         return $this->descuento;
     }
 
+
+
+
+
+    /**
+     * Get total
+     *
+     * @return integer 
+     */
+    public function getTotal()
+    {
+        $this->setBase();
+        $base = $this->getBase();
+
+        return $base + ($base * $this->getIva());
+
+
+    }
+
+
+
+
+
     /**
      * Set estado
      *
@@ -302,6 +325,12 @@ class factura
     /**
      * @var integer
      */
+
+
+
+
+
+
     private $base;
 
 
