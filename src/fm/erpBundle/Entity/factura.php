@@ -346,6 +346,7 @@ class factura
         $items = $this->getMisitems();
         $base = 0;
         foreach($items as $item){
+            ld($item);
             $base = $base + ($item->getCantidad() * ($item->getImporte() - $item->getDescuento()));
         } 
         $this->base = $base;

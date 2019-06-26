@@ -286,6 +286,7 @@ class facturaController extends Controller
                     ]
                 ]
         ]);
+        ld($entity->getTotal());
         return $result;
    }
 
