@@ -266,8 +266,8 @@ class facturaController extends Controller
             "slug" => "presupuesto-personalizado-".md5($entity->getCodFactura()).'-'.$entity->getCodFactura(),
             "type" => "simple",
             "status" => "publish",
-            "description" => "[calculator]",
-            'short_description' => 'Esta carta de pago se corresponde a la factura proforma '.$entity->getCodFactura().' para '.$entity->getCliente()->getName().'',            
+            // "description" => "calculator",
+            'short_description' => 'Esta carta de pago se corresponde a la factura proforma '.$entity->getCodFactura().' para '.$entity->getCliente()->getName().' \[calculator\] ',
             "catalog_visibility" => "hidden",
             "regular_price" => number_format($entity->getTotal(),2),
             "on_sale" => true,
@@ -284,7 +284,7 @@ class facturaController extends Controller
                     [
                     'src' => 'https://www.furgomania.com/wp-content/uploads/2018/12/webespan%CC%83ol-min.jpg'
                     ]
-                ]   
+                ]
         ]);
         return $result;
    }
@@ -347,11 +347,11 @@ class facturaController extends Controller
                   ->setBody($data))
 
 
-          
+
         ;
-        // $attachment  = $message  
-        //     ->attach(\Swift_Attachment::fromPath('https://www.furgomania.com/wp-content/uploads/2019/02/tarjetas-de-pago_negro-1-e1549884285953.png')  
-        //     ->setDisposition('inline')); 
+        // $attachment  = $message
+        //     ->attach(\Swift_Attachment::fromPath('https://www.furgomania.com/wp-content/uploads/2019/02/tarjetas-de-pago_negro-1-e1549884285953.png')
+        //     ->setDisposition('inline'));
         $attachment = \Swift_Attachment::fromPath('https://www.furgomania.com/wp-content/uploads/2019/02/tarjetas-de-pago_negro-1-e1549884285953.png')->setDisposition('inline');
 
         $attachment->getHeaders()->addTextHeader('Content-ID', '<financia>');
@@ -360,7 +360,7 @@ class facturaController extends Controller
 
         $this->get('mailer')->send($message);
 
-        
+
 
         return array(
             'entity'      => $entity
