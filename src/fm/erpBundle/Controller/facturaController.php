@@ -266,7 +266,7 @@ class facturaController extends Controller
             "slug" => "presupuesto-personalizado-".md5($entity->getCodFactura()).'-'.$entity->getCodFactura(),
             "type" => "simple",
             "status" => "publish",
-            // "description" => "Descripción del producto personalizado para cliente",
+            "description" => "[calculator]",
             'short_description' => 'Esta carta de pago se corresponde a la factura proforma '.$entity->getCodFactura().' para '.$entity->getCliente()->getName().'',            
             "catalog_visibility" => "hidden",
             "regular_price" => number_format($entity->getTotal(),2),
