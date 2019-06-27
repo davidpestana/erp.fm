@@ -112,10 +112,14 @@
                                                     </li>
                                                     <li class="dropdown-submenu">
                                                         <a href="javascript:;"><i class="icon-envelope"></i> Enviar factura</a>
-                                                        <ul class="dropdown-menu" role="menu">
+                                                        <ul class="dropdown-menu" role="menu">                                                            
+                                                            <li>
+                                                                <a href="{{ path('factura_enviar', { 'id': entity.id, 'boton_compra':'ok' }) }}" class="modal_ajax_btn" data-toggle="modal"><i class="icon-envelope"></i> Enviar con boton</a>
+                                                            </li>
                                                             <li>
                                                                 <a href="{{ path('factura_enviar', { 'id': entity.id }) }}" class="modal_ajax_btn" data-toggle="modal"><i class="icon-envelope"></i> Enviar al Cliente</a>
                                                             </li>
+
                                                             <li>
                                                                 <a href="{{ path('factura_selector_direcciones', {'id': entity.id}) }}" class="modal_ajax_btn" data-toggle="modal"><i class="icon-file"></i> Dirección alternativa</a>                             
                                                             </li>

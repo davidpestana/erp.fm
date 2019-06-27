@@ -7,14 +7,19 @@
     {% trans with { '%name%': entity.cliente.name, '%tipo%': entity.tipo |upper |trans , '%fecha%': entity.fecha | date('d/m/Y'), '%base%': entity.base } %}Estimado %name%, le adjuntamos la %tipo% a su nombre emitida el %fecha% por un importe de %base% € ( Impuestos no incluidos ){% endtrans %}
 
 
-    <p align="center">
     
-
-    <img src="cid:financia" width="500" height="86" alt="">
+    
+    {% if woocomerceProduct %}
+    <p align="center">
+        <img src="cid:financia" width="500" height="86" alt="">
+    
+        
+        <br /><br />
+        <a href="{{woocomerceProduct.permalink}}"  target="_blank" style="padding: 8px 12px; border: 1px solid #f76b17; background: #f76b17; border-radius: 2px;font-family: Helvetica, Arial, sans-serif;font-size: 14px; color: #ffffff;text-decoration: none;font-weight:bold;display: inline-block;">{{'¡ comprar ahora !' | trans}}</a>
+        <br /><br /> 
     </p>
-    {# <br /><br />
-    <a href="{{woocomerceProduct.permalink}}"  target="_blank" style="padding: 8px 12px; border: 1px solid #f76b17; background: #f76b17; border-radius: 2px;font-family: Helvetica, Arial, sans-serif;font-size: 14px; color: #ffffff;text-decoration: none;font-weight:bold;display: inline-block;">{{'¡ comprar ahora !' | trans}}</a>
-    <br /><br /> #}
+    {% endif %}
+
     <p>{% trans %}Reciba un cordial saludo{% endtrans %}</p>
     <p>{% trans %}El equipo de Furgomania{% endtrans %}</p>
 

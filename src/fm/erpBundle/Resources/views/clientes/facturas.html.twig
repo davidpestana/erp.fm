@@ -57,6 +57,7 @@
 											
 											<a href="{{ path('factura_enviar', { 'id': factura.id }) }}" class="btn modal_ajax_btn mini blue-stripe" data-toggle="modal">ENVIAR</a>
 
+                                    		<a href="{{ path('factura_enviar', { 'id': factura.id, 'boton_compra':true }) }}" class="modal_ajax_btn btn mini blue-stripe" data-toggle="modal">ENVIAR CON BOTON</a>
 
                                				 <a href="{{ path('factura_selector_direcciones', {'id': entity.id}) }}" class="modal_ajax_btn btn mini green-stripe"><i class="icon-file"></i> Dirección alternativa</a>
 

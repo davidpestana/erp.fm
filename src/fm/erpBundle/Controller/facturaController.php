@@ -261,6 +261,8 @@ class facturaController extends Controller
             ]
         );
 
+    
+
         $result = $woocommerce->post('products',[
             "name" => "Presupuesto ". $entity->getCodFactura(),
             "slug" => "presupuesto-personalizado-".md5($entity->getCodFactura()).'-'.$entity->getCodFactura(),
@@ -286,7 +288,7 @@ class facturaController extends Controller
                     ]
                 ]
         ]);
-        ld($entity->getTotal());
+      
         return $result;
    }
 
@@ -319,21 +321,22 @@ class facturaController extends Controller
 
          $id_direccion = $request->get('id_direccion');
          $conceptounico = $request->get('conceptounico');
+         $boton_compra = $request->get('boton_compra');
          $locale = $entity->getCliente()->getIdioma();
          $request->setLocale($locale);
 
          $data = $this->forward('erpBundle:factura:show',
             array( 'id' => $id, '_format' => 'pdf', '_locale' => $locale, 'id_direccion' => $id_direccion,
-                'conceptounico' => $conceptounico,
+                'conceptounico' => $conceptounico, 'boton_compra' => $boton_compra
                 ));
 
 
-        $woocommerceProduct = $this->createWooCommerceProduct($entity);
+        $woocommerceProduct = ($boton_compra) ? $this->createWooCommerceProduct($entity) : false;
 
         $message = \Swift_Message::newInstance()
             ->setSubject($this->get('translator')->trans(strtoupper($entity->getTipo())).' FURGOMANIA '.$entity->getCodfactura())
             ->setFrom('contacto@furgomania.com')
-            ->setTo($entity->getCliente()->getEmail())
+            ->setTo(trim($entity->getCliente()->getEmail()))
             ->setCc(array('contacto@furgomania.com'))
            // ->setCc(array('info@furgomania.com', 'ventas@furgomania.com','tecnicom@quimp.es'))
             ->setBody(
@@ -353,11 +356,15 @@ class facturaController extends Controller
         // $attachment  = $message
         //     ->attach(\Swift_Attachment::fromPath('https://www.furgomania.com/wp-content/uploads/2019/02/tarjetas-de-pago_negro-1-e1549884285953.png')
         //     ->setDisposition('inline'));
-        $attachment = \Swift_Attachment::fromPath('https://www.furgomania.com/wp-content/uploads/2019/02/tarjetas-de-pago_negro-1-e1549884285953.png')->setDisposition('inline');
 
-        $attachment->getHeaders()->addTextHeader('Content-ID', '<financia>');
-        $attachment->getHeaders()->addTextHeader('X-Attachment-Id', 'financia');
-        $cid = $message->embed($attachment);
+        if($woocommerceProduct){
+            $attachment = \Swift_Attachment::fromPath('payment.png')->setDisposition('inline');
+
+            $attachment->getHeaders()->addTextHeader('Content-ID', '<financia>');
+            $attachment->getHeaders()->addTextHeader('X-Attachment-Id', 'financia');
+            $cid = $message->embed($attachment);
+        }
+
 
         $this->get('mailer')->send($message);
 

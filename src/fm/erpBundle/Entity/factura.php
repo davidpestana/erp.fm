@@ -168,9 +168,7 @@ class factura
         $this->setBase();
         $base = $this->getBase();
 
-        return $base + ($base * $this->getIva());
-
-
+        return ($base * (100 + floatval($this->getIva())))/100;
     }
 
 
@@ -346,7 +344,6 @@ class factura
         $items = $this->getMisitems();
         $base = 0;
         foreach($items as $item){
-            ld($item);
             $base = $base + ($item->getCantidad() * ($item->getImporte() - $item->getDescuento()));
         } 
         $this->base = $base;
