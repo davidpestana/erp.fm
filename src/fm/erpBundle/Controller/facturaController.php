@@ -356,13 +356,13 @@ class facturaController extends Controller
         //     ->attach(\Swift_Attachment::fromPath('https://www.furgomania.com/wp-content/uploads/2019/02/tarjetas-de-pago_negro-1-e1549884285953.png')
         //     ->setDisposition('inline'));
 
-        if($woocommerceProduct){
+        //if($woocommerceProduct){
             $attachment = \Swift_Attachment::fromPath('payment.png')->setDisposition('inline');
 
             $attachment->getHeaders()->addTextHeader('Content-ID', '<financia>');
             $attachment->getHeaders()->addTextHeader('X-Attachment-Id', 'financia');
             $cid = $message->embed($attachment);
-        }
+        //}
 
 
         $this->get('mailer')->send($message);
