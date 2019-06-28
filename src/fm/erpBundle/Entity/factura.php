@@ -168,7 +168,11 @@ class factura
         $this->setBase();
         $base = $this->getBase();
 
-        return ($base * (100 + floatval($this->getIva())))/100;
+     
+
+        $percent = 100.00 + floatval($this->getIva());
+
+        return $percent * $base / 100.00;
     }
 
 
@@ -347,6 +351,7 @@ class factura
             $base = $base + ($item->getCantidad() * ($item->getImporte() - $item->getDescuento()));
         } 
         $this->base = $base;
+
         return $this;
     }
 

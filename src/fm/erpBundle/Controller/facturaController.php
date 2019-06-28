@@ -262,7 +262,6 @@ class facturaController extends Controller
         );
 
     
-
         $result = $woocommerce->post('products',[
             "name" => "Presupuesto ". $entity->getCodFactura(),
             "slug" => "presupuesto-personalizado-".md5($entity->getCodFactura()).'-'.$entity->getCodFactura(),
@@ -271,7 +270,7 @@ class facturaController extends Controller
             // "description" => "calculator",
             'short_description' => 'Esta carta de pago se corresponde a la factura proforma '.$entity->getCodFactura().' para '.$entity->getCliente()->getName().' \[calculator\] ',
             "catalog_visibility" => "hidden",
-            "regular_price" => number_format($entity->getTotal(),2),
+            "regular_price" => number_format($entity->getTotal(),2,'.',''),
             "on_sale" => true,
             "purchasable" => true,
             "stock_quantity" => 1,
