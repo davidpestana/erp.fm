@@ -1,6 +1,12 @@
 fm\erpBundle\Entity\ordenesfabricacion:
     type: entity
     manyToOne:
+
+        referencia:
+            targetEntity: PedidoItem
+            joinColumn:
+                name: pedidoItemId
+                referencedColumnName: id 
         mienvio:
             targetEntity: envios
             inversedBy: misordenes

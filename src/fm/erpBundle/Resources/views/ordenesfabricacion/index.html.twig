@@ -30,6 +30,8 @@
             <tr>
                 <th>Id</th>
                 <th>Numeroserie</th>
+                <th>Pedido</th>
+                <th>Referencia</th>
                 <th>Producto</th>
                 <th>Estado</th>
                 <th>Envio</th>
@@ -42,6 +44,8 @@
             <tr>
                 <td><a href="{{ path('ordenesfabricacion_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.numeroserie }}</td>
+                <td>{{ entity.referencia ? entity.referencia.pedido.id : 'sin pedido' }}</td>
+                <td>{{ entity.referencia ? entity.referencia.factura.codfactura : 'sin referencia' }}</td>
                 <td>{{ entity.producto }}</td>
                 <td>{{ entity.estado }}</td>
                 <td>{% if entity.mienvio %}

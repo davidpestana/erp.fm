@@ -1,24 +1,27 @@
 {% extends "erpBundle::layout.modal.html.twig" %}
 
-{% block title -%} Nueva bulto {% endblock %}
+{% block title -%} Crear un Bulto {% endblock %}
 
 {% block body -%}
 
 
 <div class="row-fluid">
-    <form action="{{ path('ordenesfabricacion_create', { 'id': entity.id }) }}" method="POST" {{ form_enctype(form) }}>
-					<div class="span6">
+    <form class="wideForm" action="{{ path('ordenesfabricacion_create', { 'id': entity.id }) }}" method="POST" {{ form_enctype(form) }}>
+					{# <div class="span6">
 						<h4>Selecciona contenido del Cajón</h4>
                                     
                         {{ render(controller('erpBundle:Default:selectwidget',{'select' : form.contenido})) }}
 		
-					</div>
+					</div> #}
 
                      
-					<div class="span6">
-						<h4>Información del cajón</h4>
+					{# <div class="span12">
+						<h4>Información del cajón</h4> #}
 						{{ form(form) }}
-					</div>
+					{# </div> #}
+
+
+				
     </form>
 							
 </div>

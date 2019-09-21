@@ -71,29 +71,28 @@
         <div background-color="#EEEEEE" margin="10px 0px" padding="20px 50px">
             <h1> PARTES DEL ENVIO </h1>
             <div>
-                <table>
-                    <tr>
-                        <td border-color="white" padding="2">Número de Serie</td>
-                        <td border-color="white" padding="2">Contenido</td>
-                        <td border-color="white" padding="2">Dimensiones (mm)</td>
-                        <td border-color="white" padding="2">Volumen (m3)</td>
-                    </tr>
+                                        <table font-size="8px">
+                                            <tr>
+                                                <td border-color="white" padding="5" font-size="9px" text-align="center">Referencia</td>
+                                                <td border-color="white" padding="5" font-size="9px" text-align="center">Número de Serie</td>
+                                                {# <td border-color="white" padding="2" font-size="9px">Contenido</td> #}
+                                                <td border-color="white" padding="5" font-size="9px" text-align="center">mm - (m3)</td>
+                                            </tr> 
 
-                {% for orden in entity.misordenes  %}
-                    <tr>
-                        <td padding="2"><b font-size="12px">{{ orden.numeroserie }}</b></td>
-                        <td padding="2">{{orden.producto}}</td>
-                    {% if orden.micajon is null %}
-                        <td padding="2"> Paquete pequeño</td><td padding="2"> 0.00 </td>
-                    {% else %}
-                        {# <td padding="2">Medir</td> #}
-                        {# <td padding="2">{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}</td> #}
-                        <td padding="2">{{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}</td>
-                    {% endif %}
-                    </tr>
-                {% endfor %}
+                                        {% for orden in entity.misordenes  %}
+                                            <tr>
+                                                <td padding="5" text-align="center"><b font-size="12px">{{ orden.referencia ? orden.referencia.factura.codfactura : 'sin referencia' }}</b></td>
+                                                <td padding="5" text-align="center"><b font-size="12px">{{ orden.numeroserie }}</b></td>
+                                                {# <td padding="2">{{orden.producto}}</td> #}
+                                            {% if orden.micajon is null %}
+                                                <td padding="5" text-align="center"> Paquete pequeño</td>
+                                            {% else %}
+                                                <td padding="6" text-align="center">{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }} - ({{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }})</td>
+                                            {% endif %} 
+                                            </tr>                  
+                                        {% endfor %} 
 
-                </table>
+                                        </table>      
             </div>
 
         </div>
@@ -143,29 +142,28 @@
             <h1> PARTES DEL ENVIO </h1>
             <div>
 
-                <table>
-                    <tr>
-                        <td border-color="white" padding="2">Número de Serie</td>
-                        <td border-color="white" padding="2">Contenido</td>
-                        <td border-color="white" padding="2">Dimensiones (mm)</td>
-                        <td border-color="white" padding="2">Volumen (m3)</td>
-                    </tr>
+                                        <table font-size="8px">
+                                            <tr>
+                                                <td border-color="white" padding="5" font-size="9px" text-align="center">Referencia</td>
+                                                <td border-color="white" padding="5" font-size="9px" text-align="center">Número de Serie</td>
+                                                {# <td border-color="white" padding="2" font-size="9px">Contenido</td> #}
+                                                <td border-color="white" padding="5" font-size="9px" text-align="center">mm - (m3)</td>
+                                            </tr> 
 
-                {% for orden in entity.misordenes  %}
-                    <tr>
-                        <td padding="2"><b font-size="12px">{{ orden.numeroserie }}</b></td>
-                        <td padding="2">{{orden.producto}}</td>
-                    {% if orden.micajon is null %}
-                        <td padding="2"> Paquete pequeño</td><td padding="2"> 0.00 </td>
-                    {% else %}
-                        {# <td padding="2">Medir</td> #}
-                        {# <td padding="2">{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }}</td> #}
-                        <td padding="2">{{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }}</td>
-                    {% endif %}
-                    </tr>
-                {% endfor %}
+                                        {% for orden in entity.misordenes  %}
+                                            <tr>
+                                                <td padding="5" text-align="center"><b font-size="12px">{{ orden.referencia ? orden.referencia.factura.codfactura : 'sin referencia' }}</b></td>
+                                                <td padding="5" text-align="center"><b font-size="12px">{{ orden.numeroserie }}</b></td>
+                                                {# <td padding="2">{{orden.producto}}</td> #}
+                                            {% if orden.micajon is null %}
+                                                <td padding="5" text-align="center"> Paquete pequeño</td>
+                                            {% else %}
+                                                <td padding="6" text-align="center">{{ orden.micajon.alto }}x{{ orden.micajon.largo }}x{{ orden.micajon.ancho }} - ({{ ((orden.micajon.alto/1000) * (orden.micajon.ancho/1000) * (orden.micajon.largo/1000)) | number_format(2) }})</td>
+                                            {% endif %} 
+                                            </tr>                  
+                                        {% endfor %} 
 
-                </table>
+                                        </table>      
 
             </div>
         </div>

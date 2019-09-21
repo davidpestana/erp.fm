@@ -262,13 +262,25 @@ class facturaController extends Controller
         );
 
     
+        $code = "<div id=\"eCalculadoraCetelemDiv\"></div>
+        <script type=\'text/javascript\'> color =
+        \"#088A29\";
+        codCentro = \"PRUEBAS\";
+        cantidad = \"199,89\";
+        server = “https://test.cetelem.es”;
+        listadoMeses = \"5,10\";
+        document.write(\'<scr\'+\'ipt type=\"text/JavaScript\" src=\"\'+server+\'/eCommerceCalculadora/resources/js/
+        
+        eCalculadoraCetelemComboModelo2.js\" async></scr\'+\'ipt>\');
+        </script>";
+
         $result = $woocommerce->post('products',[
             "name" => "Presupuesto ". $entity->getCodFactura(),
             "slug" => "presupuesto-personalizado-".md5($entity->getCodFactura()).'-'.$entity->getCodFactura(),
             "type" => "simple",
             "status" => "publish",
             // "description" => "calculator",
-            'short_description' => 'Esta carta de pago se corresponde a la factura proforma '.$entity->getCodFactura().' para '.$entity->getCliente()->getName().' ('.$entity->getCliente()->getDniCif() .') '.' \[calculator\] ',
+            'short_description' => 'Esta carta de pago se corresponde a la factura proforma '.$entity->getCodFactura().' para '.$entity->getCliente()->getName().' ('.$entity->getCliente()->getDniCif() .') '.$code,
             "catalog_visibility" => "hidden",
             "regular_price" => number_format($entity->getTotal(),2,'.',''),
             "on_sale" => true,

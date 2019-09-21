@@ -23,5 +23,5 @@ Request::enableHttpMethodParameterOverride();
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
-exit;
+// exit;
 $kernel->terminate($request, $response);

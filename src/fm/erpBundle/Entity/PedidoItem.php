@@ -53,7 +53,9 @@ class PedidoItem
      */
      public function __toString()
      {
-         return $this->getDescripcion();
+         //ld($this->getDescripcion());
+         return "Pedido: {$this->getPedido()->getId()} - Referencia: {$this->getFactura()->getCodFactura()}";
+         //return $this->getDescripcion() || 'sin descripción';
      }
     /**
      * Get id

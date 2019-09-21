@@ -5307,3 +5307,11 @@ Datatables Plugin(in v1.3)
 .dataTable .details tr:nth-child(even) th {
   background-color: #eee !important;
 }
+
+.wideForm select {
+  min-width: 500px !important;
+}
+
+.wideForm input {
+  min-width: 488px !important;
+}

@@ -1,6 +1,5 @@
-<div width="74mm" height="104.68mm" border-color="#FFFFFF">
-    <div margin="3mm">
-    
+<div width="105mm" height="148.5mm">
+    <div margin="5mm 8mm">
         {% if logo == '' %}
         <img width="100%" src="{{ pdf_image('erpBundle:furgomania-logo-ok.png') }}" />
         {% endif %}
@@ -9,15 +8,19 @@
         {% endif %}
         
 
-        <p font-size="50px" text-align="center">{{ orden.numeroserie }}</p>
-        <div font-size="10px">
-        <h2>{{ orden.producto }}</h2>
+        <p font-size="36px" padding-top="30px" padding-bottom="30px" text-align="center">
+                                        <b>{{ orden.referencia ? orden.referencia.factura.codfactura : '' }}</b>
+                                        <hr />
+                                        <b>{{ orden.numeroserie }}</b>   
+        </p>
+        <div font-size="10px" padding="20px" height="150px"  background-color="#EEEEEE">
+        {{ orden.producto }}
 
-            <ul>
+            {# <ul>
                 {% for referencia in orden.contenido  %}
                     <li>{{ referencia.codfurgo }} {{ referencia.descripcion }}</li>
                 {% endfor %}
-            </ul>
+            </ul> #}
         </div>
     </div>
 </div>

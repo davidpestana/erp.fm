@@ -19,11 +19,11 @@ class ordenesfabricacionType extends AbstractType
             ->add('producto')
             ->add('origen')
             ->add('estado')
-            ->add('fecha')
+            ->add('fecha', 'date', array('widget' => 'single_text'))
             // ->add('mienvio')
-            ->add('micajon')
-
-            ->add('contenido',null,array('expanded' => true))
+            ->add('micajon',null,['required' => true, 'empty_value' => 'selecciona el tipo de cajón', 'empty_data' => null])
+            ->add('referencia',null,['required' => true, 'empty_value' => 'selecciona la referencia de pedido', 'empty_data' => null])
+            // ->add('contenido',null,array('expanded' => true))
         ;
     }
     

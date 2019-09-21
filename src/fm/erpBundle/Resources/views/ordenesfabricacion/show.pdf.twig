@@ -7,7 +7,11 @@
                <td border-color="white"><img width="100%" src="{{ pdf_image('erpBundle:furgomania-logo-ok.png') }}" /></td>
                <td border-color="white">
                     <h1 text-align="center">ALBARÁN</h1>
-                    <div font-size="65px" background-color="#EEEEEE" height="100px" text-align="center">{{ entity.numeroserie }}</div>
+                    <div font-size="40px" background-color="#EEEEEE" height="100px" text-align="center"> 
+                    {{ entity.referencia ? entity.referencia.factura.codfactura : '' }}
+                    
+                    {{ entity.numeroserie }}
+                    </div>
                </td>
            </tr>
 
@@ -25,7 +29,7 @@
 
         </table>
 
-        <table>
+        {# <table>
             <tr font-size="18px"><td padding="20px" width="60px">REF.</td><td padding="20px" width="100px">FUR.</td><td padding="20px">DESCRIPCION</td><td padding="20px">OBSERVACIONES</td></tr>
 
 
@@ -39,8 +43,33 @@
                                             </tr>
                                         {% endfor %}
 
+        </table> #}
+
+
+        {% if entity.referencia %}
+        <h1 text-align="center">CARPINTERO</h1>
+        <table>
+           <tr>
+               <td border-color="white">
+                    <div font-size="20px" background-color="#EEEEEE" height="100px" text-align="left"> 
+                    {{ entity.referencia.carpintero }}
+                    </div>
+               </td>
+           </tr>
         </table>
-    </dynamic-page>
+
+        <h1 text-align="center">TAPICERO</h1>
+        <table>
+           <tr>
+               <td border-color="white">
+                    <div font-size="20px" background-color="#EEEEEE" height="100px" text-align="left"> 
+                    {{ entity.referencia.tapicero }}
+                    </div>
+               </td>
+           </tr>
+        </table>
+        {% endif %}
+        </dynamic-page>
 
 
 
@@ -61,7 +90,11 @@
                                     <img width="100%" src="{{ pdf_image('erpBundle:furgomania-logo-ok.png') }}" />
                                     <div font-size="12px" text-align="center">Equipamientos camper autoinstalables para furgonetas</div>
 
-                                    <div font-size="65px" text-align="center">{{ entity.numeroserie }}</div>
+                                    <div font-size="35px" text-align="center" padding-top="60px">
+                                        {{ entity.referencia ? entity.referencia.factura.codfactura : '' }}
+                                        <hr />
+                                        {{ entity.numeroserie }}                                    
+                                    </div>
 
 
                                     <p>
@@ -112,7 +145,12 @@
                             <div width="74mm" height="104.68mm" border-color="#FFFFFF">
                              <div margin="3mm">
                                     <img width="100%" src="{{ pdf_image('erpBundle:furgomania-logo-ok.png') }}"/>
-                                    <p font-size="50px" text-align="center">{{ entity.numeroserie }}</p>
+                                    <p font-size="30px" text-align="center">
+                                        {{ entity.referencia ? entity.referencia.factura.codfactura : '' }}
+                                        <hr />
+                                        {{ entity.numeroserie }}          
+                                    
+                                    </p>
                                    <div font-size="10px">
                                     <h2>{{ entity.producto }}</h2>
 

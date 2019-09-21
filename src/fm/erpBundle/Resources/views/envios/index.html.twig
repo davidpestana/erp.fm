@@ -45,7 +45,7 @@
                 <td>{{ entity.estado }}</td>
                 <td> {% if entity.misordenes %}{% for orden in entity.misordenes  %}
                                     
-                                    <div><i class="icon-tags"></i> <b> {{ orden.numeroserie }} </b> - {{orden.producto}}</div>
+                                    <div><i class="icon-tags"></i> <b> {{ orden.numeroserie }} </b> - {{ orden.referencia ? orden.referencia.factura.codfactura : orden.producto}}</div>
                                         
                                     
                      {% endfor %}{% endif %} 

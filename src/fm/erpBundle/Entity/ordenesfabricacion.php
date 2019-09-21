@@ -36,8 +36,12 @@ class ordenesfabricacion
 
 
     public function __toString(){
-
-        return "<b>".$this->getNumeroserie()."</b> - ".$this->getProducto();
+        $referencia = $this->getReferencia();
+        if ($referencia) {
+            return "<b>".$this->getNumeroserie()."</b> - ".$this->getReferencia()->getFactura()->getCodfactura();
+        } else {
+            return "<b>".$this->getNumeroserie()."</b> - ".$this->getProducto();
+        }
     }
 
     /**
@@ -394,5 +398,33 @@ class ordenesfabricacion
     public function getPedidoItem()
     {
         return $this->pedidoItem;
+    }
+    /**
+     * @var \fm\erpBundle\Entity\PedidoItem
+     */
+    private $referencia;
+
+
+    /**
+     * Set referencia
+     *
+     * @param \fm\erpBundle\Entity\PedidoItem $referencia
+     * @return ordenesfabricacion
+     */
+    public function setReferencia(\fm\erpBundle\Entity\PedidoItem $referencia = null)
+    {
+        $this->referencia = $referencia;
+
+        return $this;
+    }
+
+    /**
+     * Get referencia
+     *
+     * @return \fm\erpBundle\Entity\PedidoItem 
+     */
+    public function getReferencia()
+    {
+        return $this->referencia;
     }
 }

@@ -31,7 +31,7 @@ class factura
     private $total;
 
     /**
-     * @var integer
+     * @var decimal
      */
     private $iva;
 
@@ -153,6 +153,31 @@ class factura
     {
         return $this->descuento;
     }
+
+
+
+
+
+    /**
+     * Get total
+     *
+     * @return integer 
+     */
+    public function getTotal()
+    {
+        $this->setBase();
+        $base = $this->getBase();
+
+     
+
+        $percent = 100.00 + floatval($this->getIva());
+
+        return $percent * $base / 100.00;
+    }
+
+
+
+
 
     /**
      * Set estado
@@ -302,6 +327,12 @@ class factura
     /**
      * @var integer
      */
+
+
+
+
+
+
     private $base;
 
 
@@ -320,6 +351,7 @@ class factura
             $base = $base + ($item->getCantidad() * ($item->getImporte() - $item->getDescuento()));
         } 
         $this->base = $base;
+
         return $this;
     }
 
@@ -420,7 +452,7 @@ class factura
     /**
      * Set iva
      *
-     * @param integer $iva
+     * @param decimal $iva
      * @return factura
      */
     public function setIva($iva)
@@ -433,7 +465,7 @@ class factura
     /**
      * Get iva
      *
-     * @return integer 
+     * @return decimal 
      */
     public function getIva()
     {

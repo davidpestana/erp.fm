@@ -135,10 +135,23 @@ class enviosController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         // retrocompatibilidad
-        if($factura = $entity->getFactura()){
+        $firstOrderReference = $entity->getMisordenes()->first()->getReferencia();
+
+        if ($firstOrderReference) {
+            $factura = $firstOrderReference->getFactura();
+        } else {
+            $factura = $entity->getFactura();
+        }
+
+        if($factura){
             if($envio = $factura->getDireccionEnvio()) $direccion = $envio;
             else $direccion = $factura->getCliente();
         }else $direccion = $entity->getCliente();
+
+        if (!$direccion) {
+            ld($entity);
+            ldd($entity->getMisordenes()->first()->getReferencia()->getFactura()->getDireccionEnvio());
+        }
 
         return array(
             'direccion' => $direccion,
@@ -169,10 +182,19 @@ class enviosController extends Controller
         }
 
         // retrocompatibilidad
-        if($factura = $entity->getFactura()){
+        $firstOrderReference = $entity->getMisordenes()->first()->getReferencia();
+
+        if ($firstOrderReference) {
+            $factura = $firstOrderReference->getFactura();
+        } else {
+            $factura = $entity->getFactura();
+        }
+
+        if($factura){
             if($envio = $factura->getDireccionEnvio()) $direccion = $envio;
             else $direccion = $factura->getCliente();
         }else $direccion = $entity->getCliente();
+
 
         return array(
             'direccion' => $direccion,
