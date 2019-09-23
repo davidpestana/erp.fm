@@ -31,7 +31,7 @@
                 <th>Observaciones</th>
                 <th>Estado</th>
                 <th>Cajones Incluidos</th>
-                <th>Factura/Cliente</th>
+                {# <th>Factura/Cliente</th> #}
                 <th>Operaciones</th>
             </tr>
         </thead>
@@ -45,15 +45,29 @@
                 <td>{{ entity.estado }}</td>
                 <td> {% if entity.misordenes %}{% for orden in entity.misordenes  %}
                                     
-                                    <div><i class="icon-tags"></i> <b> {{ orden.numeroserie }} </b> - {{ orden.referencia ? orden.referencia.factura.codfactura : orden.producto}}</div>
-                                        
+                                    <div>
+                                        <i class="icon-tags"></i> <b> {{ orden.numeroserie }} </b>
                                     
+                                        <br>
+                                        {{ orden.referencia ? orden.referencia.factura.codfactura : orden.producto}}
+                                        -    
+                                        {{ orden.referencia ? 
+                                                orden.referencia.factura.cliente.name : 
+                                                entity.cliente ? 
+                                                        entity.cliente.name : 
+                                                        entity.factura ? 
+                                                                entity.factura.cliente.name : 
+                                                                ''
+                                        }}
+                                    </div>
+                                    <br/>
                      {% endfor %}{% endif %} 
                 </td>
-                <td>
+                {# <td>
                   {% if entity.cliente %}{{ entity.cliente.name }}{% endif %}
                   {% if entity.factura %}{{ entity.factura.serie.serie }}, {{ entity.factura.cliente.name }}{% endif %}
-                </td>
+                  {{ entity.misordenes ? (entity.misordenes|first).referencia : 'sin cliente'}}
+                </td> #}
                 <td>
 
                         <a href="{{ path('envios_show', { 'id': entity.id,'_format':'pdf' }) }}" class="btn red mini">pdf</a>
