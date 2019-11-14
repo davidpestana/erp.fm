@@ -199,7 +199,7 @@ class enviosController extends Controller
 
         $logo = $request->get('logo') || ($direccion->getDniCif() === "A82844473" ? 'psa' : '');
 
-        ld($direccion->getDniCif());
+        ld($direccion->getId());
 
         ldd($logo);
 
