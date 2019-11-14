@@ -194,7 +194,7 @@ class enviosController extends Controller
             if($envio = $factura->getDireccionEnvio()) $direccion = $envio;
             else $direccion = $factura->getCliente();
         }else $direccion = $entity->getCliente();
-        ldd($entity);
+        ldd($factura);
 
         $logo = $request->get('logo') || ($entity->getCliente()->getDniCif() === "A82844473" ? 'psa' : '');
 
