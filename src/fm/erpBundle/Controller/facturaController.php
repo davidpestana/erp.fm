@@ -280,7 +280,9 @@ class facturaController extends Controller
             "type" => "simple",
             "status" => "publish",
             // "description" => "calculator",
-            'short_description' => 'Esta carta de pago se corresponde a la factura proforma '.$entity->getCodFactura().' para '.$entity->getCliente()->getName().' ('.$entity->getCliente()->getDniCif() .') '.$code,
+            // 'short_description' => 'Esta carta de pago se corresponde a la factura proforma '.$entity->getCodFactura().' para '.$entity->getCliente()->getName().' ('.$entity->getCliente()->getDniCif() .') '.$code,
+            'short_description' => 'Esta carta de pago se corresponde a la factura proforma '.$entity->getCodFactura().' para '.$entity->getCliente()->getName().' ('.$entity->getCliente()->getDniCif() .') ',
+
             "catalog_visibility" => "hidden",
             "regular_price" => number_format($entity->getTotal(),2,'.',''),
             "on_sale" => true,
