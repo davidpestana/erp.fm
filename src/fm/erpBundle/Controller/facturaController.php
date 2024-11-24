@@ -375,7 +375,7 @@ class facturaController extends Controller
 
             // $attachment->getHeaders()->addTextHeader('Content-ID', '<financia>');
             // $attachment->getHeaders()->addTextHeader('X-Attachment-Id', 'financia');
-            $cid = $message->embed($attachment);
+            // $cid = $message->embed($attachment);
         //}
 
 
