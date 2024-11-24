@@ -371,10 +371,10 @@ class facturaController extends Controller
         //     ->setDisposition('inline'));
 
         //if($woocommerceProduct){
-            $attachment = \Swift_Attachment::fromPath('payment.png')->setDisposition('inline');
+            // $attachment = \Swift_Attachment::fromPath('payment.png')->setDisposition('inline');
 
-            $attachment->getHeaders()->addTextHeader('Content-ID', '<financia>');
-            $attachment->getHeaders()->addTextHeader('X-Attachment-Id', 'financia');
+            // $attachment->getHeaders()->addTextHeader('Content-ID', '<financia>');
+            // $attachment->getHeaders()->addTextHeader('X-Attachment-Id', 'financia');
             $cid = $message->embed($attachment);
         //}
 
