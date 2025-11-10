@@ -20,7 +20,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new fm\erpBundle\erpBundle(),
             new fm\mainBundle\mainBundle(),
-            new fm\KitBundle\KitBundle(),
+            // new fm\KitBundle\KitBundle(),
             new fm\backendBundle\backendBundle(),
             new Sonata\SeoBundle\SonataSeoBundle(),
             new fm\cmsBundle\cmsBundle(),

@@ -13,9 +13,9 @@ backend:
     resource: "@backendBundle/Resources/config/routing.yml"
     prefix:   /admin
 
-kit:
-    resource: "@KitBundle/Resources/config/routing.yml"
-    prefix:   /
+# kit:
+#     resource: "@KitBundle/Resources/config/routing.yml"
+#     prefix:   /
 
 main:
     resource: "@mainBundle/Resources/config/routing.yml"
