@@ -6,7 +6,8 @@ parameters:
     database_user: root
     database_password: ------------
     mailer_transport: gmail
-  #  mailer_host: 127.0.0.1
+    mailer_host: 127.0.0.1
+    mailer_encryption: tls
     mailer_user: --------------
     mailer_password: ----------
     locale: es

@@ -13,6 +13,10 @@
 # Parameters
 /app/config/parameters.yml
 /app/config/parameters.ini
+/app/config/*.save
+
+# Local editor/agent config
+.cursor/
 
 # Managed by Composer
 /app/bootstrap.php.cache

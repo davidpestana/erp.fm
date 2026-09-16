@@ -45,22 +45,57 @@ class facturaController extends Controller
 
         $limit = $request->get('limit');
         $offset = $request->get('offset');
+        $year = (int) $request->get('year', date('Y'));
 
-        $limit = $limit ? $limit : 500;
+        $limit = $limit ? (int) $limit : 500;
+        if ($limit < 1) {
+            $limit = 500;
+        }
+        if ($limit > 1000) {
+            $limit = 1000;
+        }
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('erpBundle:factura')->findby(
-            array("estado" => 1),
-            array('id' => 'DESC'),
-            $limit
-        );
+        $startDate = new \DateTime($year . '-01-01 00:00:00');
+        $endDate = new \DateTime(($year + 1) . '-01-01 00:00:00');
 
-        $grabadas = $em->getRepository('erpBundle:factura')->findby(
-            array("estado" => 2),
-            array('id' => 'DESC'),
-            $limit
-        );
+        $entities = $em->getRepository('erpBundle:factura')
+            ->createQueryBuilder('f')
+            ->where('f.estado = :estado')
+            ->andWhere('f.fecha >= :startDate')
+            ->andWhere('f.fecha < :endDate')
+            ->setParameter('estado', 1)
+            ->setParameter('startDate', $startDate)
+            ->setParameter('endDate', $endDate)
+            ->orderBy('f.id', 'DESC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+
+        $grabadas = $em->getRepository('erpBundle:factura')
+            ->createQueryBuilder('f')
+            ->where('f.estado = :estado')
+            ->andWhere('f.fecha >= :startDate')
+            ->andWhere('f.fecha < :endDate')
+            ->setParameter('estado', 2)
+            ->setParameter('startDate', $startDate)
+            ->setParameter('endDate', $endDate)
+            ->orderBy('f.id', 'DESC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+
+        $rawYears = $em->getConnection()->fetchAll('SELECT DISTINCT YEAR(fecha) AS y FROM factura ORDER BY y DESC');
+        $years = array();
+        foreach ($rawYears as $row) {
+            if (!empty($row['y'])) {
+                $years[] = (int) $row['y'];
+            }
+        }
+        if (empty($years)) {
+            $years[] = (int) date('Y');
+        }
 
         $conceptosunicos = $em->getRepository('erpBundle:conceptounico')->findAll();
 
@@ -69,7 +104,9 @@ class facturaController extends Controller
             'entities' => $entities,
             'grabadas' => $grabadas,
             'id_direccion' => false,
-            'conceptosunicos' => $conceptosunicos
+            'conceptosunicos' => $conceptosunicos,
+            'year' => $year,
+            'years' => $years
         );
     }
 
@@ -351,7 +388,6 @@ class facturaController extends Controller
             ->setFrom('contacto@furgomania.com')
             ->setTo(trim($entity->getCliente()->getEmail()))
             ->setCc(array('contacto@furgomania.com'))
-           // ->setCc(array('info@furgomania.com', 'ventas@furgomania.com','tecnicom@quimp.es'))
             ->setBody(
                 $this->renderView(
                     'erpBundle:factura:email.html.twig',

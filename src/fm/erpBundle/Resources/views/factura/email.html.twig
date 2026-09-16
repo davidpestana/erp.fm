@@ -4,7 +4,7 @@
 
 {% block body -%}
 
-    {% trans with { '%name%': entity.cliente.name, '%tipo%': entity.tipo |upper |trans , '%fecha%': entity.fecha | date('d/m/Y'), '%base%': entity.base } %}Estimado %name%, le adjuntamos la %tipo% a su nombre emitida el %fecha% por un importe de %base% € ( Impuestos no incluidos ){% endtrans %}
+    {% trans with { '%name%': entity.cliente.name, '%tipo%': entity.tipo |upper |trans , '%fecha%': entity.fecha | date('d/m/Y') } %}Estimado %name%, le adjuntamos la %tipo% a su nombre emitida el %fecha%{% endtrans %}
 
     
     <p align="center">  
@@ -18,5 +18,10 @@
     
     <p>{% trans %}Reciba un cordial saludo{% endtrans %}</p>
     <p>{% trans %}El equipo de Furgomania{% endtrans %}</p>
+    <br />
+    <p>Todos los datos facilitados a través de formularios electrónicos y/o mediante correo electrónico serán tratados con estricta confidencialidad de acuerdo con lo dispuesto en el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de Abril de 2016 y a la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y Garantía de los Derechos Digitales, relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de éstos. Le informamos que el responsable del tratamiento de sus datos es FURGOMANIA MOTOR ESPAÑA, S.L., y cuya finalidad se encuentra disponible en nuestra Política de Privacidad. Si lo desea, podrá usted ejercitar los derechos establecidos en la Política de Privacidad, enviando un mensaje a la siguiente dirección de correo electrónico: contacto@furgomania.com, indicando en la línea de "Asunto" el derecho que desea ejercitar.</p>
+    <br />
+    <p>---------- LEGAL NOTICE ------------</p>
+    <p>All data provided through electronic forms and/or by email will be treated with strict confidentiality in accordance with the provisions of Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 and Organic Law 3/2018, of 5 December, on the Protection of Personal Data and Guarantee of Digital Rights, relating to the protection of natural persons with regard to the processing of personal data and the free movement of such data. We inform you that the data controller is FURGOMANIA MOTOR ESPAÑA, S.L., and the purpose of the processing is available in our Privacy Policy. If you wish, you may exercise the rights set out in the Privacy Policy by sending a message to the following email address: contacto@furgomania.com, indicating in the subject line the right you wish to exercise.</p>
 
 {% endblock %}

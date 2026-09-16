@@ -33,7 +33,13 @@ class clientesController extends Controller
         $filter = $request->get('filter');
         $offset = $request->get('offset');
 
-        $limit = $limit ? $limit : 100;
+        $limit = $limit ? (int) $limit : 100;
+        if ($limit < 1) {
+            $limit = 100;
+        }
+        if ($limit > 1000) {
+            $limit = 1000;
+        }
         $where = $filter ? ["name"=>$filter] : [];
  
        // $entities = $em->getRepository('erpBundle:clientes')->findAll();

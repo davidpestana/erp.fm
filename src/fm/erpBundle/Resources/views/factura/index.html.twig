@@ -56,7 +56,15 @@
 
         <div class="portlet box blue">
             <div class="portlet-title">
-                <div class="caption"><i class="icon-book"></i>Listado de Facturas Grabadas ( 100 mas recientes ) | <a href="?limit=500">ver 500</a> | <a href="?limit=99999999999999">ver todas</a></div>
+                <div class="caption"><i class="icon-book"></i>Listado de Facturas Grabadas ( 100 mas recientes ) | <a href="?limit=500">ver 500</a> | <a href="?limit=1000">ver 1000</a></div>
+                <div class="actions">
+                    <label style="display:inline-block; color:white; margin: 8px 8px 0 0;">Año</label>
+                    <select onchange="window.location='?year='+this.value+'&limit=500'" style="margin-top:6px;">
+                        {% for y in years %}
+                            <option value="{{ y }}" {% if y == year %}selected="selected"{% endif %}>{{ y }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
             </div>
             <div class="portlet-body">
                 <table class="table table-striped table-bordered table-hover table-full-width" id="sample_2">
