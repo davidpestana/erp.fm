@@ -261,11 +261,7 @@ return $this->redirect($this->generateUrl('pedido',[]));
            ->setSubject(' PEDIDO A FABRICA PARA EL '.$entity->getFechaEntrega()->format('d/m/Y') )
            ->setFrom('contacto@furgomania.com')
            ->setTo('contacto@furgomania.com')
-           ->addCC('tecnico@furgomania.com')
-           ->addCC('tecnicom@quimp.es')
            ->addBCC('david.pestana.perdomo@gmail.com')
-           
-          // ->setCc(array('info@furgomania.com', 'ventas@furgomania.com','tecnicom@quimp.es'))
            ->setBody(
                $this->renderView(
                    'erpBundle:Pedido:email.html.twig',
